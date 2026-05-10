@@ -6,7 +6,7 @@ tags:
   - phase-2
   - ci
   - quality
-status: draft
+status: active
 updated: 2026-05-10
 aliases:
   - Phase 2
@@ -66,6 +66,14 @@ Phase 2 does not include:
 | P2-006 | Document verified commands. | README or CONTRIBUTING command docs are updated only after the commands exist and pass locally. |
 | P2-007 | Record gate evidence. | Phase closeout links the passing CI run and notes lint, typecheck, and unit test results. |
 
+## Tickets
+
+- [[plans/phase-2-ci-quality-gates/FEAT-001]]
+- [[plans/phase-2-ci-quality-gates/TASK-001]]
+- [[plans/phase-2-ci-quality-gates/TASK-002]]
+- [[plans/phase-2-ci-quality-gates/TASK-003]]
+- [[plans/phase-2-ci-quality-gates/CHORE-001]]
+
 ## CI Gate
 
 Required Phase 2 gate:
@@ -103,3 +111,9 @@ release, upload production artifacts, or require npm trusted publishing.
 
 - [[Commonloom Extraction Plan]]
 - [[Commonloom Requirements]]
+- [[plans/phase-2-ci-quality-gates/index|Phase 2 Tickets]]
+
+## Workflow Log
+
+> [!INFO] Active · 2026-05-10
+> Phase 2 execution started on `feature/phase-2-ci-quality-gates`.
