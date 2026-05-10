@@ -2,7 +2,7 @@
 id: TASK-002
 title: Verify Full Package CI Gate
 type: task
-status: in-review
+status: done
 priority: high
 phase: 2
 parent: FEAT-001
@@ -53,3 +53,4 @@ This task keeps Phase 2 validation-only.
   Node.js 24, `npm ci --ignore-scripts`, read-only contents permission, and
   `npm run check` without release, deployment, or publish permissions. Local
   `npm run check` passes. Status set to in-review pending remote CI evidence.
+- 2026-05-10: Remote GitHub Actions passed for PR 6. Status set to done.

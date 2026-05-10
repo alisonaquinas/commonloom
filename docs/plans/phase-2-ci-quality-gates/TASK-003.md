@@ -2,7 +2,7 @@
 id: TASK-003
 title: Document Verified Quality Commands
 type: task
-status: in-review
+status: done
 priority: medium
 phase: 2
 parent: FEAT-001
@@ -51,3 +51,4 @@ This task prevents stale command claims.
 - 2026-05-10: Updated README next steps and CONTRIBUTING validation commands
   to document `npm ci`, `npm run check`, and focused quality commands. Phase 2
   remains validation-only. Status set to in-review pending remote CI evidence.
+- 2026-05-10: Remote GitHub Actions passed for PR 6. Status set to done.

@@ -2,7 +2,7 @@
 id: TASK-001
 title: Configure Type-Aware TypeScript Linting
 type: task
-status: in-review
+status: done
 priority: high
 phase: 2
 parent: FEAT-001
@@ -55,3 +55,4 @@ This task does not change application behavior.
   relaxing rules. `npm run lint`, `npm run typecheck`, and `npm test` pass.
 - 2026-05-10: Full `npm run check` passes. Status set to in-review pending
   remote CI evidence.
+- 2026-05-10: Remote GitHub Actions passed for PR 6. Status set to done.

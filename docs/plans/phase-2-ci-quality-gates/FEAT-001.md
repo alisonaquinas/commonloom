@@ -2,7 +2,7 @@
 id: FEAT-001
 title: CI Quality Gates
 type: feature
-status: in-review
+status: done
 priority: high
 phase: 2
 created: 2026-05-10
@@ -59,3 +59,4 @@ Acceptance closes only after remote CI evidence is captured.
 - 2026-05-10: Opened in active status.
 - 2026-05-10: Type-aware linting, CI gate verification, and command docs are
   locally complete. Status set to in-review pending remote CI evidence.
+- 2026-05-10: Remote GitHub Actions passed for PR 6. Status set to done.

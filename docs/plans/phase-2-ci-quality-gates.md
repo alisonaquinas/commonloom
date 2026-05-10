@@ -6,7 +6,7 @@ tags:
   - phase-2
   - ci
   - quality
-status: in-review
+status: done
 updated: 2026-05-10
 aliases:
   - Phase 2
@@ -97,7 +97,7 @@ release, upload production artifacts, or require npm trusted publishing.
   absent from required CI checks.
 - [x] CI configuration is scoped to validation only.
 - [x] CD and publishing remain reserved for a later phase.
-- [ ] Remote CI evidence is captured for the Phase 2 branch.
+- [x] Remote CI evidence is captured for the Phase 2 branch.
 
 ## Evidence
 
@@ -126,3 +126,8 @@ release, upload production artifacts, or require npm trusted publishing.
 > [!INFO] In review · 2026-05-10
 > Local implementation is complete. Phase remains in review until remote CI
 > evidence is available.
+
+> [!SUCCESS] Remote CI · 2026-05-10
+> GitHub Actions passed for PR 6:
+> <https://github.com/alisonaquinas/commonloom/actions/runs/25642675440/job/75265702932>.
+> Phase 2 is complete.
