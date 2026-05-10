@@ -73,7 +73,7 @@ This decision is confirmed when:
 
 ## Pros and Cons of the Options
 
-### Keep Commonloom Adapter-Neutral
+### Option: Keep Commonloom Adapter-Neutral
 
 - Good, because it matches the extraction intent.
 - Good, because it keeps the standalone package reusable.

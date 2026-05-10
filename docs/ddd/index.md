@@ -42,8 +42,8 @@ own runtime.
 
 > [!NOTE] Evidence
 > This model follows [[adr/0001-keep-commonloom-adapter-neutral|ADR 0001]],
-> [[adr/0002-use-page-group-manifests-as-adapter-inputs|ADR 0002]], and
-> [[Commonloom Architecture]].
+> the [[adr/0002-use-page-group-manifests-as-adapter-inputs|page-group manifest ADR]],
+> and [[Commonloom Architecture]].
 
 ## See Also
 
@@ -51,4 +51,3 @@ own runtime.
 - [[Commonloom Architecture]]
 - [[Commonloom Requirements]]
 - [[adr|Commonloom ADRs]]
-

@@ -79,4 +79,3 @@ Feature: Documentation and operations
 - [[requirements/operational/phase-execution|Phase Execution]]
 - [[requirements/operational/release-and-ci|Release And CI]]
 - [[requirements/operational/supply-chain|Supply Chain]]
-

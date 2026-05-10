@@ -1,0 +1,39 @@
+{
+  "vaultRoot": "docs",
+  "resolve": true,
+  "globs": [
+    "docs/**/*.md"
+  ],
+  "ignores": [
+    "docs/.obsidian/**",
+    "docs/sources/**"
+  ],
+  "wikilinks": {
+    "caseSensitive": false,
+    "allowAlias": true,
+    "resolveMode": "obsidian-fuzzy"
+  },
+  "callouts": {
+    "allowList": [
+      "NOTE",
+      "WARNING",
+      "TIP",
+      "IMPORTANT",
+      "CAUTION",
+      "ABSTRACT",
+      "SUMMARY",
+      "INFO",
+      "HINT",
+      "SUCCESS",
+      "QUESTION",
+      "FAILURE",
+      "DANGER",
+      "BUG",
+      "EXAMPLE",
+      "QUOTE"
+    ],
+    "caseSensitive": false,
+    "requireTitle": false,
+    "allowFold": true
+  }
+}

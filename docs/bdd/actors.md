@@ -46,4 +46,3 @@ aliases:
 - [[scenario-catalog|Scenario Catalog]]
 - [[ddd/ubiquitous-language|Commonloom Vocabulary]]
 - [[requirements/user/index|User Requirements]]
-

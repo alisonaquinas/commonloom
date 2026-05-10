@@ -17,7 +17,7 @@ the Flavor Grenade website content pipeline into this standalone repository.
 
 > [!NOTE] Navigation
 > Start here, then follow links into synthesized notes. Use
-> [[sources/index|Source Imports]] when you need source evidence.
+> the [[sources/index|Source Imports]] catalog when you need source evidence.
 
 ## Core Notes
 

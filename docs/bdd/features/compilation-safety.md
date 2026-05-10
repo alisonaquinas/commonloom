@@ -72,4 +72,3 @@ Feature: Compilation safety
 - [[requirements/technical/security-validation|Security Validation]]
 - [[requirements/functional/links-and-media|Links And Media]]
 - [[requirements/functional/html-rendering|HTML Rendering]]
-

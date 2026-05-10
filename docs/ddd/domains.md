@@ -88,4 +88,3 @@ copy, or build outputs.
 - [[bounded-contexts|Bounded Contexts]]
 - [[ubiquitous-language|Ubiquitous Language]]
 - [[Commonloom Requirements]]
-
