@@ -2,7 +2,7 @@
 id: TASK-001
 title: Configure Type-Aware TypeScript Linting
 type: task
-status: green
+status: in-review
 priority: high
 phase: 2
 parent: FEAT-001
@@ -53,3 +53,5 @@ This task does not change application behavior.
   JavaScript config files. Status set to green pending verification.
 - 2026-05-10: Fixed type-aware lint findings in source and tests without
   relaxing rules. `npm run lint`, `npm run typecheck`, and `npm test` pass.
+- 2026-05-10: Full `npm run check` passes. Status set to in-review pending
+  remote CI evidence.

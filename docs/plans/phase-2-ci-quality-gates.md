@@ -6,7 +6,7 @@ tags:
   - phase-2
   - ci
   - quality
-status: active
+status: in-review
 updated: 2026-05-10
 aliases:
   - Phase 2
@@ -90,13 +90,14 @@ release, upload production artifacts, or require npm trusted publishing.
 
 ## Acceptance Criteria
 
-- Pull requests cannot merge with lint errors, lint warnings, type errors, or
-  unit test failures.
-- The unit test CI step runs the complete suite.
-- Focused test selectors, skipped CI-only shortcuts, and watch mode are absent
-  from required CI checks.
-- CI configuration is scoped to validation only.
-- CD and publishing remain reserved for a later phase.
+- [x] Pull requests cannot merge with lint errors, lint warnings, type errors,
+  or unit test failures.
+- [x] The unit test CI step runs the complete suite.
+- [x] Focused test selectors, skipped CI-only shortcuts, and watch mode are
+  absent from required CI checks.
+- [x] CI configuration is scoped to validation only.
+- [x] CD and publishing remain reserved for a later phase.
+- [ ] Remote CI evidence is captured for the Phase 2 branch.
 
 ## Evidence
 
@@ -117,3 +118,11 @@ release, upload production artifacts, or require npm trusted publishing.
 
 > [!INFO] Active · 2026-05-10
 > Phase 2 execution started on `feature/phase-2-ci-quality-gates`.
+
+> [!SUCCESS] Local gate · 2026-05-10
+> `npm run check` passes locally: docs lint, type-aware package lint,
+> typecheck, build, and 12 Vitest assertions across four test files.
+
+> [!INFO] In review · 2026-05-10
+> Local implementation is complete. Phase remains in review until remote CI
+> evidence is available.

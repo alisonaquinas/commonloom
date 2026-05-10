@@ -2,7 +2,7 @@
 id: CHORE-001
 title: Phase 2 Evidence And Closeout
 type: chore
-status: planned
+status: in-review
 priority: medium
 phase: 2
 parent: FEAT-001
@@ -48,3 +48,5 @@ This chore closes the documentation loop for Phase 2.
 ## Workflow Log
 
 - 2026-05-10: Opened in planned status.
+- 2026-05-10: Recorded local Phase 2 evidence after type-aware linting and
+  documentation updates. Status set to in-review pending remote CI evidence.
