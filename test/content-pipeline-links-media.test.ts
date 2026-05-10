@@ -1,3 +1,10 @@
+/**
+ * Link extraction, wiki-link resolution, and media validation tests.
+ *
+ * These cases protect Commonloom's adapter boundary by exercising route
+ * decisions through callbacks and validating media as local filesystem
+ * references.
+ */
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
@@ -12,6 +19,7 @@ const frontmatterSchema = z.object({
   title: z.string(),
 });
 
+/** Build a Markdown fixture body under a stable source path for diagnostics. */
 function parse(body: string) {
   return parseMarkdown({
     sourcePath: 'copy/page.md',

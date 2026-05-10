@@ -1,13 +1,21 @@
+/**
+ * Local media reference validation for Commonloom Markdown images.
+ *
+ * This module enforces alt text, approved local roots, and missing-file
+ * diagnostics without knowing any consuming website's asset pipeline.
+ */
 import { stat } from 'node:fs/promises';
 
 import { resolveInsideRoot } from './paths.js';
 import type { CommonloomDiagnostic, CommonloomImageReference } from './types.js';
 
+/** Options for validating a Markdown image reference against local media. */
 export interface ValidateMediaReferenceOptions {
   mediaRoot: string;
   sourcePath?: string;
 }
 
+/** Local media validation result with an optional resolved filesystem path. */
 export interface ValidateMediaReferenceResult {
   resolvedPath?: string;
   diagnostics: CommonloomDiagnostic[];
@@ -15,6 +23,12 @@ export interface ValidateMediaReferenceResult {
 
 const mediaSchemePattern = /^[a-z][a-z0-9+.-]*:/i;
 
+/**
+ * Validate a Markdown image reference against the configured media root.
+ *
+ * The validator enforces alt text, rejects non-local URI schemes, keeps paths
+ * inside `mediaRoot`, and reports missing files as diagnostics.
+ */
 export async function validateMediaReference(
   reference: CommonloomImageReference,
   options: ValidateMediaReferenceOptions,

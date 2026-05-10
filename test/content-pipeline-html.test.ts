@@ -1,3 +1,9 @@
+/**
+ * HTML rendering and source trace tests for Commonloom.
+ *
+ * These cases verify sanitization policy, unsafe HTML diagnostics, and stable
+ * trace hashing from parsed Markdown inputs.
+ */
 import { z } from 'zod';
 import { describe, expect, it } from 'vitest';
 
@@ -9,6 +15,7 @@ const frontmatterSchema = z.object({
   title: z.string(),
 });
 
+/** Parse a Markdown fixture with the shared HTML-test frontmatter schema. */
 function parse(markdown: string) {
   return parseMarkdown({
     sourcePath: 'copy/html.md',

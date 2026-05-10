@@ -1,3 +1,10 @@
+/**
+ * Markdown parser behavior tests for Commonloom.
+ *
+ * These cases cover frontmatter validation, CommonMark/GFM parsing, heading
+ * extraction, and diagnostic reporting without depending on consuming website
+ * code.
+ */
 import { z } from 'zod';
 import { describe, expect, it } from 'vitest';
 
