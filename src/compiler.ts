@@ -1,6 +1,6 @@
 import type { CommonloomConfig, CommonloomResult } from './types.js';
 
-export async function compileCommonloom(config: CommonloomConfig): Promise<CommonloomResult> {
+export function compileCommonloom(config: CommonloomConfig): CommonloomResult {
   void config;
 
   return {

@@ -176,3 +176,10 @@ Started [[plans/phase-2-ci-quality-gates|Phase 2]] execution on
 `feature/phase-2-ci-quality-gates`.
 Normalized the phase into the Commonloom plan layout with
 [[plans/phase-2-ci-quality-gates/index|Phase 2 Tickets]].
+
+## [2026-05-10] phase | Enable type-aware linting
+
+Implemented [[plans/phase-2-ci-quality-gates/TASK-001|TASK-001]] by updating
+ESLint to use `typescript-eslint` type-checked flat configs with
+`projectService: true` for TypeScript files and no type-aware rules for
+JavaScript config files.

@@ -13,8 +13,8 @@ import type {
 } from '../src/index.js';
 
 describe('Commonloom compiler scaffold', () => {
-  it('exports a non-destructive compiler entry point', async () => {
-    const result = await compileCommonloom({
+  it('exports a non-destructive compiler entry point', () => {
+    const result = compileCommonloom({
       copyRoot: 'content/copy',
       mediaRoot: 'content/media',
     });

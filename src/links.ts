@@ -86,7 +86,7 @@ export function extractMarkdownReferences<Frontmatter>(
         sourcePath: parsed.sourcePath,
         line: node.position?.start.line,
         column: node.position?.start.column
-          ? node.position.start.column + (match.index ?? 0)
+          ? node.position.start.column + match.index
           : undefined,
       });
     }

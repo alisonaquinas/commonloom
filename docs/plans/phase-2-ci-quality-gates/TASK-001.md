@@ -2,7 +2,7 @@
 id: TASK-001
 title: Configure Type-Aware TypeScript Linting
 type: task
-status: planned
+status: green
 priority: high
 phase: 2
 parent: FEAT-001
@@ -48,3 +48,8 @@ This task does not change application behavior.
 ## Workflow Log
 
 - 2026-05-10: Opened in planned status.
+- 2026-05-10: Updated ESLint to use `typescript-eslint` type-checked flat
+  configs with `projectService: true`, while disabling type-aware rules for
+  JavaScript config files. Status set to green pending verification.
+- 2026-05-10: Fixed type-aware lint findings in source and tests without
+  relaxing rules. `npm run lint`, `npm run typecheck`, and `npm test` pass.

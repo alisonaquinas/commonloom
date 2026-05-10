@@ -24,15 +24,15 @@ export interface ParsedMarkdown<Frontmatter> {
 
 const markdownProcessor = unified().use(remarkParse).use(remarkGfm);
 
-export async function parseMarkdown<Frontmatter>(
+export function parseMarkdown<Frontmatter>(
   input: ParseMarkdownInput<Frontmatter>,
-): Promise<ParsedMarkdown<Frontmatter>> {
+): ParsedMarkdown<Frontmatter> {
   const frontmatter = parseFrontmatter(
     input.sourcePath,
     input.markdown,
     input.frontmatterSchema,
   );
-  const mdast = markdownProcessor.parse(frontmatter.bodyMarkdown) as Root;
+  const mdast = markdownProcessor.parse(frontmatter.bodyMarkdown);
 
   return {
     sourcePath: input.sourcePath,

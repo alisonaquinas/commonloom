@@ -9,7 +9,7 @@ const frontmatterSchema = z.object({
   title: z.string(),
 });
 
-async function parse(markdown: string) {
+function parse(markdown: string) {
   return parseMarkdown({
     sourcePath: 'copy/html.md',
     markdown,
@@ -19,7 +19,7 @@ async function parse(markdown: string) {
 
 describe('Commonloom HTML rendering and source traces', () => {
   it('allows safe inline HTML in rendered Markdown', async () => {
-    const parsed = await parse(['---', 'title: HTML', '---', '# HTML', '', 'Press <kbd>Ctrl</kbd>.'].join('\n'));
+    const parsed = parse(['---', 'title: HTML', '---', '# HTML', '', 'Press <kbd>Ctrl</kbd>.'].join('\n'));
     const result = await renderMarkdownHtml({ parsed, allowHtml: true });
 
     expect(result.bodyHtml).toContain('<kbd>Ctrl</kbd>');
@@ -27,7 +27,7 @@ describe('Commonloom HTML rendering and source traces', () => {
   });
 
   it('diagnoses and removes unsafe inline HTML', async () => {
-    const parsed = await parse(
+    const parsed = parse(
       ['---', 'title: Unsafe', '---', '# Unsafe', '', '<script>alert("x")</script>'].join('\n'),
     );
     const result = await renderMarkdownHtml({ parsed, allowHtml: true });
@@ -42,9 +42,9 @@ describe('Commonloom HTML rendering and source traces', () => {
     );
   });
 
-  it('creates source traces with stable content hashes', async () => {
+  it('creates source traces with stable content hashes', () => {
     const markdown = ['---', 'title: Trace', '---', '# Trace', '', '[Quickstart](/quickstart/)'].join('\n');
-    const parsed = await parse(markdown);
+    const parsed = parse(markdown);
     const trace = createSourceTrace({
       markdownPath: 'copy/html.md',
       manifestPath: 'docs.manifest.ts',
