@@ -1,7 +1,7 @@
 ---
 title: Phase 1 Import Commonloom Package Tickets
 phase: 1
-status: active
+status: in-review
 tags:
   - plans/phase-1
   - tickets/index
@@ -15,14 +15,14 @@ updated: 2026-05-10
 
 | Ticket | Title | Type | Status |
 | --- | --- | --- | --- |
-| [[FEAT-001]] | Import Commonloom Package And Tests | Feature | `active` |
+| [[FEAT-001]] | Import Commonloom Package And Tests | Feature | `in-review` |
 | [[TASK-001]] | Inventory Upstream Source Tests And Dependencies | Task | `done` |
-| [[TASK-002]] | Create Standalone Package Scaffold | Task | `green` |
-| [[TASK-003]] | Import Commonloom Source Into Src | Task | `green` |
-| [[TASK-004]] | Port Commonloom Tests Into Test | Task | `green` |
-| [[TASK-005]] | Remove Website Specific Coupling | Task | `green` |
-| [[TASK-006]] | Wire Local Checks And CI | Task | `green` |
-| [[CHORE-001]] | Update Documentation And Evidence | Chore | `planned` |
+| [[TASK-002]] | Create Standalone Package Scaffold | Task | `in-review` |
+| [[TASK-003]] | Import Commonloom Source Into Src | Task | `in-review` |
+| [[TASK-004]] | Port Commonloom Tests Into Test | Task | `in-review` |
+| [[TASK-005]] | Remove Website Specific Coupling | Task | `in-review` |
+| [[TASK-006]] | Wire Local Checks And CI | Task | `in-review` |
+| [[CHORE-001]] | Update Documentation And Evidence | Chore | `in-review` |
 
 ## Phase Summary
 

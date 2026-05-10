@@ -4,7 +4,7 @@ tags:
   - commonloom
   - architecture
   - content-pipeline
-status: draft
+status: active
 updated: 2026-05-10
 aliases:
   - Content Pipeline Architecture
@@ -60,6 +60,21 @@ missing content. Important diagnostic families include invalid frontmatter,
 unsafe HTML, unresolved links, unresolved media, missing alt text, and path
 traversal.
 
+## Local Package Layout
+
+| Path | Responsibility |
+| --- | --- |
+| `src/compiler.ts` | Commonloom compiler entrypoint. |
+| `src/frontmatter.ts` | YAML frontmatter parsing and validation. |
+| `src/markdown.ts` | CommonMark and GFM parsing plus heading extraction. |
+| `src/html.ts` | Safe static HTML rendering and unsafe HTML diagnostics. |
+| `src/links.ts` | Markdown link, image, and wiki-link reference extraction. |
+| `src/media.ts` | Local media reference validation. |
+| `src/paths.ts` | Root-confined path resolution. |
+| `src/source-trace.ts` | Content hash, heading, link, and image source traces. |
+| `src/types.ts` | Public Commonloom contracts. |
+| `test/` | Ported core behavior tests from Flavor Grenade W8. |
+
 > [!WARNING] Adapter Drift
 > If route ids, renderer shapes, or generated TypeScript formatting leak into
 > Commonloom, the extraction stops being reusable and becomes a relocated
@@ -70,6 +85,7 @@ traversal.
 - [[sources/flavor-grenade-lsp/website/docs/architecture/content-pipeline|content-pipeline architecture]]
 - [[sources/flavor-grenade-lsp/website/docs/adr/0002-use-page-group-markdown-manifests-for-website-copy|ADR 0002]]
 - [[sources/flavor-grenade-lsp/docs/plans/phase-W8-commonloom-content-pipeline|Phase W8 plan]]
+- [[plans/phase-1-import-commonloom-package|Phase 1 import plan]]
 
 ## See Also
 

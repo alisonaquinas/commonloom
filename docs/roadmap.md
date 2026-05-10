@@ -18,7 +18,7 @@ This roadmap tracks standalone Commonloom implementation phases.
 
 | Phase | Status | Goal |
 | --- | --- | --- |
-| [[plans/phase-1-import-commonloom-package|Phase 1]] | active | Import the upstream Commonloom package source and tests into local `src/` and `test/`. |
+| [[plans/phase-1-import-commonloom-package|Phase 1]] | in-review | Import the upstream Commonloom package source and tests into local `src/` and `test/`. |
 
 ## Phase Principles
 

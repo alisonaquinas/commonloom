@@ -2,7 +2,7 @@
 id: TASK-005
 title: Remove Website Specific Coupling
 type: task
-status: green
+status: in-review
 priority: high
 phase: PHASE-001
 parent: FEAT-001
@@ -59,3 +59,6 @@ Verification should leave any remaining coupling visible and intentional.
 - 2026-05-10: Removed website-root examples from tests and moved generated
   file output settings out of the core `CommonloomConfig` surface per ADR 0003.
   Status set to green pending verification.
+- 2026-05-10: Static review found no Flavor Grenade website paths, Svelte,
+  route, product, or generated-output config leakage in `src/` or `test/`.
+  Status set to in-review.

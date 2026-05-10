@@ -2,7 +2,7 @@
 id: TASK-003
 title: Import Commonloom Source Into Src
 type: task
-status: green
+status: in-review
 priority: high
 phase: PHASE-001
 parent: FEAT-001
@@ -60,3 +60,5 @@ Verification should show no website-only import leakage.
 - 2026-05-10: Imported the twelve upstream Commonloom core modules into
   `src/` and adapted internal imports for standalone Node ESM output. Status
   set to green pending verification.
+- 2026-05-10: `npm run check` passes with imported source. Status set to
+  in-review.

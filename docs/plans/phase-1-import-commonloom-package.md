@@ -2,7 +2,7 @@
 id: PHASE-001
 title: "Phase 1: Import Commonloom Package And Tests"
 phase: 1
-status: active
+status: in-review
 tags:
   - commonloom
   - plans
@@ -20,7 +20,7 @@ updated: 2026-05-10
 | --- | --- |
 | Phase | 1 |
 | Title | Import Commonloom Package And Tests |
-| Status | active |
+| Status | in-review |
 | Gate | Standalone source, tests, package scripts, and CI checks pass locally |
 | Depends on | [[Commonloom Extraction Plan]] |
 
@@ -154,12 +154,14 @@ Development dependencies required by package checks:
 
 ## Acceptance
 
-- `src/` contains the standalone Commonloom core modules.
-- `test/` contains Commonloom-relevant tests ported from Flavor Grenade.
-- `package.json` exposes verified scripts for build, typecheck, lint, and test.
-- CI runs documentation lint and package checks on git-flow branches.
-- No core source imports Flavor Grenade website modules.
-- Tickets include closure evidence before phase completion.
+- [x] `src/` contains the standalone Commonloom core modules.
+- [x] `test/` contains Commonloom-relevant tests ported from Flavor Grenade.
+- [x] `package.json` exposes verified scripts for build, typecheck, lint, and
+  test.
+- [x] CI runs documentation lint and package checks on git-flow branches.
+- [x] No core source imports Flavor Grenade website modules.
+- [x] Tickets include closure evidence before phase completion.
+- [ ] Remote CI evidence is captured for the feature branch.
 
 ## Gate Verification
 
@@ -200,3 +202,11 @@ npm run build
 
 > [!INFO] Active · 2026-05-10
 > Phase 1 execution started on `feature/phase-1-import-plan`.
+
+> [!SUCCESS] Local gate · 2026-05-10
+> `npm run check` passes locally: docs lint, package lint, typecheck, build,
+> and 12 Vitest assertions across four test files.
+
+> [!INFO] In review · 2026-05-10
+> Local implementation is complete. Phase remains in review until remote CI
+> evidence is available.

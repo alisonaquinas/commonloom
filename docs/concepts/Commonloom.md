@@ -4,7 +4,7 @@ tags:
   - commonloom
   - concept
   - content-pipeline
-status: draft
+status: active
 updated: 2026-05-10
 aliases:
   - Commonloom Core
@@ -13,8 +13,8 @@ aliases:
 
 # Commonloom
 
-Commonloom is the planned standalone TypeScript library for reusable Markdown
-content compilation.
+Commonloom is the standalone TypeScript library for reusable Markdown content
+compilation.
 
 It began as the reusable core boundary inside the Flavor Grenade website W8
 content pipeline. This repository is intended to become its standalone home.
@@ -44,12 +44,14 @@ Commonloom should not own:
 
 ## Current Status
 
-The prototype source is still upstream in
+The Commonloom core source now lives in local `src/`, with core behavior tests
+in local `test/`.
+The upstream Flavor Grenade W8 source remains evidence for the import in
 [[sources/flavor-grenade-lsp/website/docs/architecture/content-pipeline|Flavor Grenade's content pipeline design]]
 and `website/src/content/pipeline/commonloom` in the source repository.
 
-This standalone repository currently has documentation and source imports, but
-not the package source, tests, or scripts.
+Local verification is available through `npm run check`, which runs
+documentation lint, package lint, typecheck, build, and tests.
 
 > [!NOTE] Evidence
 > ADR 0002 names Commonloom as the reusable Markdown compilation and validation

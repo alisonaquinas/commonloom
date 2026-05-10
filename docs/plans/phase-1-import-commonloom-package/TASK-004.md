@@ -2,7 +2,7 @@
 id: TASK-004
 title: Port Commonloom Tests Into Test
 type: task
-status: green
+status: in-review
 priority: high
 phase: PHASE-001
 parent: FEAT-001
@@ -60,3 +60,5 @@ Verification protects against silently dropping upstream behavior.
   diagnostics tests into `test/`; excluded website adapter tests per TASK-001.
   Removed temporary no-test allowance from `npm test`. Status set to green
   pending verification.
+- 2026-05-10: `npm test` passes with 12 assertions across four test files.
+  Status set to in-review.

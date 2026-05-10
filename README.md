@@ -1,17 +1,14 @@
 # Commonloom
 
-Commonloom is the planned standalone home for the reusable content pipeline
-currently being proven inside
+Commonloom is the standalone home for the reusable content pipeline first
+proven inside
 [`flavor-grenade-lsp`](https://github.com/alisonaquinas/flavor-grenade-lsp/tree/feature/w8-commonloom-content-pipeline).
 
-The implementation source of record is currently:
+The imported implementation now lives in this repository:
 
-- `website/src/content/pipeline/commonloom` in the source repository
-- `website/tests/content-pipeline-*.test.ts` for the current behavior contract
-- `website/docs/architecture/content-pipeline.md` for the extraction boundary
-
-This repository is a bootstrap shell. It does not yet contain the package
-scaffold, source files, build scripts, or published release artifacts.
+- `src/` for Commonloom core modules
+- `test/` for Commonloom core behavior tests
+- `docs/` for requirements, ADRs, DDD, BDD, and roadmap notes
 
 ## Purpose
 
@@ -57,25 +54,29 @@ Core public types include:
 - `CommonloomCompiledDocument`
 - `CommonloomLinkPolicy`
 - `CommonloomHtmlPolicy`
-- `CommonloomOutputConfig`
 
 Treat this list as an extraction target, not a locked public API. Stabilize it
 here before the first standalone release.
 
 ## Status
 
-No install, build, test, lint, or release commands are defined in this
-repository yet.
+Local package commands now exist:
+
+```bash
+npm run lint
+npm run typecheck
+npm run build
+npm test
+npm run check
+```
 
 The design and extraction knowledge base lives in [docs/index.md](docs/index.md).
 
 Expected next steps:
 
-1. Add the package scaffold.
-2. Move or copy the prototype implementation from the source repository.
-3. Port the content-pipeline tests.
-4. Define the supported runtime, package manager, and build output.
-5. Start release notes in `CHANGELOG.md` once changes are versioned here.
+1. Open a pull request and capture CI evidence for Phase 1.
+2. Stabilize the public API before the first standalone release.
+3. Add release automation and npm trusted publishing when ready.
 
 ## Design Boundary
 
@@ -88,7 +89,7 @@ Keep inside this package:
 - diagnostics and source traces
 - link and media reference extraction
 - filesystem-safe path resolution
-- generic manifest and output contracts
+- generic manifest and compiled record contracts
 
 Keep outside this package:
 

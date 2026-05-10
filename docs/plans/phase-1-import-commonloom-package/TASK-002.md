@@ -2,7 +2,7 @@
 id: TASK-002
 title: Create Standalone Package Scaffold
 type: task
-status: green
+status: in-review
 priority: high
 phase: PHASE-001
 parent: FEAT-001
@@ -60,3 +60,5 @@ Verification should pass before TASK-003 begins.
   metadata scaffold. Status set to green pending verification.
 - 2026-05-10: Verified scaffold build and typecheck. Test command permits the
   temporary no-test state until TASK-004 ports the upstream tests.
+- 2026-05-10: Full `npm run check` passes after source and tests were imported.
+  Status set to in-review.
