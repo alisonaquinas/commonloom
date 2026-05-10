@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "hooks:install": "git config core.hooksPath .githooks",
-    "lint:docs": "npm run lint:docs:markdown && npm run lint:docs:obsidian",
+    "lint:docs": "npm run lint:docs:markdown && npm run lint:docs:obsidian && npm run lint:docs:adr",
+    "lint:docs:adr": "python scripts/lint-adr.py docs/adr --strict",
     "lint:docs:markdown": "markdownlint-cli2 --config .config/markdownlint-cli2.jsonc",
     "lint:docs:obsidian": "node scripts/lint-obsidian-docs.mjs",
     "precommit": "npm run lint:docs"
