@@ -2,7 +2,7 @@
 id: PHASE-001
 title: "Phase 1: Import Commonloom Package And Tests"
 phase: 1
-status: planned
+status: active
 tags:
   - commonloom
   - plans
@@ -20,7 +20,7 @@ updated: 2026-05-10
 | --- | --- |
 | Phase | 1 |
 | Title | Import Commonloom Package And Tests |
-| Status | planned |
+| Status | active |
 | Gate | Standalone source, tests, package scripts, and CI checks pass locally |
 | Depends on | [[Commonloom Extraction Plan]] |
 
@@ -69,6 +69,55 @@ Commonloom-relevant upstream tests to evaluate and port:
 - `content-pipeline-generated-ts.test.ts`
 - `content-pipeline-renderer-generated.test.ts`
 - `content-pipeline-scripts.test.ts`
+
+## Test Classification
+
+Core tests to port into `test/`:
+
+- `content-pipeline-core.test.ts`
+- `content-pipeline-markdown.test.ts`
+- `content-pipeline-html.test.ts`
+- `content-pipeline-links-media.test.ts`
+
+Adapter-owned tests to exclude from this standalone package import:
+
+- `content-pipeline-manifest.test.ts`
+- `content-pipeline-migration.test.ts`
+- `content-pipeline-parity.test.ts`
+- `content-pipeline-generated-from-markdown.test.ts`
+- `content-pipeline-generated-ts.test.ts`
+- `content-pipeline-renderer-generated.test.ts`
+- `content-pipeline-scripts.test.ts`
+
+The excluded tests cover Flavor Grenade website manifests, routes, generated
+TypeScript renderer facades, public-copy parity, and content scripts. Those
+behaviors remain source evidence for future adapter work, not Phase 1 core
+package acceptance.
+
+## Dependency Inventory
+
+Runtime dependencies required by imported Commonloom source:
+
+- `gray-matter`
+- `rehype-raw`
+- `rehype-sanitize`
+- `rehype-stringify`
+- `remark-gfm`
+- `remark-parse`
+- `remark-rehype`
+- `unified`
+- `unist-util-visit`
+- `zod`
+
+Development dependencies required by package checks:
+
+- `@eslint/js`
+- `@types/node`
+- `eslint`
+- `typescript`
+- `typescript-eslint`
+- `vite`
+- `vitest`
 
 ## Scope
 
@@ -148,3 +197,6 @@ npm run build
 > [!INFO] Planned · 2026-05-10
 > Phase 1 was opened to move Commonloom from proven Flavor Grenade W8 code into
 > this standalone package repository.
+
+> [!INFO] Active · 2026-05-10
+> Phase 1 execution started on `feature/phase-1-import-plan`.

@@ -115,3 +115,10 @@ the explicit phase layout, clarified ticket storage and ID rules, and recorded
 that lint warnings are blocking unless a rule change is explicitly approved.
 Clarified that ticket workflow updates may be committed with the work that
 prompted them, but must not remain uncommitted across unrelated work.
+
+## [2026-05-10] phase | Start Phase 1 import
+
+Started [[plans/phase-1-import-commonloom-package|Phase 1]] execution.
+Completed [[plans/phase-1-import-commonloom-package/TASK-001|TASK-001]] by
+recording the upstream Commonloom source inventory, core-test classification,
+adapter-owned test exclusions, and dependency inventory.

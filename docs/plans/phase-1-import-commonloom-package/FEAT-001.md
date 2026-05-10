@@ -2,7 +2,7 @@
 id: FEAT-001
 title: Import Commonloom Package And Tests
 type: feature
-status: planned
+status: active
 priority: high
 phase: PHASE-001
 created: 2026-05-10
@@ -72,3 +72,4 @@ The requirements keep the import aligned with the standalone package boundary.
 ## Workflow Log
 
 - 2026-05-10: Opened in planned status.
+- 2026-05-10: Phase 1 execution started; status set to active.

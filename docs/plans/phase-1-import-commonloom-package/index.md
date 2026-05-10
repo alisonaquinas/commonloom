@@ -1,7 +1,7 @@
 ---
 title: Phase 1 Import Commonloom Package Tickets
 phase: 1
-status: planned
+status: active
 tags:
   - plans/phase-1
   - tickets/index
@@ -15,8 +15,8 @@ updated: 2026-05-10
 
 | Ticket | Title | Type | Status |
 | --- | --- | --- | --- |
-| [[FEAT-001]] | Import Commonloom Package And Tests | Feature | `planned` |
-| [[TASK-001]] | Inventory Upstream Source Tests And Dependencies | Task | `planned` |
+| [[FEAT-001]] | Import Commonloom Package And Tests | Feature | `active` |
+| [[TASK-001]] | Inventory Upstream Source Tests And Dependencies | Task | `done` |
 | [[TASK-002]] | Create Standalone Package Scaffold | Task | `planned` |
 | [[TASK-003]] | Import Commonloom Source Into Src | Task | `planned` |
 | [[TASK-004]] | Port Commonloom Tests Into Test | Task | `planned` |

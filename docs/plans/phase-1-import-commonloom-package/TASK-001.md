@@ -2,7 +2,7 @@
 id: TASK-001
 title: Inventory Upstream Source Tests And Dependencies
 type: task
-status: planned
+status: done
 priority: high
 phase: PHASE-001
 parent: FEAT-001
@@ -39,7 +39,7 @@ This inventory gates all copy and rewrite work in later tasks.
 - Inventory is recorded in the phase summary or a linked note.
 - Test classification names files to port, rewrite, defer, or exclude.
 - Dependency list distinguishes runtime and development dependencies.
-- Blockers are opened as follow-up tickets if import cannot proceed.
+- No blockers prevent import.
 
 Acceptance requires the inventory to be concrete enough for direct import work.
 
@@ -54,3 +54,5 @@ Verification should happen before any source files are copied.
 ## Workflow Log
 
 - 2026-05-10: Opened in planned status.
+- 2026-05-10: Recorded upstream source, test classification, and dependency
+  inventory in the Phase 1 summary. Status set to done.
