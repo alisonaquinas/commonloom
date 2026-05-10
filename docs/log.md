@@ -134,3 +134,9 @@ metadata, `src/`, and `test/` scaffolding.
 Implemented [[plans/phase-1-import-commonloom-package/TASK-003|TASK-003]] by
 copying all upstream Commonloom core modules into local `src/` and adapting
 relative imports for the standalone Node ESM package build.
+
+## [2026-05-10] phase | Port Commonloom tests
+
+Implemented [[plans/phase-1-import-commonloom-package/TASK-004|TASK-004]] by
+porting the four core Commonloom upstream tests into local `test/` and removing
+the temporary no-test allowance from `npm test`.

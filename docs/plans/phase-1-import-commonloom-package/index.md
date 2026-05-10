@@ -19,7 +19,7 @@ updated: 2026-05-10
 | [[TASK-001]] | Inventory Upstream Source Tests And Dependencies | Task | `done` |
 | [[TASK-002]] | Create Standalone Package Scaffold | Task | `green` |
 | [[TASK-003]] | Import Commonloom Source Into Src | Task | `green` |
-| [[TASK-004]] | Port Commonloom Tests Into Test | Task | `planned` |
+| [[TASK-004]] | Port Commonloom Tests Into Test | Task | `green` |
 | [[TASK-005]] | Remove Website Specific Coupling | Task | `planned` |
 | [[TASK-006]] | Wire Local Checks And CI | Task | `planned` |
 | [[CHORE-001]] | Update Documentation And Evidence | Chore | `planned` |

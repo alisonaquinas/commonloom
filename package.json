@@ -26,7 +26,7 @@
     "lint:docs:markdown": "markdownlint-cli2 --config .config/markdownlint-cli2.jsonc",
     "lint:docs:obsidian": "node scripts/lint-obsidian-docs.mjs",
     "precommit": "npm run lint",
-    "test": "vitest run --passWithNoTests",
+    "test": "vitest run",
     "typecheck": "tsc --project tsconfig.json --noEmit"
   },
   "dependencies": {

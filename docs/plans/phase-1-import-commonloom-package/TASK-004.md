@@ -2,7 +2,7 @@
 id: TASK-004
 title: Port Commonloom Tests Into Test
 type: task
-status: planned
+status: green
 priority: high
 phase: PHASE-001
 parent: FEAT-001
@@ -56,3 +56,7 @@ Verification protects against silently dropping upstream behavior.
 ## Workflow Log
 
 - 2026-05-10: Opened in planned status.
+- 2026-05-10: Ported core, Markdown, HTML, link, media, source-trace, and
+  diagnostics tests into `test/`; excluded website adapter tests per TASK-001.
+  Removed temporary no-test allowance from `npm test`. Status set to green
+  pending verification.
