@@ -74,9 +74,9 @@ The design and extraction knowledge base lives in [docs/index.md](docs/index.md)
 
 Expected next steps:
 
-1. Open a pull request and capture CI evidence for Phase 1.
+1. Capture remote CI evidence for Phase 2.
 2. Stabilize the public API before the first standalone release.
-3. Add release automation and npm trusted publishing when ready.
+3. Add release automation and npm trusted publishing in a later phase.
 
 ## Design Boundary
 

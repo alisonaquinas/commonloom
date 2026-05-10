@@ -2,7 +2,7 @@
 id: TASK-003
 title: Document Verified Quality Commands
 type: task
-status: planned
+status: in-review
 priority: medium
 phase: 2
 parent: FEAT-001
@@ -48,3 +48,6 @@ This task prevents stale command claims.
 ## Workflow Log
 
 - 2026-05-10: Opened in planned status.
+- 2026-05-10: Updated README next steps and CONTRIBUTING validation commands
+  to document `npm ci`, `npm run check`, and focused quality commands. Phase 2
+  remains validation-only. Status set to in-review pending remote CI evidence.

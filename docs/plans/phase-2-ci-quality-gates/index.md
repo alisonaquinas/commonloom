@@ -19,7 +19,7 @@ updated: 2026-05-10
 | [[plans/phase-2-ci-quality-gates/FEAT-001|FEAT-001]] | CI Quality Gates | Feature | `active` |
 | [[plans/phase-2-ci-quality-gates/TASK-001|TASK-001]] | Configure Type-Aware TypeScript Linting | Task | `green` |
 | [[plans/phase-2-ci-quality-gates/TASK-002|TASK-002]] | Verify Full Package CI Gate | Task | `in-review` |
-| [[plans/phase-2-ci-quality-gates/TASK-003|TASK-003]] | Document Verified Quality Commands | Task | `planned` |
+| [[plans/phase-2-ci-quality-gates/TASK-003|TASK-003]] | Document Verified Quality Commands | Task | `in-review` |
 | [[plans/phase-2-ci-quality-gates/CHORE-001|CHORE-001]] | Phase 2 Evidence And Closeout | Chore | `planned` |
 
 ## Phase Summary

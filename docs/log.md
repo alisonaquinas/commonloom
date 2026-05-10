@@ -189,3 +189,9 @@ JavaScript config files.
 Updated [[plans/phase-2-ci-quality-gates/TASK-002|TASK-002]] after confirming
 the GitHub Actions workflow uses Node.js 24, read-only permissions, npm install,
 and `npm run check` without release or publishing permissions.
+
+## [2026-05-10] phase | Document Phase 2 commands
+
+Updated [[plans/phase-2-ci-quality-gates/TASK-003|TASK-003]] by documenting
+`npm ci`, `npm run check`, and focused quality commands in CONTRIBUTING while
+keeping release and publishing work reserved for a later phase.

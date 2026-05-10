@@ -1,31 +1,46 @@
 # Contributing
 
 Commonloom is in extraction. Keep changes small, evidence-based, and tied to
-the current prototype until this repository has its own implementation.
+the standalone package boundary.
 
 ## Source of Truth
 
-Until the migration is complete, verify behavior against:
+When changing imported behavior, verify it against:
 
 - `flavor-grenade-lsp/website/src/content/pipeline/commonloom`
 - `flavor-grenade-lsp/website/tests/content-pipeline-*.test.ts`
 - `flavor-grenade-lsp/website/docs/architecture/content-pipeline.md`
 
-Do not document or implement behavior here unless it is visible in those files
-or has been explicitly accepted for the standalone package.
+Do not document or implement new behavior unless it is visible in those files,
+implemented locally, or explicitly accepted for the standalone package.
 
 ## Development Workflow
 
-This repository does not yet define setup or validation commands.
+Use Node.js 24 or newer.
 
-Once the package scaffold exists, update this section with exact commands for:
+Install dependencies:
 
-- installing dependencies
-- building the package
-- running unit tests
-- checking types
-- linting and formatting
-- publishing or dry-running releases
+```bash
+npm ci
+```
+
+Run the full validation gate:
+
+```bash
+npm run check
+```
+
+Focused local commands:
+
+```bash
+npm run lint
+npm run typecheck
+npm run build
+npm test
+```
+
+Phase 2 is validation-only. Do not add release, deployment, package publishing,
+or npm trusted-publishing jobs unless a later phase explicitly owns that work.
 
 ## Design Rules
 
@@ -48,6 +63,7 @@ Once the package scaffold exists, update this section with exact commands for:
 ## Pull Request Checklist
 
 - The change keeps the library boundary generic.
+- `npm run check` passes locally.
 - Public API changes are reflected in `README.md`.
 - User-visible changes are reflected in `CHANGELOG.md`.
 - Tests cover new parsing, rendering, validation, or diagnostic behavior.
