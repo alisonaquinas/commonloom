@@ -1,3 +1,10 @@
+/**
+ * Markdown parser behavior tests for Commonloom.
+ *
+ * These cases cover frontmatter validation, CommonMark/GFM parsing, heading
+ * extraction, and diagnostic reporting without depending on consuming website
+ * code.
+ */
 import { z } from 'zod';
 import { describe, expect, it } from 'vitest';
 
@@ -9,8 +16,8 @@ const frontmatterSchema = z.object({
 });
 
 describe('Commonloom Markdown parser', () => {
-  it('parses frontmatter, CommonMark headings, and GFM constructs', async () => {
-    const result = await parseMarkdown({
+  it('parses frontmatter, CommonMark headings, and GFM constructs', () => {
+    const result = parseMarkdown({
       sourcePath: 'copy/example.md',
       markdown: [
         '---',
@@ -46,8 +53,8 @@ describe('Commonloom Markdown parser', () => {
     expect(result.diagnostics).toEqual([]);
   });
 
-  it('reports invalid frontmatter as diagnostics', async () => {
-    const result = await parseMarkdown({
+  it('reports invalid frontmatter as diagnostics', () => {
+    const result = parseMarkdown({
       sourcePath: 'copy/bad.md',
       markdown: ['---', 'title: 42', '---', '# Bad'].join('\n'),
       frontmatterSchema,
@@ -63,8 +70,8 @@ describe('Commonloom Markdown parser', () => {
     expect(result.frontmatter).toBeUndefined();
   });
 
-  it('reports malformed frontmatter as diagnostics without throwing', async () => {
-    const result = await parseMarkdown({
+  it('reports malformed frontmatter as diagnostics without throwing', () => {
+    const result = parseMarkdown({
       sourcePath: 'copy/malformed.md',
       markdown: ['---', 'title: [unterminated', '---', '# Bad'].join('\n'),
       frontmatterSchema,

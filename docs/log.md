@@ -169,3 +169,43 @@ Added [[phase-2-ci-quality-gates]] to specify strict TypeScript linting and
 full unit test execution in CI.
 Updated the extraction plan and operational requirements to keep CD and package
 publishing reserved for a later phase.
+
+## [2026-05-10] phase | Start Phase 2 CI quality gates
+
+Started [[plans/phase-2-ci-quality-gates|Phase 2]] execution on
+`feature/phase-2-ci-quality-gates`.
+Normalized the phase into the Commonloom plan layout with
+[[plans/phase-2-ci-quality-gates/index|Phase 2 Tickets]].
+
+## [2026-05-10] phase | Enable type-aware linting
+
+Implemented [[plans/phase-2-ci-quality-gates/TASK-001|TASK-001]] by updating
+ESLint to use `typescript-eslint` type-checked flat configs with
+`projectService: true` for TypeScript files and no type-aware rules for
+JavaScript config files.
+
+## [2026-05-10] phase | Verify CI quality gate shape
+
+Updated [[plans/phase-2-ci-quality-gates/TASK-002|TASK-002]] after confirming
+the GitHub Actions workflow uses Node.js 24, read-only permissions, npm install,
+and `npm run check` without release or publishing permissions.
+
+## [2026-05-10] phase | Document Phase 2 commands
+
+Updated [[plans/phase-2-ci-quality-gates/TASK-003|TASK-003]] by documenting
+`npm ci`, `npm run check`, and focused quality commands in CONTRIBUTING while
+keeping release and publishing work reserved for a later phase.
+
+## [2026-05-10] phase | Phase 2 local closeout
+
+Completed local [[plans/phase-2-ci-quality-gates|Phase 2]] closeout through
+[[plans/phase-2-ci-quality-gates/CHORE-001|CHORE-001]].
+`npm run check` passes locally with documentation lint, type-aware package
+lint, typecheck, build, and 12 Vitest assertions.
+Phase remains in review pending remote CI evidence.
+
+## [2026-05-10] phase | Phase 2 remote CI evidence
+
+Completed [[plans/phase-2-ci-quality-gates|Phase 2]] after GitHub Actions
+passed for PR 6:
+<https://github.com/alisonaquinas/commonloom/actions/runs/25642675440/job/75265702932>.

@@ -1,7 +1,7 @@
 # Commonloom
 
-Commonloom is the standalone home for the reusable content pipeline first
-proven inside
+Commonloom is the standalone TypeScript home for the reusable content pipeline
+first proven inside
 [`flavor-grenade-lsp`](https://github.com/alisonaquinas/flavor-grenade-lsp/tree/feature/w8-commonloom-content-pipeline).
 
 The imported implementation now lives in this repository:
@@ -9,6 +9,7 @@ The imported implementation now lives in this repository:
 - `src/` for Commonloom core modules
 - `test/` for Commonloom core behavior tests
 - `docs/` for requirements, ADRs, DDD, BDD, and roadmap notes
+- `.github/workflows/` and `.githooks/` for validation gates
 
 ## Purpose
 
@@ -30,7 +31,7 @@ adapters.
 
 ## Current API Snapshot
 
-The in-repo prototype currently exports:
+The in-repo package currently exports:
 
 - `compileCommonloom`
 - `parseFrontmatter`
@@ -55,28 +56,66 @@ Core public types include:
 - `CommonloomLinkPolicy`
 - `CommonloomHtmlPolicy`
 
-Treat this list as an extraction target, not a locked public API. Stabilize it
-here before the first standalone release.
+Treat this list as a pre-release public surface, not a locked stable API.
+Stabilize it here before the first standalone release.
 
 ## Status
 
-Local package commands now exist:
+Phase 1 imported the Commonloom package source and tests. Phase 2 added the
+current local and CI quality gate.
+
+Use Node.js 24 or newer.
+
+Install dependencies:
+
+```bash
+npm ci
+```
+
+Install the repository pre-commit hook:
+
+```bash
+npm run hooks:install
+```
+
+Run the full validation gate:
+
+```bash
+npm run check
+```
+
+Focused commands:
 
 ```bash
 npm run lint
+npm run lint:docs
 npm run typecheck
 npm run build
 npm test
-npm run check
 ```
 
 The design and extraction knowledge base lives in [docs/index.md](docs/index.md).
 
 Expected next steps:
 
-1. Open a pull request and capture CI evidence for Phase 1.
-2. Stabilize the public API before the first standalone release.
-3. Add release automation and npm trusted publishing when ready.
+1. Stabilize the public API before the first standalone release.
+2. Document adapter integration examples without moving adapter behavior into
+   the core package.
+3. Add release automation and npm OIDC trusted publishing in a later phase.
+
+## Project Layout
+
+```text
+commonloom/
+├── src/                 # TypeScript library source
+├── test/                # Vitest behavior tests
+├── docs/                # Obsidian-style design and planning vault
+├── scripts/             # Documentation validation helpers
+├── .github/workflows/   # GitHub Actions quality gate
+├── .githooks/           # Local pre-commit gate
+├── package.json         # npm scripts, exports, and dependencies
+└── tsconfig*.json       # TypeScript build and check configuration
+```
 
 ## Design Boundary
 

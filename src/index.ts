@@ -1,3 +1,13 @@
+/**
+ * Public package entry point for Commonloom.
+ *
+ * This module exports the adapter-neutral parser, renderer, resolver, media,
+ * path, hashing, trace, and diagnostic contracts that consumers can compose.
+ * Keep all public additions routed through this file so the package surface is
+ * easy to audit before release.
+ *
+ * @module commonloom
+ */
 export { compileCommonloom } from './compiler.js';
 export { parseFrontmatter } from './frontmatter.js';
 export { hashContent } from './hash.js';

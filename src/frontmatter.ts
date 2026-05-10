@@ -1,8 +1,17 @@
+/**
+ * Frontmatter parsing and schema validation for Commonloom Markdown sources.
+ *
+ * This module converts YAML parsing and Zod validation failures into
+ * normalized diagnostics instead of throwing for normal authoring errors.
+ */
 import matter from 'gray-matter';
 import { z } from 'zod';
 
 import type { CommonloomDiagnostic } from './types.js';
 
+/**
+ * Parsed frontmatter and Markdown body returned by {@link parseFrontmatter}.
+ */
 export interface ParsedFrontmatter<Frontmatter> {
   frontmatter: Frontmatter | undefined;
   bodyMarkdown: string;
@@ -10,6 +19,13 @@ export interface ParsedFrontmatter<Frontmatter> {
   diagnostics: CommonloomDiagnostic[];
 }
 
+/**
+ * Split YAML frontmatter from Markdown content and validate it with Zod.
+ *
+ * Invalid or malformed frontmatter is reported as `FRONTMATTER_INVALID`
+ * diagnostics so callers can continue collecting content validation results
+ * without throwing for normal authoring errors.
+ */
 export function parseFrontmatter<Frontmatter>(
   sourcePath: string,
   markdown: string,

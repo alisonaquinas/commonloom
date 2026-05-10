@@ -1,3 +1,10 @@
+/**
+ * Public surface tests for the standalone Commonloom package.
+ *
+ * These assertions keep the imported compiler scaffold, diagnostic constants,
+ * source trace contracts, and adapter-owned link behavior visible while the
+ * package API is still pre-release.
+ */
 import { describe, expect, it } from 'vitest';
 
 import { compileCommonloom } from '../src/index.js';
@@ -13,8 +20,8 @@ import type {
 } from '../src/index.js';
 
 describe('Commonloom compiler scaffold', () => {
-  it('exports a non-destructive compiler entry point', async () => {
-    const result = await compileCommonloom({
+  it('exports a non-destructive compiler entry point', () => {
+    const result = compileCommonloom({
       copyRoot: 'content/copy',
       mediaRoot: 'content/media',
     });

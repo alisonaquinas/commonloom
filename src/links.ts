@@ -1,3 +1,9 @@
+/**
+ * Link, wiki-link, and image-reference extraction for Commonloom Markdown.
+ *
+ * This module classifies generic targets and delegates project-specific
+ * wiki-link resolution to adapter callbacks.
+ */
 import type { Image, Link, Text } from 'mdast';
 import { visit } from 'unist-util-visit';
 
@@ -9,11 +15,13 @@ import type {
   CommonloomLinkReference,
 } from './types.js';
 
+/** Link and image references extracted from a parsed Markdown document. */
 export interface ExtractMarkdownReferencesResult {
   links: CommonloomLinkReference[];
   images: CommonloomImageReference[];
 }
 
+/** Link references after adapter-owned wiki-link resolution has run. */
 export interface ResolvedLinkReferencesResult {
   links: CommonloomLinkReference[];
   diagnostics: CommonloomDiagnostic[];
@@ -23,6 +31,13 @@ const externalUrlPattern = /^https?:\/\//i;
 const unsupportedSchemePattern = /^[a-z][a-z0-9+.-]*:/i;
 const wikiLinkPattern = /\[\[([^\]|]+)(?:\|[^\]]+)?\]\]/g;
 
+/**
+ * Classify a raw Markdown target without applying project-specific routing.
+ *
+ * Commonloom recognizes external URLs, same-document anchors, Obsidian-style
+ * wiki-links, unsupported schemes, and generic internal links. Adapters decide
+ * what an internal or wiki-link ultimately resolves to.
+ */
 export function classifyLinkTarget(
   rawTarget: string,
 ): Pick<CommonloomLinkReference, 'rawTarget' | 'kind' | 'resolvedTarget'> {
@@ -49,6 +64,9 @@ export function classifyLinkTarget(
   return { rawTarget: target, resolvedTarget: target, kind: 'internal' };
 }
 
+/**
+ * Extract Markdown links, image references, and inline wiki-links from mdast.
+ */
 export function extractMarkdownReferences<Frontmatter>(
   parsed: ParsedMarkdown<Frontmatter>,
 ): ExtractMarkdownReferencesResult {
@@ -86,7 +104,7 @@ export function extractMarkdownReferences<Frontmatter>(
         sourcePath: parsed.sourcePath,
         line: node.position?.start.line,
         column: node.position?.start.column
-          ? node.position.start.column + (match.index ?? 0)
+          ? node.position.start.column + match.index
           : undefined,
       });
     }
@@ -95,6 +113,13 @@ export function extractMarkdownReferences<Frontmatter>(
   return { links, images };
 }
 
+/**
+ * Resolve wiki-links through the adapter policy and collect diagnostics.
+ *
+ * Non-wiki links pass through unchanged after classification. Unsupported
+ * schemes become `LINK_UNRESOLVED` diagnostics because Commonloom cannot safely
+ * route them.
+ */
 export async function resolveLinkReferences(
   links: CommonloomLinkReference[],
   policy: CommonloomLinkPolicy,
@@ -133,6 +158,7 @@ export async function resolveLinkReferences(
   return { links: resolvedLinks, diagnostics };
 }
 
+/** Build a normalized unresolved-link diagnostic at the original source span. */
 function unresolvedDiagnostic(
   link: CommonloomLinkReference,
   message: string,

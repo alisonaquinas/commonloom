@@ -19,6 +19,7 @@ This roadmap tracks standalone Commonloom implementation phases.
 | Phase | Status | Goal |
 | --- | --- | --- |
 | [[plans/phase-1-import-commonloom-package|Phase 1]] | in-review | Import the upstream Commonloom package source and tests into local `src/` and `test/`. |
+| [[plans/phase-2-ci-quality-gates|Phase 2]] | done | Add strict type-aware linting and prove full package checks in CI. |
 
 ## Phase Principles
 
@@ -34,6 +35,7 @@ This roadmap tracks standalone Commonloom implementation phases.
 
 - [[Commonloom Extraction Plan]]
 - [[plans/phase-1-import-commonloom-package/index|Phase 1 Tickets]]
+- [[plans/phase-2-ci-quality-gates/index|Phase 2 Tickets]]
 - [[Commonloom Architecture]]
 - [[ddd/index|Commonloom DDD]]
 - [[bdd/index|Commonloom BDD]]

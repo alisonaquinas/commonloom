@@ -1,3 +1,9 @@
+/**
+ * Markdown parsing for Commonloom content sources.
+ *
+ * This module combines frontmatter parsing with CommonMark/GFM mdast parsing
+ * and heading extraction used by source traces.
+ */
 import type { Heading, PhrasingContent, Root } from 'mdast';
 import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
@@ -7,12 +13,17 @@ import { z } from 'zod';
 import { parseFrontmatter } from './frontmatter.js';
 import type { CommonloomDiagnostic, CommonloomHeading } from './types.js';
 
+/** Input required to parse one Markdown source document. */
 export interface ParseMarkdownInput<Frontmatter> {
   sourcePath: string;
   markdown: string;
   frontmatterSchema: z.ZodType<Frontmatter>;
 }
 
+/**
+ * Parsed Markdown state shared by rendering, reference extraction, and source
+ * trace modules.
+ */
 export interface ParsedMarkdown<Frontmatter> {
   sourcePath: string;
   frontmatter: Frontmatter | undefined;
@@ -24,15 +35,22 @@ export interface ParsedMarkdown<Frontmatter> {
 
 const markdownProcessor = unified().use(remarkParse).use(remarkGfm);
 
-export async function parseMarkdown<Frontmatter>(
+/**
+ * Parse frontmatter and Markdown into an mdast tree with normalized headings.
+ *
+ * The parser supports CommonMark plus GFM extensions. Frontmatter validation
+ * problems remain in `diagnostics` so downstream rendering and extraction can
+ * still run against the Markdown body.
+ */
+export function parseMarkdown<Frontmatter>(
   input: ParseMarkdownInput<Frontmatter>,
-): Promise<ParsedMarkdown<Frontmatter>> {
+): ParsedMarkdown<Frontmatter> {
   const frontmatter = parseFrontmatter(
     input.sourcePath,
     input.markdown,
     input.frontmatterSchema,
   );
-  const mdast = markdownProcessor.parse(frontmatter.bodyMarkdown) as Root;
+  const mdast = markdownProcessor.parse(frontmatter.bodyMarkdown);
 
   return {
     sourcePath: input.sourcePath,
@@ -44,6 +62,7 @@ export async function parseMarkdown<Frontmatter>(
   };
 }
 
+/** Extract top-level Markdown heading nodes into Commonloom trace records. */
 function extractHeadings(tree: Root, contentStartLine: number): CommonloomHeading[] {
   return tree.children
     .filter((node): node is Heading => node.type === 'heading')
@@ -62,6 +81,7 @@ function extractHeadings(tree: Root, contentStartLine: number): CommonloomHeadin
     });
 }
 
+/** Flatten phrasing content so headings with inline markup still get labels. */
 function textFromPhrasingContent(node: PhrasingContent): string {
   if ('value' in node && typeof node.value === 'string') {
     return node.value;
@@ -74,6 +94,7 @@ function textFromPhrasingContent(node: PhrasingContent): string {
   return '';
 }
 
+/** Generate a stable lowercase heading id from visible heading text. */
 function slugifyHeading(label: string): string {
   return label
     .trim()

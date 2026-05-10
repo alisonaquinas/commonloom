@@ -6,7 +6,7 @@ tags:
   - phase-2
   - ci
   - quality
-status: draft
+status: done
 updated: 2026-05-10
 aliases:
   - Phase 2
@@ -66,6 +66,14 @@ Phase 2 does not include:
 | P2-006 | Document verified commands. | README or CONTRIBUTING command docs are updated only after the commands exist and pass locally. |
 | P2-007 | Record gate evidence. | Phase closeout links the passing CI run and notes lint, typecheck, and unit test results. |
 
+## Tickets
+
+- [[plans/phase-2-ci-quality-gates/FEAT-001]]
+- [[plans/phase-2-ci-quality-gates/TASK-001]]
+- [[plans/phase-2-ci-quality-gates/TASK-002]]
+- [[plans/phase-2-ci-quality-gates/TASK-003]]
+- [[plans/phase-2-ci-quality-gates/CHORE-001]]
+
 ## CI Gate
 
 Required Phase 2 gate:
@@ -82,13 +90,14 @@ release, upload production artifacts, or require npm trusted publishing.
 
 ## Acceptance Criteria
 
-- Pull requests cannot merge with lint errors, lint warnings, type errors, or
-  unit test failures.
-- The unit test CI step runs the complete suite.
-- Focused test selectors, skipped CI-only shortcuts, and watch mode are absent
-  from required CI checks.
-- CI configuration is scoped to validation only.
-- CD and publishing remain reserved for a later phase.
+- [x] Pull requests cannot merge with lint errors, lint warnings, type errors,
+  or unit test failures.
+- [x] The unit test CI step runs the complete suite.
+- [x] Focused test selectors, skipped CI-only shortcuts, and watch mode are
+  absent from required CI checks.
+- [x] CI configuration is scoped to validation only.
+- [x] CD and publishing remain reserved for a later phase.
+- [x] Remote CI evidence is captured for the Phase 2 branch.
 
 ## Evidence
 
@@ -103,3 +112,22 @@ release, upload production artifacts, or require npm trusted publishing.
 
 - [[Commonloom Extraction Plan]]
 - [[Commonloom Requirements]]
+- [[plans/phase-2-ci-quality-gates/index|Phase 2 Tickets]]
+
+## Workflow Log
+
+> [!INFO] Active · 2026-05-10
+> Phase 2 execution started on `feature/phase-2-ci-quality-gates`.
+
+> [!SUCCESS] Local gate · 2026-05-10
+> `npm run check` passes locally: docs lint, type-aware package lint,
+> typecheck, build, and 12 Vitest assertions across four test files.
+
+> [!INFO] In review · 2026-05-10
+> Local implementation is complete. Phase remains in review until remote CI
+> evidence is available.
+
+> [!SUCCESS] Remote CI · 2026-05-10
+> GitHub Actions passed for PR 6:
+> <https://github.com/alisonaquinas/commonloom/actions/runs/25642675440/job/75265702932>.
+> Phase 2 is complete.

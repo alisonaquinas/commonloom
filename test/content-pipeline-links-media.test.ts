@@ -1,3 +1,10 @@
+/**
+ * Link extraction, wiki-link resolution, and media validation tests.
+ *
+ * These cases protect Commonloom's adapter boundary by exercising route
+ * decisions through callbacks and validating media as local filesystem
+ * references.
+ */
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
@@ -12,7 +19,8 @@ const frontmatterSchema = z.object({
   title: z.string(),
 });
 
-async function parse(body: string) {
+/** Build a Markdown fixture body under a stable source path for diagnostics. */
+function parse(body: string) {
   return parseMarkdown({
     sourcePath: 'copy/page.md',
     markdown: ['---', 'title: Links', '---', '# Links', '', body].join('\n'),
@@ -21,8 +29,8 @@ async function parse(body: string) {
 }
 
 describe('Commonloom link and media validation', () => {
-  it('extracts external links, internal links, wiki-links, and image references', async () => {
-    const parsed = await parse(
+  it('extracts external links, internal links, wiki-links, and image references', () => {
+    const parsed = parse(
       [
         '[Home](/)',
         '[Unified](https://unifiedjs.com/)',
@@ -48,7 +56,7 @@ describe('Commonloom link and media validation', () => {
   });
 
   it('resolves wiki-links only through adapter callbacks', async () => {
-    const parsed = await parse('[[Quick Start]]\n\n[[Missing Page]]');
+    const parsed = parse('[[Quick Start]]\n\n[[Missing Page]]');
     const references = extractMarkdownReferences(parsed);
     const result = await resolveLinkReferences(references.links, {
       resolveLink: ({ rawTarget }) => ({

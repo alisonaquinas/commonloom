@@ -8,12 +8,25 @@ export default defineConfig(
     ignores: ['dist/**', 'node_modules/**', 'coverage/**'],
   },
   js.configs.recommended,
-  ts.configs.recommended,
   {
     languageOptions: {
       globals: {
         ...globals.node,
       },
     },
+  },
+  ts.configs.strictTypeChecked,
+  ts.configs.stylisticTypeChecked,
+  {
+    files: ['**/*.ts'],
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+      },
+    },
+  },
+  {
+    files: ['**/*.js'],
+    extends: [ts.configs.disableTypeChecked],
   },
 );
