@@ -35,3 +35,39 @@ Imported the contextual website stack ADR 0001 and split the Commonloom-relevant
 parts of website ADR 0002 into MADR-style records under [[adr]].
 Removed the older synthesized `docs/decisions/` note because the ADR directory
 is now the durable decision log.
+
+## [2026-05-10] requirements | Split Commonloom requirements surface
+
+Expanded [[Commonloom Requirements]] into user, functional, technical, and
+operational requirement folders.
+Imported additional Flavor Grenade source requirements for public content,
+metadata, LLM wiki standards, CI/CD, code quality, parser safety, input
+validation, path confinement, and supply-chain controls.
+
+## [2026-05-10] requirements | Add Node 24 and npm trusted publishing
+
+Added operational requirements that all Commonloom CI/CD jobs use Node.js 24
+and that npm package publication uses OIDC trusted publishing.
+Verified npm trusted publishing workflow requirements from current npm
+documentation via Context7.
+
+## [2026-05-10] requirements | Add git-flow branch naming
+
+Added an operational requirement for git-flow branch naming standards:
+`main`, `develop`, `feature/*`, `release/*`, and `hotfix/*`.
+Imported the upstream Flavor Grenade git-flow ADR as source evidence.
+
+## [2026-05-10] requirements | Import phase execution procedure
+
+Imported Flavor Grenade's phase execution procedure and adapted its durable
+process rules into [[phase-execution]].
+Recorded requirements for sequential phases, explicit ownership, ticket
+lifecycle states, test-first work, sweep ticketing, CI gate evidence, and
+retrospectives.
+
+## [2026-05-10] requirements | Import ticket templates
+
+Imported the Flavor Grenade ticket template directory and adapted its template
+and lifecycle rules into [[task-management]].
+Recorded requirements for typed tickets, stable IDs, trace links, red-green
+task lifecycle, append-only workflow logs, blockers, and closure evidence.

@@ -15,7 +15,7 @@ docs/
 ├── adr/              # MADR-style architecture decision records
 ├── concepts/         # Entity and concept notes
 ├── architecture/     # Architecture synthesis notes
-├── requirements/     # Requirement synthesis notes
+├── requirements/     # User, functional, technical, and operational requirements
 ├── plans/            # Planning and migration synthesis notes
 └── sources/          # Immutable source imports
 ```
@@ -62,7 +62,7 @@ Use these local conventions:
 | `adr/` | MADR-style architecture decision records and decision index. |
 | `concepts/` | Core vocabulary, entities, and reusable ideas. |
 | `architecture/` | System boundaries, flows, and module responsibility. |
-| `requirements/` | Requirement summaries and acceptance criteria. |
+| `requirements/` | User, functional, technical, and operational requirements. |
 | `plans/` | Migration, roadmap, and execution synthesis. |
 | `sources/` | Imported upstream Markdown kept as evidence. |
 
