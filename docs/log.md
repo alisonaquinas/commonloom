@@ -106,3 +106,12 @@ Authored the phase summary and tickets for importing Commonloom source into
 
 Moved Phase 1 implementation planning under `docs/plans/` to match the Flavor
 Grenade phase layout: a top-level phase summary plus a same-named ticket folder.
+
+## [2026-05-10] requirements | Clarify operational process rules
+
+Updated operational requirements after opening Phase 1.
+Made `docs/plans/<phase-slug>.md` plus `docs/plans/<phase-slug>/index.md`
+the explicit phase layout, clarified ticket storage and ID rules, and recorded
+that lint warnings are blocking unless a rule change is explicitly approved.
+Clarified that ticket workflow updates may be committed with the work that
+prompted them, but must not remain uncommitted across unrelated work.
