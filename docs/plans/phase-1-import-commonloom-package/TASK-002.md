@@ -2,7 +2,7 @@
 id: TASK-002
 title: Create Standalone Package Scaffold
 type: task
-status: planned
+status: green
 priority: high
 phase: PHASE-001
 parent: FEAT-001
@@ -56,3 +56,7 @@ Verification should pass before TASK-003 begins.
 ## Workflow Log
 
 - 2026-05-10: Opened in planned status.
+- 2026-05-10: Added TypeScript, Vitest, ESLint, package scripts, and package
+  metadata scaffold. Status set to green pending verification.
+- 2026-05-10: Verified scaffold build and typecheck. Test command permits the
+  temporary no-test state until TASK-004 ports the upstream tests.

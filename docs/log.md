@@ -122,3 +122,9 @@ Started [[plans/phase-1-import-commonloom-package|Phase 1]] execution.
 Completed [[plans/phase-1-import-commonloom-package/TASK-001|TASK-001]] by
 recording the upstream Commonloom source inventory, core-test classification,
 adapter-owned test exclusions, and dependency inventory.
+
+## [2026-05-10] phase | Add package scaffold
+
+Implemented [[plans/phase-1-import-commonloom-package/TASK-002|TASK-002]] with
+TypeScript, Vitest, ESLint, build/typecheck/test/lint scripts, package export
+metadata, `src/`, and `test/` scaffolding.
