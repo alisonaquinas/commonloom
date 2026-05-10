@@ -2,7 +2,7 @@
 id: TASK-006
 title: Wire Local Checks And CI
 type: task
-status: planned
+status: green
 priority: high
 phase: PHASE-001
 parent: FEAT-001
@@ -61,3 +61,7 @@ Verification evidence should be copied into the phase workflow log.
 ## Workflow Log
 
 - 2026-05-10: Opened in planned status.
+- 2026-05-10: Added `npm run check`, updated pre-commit to run the full local
+  check stack, and expanded GitHub Actions to run docs lint, package lint,
+  typecheck, build, and tests on Node 24. Status set to green pending
+  verification.

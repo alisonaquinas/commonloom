@@ -146,3 +146,10 @@ the temporary no-test allowance from `npm test`.
 Implemented [[plans/phase-1-import-commonloom-package/TASK-005|TASK-005]] by
 removing website-root examples from tests and keeping generated file output
 configuration outside the core `CommonloomConfig` surface.
+
+## [2026-05-10] phase | Wire package checks
+
+Implemented [[plans/phase-1-import-commonloom-package/TASK-006|TASK-006]] by
+adding `npm run check`, updating the pre-commit hook, and expanding GitHub
+Actions to run documentation lint, package lint, typecheck, build, and tests on
+Node.js 24.

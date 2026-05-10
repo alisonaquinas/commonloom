@@ -21,7 +21,7 @@ updated: 2026-05-10
 | [[TASK-003]] | Import Commonloom Source Into Src | Task | `green` |
 | [[TASK-004]] | Port Commonloom Tests Into Test | Task | `green` |
 | [[TASK-005]] | Remove Website Specific Coupling | Task | `green` |
-| [[TASK-006]] | Wire Local Checks And CI | Task | `planned` |
+| [[TASK-006]] | Wire Local Checks And CI | Task | `green` |
 | [[CHORE-001]] | Update Documentation And Evidence | Chore | `planned` |
 
 ## Phase Summary
