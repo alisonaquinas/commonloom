@@ -25,8 +25,6 @@ export type {
   CommonloomLinkResolution,
   CommonloomLinkResolverInput,
   CommonloomManifestEntry,
-  CommonloomOutputConfig,
-  CommonloomOutputMode,
   CommonloomResult,
   CommonloomSeverity,
   CommonloomSourceTrace,

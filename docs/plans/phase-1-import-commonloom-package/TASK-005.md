@@ -2,7 +2,7 @@
 id: TASK-005
 title: Remove Website Specific Coupling
 type: task
-status: planned
+status: green
 priority: high
 phase: PHASE-001
 parent: FEAT-001
@@ -56,3 +56,6 @@ Verification should leave any remaining coupling visible and intentional.
 ## Workflow Log
 
 - 2026-05-10: Opened in planned status.
+- 2026-05-10: Removed website-root examples from tests and moved generated
+  file output settings out of the core `CommonloomConfig` surface per ADR 0003.
+  Status set to green pending verification.

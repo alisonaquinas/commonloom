@@ -4,7 +4,6 @@ import { compileCommonloom } from '../src/index.js';
 import {
   commonloomDiagnosticCodes,
   commonloomLinkKinds,
-  commonloomOutputModes,
   commonloomSeverities,
 } from '../src/diagnostics.js';
 import type {
@@ -16,9 +15,8 @@ import type {
 describe('Commonloom compiler scaffold', () => {
   it('exports a non-destructive compiler entry point', async () => {
     const result = await compileCommonloom({
-      copyRoot: 'website/src/content/copy',
-      mediaRoot: 'website/src/content/media',
-      generatedRoot: 'website/src/content/generated',
+      copyRoot: 'content/copy',
+      mediaRoot: 'content/media',
     });
 
     expect(result.diagnostics).toEqual([
@@ -64,7 +62,6 @@ describe('Commonloom compiler scaffold', () => {
       'wiki-link',
       'unsupported',
     ]);
-    expect(commonloomOutputModes).toEqual(['typescript', 'check-only']);
 
     const link: CommonloomLinkReference = {
       rawTarget: '/quickstart/',
@@ -72,12 +69,10 @@ describe('Commonloom compiler scaffold', () => {
       kind: 'internal',
     };
     const config: CommonloomConfig = {
-      copyRoot: 'src/content/copy',
-      mediaRoot: 'src/content/media',
-      generatedRoot: 'src/content/generated',
+      copyRoot: 'content/copy',
+      mediaRoot: 'content/media',
       manifests: [],
       html: { allowInlineHtml: true },
-      output: { mode: 'typescript' },
       links: {
         resolveLink: ({ rawTarget }) => ({
           kind: rawTarget.startsWith('/') ? 'internal' : 'unsupported',

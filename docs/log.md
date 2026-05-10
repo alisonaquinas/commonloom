@@ -140,3 +140,9 @@ relative imports for the standalone Node ESM package build.
 Implemented [[plans/phase-1-import-commonloom-package/TASK-004|TASK-004]] by
 porting the four core Commonloom upstream tests into local `test/` and removing
 the temporary no-test allowance from `npm test`.
+
+## [2026-05-10] phase | Remove website coupling
+
+Implemented [[plans/phase-1-import-commonloom-package/TASK-005|TASK-005]] by
+removing website-root examples from tests and keeping generated file output
+configuration outside the core `CommonloomConfig` surface.

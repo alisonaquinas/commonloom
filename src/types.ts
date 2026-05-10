@@ -70,10 +70,6 @@ export interface CommonloomDiagnostic {
   column?: number;
 }
 
-export const commonloomOutputModes = ['typescript', 'check-only'] as const;
-
-export type CommonloomOutputMode = (typeof commonloomOutputModes)[number];
-
 export interface CommonloomManifestEntry<AdapterData = unknown> {
   id: string;
   sourcePath: string;
@@ -102,18 +98,11 @@ export interface CommonloomLinkPolicy {
   ): CommonloomLinkResolution | Promise<CommonloomLinkResolution>;
 }
 
-export interface CommonloomOutputConfig {
-  mode: CommonloomOutputMode;
-  generatedModuleName?: string;
-}
-
 export interface CommonloomConfig {
   copyRoot: string;
   mediaRoot: string;
-  generatedRoot: string;
   manifests?: CommonloomManifestEntry[];
   html?: CommonloomHtmlPolicy;
-  output?: CommonloomOutputConfig;
   links?: CommonloomLinkPolicy;
 }
 
