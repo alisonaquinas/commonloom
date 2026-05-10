@@ -128,4 +128,3 @@ Avoid one repository per file type if it only mirrors the filesystem.
 - [[ubiquitous-language|Ubiquitous Language]]
 - [[context-map|Context Map]]
 - [[Commonloom Requirements]]
-

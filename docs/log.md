@@ -60,7 +60,7 @@ Imported the upstream Flavor Grenade git-flow ADR as source evidence.
 ## [2026-05-10] requirements | Import phase execution procedure
 
 Imported Flavor Grenade's phase execution procedure and adapted its durable
-process rules into [[phase-execution]].
+process rules into [[requirements/operational/phase-execution|phase-execution]].
 Recorded requirements for sequential phases, explicit ownership, ticket
 lifecycle states, test-first work, sweep ticketing, CI gate evidence, and
 retrospectives.
@@ -86,3 +86,10 @@ Cucumber-style feature specifications.
 Mapped content authoring, adapter integration, compilation safety, diagnostics,
 source traces, documentation governance, tickets, phase gates, CI, and release
 publishing behaviors back to the requirements surface.
+
+## [2026-05-10] ci | Add documentation lint workflow
+
+Added a GitHub Actions documentation lint workflow on
+[[requirements/operational/release-and-ci|git-flow branches]].
+Configured standard Markdown linting for repository Markdown outside `docs/`
+and Obsidian-aware linting for maintained vault notes under `docs/`.

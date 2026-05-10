@@ -84,4 +84,3 @@ Safety and validation behavior enters through explicit options or callbacks:
 - [[bounded-contexts|Bounded Contexts]]
 - [[tactical-model|Tactical Model]]
 - [[adr/0002-use-page-group-manifests-as-adapter-inputs|ADR 0002]]
-

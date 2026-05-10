@@ -66,7 +66,7 @@ This decision is confirmed when:
 
 ## Pros and Cons of the Options
 
-### Keep Generated TypeScript Adapter-Owned
+### Option: Keep Generated TypeScript Adapter-Owned
 
 - Good, because it preserves reusable core boundaries.
 - Good, because it allows multiple output formats.

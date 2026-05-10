@@ -28,7 +28,7 @@ Commonloom tickets before a local ticket directory exists.
 | --- | --- | --- |
 | CLR-OPS-100 | Commonloom work items shall use typed tickets when work is large enough to need tracking. | Supported ticket types are feature, task, bug, spike, and chore, or documented successors. |
 | CLR-OPS-101 | Ticket IDs shall be unique, stable, and type-prefixed. | IDs follow a convention such as `FEAT-001`, `TASK-001`, `BUG-001`, `SPIKE-001`, and `CHORE-001`; numbers are not reused. |
-| CLR-OPS-102 | Ticket files shall contain enough metadata for agents and reviewers to route work. | Tickets include title, type, status, priority or severity when relevant, parent or phase when relevant, dates, dependencies, tags, and aliases. |
+| CLR-OPS-102 | Ticket files shall contain enough metadata for agents and reviewers to route work. | Tickets include title, type, status, priority or severity when relevant, parent or [[requirements/operational/phase-execution|phase]] when relevant, dates, dependencies, tags, and aliases. |
 | CLR-OPS-103 | Tickets shall link to relevant requirements, ADRs, tests, parent work, dependencies, and source evidence. | A reviewer can trace why the work exists and how it is verified from the ticket. |
 | CLR-OPS-104 | Task tickets shall represent atomic work. | A task can be completed in one focused implementation thread; larger tasks are split. |
 | CLR-OPS-105 | Behavior-changing task tickets shall follow a red, green, optional refactor, review, done path once test infrastructure exists. | Failing test evidence precedes implementation evidence for non-trivial behavior changes. |
@@ -49,7 +49,8 @@ templates must use Commonloom-specific commands, source paths, and package
 scripts after they exist.
 
 Until the standalone repository has active ticket templates, use this page and
-[[phase-execution]] as the operational source of truth for task management.
+[[requirements/operational/phase-execution|phase-execution]] as the operational
+source of truth for task management.
 
 ## Evidence
 
@@ -67,6 +68,6 @@ Until the standalone repository has active ticket templates, use this page and
 
 ## See Also
 
-- [[phase-execution]]
+- [[requirements/operational/phase-execution|Phase Execution]]
 - [[quality-gates]]
 - [[documentation-maintenance]]

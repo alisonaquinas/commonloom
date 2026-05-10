@@ -1,0 +1,18 @@
+{
+  "name": "commonloom",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint:docs": "npm run lint:docs:markdown && npm run lint:docs:obsidian",
+    "lint:docs:markdown": "markdownlint-cli2 --config .config/markdownlint-cli2.jsonc",
+    "lint:docs:obsidian": "node scripts/lint-obsidian-docs.mjs"
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "0.22.1",
+    "markdownlint-obsidian": "1.1.0"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

@@ -17,11 +17,11 @@ maintained.
 | Requirement Set | Covers |
 | --- | --- |
 | [[quality-gates|Quality Gates]] | build, test, lint, typecheck, docs, and generated-output checks. |
-| [[phase-execution|Phase Execution]] | phased work, tickets, sweeps, CI gates, and retrospectives. |
-| [[task-management|Task Management]] | ticket types, metadata, lifecycles, workflow logs, and closure evidence. |
-| [[documentation-maintenance|Documentation Maintenance]] | evidence-first docs and vault upkeep. |
-| [[release-and-ci|Release And CI]] | branch naming, tag, CI, and release validation. |
-| [[supply-chain|Supply Chain]] | dependency pinning, advisory review, and publish safety. |
+| [[requirements/operational/phase-execution|Phase Execution]] | phased work, tickets, sweeps, CI gates, and retrospectives. |
+| [[requirements/operational/task-management|Task Management]] | ticket types, metadata, lifecycles, workflow logs, and closure evidence. |
+| [[requirements/operational/documentation-maintenance|Documentation Maintenance]] | evidence-first docs and vault upkeep. |
+| [[requirements/operational/release-and-ci|Release And CI]] | branch naming, tag, CI, and release validation. |
+| [[requirements/operational/supply-chain|Supply Chain]] | dependency pinning, advisory review, and publish safety. |
 
 ## Evidence
 

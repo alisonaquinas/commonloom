@@ -42,8 +42,8 @@ details, hash algorithm fixtures, and implementation-specific error branches.
 
 > [!NOTE] Evidence
 > These scenarios synthesize [[Commonloom Requirements]],
-> [[ddd/ubiquitous-language|Commonloom Vocabulary]], and
-> [[ddd/bounded-contexts|Commonloom Bounded Contexts]].
+> the [[ddd/ubiquitous-language|Commonloom Vocabulary]], and
+> the [[ddd/bounded-contexts|Commonloom Bounded Contexts]].
 
 ## See Also
 

@@ -73,4 +73,3 @@ Feature: Content authoring
 - [[requirements/user/content-authoring|Content Authoring Requirements]]
 - [[requirements/functional/markdown-and-frontmatter|Markdown And Frontmatter]]
 - [[requirements/functional/html-rendering|HTML Rendering]]
-

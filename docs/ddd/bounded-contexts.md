@@ -74,4 +74,3 @@ or accepted as durable design constraints.
 - [[tactical-model|Tactical Model]]
 - [[adr/0001-keep-commonloom-adapter-neutral|ADR 0001]]
 - [[adr/0003-keep-generated-typescript-adapter-owned|ADR 0003]]
-
