@@ -18,7 +18,7 @@ docs/
 ├── ddd/              # Domain model, boundaries, and ubiquitous language
 ├── bdd/              # Actors and Cucumber-style behavior specifications
 ├── requirements/     # User, functional, technical, and operational requirements
-├── plans/            # Planning and migration synthesis notes
+├── plans/            # Phase plans, tickets, and migration synthesis notes
 └── sources/          # Immutable source imports
 ```
 
@@ -67,7 +67,7 @@ Use these local conventions:
 | `ddd/` | Domain model, bounded contexts, context map, and ubiquitous language. |
 | `bdd/` | Actor model, scenario catalog, and Cucumber-style behavior specifications. |
 | `requirements/` | User, functional, technical, and operational requirements. |
-| `plans/` | Migration, roadmap, and execution synthesis. |
+| `plans/` | Phase plans, tickets, migration, roadmap, and execution synthesis. |
 | `sources/` | Imported upstream Markdown kept as evidence. |
 
 ## Workflows
@@ -117,4 +117,5 @@ Use these local conventions:
 - [[Commonloom]]
 - [[ddd/index|Commonloom DDD]]
 - [[bdd/index|Commonloom BDD]]
+- [[roadmap|Commonloom Roadmap]]
 - [../AGENTS.md](../AGENTS.md) - repo-wide instructions

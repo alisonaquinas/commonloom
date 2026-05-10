@@ -93,3 +93,16 @@ Added a GitHub Actions documentation lint workflow on
 [[requirements/operational/release-and-ci|git-flow branches]].
 Configured standard Markdown linting for repository Markdown outside `docs/`
 and Obsidian-aware linting for maintained vault notes under `docs/`.
+
+## [2026-05-10] roadmap | Open Phase 1 import plan
+
+Initialized [[roadmap|Commonloom Roadmap]] with
+[[plans/phase-1-import-commonloom-package|Phase 1]] and
+[[plans/phase-1-import-commonloom-package/index|Phase 1 Tickets]].
+Authored the phase summary and tickets for importing Commonloom source into
+`src/` and Commonloom-relevant tests into `test/`.
+
+## [2026-05-10] plans | Mirror Flavor Grenade phase structure
+
+Moved Phase 1 implementation planning under `docs/plans/` to match the Flavor
+Grenade phase layout: a top-level phase summary plus a same-named ticket folder.

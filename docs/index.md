@@ -29,6 +29,7 @@ the Flavor Grenade website content pipeline into this standalone repository.
 | [[adr|Commonloom ADRs]] | MADR-backed decisions and rejected alternatives. |
 | [[ddd/index|Commonloom DDD]] | Domains, bounded contexts, ubiquitous language, and tactical model. |
 | [[bdd/index|Commonloom BDD]] | Actors and Cucumber-style behavior specifications. |
+| [[roadmap|Commonloom Roadmap]] | Implementation phases and active tickets. |
 | [[Commonloom Extraction Plan]] | W8 migration and extraction plan summary. |
 | [[sources/index|Source Imports]] | Catalog of imported upstream source files. |
 | [[log]] | Chronological vault maintenance record. |
