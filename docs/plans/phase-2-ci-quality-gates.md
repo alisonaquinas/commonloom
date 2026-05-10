@@ -94,7 +94,7 @@ release, upload production artifacts, or require npm trusted publishing.
 
 - [[quality-gates]]
 - [[release-and-ci]]
-- [[phase-execution]]
+- [[requirements/operational/phase-execution|phase-execution]]
 - [[sources/flavor-grenade-lsp/docs/requirements/code-quality|code quality requirements]]
 - [[sources/flavor-grenade-lsp/docs/requirements/ci-cd|root CI/CD requirements]]
 - [[sources/flavor-grenade-lsp/docs/plans/phase-W8-commonloom-content-pipeline/TASK-275|TASK-275]]
