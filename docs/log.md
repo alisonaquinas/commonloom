@@ -128,3 +128,9 @@ adapter-owned test exclusions, and dependency inventory.
 Implemented [[plans/phase-1-import-commonloom-package/TASK-002|TASK-002]] with
 TypeScript, Vitest, ESLint, build/typecheck/test/lint scripts, package export
 metadata, `src/`, and `test/` scaffolding.
+
+## [2026-05-10] phase | Import Commonloom source
+
+Implemented [[plans/phase-1-import-commonloom-package/TASK-003|TASK-003]] by
+copying all upstream Commonloom core modules into local `src/` and adapting
+relative imports for the standalone Node ESM package build.
