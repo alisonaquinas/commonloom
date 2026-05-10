@@ -183,3 +183,9 @@ Implemented [[plans/phase-2-ci-quality-gates/TASK-001|TASK-001]] by updating
 ESLint to use `typescript-eslint` type-checked flat configs with
 `projectService: true` for TypeScript files and no type-aware rules for
 JavaScript config files.
+
+## [2026-05-10] phase | Verify CI quality gate shape
+
+Updated [[plans/phase-2-ci-quality-gates/TASK-002|TASK-002]] after confirming
+the GitHub Actions workflow uses Node.js 24, read-only permissions, npm install,
+and `npm run check` without release or publishing permissions.
