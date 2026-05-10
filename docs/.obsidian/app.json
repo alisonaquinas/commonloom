@@ -1,0 +1,9 @@
+{
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "assets",
+  "newFileFolderPath": "concepts",
+  "newFileLocation": "folder",
+  "promptDelete": false,
+  "showFrontmatter": true,
+  "useMarkdownLinks": false
+}

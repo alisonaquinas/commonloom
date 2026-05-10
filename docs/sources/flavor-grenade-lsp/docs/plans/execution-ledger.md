@@ -1,0 +1,197 @@
+---
+title: Execution Ledger — Phase Status Tracker
+tags: [planning, phases, ledger, status]
+project: flavor-grenade-lsp
+updated: 2026-05-10
+---
+
+# Execution Ledger
+
+This ledger tracks the status of every implementation phase for `flavor-grenade-lsp`. Each phase has a single verifiable gate condition. A phase is **complete** only when its gate passes in CI, not just locally.
+
+---
+
+## Phase Status Table
+
+| Phase | Title                    | Status        | Gate                                               | Started    | Completed |
+|-------|--------------------------|---------------|----------------------------------------------------|------------|-----------|
+| 0     | Documentation Scaffold   | ✅ complete    | All docs/ files written and committed              | 2026-04-16 | 2026-04-17 |
+| 1     | Project Scaffold         | ✅ complete    | `bun run build` exits 0; `bun test` exits 0        | 2026-04-17 | 2026-04-17 |
+| 2     | LSP Transport            | ✅ complete    | `initialize` handshake roundtrip passes            | 2026-04-17 | 2026-04-17 |
+| 3     | OFM Parser               | ✅ complete    | `bun test src/parser/**` all pass; @smoke BDD pass | 2026-04-17 | 2026-04-17 |
+| 4     | Vault Index              | ✅ complete    | `bun test src/vault/**` all pass; vault-detection @smoke pass | 2026-04-17 | 2026-04-17 |
+| 5     | Wiki-Link Resolution     | ✅ complete    | wiki-links.feature all pass; FG001/FG002/FG003 pass | 2026-04-17 | 2026-04-17 |
+| 6     | Tags                     | ✅ complete    | tags.feature all scenarios pass                    | 2026-04-17 | 2026-04-17 |
+| 7     | Embeds                   | ✅ complete    | embeds.feature all scenarios pass                  | 2026-04-17 | 2026-04-17 |
+| 8     | Block References         | ✅ complete    | block-references.feature all scenarios pass        | 2026-04-17 | 2026-04-17 |
+| 9     | Completions              | ✅ complete    | completions.feature all scenarios pass             | 2026-04-17 | 2026-04-17 |
+| 10    | Navigation               | ✅ complete    | navigation.feature all scenarios pass              | 2026-04-17 | 2026-04-17 |
+| 11    | Rename                   | ✅ complete    | rename.feature all scenarios pass                  | 2026-04-17 | 2026-04-17 |
+| 12    | Code Actions             | ✅ complete    | code-actions.feature pass; diagnostics.feature @FG006 pass; workspace-symbol and semantic-token unit tests pass | 2026-04-17 | 2026-04-17 |
+| 13    | CI & Delivery            | ✅ complete    | CI green on all PRs; binary artifacts published    | 2026-04-17 | 2026-04-17 |
+| 14    | Markdown Link Intelligence | ✅ complete | Local standard Markdown links resolve, diagnose, navigate, reference, and rename like OFM heading links | 2026-05-06 | 2026-05-06 |
+| 15    | Attachment Intelligence  | ✅ complete | Attachment refs complete, diagnose, navigate, and hover with vault metadata | 2026-05-06 | 2026-05-06 |
+| 16    | Vault File Operation Refactors | ✅ complete | File/folder moves rewrite local reference forms atomically | 2026-05-06 | 2026-05-06 |
+| 17    | Structural LSP Capabilities | ✅ complete | Document links, folding ranges, and selection ranges reflect OFMarkdown structure | 2026-05-07 | 2026-05-07 |
+| 18    | Security Hardening Audit | 🔄 in-progress | Security audit findings have passing tests, exact pinning, and CI checks | 2026-05-08 | — |
+| R     | Publishing Research      | ✅ complete    | Research report written and committed              | 2026-04-21 | 2026-04-21 |
+| E1    | Extension Scaffold       | ✅ complete    | `npm run build:extension` exits 0; `dist/extension.js` produced | 2026-04-22 | 2026-04-22 |
+| E2    | LanguageClient Core      | ✅ complete    | Extension activates and spawns server in Extension Development Host | 2026-04-22 | 2026-04-22 |
+| E3    | Status Bar & Commands    | ✅ complete    | Commands in palette; status bar reflects server state | 2026-04-22 | 2026-04-22 |
+| E4    | Packaging & Local Test   | ✅ complete    | `vsce package` produces installable VSIX; manual test passes | 2026-04-22 | 2026-04-22 |
+| E5    | CI/CD Pipeline           | ✅ complete    | All 7 platform-specific VSIXs build on tag push    | 2026-04-22 | 2026-04-22 |
+| E6    | OFMarkdown Language Mode | ✅ complete | Dynamic `ofmarkdown` mode for vault/index documents | 2026-05-06 | 2026-05-07 |
+| E7    | Activation Precision And Startup Gating | ✅ complete | Vault-marker activation and generic Markdown idle startup | 2026-05-07 | 2026-05-07 |
+| E8    | Command Bridges And Native Navigation | ✅ complete | Native VS Code references, follow-link, embed, backlink, outlink, and vault commands | 2026-05-07 | 2026-05-07 |
+| E9    | Extension Host Regression Harness | ✅ complete | Extension-host tests cover activation, commands, language mode, status, and failure states | 2026-05-07 | 2026-05-07 |
+| E10   | Status UX And Troubleshooting | ✅ complete | Rich status tooltip, error states, quick actions, and diagnostic collection | 2026-05-07 | 2026-05-07 |
+| E11   | Marketplace Evidence And Packaging Proof | ✅ complete | OFMarkdown visuals are present, referenced, and included in packaged VSIXs | 2026-05-07 | 2026-05-07 |
+| E12   | OFMarkdown Editor Contributions | ✅ complete | Snippets, keybindings, and language configuration are scoped to `ofmarkdown` | 2026-05-07 | 2026-05-07 |
+| E13   | Workspace Environment Modes | ✅ complete | Restricted, virtual, remote, WSL, SSH, and Dev Container behavior is explicit | 2026-05-07 | 2026-05-07 |
+| E14   | Membership Refresh And Compatibility Guardrails | ✅ complete | Language-mode refresh and packaged client/server compatibility checks pass | 2026-05-07 | PR #46 CI green |
+| W1    | Website Foundation And Toolchain | ✅ complete | Website dev, typecheck, lint, test, and build scripts pass from `website/` | 2026-05-09 | PR #51 CI green |
+| W2    | Content Pipeline And SEO Skeleton | ✅ complete | Static pages build with typed routes, metadata, sitemap, robots, and SEO checks | 2026-05-09 | PR #52 CI green |
+| W3    | Homepage And Design System | ✅ complete | Homepage, theme modes, responsive shell, product assets, and footer pass tests and visual smoke checks | 2026-05-09 | PR #53 CI green |
+| W4    | Documentation Pages And LLM Wiki | ✅ complete | Quickstart, how-to, advanced usage, FAQ, and concept wiki pages build and pass content checks | 2026-05-09 | PR #54 CI green |
+| W5    | Website CI And Pages Release | ✅ complete | Website CI and Pages release automation pass PR CI; production release execution was cancelled | 2026-05-09 | PR #55/#56 CI green; release tag cancelled |
+| W6    | Website Review Polish | ✅ complete | Browser-reviewed homepage visual feedback is implemented, tested, and verified on mobile and desktop | 2026-05-09 | PR #58 CI green |
+| W7    | Website Guide Prose And Article Hubs | ✅ complete | How-to, concept, and advanced article pages build with dropdown navigation, linked hub pages, concrete prose, and asset evidence | 2026-05-09 | PR #61 CI green |
+| W8    | Commonloom Content Pipeline | 🔎 in-review | PR #63 is open against `develop` with green CI; Markdown copy, typed manifests, reusable Commonloom compiler, generated TypeScript records, and migration gates replace hand-authored content modules | 2026-05-10 | PR #63 CI green |
+
+---
+
+## Status Key
+
+| Symbol | Meaning |
+|--------|---------|
+| 🔄 in-progress | Work has started; gate not yet passing |
+| ✅ complete | Gate verified passing in CI |
+| ⏳ planned | Work not yet started; prerequisites not met |
+| 🚫 blocked | Blocked by an unresolved dependency or decision |
+| ↩ rolled-back | Gate was failing; phase reverted for rework |
+
+---
+
+## How to Mark a Phase Complete
+
+1. Verify the gate command passes in CI (not just locally):
+
+   ```bash
+   # Example for Phase 3
+   bun test src/parser/**
+   bun run bdd --tags "@smoke"
+   ```
+
+2. Update the row in this table:
+   - Change **Status** from `⏳ planned` / `🔄 in-progress` to `✅ complete`
+   - Set **Completed** to today's date in `YYYY-MM-DD` format
+   - Do NOT modify the **Started** date retroactively
+3. Commit the ledger change with the message:
+
+   ```text
+   chore(ledger): mark Phase N complete — <gate summary>
+   ```
+
+4. Open a PR if the phase was worked on a feature branch. Link the PR number in the table's Notes column (add if needed).
+
+A phase is **not** complete if:
+
+- Gate passes locally but CI is red
+- Gate passes only on one platform (CI runs linux-x64, darwin-arm64, win-x64)
+- BDD scenarios pass but unit tests are skipped
+
+---
+
+## How to Mark a Phase as Started
+
+1. Update **Status** to `🔄 in-progress`
+2. Set **Started** to today's date
+3. Commit:
+
+   ```text
+   chore(ledger): begin Phase N — <title>
+   ```
+
+---
+
+## Responsibility Model
+
+| Task | Responsible Party |
+|------|-------------------|
+| Writing implementation code | AI agent (Claude Code) |
+| Writing test assertions | AI agent (Claude Code) |
+| Verifying gate in CI | Automated CI (GitHub Actions) |
+| Human review of PR | Human reviewer (<alisonaquinas@gmail.com>) |
+| Marking phase complete | AI agent after CI confirms green, human approves |
+| Architectural decisions (ADRs) | Human reviewer, recorded in `docs/adr/` |
+| Rollback decisions | Human reviewer |
+
+The AI agent must NOT mark a phase complete without CI confirmation. The CI gate is authoritative.
+
+---
+
+## Phase Dependencies
+
+```text
+Phase 0 ──► Phase 1 ──► Phase 2 ──► Phase 3 ──► Phase 4
+                                         │              │
+                                         ▼              ▼
+                                      Phase 5 ◄──── Phase 4
+                                         │
+                    ┌────────────────────┼────────────────────┐
+                    ▼                    ▼                    ▼
+                 Phase 6             Phase 7             Phase 8
+                    │                    │                    │
+                    └────────────────────┼────────────────────┘
+                                         ▼
+                                      Phase 9 ──► Phase 10 ──► Phase 11
+                                                                    │
+                                                                 Phase 12 ──► Phase 13
+```
+
+Phases 6, 7, and 8 may proceed in parallel once Phase 5 is complete. Phase 9 requires Phases 6, 7, and 8.
+
+```text
+Extension Phases:
+
+Phase R ──► Phase E1 ──► Phase E2 ──► Phase E3
+                                          │
+                                       Phase E4 ──► Phase E5 ──► Phase E6
+                                                                  │
+                                                                  ▼
+                                      Phase E7 ──► Phase E8 ──► Phase E9
+                                                                  │
+                                                                  ▼
+                                     Phase E10 ─► Phase E11 ─► Phase E12
+                                                                  │
+                                                                  ▼
+                                                Phase E13 ───► Phase E14
+```
+
+Extension phases are independent of the server phases (0–17). Phase R
+(Publishing Research) is the entry point. Phase E7-E14 are the Marksman VSCode
+feature-parity continuation phases for OFMarkdown-specific client behavior.
+
+```text
+Website Phases:
+
+Phase E14 ──► Phase W1 ──► Phase W2 ──► Phase W3 ──► Phase W4 ──► Phase W5 ──► Phase W6 ──► Phase W7 ──► Phase W8
+```
+
+Website phases use `W`-prefixed numbering to distinguish them from server and
+extension implementation tracks. Phase W1 depends on the completed extension
+baseline because the public website documents both the LSP server and VS Code
+extension. Phase W8 depends on W7 because it migrates the existing article hubs
+and public copy into the Commonloom Markdown pipeline.
+
+---
+
+## Notes
+
+- Phase 0 is the only phase that the AI agent can mark complete without CI (it is documentation-only).
+- Phases 1–13 all require CI to be configured (Phase 13 bootstraps CI itself; phases 1–12 use a local gate script in the interim).
+- If CI is not yet running, use `bun run gate:N` scripts defined in `package.json` as interim gates.
+- Extension phases use `E`-prefixed numbering (E1–E14) to distinguish from server phases (0–17). Extension phases do not use the `bun run gate:N` pattern — gates are verified differently (npm scripts, manual smoke tests, CI workflow).
+- Website phases use `W`-prefixed numbering (W1–W8). Their gates are verified
+  with website-local npm scripts, repository docs lint, and GitHub Actions
+  evidence once CI is wired.
