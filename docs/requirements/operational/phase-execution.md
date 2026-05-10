@@ -20,9 +20,8 @@ These requirements adapt the Flavor Grenade phase execution procedure for the
 standalone Commonloom project.
 
 They apply when Commonloom work is organized into explicit implementation
-phases, tickets, or release milestones.
-They do not require this repository to copy Flavor Grenade's exact ticket
-templates before those templates exist locally.
+phases, tickets, or release milestones. Active phase plans and tickets live
+under `docs/plans/`.
 
 | ID | Requirement | Acceptance |
 | --- | --- | --- |
@@ -36,6 +35,10 @@ templates before those templates exist locally.
 | CLR-OPS-087 | CI gate evidence shall be authoritative for phase completion. | Local green checks are not enough; completion requires CI evidence for the phase gate. |
 | CLR-OPS-088 | Every completed phase shall include a retrospective. | The phase record captures what went as planned, deviations, process observations, carry-forward actions, and rule or template changes. |
 | CLR-OPS-089 | Phase process changes shall update this requirements page or a successor process document. | Repeated deviations result in a documented process update rather than tribal knowledge. |
+| CLR-OPS-090 | Each implementation phase shall use the Commonloom phase plan layout. | The phase summary is `docs/plans/<phase-slug>.md`; its tickets and ticket index are in `docs/plans/<phase-slug>/`. |
+| CLR-OPS-091 | Each phase folder shall contain an `index.md` ticket index. | The index lists every phase ticket, title, type, and status, and links back to the top-level phase summary. |
+| CLR-OPS-092 | Roadmap entries shall link to phase summaries, not ticket indexes. | `docs/roadmap.md` links to `docs/plans/<phase-slug>.md`; ticket indexes are linked as supporting material. |
+| CLR-OPS-093 | Phase plan links shall use vault-stable wikilinks. | Links resolve under `npm run lint:docs` with zero Obsidian wikilink errors or warnings. |
 
 ## Commonloom Adaptation Notes
 
@@ -45,8 +48,9 @@ For Commonloom, the same operational shape applies, but concrete commands must
 be replaced with verified package scripts once the standalone package scaffold
 exists.
 
-Until local scripts exist, phase records should say which checks are unavailable
-instead of inventing commands.
+Until local package scripts exist, phase records must say which checks are
+unavailable instead of inventing commands. Documentation checks are already
+available and must run for documentation-only phase work.
 
 ## Evidence
 

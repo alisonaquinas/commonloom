@@ -19,6 +19,9 @@ aliases:
 | CLR-OPS-003 | CI shall fail on TypeScript errors, lint errors, lint warnings, test failures, and build failures. | CI jobs use zero-warning lint and strict typecheck. |
 | CLR-OPS-004 | Generated or disposable outputs shall be reproducible and excluded from source control unless a later ADR changes this. | Generated output checks fail on stale or committed build artifacts. |
 | CLR-OPS-005 | Documentation checks shall verify requirement links and ADR structure where tooling exists. | ADR lint passes for `docs/adr/`; synthesized wikilinks resolve. |
+| CLR-OPS-006 | Pre-commit hooks shall run the available local quality gates for touched work. | Documentation-only commits run `npm run lint:docs`; package commits also run package gates once those scripts exist. |
+| CLR-OPS-007 | Lint warnings are blocking findings, not advisory output. | A commit, PR, or phase gate is not green while any configured lint warning remains. |
+| CLR-OPS-008 | Quality gates shall be fixed by correcting files, not by weakening rules, unless a rule change is approved as its own documented decision. | Rule relaxations require explicit approval and a linked rationale. |
 
 ## Evidence
 

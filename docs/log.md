@@ -93,3 +93,72 @@ Added a GitHub Actions documentation lint workflow on
 [[requirements/operational/release-and-ci|git-flow branches]].
 Configured standard Markdown linting for repository Markdown outside `docs/`
 and Obsidian-aware linting for maintained vault notes under `docs/`.
+
+## [2026-05-10] roadmap | Open Phase 1 import plan
+
+Initialized [[roadmap|Commonloom Roadmap]] with
+[[plans/phase-1-import-commonloom-package|Phase 1]] and
+[[plans/phase-1-import-commonloom-package/index|Phase 1 Tickets]].
+Authored the phase summary and tickets for importing Commonloom source into
+`src/` and Commonloom-relevant tests into `test/`.
+
+## [2026-05-10] plans | Mirror Flavor Grenade phase structure
+
+Moved Phase 1 implementation planning under `docs/plans/` to match the Flavor
+Grenade phase layout: a top-level phase summary plus a same-named ticket folder.
+
+## [2026-05-10] requirements | Clarify operational process rules
+
+Updated operational requirements after opening Phase 1.
+Made `docs/plans/<phase-slug>.md` plus `docs/plans/<phase-slug>/index.md`
+the explicit phase layout, clarified ticket storage and ID rules, and recorded
+that lint warnings are blocking unless a rule change is explicitly approved.
+Clarified that ticket workflow updates may be committed with the work that
+prompted them, but must not remain uncommitted across unrelated work.
+
+## [2026-05-10] phase | Start Phase 1 import
+
+Started [[plans/phase-1-import-commonloom-package|Phase 1]] execution.
+Completed [[plans/phase-1-import-commonloom-package/TASK-001|TASK-001]] by
+recording the upstream Commonloom source inventory, core-test classification,
+adapter-owned test exclusions, and dependency inventory.
+
+## [2026-05-10] phase | Add package scaffold
+
+Implemented [[plans/phase-1-import-commonloom-package/TASK-002|TASK-002]] with
+TypeScript, Vitest, ESLint, build/typecheck/test/lint scripts, package export
+metadata, `src/`, and `test/` scaffolding.
+
+## [2026-05-10] phase | Import Commonloom source
+
+Implemented [[plans/phase-1-import-commonloom-package/TASK-003|TASK-003]] by
+copying all upstream Commonloom core modules into local `src/` and adapting
+relative imports for the standalone Node ESM package build.
+
+## [2026-05-10] phase | Port Commonloom tests
+
+Implemented [[plans/phase-1-import-commonloom-package/TASK-004|TASK-004]] by
+porting the four core Commonloom upstream tests into local `test/` and removing
+the temporary no-test allowance from `npm test`.
+
+## [2026-05-10] phase | Remove website coupling
+
+Implemented [[plans/phase-1-import-commonloom-package/TASK-005|TASK-005]] by
+removing website-root examples from tests and keeping generated file output
+configuration outside the core `CommonloomConfig` surface.
+
+## [2026-05-10] phase | Wire package checks
+
+Implemented [[plans/phase-1-import-commonloom-package/TASK-006|TASK-006]] by
+adding `npm run check`, updating the pre-commit hook, and expanding GitHub
+Actions to run documentation lint, package lint, typecheck, build, and tests on
+Node.js 24.
+
+## [2026-05-10] phase | Phase 1 local closeout
+
+Completed local [[plans/phase-1-import-commonloom-package|Phase 1]] closeout
+through [[plans/phase-1-import-commonloom-package/CHORE-001|CHORE-001]].
+Updated concept, architecture, extraction plan, README, phase summary, roadmap,
+and ticket evidence.
+`npm run check` passes locally with documentation lint, package lint,
+typecheck, build, and 12 Vitest assertions.

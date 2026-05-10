@@ -20,9 +20,8 @@ These requirements adapt the Flavor Grenade ticket templates and lifecycle
 documents for Commonloom task management.
 
 They apply when Commonloom work is tracked as tickets, phases, or release
-milestones.
-They do not require copying the exact upstream template text into active
-Commonloom tickets before a local ticket directory exists.
+milestones. Active tickets live under the owning phase directory in
+`docs/plans/<phase-slug>/`.
 
 | ID | Requirement | Acceptance |
 | --- | --- | --- |
@@ -39,6 +38,12 @@ Commonloom tickets before a local ticket directory exists.
 | CLR-OPS-110 | Ticket frontmatter status shall match the latest workflow state. | Updating workflow log entries includes updating the status field. |
 | CLR-OPS-111 | Blocked tickets shall name their blockers. | Blocked entries link or identify the dependency and resume from prior state when unblocked. |
 | CLR-OPS-112 | Ticket closure shall require verification evidence. | Done or equivalent terminal entries include CI, test, review, or explicit cancellation evidence. |
+| CLR-OPS-113 | Active ticket files shall be stored beside their phase ticket index. | A phase ticket path is `docs/plans/<phase-slug>/<TYPE-NNN>.md`; the index is `docs/plans/<phase-slug>/index.md`. |
+| CLR-OPS-114 | Phase ticket IDs shall be unique inside a phase and unambiguous by type prefix. | A phase may contain `FEAT-001`, `TASK-001`, and `CHORE-001`, but may not contain two `TASK-001` files. Cross-phase references use path-qualified wikilinks. |
+| CLR-OPS-115 | Ticket Markdown shall be lint-clean before commit. | Tickets pass `npm run lint:docs` with zero errors and zero warnings, including no consecutive blank-line warnings. |
+| CLR-OPS-116 | Ticket prose shall include bridge sentences between adjacent lists and headings when required by lint rules. | Authors do not remove blank lines around headings to silence one rule and create another; the rendered note stays readable. |
+| CLR-OPS-117 | Ticket workflow movement shall be committed with the work that caused it. | Any ticket status change, workflow-log entry, blocker update, verification note, or closure evidence is committed in the same commit as the prompting work, or before unrelated follow-on work starts. |
+| CLR-OPS-118 | Ticket history shall not depend on uncommitted working-tree state. | If implementation and ticket updates happen together, one commit may include both; if the ticket update records process state only, it is committed as its own process update. |
 
 ## Commonloom Adaptation Notes
 
@@ -48,9 +53,10 @@ Commonloom should keep the structure and traceability model, but local ticket
 templates must use Commonloom-specific commands, source paths, and package
 scripts after they exist.
 
-Until the standalone repository has active ticket templates, use this page and
-[[requirements/operational/phase-execution|phase-execution]] as the operational
-source of truth for task management.
+Use this page and [[requirements/operational/phase-execution|phase-execution]]
+as the operational source of truth for task management. Upstream Flavor Grenade
+templates are evidence, not executable local templates, until they are imported
+or rewritten for Commonloom.
 
 ## Evidence
 

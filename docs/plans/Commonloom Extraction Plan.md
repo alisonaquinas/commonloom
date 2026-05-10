@@ -4,7 +4,7 @@ tags:
   - commonloom
   - plans
   - extraction
-status: draft
+status: active
 updated: 2026-05-10
 aliases:
   - Phase W8
@@ -30,14 +30,14 @@ W8 moves website copy from hand-maintained TypeScript content modules into:
 
 ## Standalone Extraction Scope
 
-This repository should receive:
+This repository has received:
 
 - Commonloom source modules
 - Commonloom unit tests
 - public API exports
 - package scaffold and build scripts
-- README examples once commands are real
 - extracted architecture and requirements notes from this vault
+- README command examples backed by local scripts
 
 It should not receive Flavor Grenade public copy, Svelte route code, product
 assets, route ids, renderer compatibility facades, or website-specific generated
@@ -58,12 +58,20 @@ module formatting.
 
 ## First Local Milestones
 
-1. Add package scaffold.
-2. Port Commonloom source modules.
-3. Port Commonloom-only tests.
-4. Remove or isolate Flavor Grenade adapter dependencies.
-5. Define the public API surface.
-6. Replace bootstrap README command gaps with verified local commands.
+1. [x] Add package scaffold.
+2. [x] Port Commonloom source modules.
+3. [x] Port Commonloom-only tests.
+4. [x] Remove or isolate Flavor Grenade adapter dependencies.
+5. [x] Define the current public API surface.
+6. [x] Replace bootstrap README command gaps with verified local commands.
+
+## Current Local Evidence
+
+- `src/` contains the imported Commonloom core modules.
+- `test/` contains the ported core Commonloom behavior tests.
+- `npm run check` runs docs lint, package lint, typecheck, build, and tests.
+- Generated TypeScript output remains adapter-owned per
+  [[adr/0003-keep-generated-typescript-adapter-owned|ADR 0003]].
 
 ## Evidence
 
