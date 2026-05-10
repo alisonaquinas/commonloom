@@ -31,6 +31,7 @@ the Flavor Grenade website content pipeline into this standalone repository.
 | [[bdd/index|Commonloom BDD]] | Actors and Cucumber-style behavior specifications. |
 | [[roadmap|Commonloom Roadmap]] | Implementation phases and active tickets. |
 | [[Commonloom Extraction Plan]] | W8 migration and extraction plan summary. |
+| [[phase-2-ci-quality-gates|Phase 2 CI Quality Gates]] | Draft Phase 2 plan for strict TypeScript linting and full unit test CI runs. |
 | [[sources/index|Source Imports]] | Catalog of imported upstream source files. |
 | [[log]] | Chronological vault maintenance record. |
 
