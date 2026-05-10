@@ -78,3 +78,11 @@ Added [[ddd/index|Commonloom DDD]] notes for domains, bounded contexts,
 ubiquitous language, context map, and tactical model.
 Grounded the model in the adapter-neutral ADRs, architecture boundary, and
 requirements surface.
+
+## [2026-05-10] bdd | Document Commonloom behavior examples
+
+Added [[bdd/index|Commonloom BDD]] notes for actors, scenario catalog, and
+Cucumber-style feature specifications.
+Mapped content authoring, adapter integration, compilation safety, diagnostics,
+source traces, documentation governance, tickets, phase gates, CI, and release
+publishing behaviors back to the requirements surface.

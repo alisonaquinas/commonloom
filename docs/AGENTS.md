@@ -16,6 +16,7 @@ docs/
 ├── concepts/         # Entity and concept notes
 ├── architecture/     # Architecture synthesis notes
 ├── ddd/              # Domain model, boundaries, and ubiquitous language
+├── bdd/              # Actors and Cucumber-style behavior specifications
 ├── requirements/     # User, functional, technical, and operational requirements
 ├── plans/            # Planning and migration synthesis notes
 └── sources/          # Immutable source imports
@@ -64,6 +65,7 @@ Use these local conventions:
 | `concepts/` | Core vocabulary, entities, and reusable ideas. |
 | `architecture/` | System boundaries, flows, and module responsibility. |
 | `ddd/` | Domain model, bounded contexts, context map, and ubiquitous language. |
+| `bdd/` | Actor model, scenario catalog, and Cucumber-style behavior specifications. |
 | `requirements/` | User, functional, technical, and operational requirements. |
 | `plans/` | Migration, roadmap, and execution synthesis. |
 | `sources/` | Imported upstream Markdown kept as evidence. |
@@ -114,4 +116,5 @@ Use these local conventions:
 - [[adr|ADR Index]]
 - [[Commonloom]]
 - [[ddd/index|Commonloom DDD]]
+- [[bdd/index|Commonloom BDD]]
 - [../AGENTS.md](../AGENTS.md) - repo-wide instructions
