@@ -86,3 +86,10 @@ Cucumber-style feature specifications.
 Mapped content authoring, adapter integration, compilation safety, diagnostics,
 source traces, documentation governance, tickets, phase gates, CI, and release
 publishing behaviors back to the requirements surface.
+
+## [2026-05-10] plans | Draft Phase 2 CI quality gates
+
+Added [[phase-2-ci-quality-gates]] to specify strict TypeScript linting and
+full unit test execution in CI.
+Updated the extraction plan and operational requirements to keep CD and package
+publishing reserved for a later phase.

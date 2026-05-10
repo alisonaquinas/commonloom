@@ -65,6 +65,18 @@ module formatting.
 5. Define the public API surface.
 6. Replace bootstrap README command gaps with verified local commands.
 
+## Local Phase Plan
+
+| Phase | Focus | Status |
+| --- | --- | --- |
+| Phase 1 | package scaffold, source port, unit test library, and strict TypeScript baseline | planned |
+| [[phase-2-ci-quality-gates|Phase 2]] | strict TypeScript linting and full unit test runs in CI | draft |
+| Later phase | CD, release automation, and package publishing | reserved |
+
+Phase 2 is intentionally validation-only.
+It wires lint, typecheck where available, and complete unit test execution into
+CI without creating release, deployment, or publish jobs.
+
 ## Evidence
 
 - [[sources/flavor-grenade-lsp/docs/plans/phase-W8-commonloom-content-pipeline|Phase W8 plan]]
