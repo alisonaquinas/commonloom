@@ -20,6 +20,15 @@ renamed.
 
 ## Workflows
 
+### Branch Naming
+
+- Use the repository git-flow names from `docs/requirements/operational/release-and-ci.md`.
+- Long-lived branches are `main` and `develop`.
+- Supporting branches must use `feature/<short-description>`,
+  `release/<version>`, or `hotfix/<short-description>`.
+- Do not create `codex/*` branches in this repository, even if external agent
+  defaults suggest that prefix.
+
 ### Updating Project Documentation
 
 1. Read the current file and any linked source evidence first.
