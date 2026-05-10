@@ -71,3 +71,10 @@ Imported the Flavor Grenade ticket template directory and adapted its template
 and lifecycle rules into [[task-management]].
 Recorded requirements for typed tickets, stable IDs, trace links, red-green
 task lifecycle, append-only workflow logs, blockers, and closure evidence.
+
+## [2026-05-10] ddd | Document Commonloom domain model
+
+Added [[ddd/index|Commonloom DDD]] notes for domains, bounded contexts,
+ubiquitous language, context map, and tactical model.
+Grounded the model in the adapter-neutral ADRs, architecture boundary, and
+requirements surface.

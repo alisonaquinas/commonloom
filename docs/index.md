@@ -27,6 +27,7 @@ the Flavor Grenade website content pipeline into this standalone repository.
 | [[Commonloom Architecture]] | Reusable core boundary, adapter boundary, and data flow. |
 | [[Commonloom Requirements]] | User, functional, technical, and operational requirements. |
 | [[adr|Commonloom ADRs]] | MADR-backed decisions and rejected alternatives. |
+| [[ddd/index|Commonloom DDD]] | Domains, bounded contexts, ubiquitous language, and tactical model. |
 | [[Commonloom Extraction Plan]] | W8 migration and extraction plan summary. |
 | [[sources/index|Source Imports]] | Catalog of imported upstream source files. |
 | [[log]] | Chronological vault maintenance record. |

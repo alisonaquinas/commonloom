@@ -15,6 +15,7 @@ docs/
 ├── adr/              # MADR-style architecture decision records
 ├── concepts/         # Entity and concept notes
 ├── architecture/     # Architecture synthesis notes
+├── ddd/              # Domain model, boundaries, and ubiquitous language
 ├── requirements/     # User, functional, technical, and operational requirements
 ├── plans/            # Planning and migration synthesis notes
 └── sources/          # Immutable source imports
@@ -62,6 +63,7 @@ Use these local conventions:
 | `adr/` | MADR-style architecture decision records and decision index. |
 | `concepts/` | Core vocabulary, entities, and reusable ideas. |
 | `architecture/` | System boundaries, flows, and module responsibility. |
+| `ddd/` | Domain model, bounded contexts, context map, and ubiquitous language. |
 | `requirements/` | User, functional, technical, and operational requirements. |
 | `plans/` | Migration, roadmap, and execution synthesis. |
 | `sources/` | Imported upstream Markdown kept as evidence. |
@@ -111,4 +113,5 @@ Use these local conventions:
 - [[sources/index|Source Imports]]
 - [[adr|ADR Index]]
 - [[Commonloom]]
+- [[ddd/index|Commonloom DDD]]
 - [../AGENTS.md](../AGENTS.md) - repo-wide instructions
