@@ -185,4 +185,4 @@ Phase 5 does not mark the phase complete until remote CI evidence is captured.
 > Phase 5 remediation tickets TASK-005 through TASK-013 and TASK-016 through
 > TASK-022 were implemented. `npm run check` passed locally with zero lint
 > warnings, successful traceability/process verification, typecheck, build, and
-> 29 Vitest tests.
+> the then-current 29 Vitest tests.

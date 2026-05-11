@@ -75,7 +75,7 @@ passes.
   CLR-OPS-093.
 - 2026-05-11: Phase 5 remediation local `npm run check` passed with
   documentation lint, traceability and plan-process verification, typecheck,
-  build, and 29 tests. Remote CI evidence remains pending.
+  build, and the then-current 29 tests. Remote CI evidence remains pending.
 - 2026-05-11: Auditor confirmation pass requested from the four original
   Phase 5 auditors. Code quality and security auditors confirmed the main
   fixes and logged follow-up hardening recommendations in the owning tickets.
