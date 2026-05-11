@@ -5,7 +5,7 @@ tags:
   - plans
   - phase-5
   - audits
-status: active
+status: done
 updated: 2026-05-11
 aliases:
   - Phase 5
@@ -16,7 +16,8 @@ aliases:
 
 Phase 5 began with independent audits of Commonloom's code quality, security
 posture, documentation, and requirements evidence, then executed the resulting
-remediation tickets on `feature/phase-5-hardening`.
+remediation tickets on `feature/phase-5-hardening`. PR 12 merged the completed
+work into `develop` after GitHub Actions passed.
 
 ## Objective
 
@@ -38,7 +39,8 @@ Phase 5 includes:
   [[requirements/operational/phase-execution|Phase Execution]]
 - implementation of the remediation tickets owned by this phase
 
-Phase 5 does not mark the phase complete until remote CI evidence is captured.
+Phase 5 is complete. Remote CI evidence was captured from PR 12 before the
+phase was marked done.
 
 ## Work Items
 
@@ -136,10 +138,10 @@ Phase 5 does not mark the phase complete until remote CI evidence is captured.
 | CLR-OPS-082 | [[plans/phase-5-audit-driven-hardening/CHORE-003|CHORE-003]] | Ticket statuses are explicit in the Phase 5 index and ticket frontmatter. |
 | CLR-OPS-083 | [[plans/phase-5-audit-driven-hardening/CHORE-004|CHORE-004]] | Tests were added for behavior-changing remediation and the local quality gate passed. |
 | CLR-OPS-084 | [[plans/phase-5-audit-driven-hardening/CHORE-005|CHORE-005]] | Audit findings are ticketed before remediation starts. |
-| CLR-OPS-085 | [[plans/phase-5-audit-driven-hardening/CHORE-001|CHORE-001]] | Closeout remains active while non-terminal tickets exist. |
+| CLR-OPS-085 | [[plans/phase-5-audit-driven-hardening/CHORE-001|CHORE-001]] | Closeout completed after every child ticket reached `done`. |
 | CLR-OPS-086 | [[plans/phase-5-audit-driven-hardening/CHORE-006|CHORE-006]] | Fixed gate order ran through local lint, verification, typecheck, build, and tests. |
-| CLR-OPS-087 | [[plans/phase-5-audit-driven-hardening/CHORE-007|CHORE-007]] | CI evidence remains planned before completion. |
-| CLR-OPS-088 | [[plans/phase-5-audit-driven-hardening/CHORE-008|CHORE-008]] | Local retrospective is recorded; remote CI evidence remains the closeout dependency. |
+| CLR-OPS-087 | [[plans/phase-5-audit-driven-hardening/CHORE-007|CHORE-007]] | PR 12 CI evidence was captured before completion. |
+| CLR-OPS-088 | [[plans/phase-5-audit-driven-hardening/CHORE-008|CHORE-008]] | Local retrospective is recorded and remote CI evidence closed the phase. |
 | CLR-OPS-089 | [[plans/phase-5-audit-driven-hardening/CHORE-009|CHORE-009]] | Process updates were made for release documentation, frontmatter policy, phase metadata, format checks, and traceability ranges. |
 | CLR-OPS-090 | [[plans/phase-5-audit-driven-hardening/CHORE-010|CHORE-010]] | Phase summary and ticket folder layout exist. |
 | CLR-OPS-091 | [[plans/phase-5-audit-driven-hardening/CHORE-010|CHORE-010]] | Phase ticket index exists and lists all tickets. |
@@ -156,13 +158,19 @@ Phase 5 does not mark the phase complete until remote CI evidence is captured.
 - [x] Every audit finding is linked to an owner ticket.
 - [x] Phase execution operational requirements have owner chores.
 - [x] Local validation passes.
-- [ ] Remote CI evidence is captured.
+- [x] Remote CI evidence is captured.
 
 ## Evidence
 
 - [[audits/index|Commonloom Audits]]
 - [[requirements/operational/phase-execution|Phase Execution]]
 - [[requirements/operational/task-management|Task Management]]
+- PR 12:
+  <https://github.com/alisonaquinas/commonloom/pull/12>
+- PR 12 CI:
+  <https://github.com/alisonaquinas/commonloom/actions/runs/25677350830/job/75378949859>
+- PR 12 CI:
+  <https://github.com/alisonaquinas/commonloom/actions/runs/25677369183/job/75379014454>
 
 ## Workflow Log
 
@@ -186,3 +194,11 @@ Phase 5 does not mark the phase complete until remote CI evidence is captured.
 > TASK-022 were implemented. `npm run check` passed locally with zero lint
 > warnings, successful traceability/process verification, typecheck, build, and
 > the then-current 29 Vitest tests.
+
+> [!SUCCESS] Remote CI closeout · 2026-05-11
+> PR 12 merged `feature/phase-5-hardening` into `develop` at
+> `6baf2d379b3a97f364bbfeebb6aaff4023f30b7a`. The Commonloom quality and test
+> battery passed in GitHub Actions jobs
+> <https://github.com/alisonaquinas/commonloom/actions/runs/25677350830/job/75378949859>
+> and
+> <https://github.com/alisonaquinas/commonloom/actions/runs/25677369183/job/75379014454>.

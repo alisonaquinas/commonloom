@@ -2,7 +2,7 @@
 id: CHORE-001
 title: Phase 5 Audit Closeout
 type: chore
-status: active
+status: done
 priority: high
 phase: 5
 parent: FEAT-001
@@ -84,3 +84,5 @@ passes.
 - 2026-05-11: Remaining local follow-up findings were fixed and
   `npm run check` passed with documentation lint, traceability and
   plan-process verification, typecheck, build, and 30 tests.
+- 2026-05-11: PR 12 merged after GitHub Actions passed. Phase 5 closeout
+  evidence is recorded in the phase plan. Status set to done.

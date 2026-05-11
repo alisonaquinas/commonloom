@@ -22,6 +22,11 @@ publishing.
 > package owner has reported trusted publishing is configured; the next release
 > workflow run validates the end-to-end OIDC path.
 
+> [!INFO] Current Release Candidate
+> `release/0.1.0` prepares `commonloom@0.1.0` for merge to `main`. Create the
+> `v0.1.0` tag only after the release branch is merged and the tag can point at
+> the current head of `main`.
+
 ## Release Boundary
 
 Production npm publishing shall:
@@ -81,14 +86,16 @@ Normal releases happen through a version tag that points at the current head of
 
 1. Prepare the release through the git-flow `release/<version>` branch.
 2. Confirm `package.json` version matches the planned tag.
-3. Merge the release branch to `main`.
-4. Create a tag named `vX.Y.Z` or `vX.Y.Z-prerelease` on the current head of
+3. Confirm `CHANGELOG.md`, root docs, and durable vault docs describe the
+   release accurately.
+4. Merge the release branch to `main`.
+5. Create a tag named `vX.Y.Z` or `vX.Y.Z-prerelease` on the current head of
    `main`.
-5. Push the tag.
-6. Confirm `.github/workflows/npm-publish.yml` completes the dry-run job.
-7. Approve the protected `npm` environment when the publish should proceed.
-8. Confirm the package version appears on npm.
-9. Record GitHub Actions and npm evidence in the phase or release ticket.
+6. Push the tag.
+7. Confirm `.github/workflows/npm-publish.yml` completes the dry-run job.
+8. Approve the protected `npm` environment when the publish should proceed.
+9. Confirm the package version appears on npm.
+10. Record GitHub Actions and npm evidence in the phase or release ticket.
 
 The release workflow rejects production publishing when the tag name does not
 match the package version or the tag commit is not exactly the current

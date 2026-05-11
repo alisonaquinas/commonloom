@@ -2,7 +2,7 @@
 id: CHORE-007
 title: CI Evidence Control
 type: chore
-status: planned
+status: done
 priority: high
 phase: 5
 parent: FEAT-001
@@ -37,3 +37,6 @@ Capture authoritative GitHub Actions evidence before Phase 5 completion.
 ## Workflow Log
 
 - 2026-05-11: Planned before PR/CI evidence exists.
+- 2026-05-11: PR 12 merged into `develop` at
+  `6baf2d379b3a97f364bbfeebb6aaff4023f30b7a` after both Commonloom quality and
+  test battery GitHub Actions jobs passed. Status set to done.

@@ -77,8 +77,9 @@ Then read:
 4. [`docs/roadmap.md`](../docs/roadmap.md)
 
 > [!NOTE]
-> Commonloom is pre-release. The current public API is intentionally visible
-> and tested, but not yet promised as stable.
+> Commonloom is preparing `commonloom@0.1.0` as its first standalone release.
+> The current public API is tested and visible, but the package remains on the
+> `0.x` line until a future `1.0.0` stability commitment.
 
 [ci-badge]: https://img.shields.io/github/actions/workflow/status/alisonaquinas/commonloom/documentation-lint.yml?branch=develop&label=quality%20battery
 [ci-workflow]: https://github.com/alisonaquinas/commonloom/actions/workflows/documentation-lint.yml

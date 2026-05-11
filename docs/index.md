@@ -38,7 +38,7 @@ the Flavor Grenade website content pipeline into this standalone repository.
 | [[phase-2-ci-quality-gates|Phase 2 CI Quality Gates]] | Completed Phase 2 plan for strict TypeScript linting and full package CI checks. |
 | [[phase-3-close-testing-gaps|Phase 3 Close Testing Gaps]] | Completed Phase 3 work closing the first requirements test matrix gaps. |
 | [[phase-4-npm-trusted-publishing|Phase 4 npm Trusted Publishing]] | Active release automation and npm OIDC trusted publishing work. |
-| [[phase-5-audit-driven-hardening|Phase 5 Audit Driven Hardening]] | Active audit-driven hardening discovery. |
+| [[phase-5-audit-driven-hardening|Phase 5 Audit Driven Hardening]] | Completed audit-driven hardening and closeout evidence. |
 | [[sources/index|Source Imports]] | Catalog of imported upstream source files. |
 | [[log]] | Chronological vault maintenance record. |
 
@@ -53,10 +53,10 @@ components, product copy, and generated website module formatting.
 
 ## Open Questions
 
-- Which prototype APIs become stable public exports?
-- Which adapter examples should be documented before the first standalone
-  release?
-- How much exact source-position data is required for first standalone release?
+- Which adapter examples should follow `commonloom@0.1.0` without moving
+  adapter behavior into core?
+- Which `0.x` API refinements should be reserved for a future `1.0.0`
+  stability commitment?
 
 ## Source Hubs
 

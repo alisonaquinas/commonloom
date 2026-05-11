@@ -1,7 +1,7 @@
 # Contributing
 
-Commonloom has imported its initial source and tests, but it is still
-pre-release. Keep changes small, evidence-based, and tied to the standalone
+Commonloom has imported its initial source and tests and is on the `0.x`
+release line. Keep changes small, evidence-based, and tied to the standalone
 package boundary.
 
 ## Source of Truth
