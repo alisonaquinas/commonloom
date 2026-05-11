@@ -187,6 +187,13 @@ Required Phase 4 gate:
 > Local dry-runs are useful preflight checks only. Phase 4 release dry-run
 > evidence must come from GitHub Actions workflow output.
 
+> [!SUCCESS] PR CI evidence · 2026-05-11
+> PR 10 GitHub Actions passed for commit `2afbd03`:
+> <https://github.com/alisonaquinas/commonloom/actions/runs/25670022163/job/75352512283>.
+> The job includes the package tarball dry-run and CI-safe npm publish dry-run
+> steps. Manual release workflow dispatch is unavailable until
+> `.github/workflows/npm-publish.yml` is present on the default branch.
+
 > [!SUCCESS] Bootstrap and trusted publisher setup · 2026-05-11
 > `npm view commonloom version dist-tags --json` confirms `commonloom@0.0.0`
 > exists with `latest` set to `0.0.0`. The package owner reported npm trusted

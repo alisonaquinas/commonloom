@@ -346,6 +346,11 @@ Added `npm run publish:dry-run:ci` so CI can dry-run npm publish mechanics with
 a temporary prerelease version after `0.0.0` already exists on npm.
 Clarified that release dry-run evidence for Phase 4 must come from GitHub
 Actions workflow output; local dry-runs are preflight checks only.
+Opened PR 10 and captured passing GitHub Actions PR CI evidence:
+<https://github.com/alisonaquinas/commonloom/actions/runs/25670022163/job/75352512283>.
+GitHub returned 404 when dispatching `npm-publish.yml` from the feature branch
+because new workflow dispatches require the workflow to exist on the default
+branch first.
 
 ## [2026-05-11] assets | Add Commonloom documentation assets
 

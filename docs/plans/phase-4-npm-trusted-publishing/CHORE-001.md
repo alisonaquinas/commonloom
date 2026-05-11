@@ -69,3 +69,10 @@ the requirements matrix is updated, and CI has passed for the branch.
   with user-reported trusted publisher setup. Closeout is active pending local
   quality-gate verification, branch push, and GitHub Actions CI/release dry-run
   evidence.
+- 2026-05-11: GitHub Actions PR CI evidence captured for PR 10:
+  <https://github.com/alisonaquinas/commonloom/actions/runs/25670022163/job/75352512283>.
+  The job passed lint, verification, typecheck, build, package tarball dry-run,
+  CI-safe npm publish dry-run, unit tests, integration tests, and E2E tests.
+  GitHub reports `npm-publish.yml` cannot be manually dispatched until the
+  workflow file exists on the default branch, so release dry-run evidence
+  remains pending after merge.
