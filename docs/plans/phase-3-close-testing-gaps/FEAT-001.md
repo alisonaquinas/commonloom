@@ -2,7 +2,7 @@
 id: FEAT-001
 title: Close Testing Gaps
 type: feature
-status: in-review
+status: done
 priority: high
 phase: 3
 created: 2026-05-10
@@ -75,3 +75,5 @@ Acceptance closes only after remote CI evidence is captured.
   Status set to active.
 - 2026-05-11: All implementation task tickets are done and local `npm run
   check` passes. Status set to in-review pending Phase 3 PR CI evidence.
+- 2026-05-11: Recorded passing GitHub Actions evidence for PR 7 and confirmed
+  all Phase 3 child tickets are terminal. Status set to done.

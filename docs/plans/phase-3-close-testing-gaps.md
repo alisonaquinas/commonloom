@@ -6,7 +6,7 @@ tags:
   - phase-3
   - tests
   - quality
-status: in-review
+status: done
 updated: 2026-05-11
 aliases:
   - Phase 3
@@ -117,7 +117,7 @@ with a clear blocker or deferral instead of silently marking it covered.
   practical.
 - [x] Requirements matrix status is updated after each ticket.
 - [x] `npm run check` passes locally.
-- [ ] Remote CI evidence is captured before phase completion.
+- [x] Remote CI evidence is captured before phase completion.
 
 ## Evidence
 
@@ -167,3 +167,8 @@ with a clear blocker or deferral instead of silently marking it covered.
 > CHORE-001 recorded local closeout evidence. `npm run check` passes locally
 > with documentation lint, traceability/process verification, typecheck, build,
 > and 25 Vitest tests. Phase 3 is in review pending remote CI evidence.
+
+> [!SUCCESS] Remote closeout · 2026-05-11
+> GitHub Actions passed for PR 7:
+> <https://github.com/alisonaquinas/commonloom/actions/runs/25644560315/job/75270860243>.
+> Phase 3 is done.
