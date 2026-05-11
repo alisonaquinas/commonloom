@@ -13,7 +13,8 @@ aliases:
 # Commonloom Unit Tests
 
 Unit tests are the active executable behavior suite for Commonloom.
-They run through Vitest with `npm test`.
+They run through Vitest with `npm run test:unit` and through the full
+`npm run test:battery` gate.
 
 ## Current Definition
 
@@ -37,7 +38,7 @@ media validation.
 ## Local Gate
 
 ```bash
-npm test
+npm run test:unit
 ```
 
 The current unit battery contains five Vitest files and twenty-three tests.

@@ -33,10 +33,11 @@ Current integration coverage:
 ## Command
 
 ```bash
-npm test -- content-pipeline-integration.test.ts
+npm run test:integration
 ```
 
-The integration file also runs through `npm test` and `npm run check`.
+The integration file also runs through `npm run test:battery`, `npm test`, and
+`npm run check`.
 
 ## Remaining Gaps
 

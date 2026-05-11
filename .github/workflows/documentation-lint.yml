@@ -19,7 +19,7 @@ permissions:
 
 jobs:
   checks:
-    name: Documentation and package checks
+    name: Commonloom quality and test battery
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -41,5 +41,23 @@ jobs:
       - name: Install dependencies
         run: npm ci --ignore-scripts
 
-      - name: Run Commonloom checks
-        run: npm run check
+      - name: Run lint
+        run: npm run lint
+
+      - name: Run verification checks
+        run: npm run verify
+
+      - name: Run typecheck
+        run: npm run typecheck
+
+      - name: Run build
+        run: npm run build
+
+      - name: Run unit tests
+        run: npm run test:unit
+
+      - name: Run integration tests
+        run: npm run test:integration
+
+      - name: Run end-to-end tests
+        run: npm run test:e2e

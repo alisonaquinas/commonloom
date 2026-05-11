@@ -27,7 +27,7 @@ npm run check
 It expands to:
 
 ```bash
-npm run lint && npm run verify && npm run typecheck && npm run build && npm test
+npm run lint && npm run verify && npm run typecheck && npm run build && npm run test:battery
 ```
 
 ## Included Checks
@@ -41,7 +41,9 @@ npm run lint && npm run verify && npm run typecheck && npm run build && npm test
 | Static and process verification | `npm run verify` | Adapter-neutral source imports, disallowed core dependencies, exact dependency versions, generated output tracking, requirements traceability, BDD requirement links, and phase/ticket process rules. |
 | Typecheck | `npm run typecheck` | TypeScript project check with no emit. |
 | Build | `npm run build` | Distributable TypeScript build. |
-| Unit, integration, and E2E tests | `npm test` | Seven Vitest files, twenty-five tests. |
+| Unit tests | `npm run test:unit` | Five Vitest files, twenty-three tests. |
+| Integration tests | `npm run test:integration` | Public compiler integration flow. |
+| E2E tests | `npm run test:e2e` | Fixture content tree compiled into adapter-visible records. |
 
 `npm run verify` expands to:
 
@@ -52,7 +54,9 @@ node scripts/verify-boundaries.mjs && node scripts/verify-traceability.mjs && no
 ## CI Shape
 
 The GitHub Actions verification job uses Node.js 24, installs with
-`npm ci --ignore-scripts`, and runs `npm run check`.
+`npm ci --ignore-scripts`, and runs lint, verification, typecheck, build, unit,
+integration, and E2E steps explicitly. The step sequence mirrors
+`npm run check`.
 
 The workflow is validation-only. It does not publish, release, deploy, or grant
 npm trusted-publishing permissions.

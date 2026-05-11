@@ -94,6 +94,10 @@ npm run lint:docs
 npm run verify
 npm run typecheck
 npm run build
+npm run test:battery
+npm run test:unit
+npm run test:integration
+npm run test:e2e
 npm test
 ```
 

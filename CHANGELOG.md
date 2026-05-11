@@ -33,11 +33,15 @@ start once the package is ready for npm publication.
   in `npm run check`.
 - Added requirements traceability, BDD requirement-link, and phase/ticket
   process verification to `npm run verify`.
+- Added typed unit, integration, E2E, and aggregate test-battery npm scripts
+  and wired them into CI as explicit steps.
 
 ### Changed
 
 - Updated root documentation to describe the imported package, current quality
   gate, and pre-release API status.
+- Updated CI documentation so the test battery is described by category instead
+  of only by the catch-all Vitest command.
 
 ### Fixed
 

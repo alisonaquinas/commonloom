@@ -284,3 +284,11 @@ passed for PR 7:
 Updated root and vault documentation after Phase 3 completion so status,
 quality-gate, test-battery, and phase-ledger claims reflect the current branch.
 Reconciled Phase 1 from in-review to done using later passing PR 7 CI evidence.
+
+## [2026-05-11] ci | Wire typed test battery into CI
+
+Added `npm run test:unit`, `npm run test:integration`, `npm run test:e2e`, and
+`npm run test:battery`.
+Updated GitHub Actions to run lint, verification, typecheck, build, unit,
+integration, and E2E steps explicitly while preserving `npm run check` as the
+matching local gate.

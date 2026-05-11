@@ -35,13 +35,17 @@ tests.
 
 | Command | Type | What It Proves |
 | --- | --- | --- |
-| `npm test` | [[tests/unit/index|Unit]], [[tests/integration/index|Integration]], [[tests/e2e/index|E2E]] | Runs seven Vitest files with twenty-five assertions over current package behavior. |
+| `npm run test:battery` | [[tests/unit/index|Unit]], [[tests/integration/index|Integration]], [[tests/e2e/index|E2E]] | Runs the typed unit, integration, and E2E Vitest commands used by CI. |
+| `npm run test:unit` | [[tests/unit/index|Unit]] | Runs five Vitest files with twenty-three assertions over module and helper behavior. |
+| `npm run test:integration` | [[tests/integration/index|Integration]] | Runs the public compiler integration flow. |
+| `npm run test:e2e` | [[tests/e2e/index|E2E]] | Runs the fixture content tree through adapter-visible compiled records. |
+| `npm test` | [[tests/unit/index|Unit]], [[tests/integration/index|Integration]], [[tests/e2e/index|E2E]] | Runs every Vitest file without category filtering. |
 | `npm run lint:docs` | [[tests/verification/index|Verification]] | Checks root Markdown, Obsidian vault Markdown, and MADR ADR shape. |
 | `npm run lint` | [[tests/verification/index|Verification]] | Runs documentation linting and TypeScript ESLint with warnings blocked. |
 | `npm run verify` | [[tests/verification/index|Verification]] | Runs static boundary, dependency, generated-output, traceability, and phase/ticket process checks. |
 | `npm run typecheck` | [[tests/verification/index|Verification]] | Confirms TypeScript contracts typecheck without emitting output. |
 | `npm run build` | [[tests/verification/index|Verification]] | Confirms the distributable TypeScript build compiles. |
-| `npm run check` | [[tests/verification/index|Verification]] | Runs the full local and CI quality gate. |
+| `npm run check` | [[tests/verification/index|Verification]] | Runs the full local quality gate and mirrors the CI step sequence. |
 
 ## Traceability
 

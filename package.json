@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
-    "check": "npm run lint && npm run verify && npm run typecheck && npm run build && npm test",
+    "check": "npm run lint && npm run verify && npm run typecheck && npm run build && npm run test:battery",
     "hooks:install": "git config core.hooksPath .githooks",
     "lint": "npm run lint:docs && eslint --max-warnings 0 --no-error-on-unmatched-pattern \"src/**/*.ts\" \"test/**/*.ts\" \"*.config.js\" \"*.config.ts\"",
     "lint:docs": "npm run lint:docs:markdown && npm run lint:docs:obsidian && npm run lint:docs:adr",
@@ -28,6 +28,10 @@
     "lint:docs:obsidian": "node scripts/lint-obsidian-docs.mjs",
     "precommit": "npm run check",
     "test": "vitest run",
+    "test:battery": "npm run test:unit && npm run test:integration && npm run test:e2e",
+    "test:e2e": "vitest run content-pipeline-e2e.test.ts",
+    "test:integration": "vitest run content-pipeline-integration.test.ts",
+    "test:unit": "vitest run content-pipeline-core.test.ts content-pipeline-markdown.test.ts content-pipeline-html.test.ts content-pipeline-links-media.test.ts content-pipeline-security.test.ts",
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "verify": "node scripts/verify-boundaries.mjs && node scripts/verify-traceability.mjs && node scripts/verify-plan-process.mjs"
   },

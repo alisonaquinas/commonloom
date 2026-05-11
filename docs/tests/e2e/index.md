@@ -31,10 +31,11 @@ Current E2E coverage:
 ## Command
 
 ```bash
-npm test -- content-pipeline-e2e.test.ts
+npm run test:e2e
 ```
 
-The E2E file also runs through `npm test` and `npm run check`.
+The E2E file also runs through `npm run test:battery`, `npm test`, and
+`npm run check`.
 
 ## Remaining Gap
 

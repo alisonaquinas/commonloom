@@ -53,12 +53,12 @@ verification battery.
 | SEC-002 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `does not pollute object prototypes from hostile frontmatter keys` |
 | SEC-003 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `handles long wiki-link shaped input without runaway parsing` |
 | SEC-004 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `rejects symlinked media that resolves outside the approved root` |
-| VER-CHECK | Verification | `npm run check` runs docs lint, TypeScript lint, verification scripts, typecheck, build, and the full Vitest battery. |
+| VER-CHECK | Verification | `npm run check` runs docs lint, TypeScript lint, verification scripts, typecheck, build, and `npm run test:battery`. |
 | VER-BOUNDARY | Verification | [verify-boundaries.mjs](../../scripts/verify-boundaries.mjs) checks source boundaries, disallowed dependencies, exact dependency versions, and tracked generated outputs. |
 | VER-TRACE | Verification | [verify-traceability.mjs](../../scripts/verify-traceability.mjs) checks requirements matrix completeness, duplicate matrix rows, stale requirement IDs, and BDD requirement links. |
 | VER-PROCESS | Verification | [verify-plan-process.mjs](../../scripts/verify-plan-process.mjs) checks phase ticket metadata, ticket indexes, ID uniqueness, terminal status evidence, and done-phase ticket closure. |
 | VER-DOCS | Verification | `npm run lint:docs` runs root Markdown, Obsidian, and ADR lint. |
-| VER-CI | Verification | `.github/workflows/documentation-lint.yml` runs Node.js 24, `npm ci --ignore-scripts`, and `npm run check`. |
+| VER-CI | Verification | `.github/workflows/documentation-lint.yml` runs Node.js 24, `npm ci --ignore-scripts`, lint, verification, typecheck, build, unit, integration, and E2E test steps. |
 | DOC-PHASE | Documentation | Phase and ticket records under [[plans/phase-1-import-commonloom-package]], [[plans/phase-2-ci-quality-gates]], and [[plans/phase-3-close-testing-gaps]]. |
 
 ## User Requirements

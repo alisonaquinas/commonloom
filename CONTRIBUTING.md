@@ -44,12 +44,16 @@ npm run lint
 npm run verify
 npm run typecheck
 npm run build
+npm run test:battery
+npm run test:unit
+npm run test:integration
+npm run test:e2e
 npm test
 ```
 
 `npm run check` is the required local and CI quality gate. It runs
 documentation linting, TypeScript linting, static verification, typecheck,
-build, and Vitest.
+build, and the unit, integration, and end-to-end Vitest battery.
 
 The current validation gate is check-only. Do not add release, deployment,
 package publishing, or npm trusted-publishing jobs unless a later phase
