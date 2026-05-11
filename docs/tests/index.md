@@ -47,6 +47,9 @@ The [[tests/requirements-matrix|Requirements Test Matrix]] maps every current
 Commonloom requirement to existing unit tests, verification gates, partial
 coverage, or an explicit test gap.
 
+[[plans/phase-3-close-testing-gaps|Phase 3]] is the planned roadmap phase for
+closing the current matrix gaps.
+
 ## Vitest Inventory
 
 | File | Primary Type | Current Coverage |

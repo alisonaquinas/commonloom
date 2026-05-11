@@ -33,6 +33,7 @@ the Flavor Grenade website content pipeline into this standalone repository.
 | [[roadmap|Commonloom Roadmap]] | Implementation phases and active tickets. |
 | [[Commonloom Extraction Plan]] | W8 migration and extraction plan summary. |
 | [[phase-2-ci-quality-gates|Phase 2 CI Quality Gates]] | Completed Phase 2 plan for strict TypeScript linting and full unit test CI runs. |
+| [[phase-3-close-testing-gaps|Phase 3 Close Testing Gaps]] | Planned Phase 3 work to close requirements test matrix gaps. |
 | [[sources/index|Source Imports]] | Catalog of imported upstream source files. |
 | [[log]] | Chronological vault maintenance record. |
 

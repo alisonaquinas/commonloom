@@ -223,3 +223,10 @@ end-to-end, and validation suites as explicit gaps.
 Added [[tests/requirements-matrix|Requirements Test Matrix]] to map current
 user, functional, technical, and operational requirements to unit-test evidence,
 verification gates, partial coverage, or explicit gaps.
+
+## [2026-05-10] roadmap | Draft Phase 3 testing gap closure
+
+Added [[plans/phase-3-close-testing-gaps|Phase 3]] and
+[[plans/phase-3-close-testing-gaps/index|Phase 3 Tickets]] to close the current
+unit, integration, end-to-end, verification, and validation gaps documented in
+the requirements test matrix.

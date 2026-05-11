@@ -26,6 +26,7 @@ start once the package is ready for npm publication.
   validation taxonomy for the current test battery.
 - Added a requirements-to-tests matrix that records covered, partial, verified,
   and untested requirements.
+- Added Phase 3 roadmap and tickets for closing documented testing gaps.
 
 ### Changed
 

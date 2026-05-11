@@ -208,9 +208,13 @@ Clear untested areas:
 - automated process checks for phase order, ticket schemas, ticket status/log
   agreement, ticket ID uniqueness, and source-evidence completeness
 
+[[plans/phase-3-close-testing-gaps|Phase 3]] contains the planned tickets for
+closing or explicitly deferring these gaps.
+
 ## See Also
 
 - [[tests/index|Commonloom Test Battery]]
+- [[plans/phase-3-close-testing-gaps|Phase 3 Close Testing Gaps]]
 - [[tests/unit/index|Unit Tests]]
 - [[tests/verification/index|Verification]]
 - [[tests/validation/index|Validation]]
