@@ -155,3 +155,8 @@ Required Phase 4 gate:
 > [!SUCCESS] Publication metadata audit · 2026-05-11
 > TASK-001 confirmed the npm package name is not currently published and added
 > public package metadata required before npm dry-run validation.
+
+> [!SUCCESS] Package dry-runs · 2026-05-11
+> TASK-002 passed `npm pack --dry-run` and `npm publish --dry-run` for
+> `commonloom@0.0.0`. The publish set is limited to package metadata, root
+> public docs, and built `dist/` files.

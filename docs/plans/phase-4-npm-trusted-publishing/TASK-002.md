@@ -2,7 +2,7 @@
 id: TASK-002
 title: Validate Package Dry Runs
 type: task
-status: active
+status: done
 priority: high
 phase: 4
 parent: FEAT-001
@@ -57,3 +57,8 @@ Prove the npm package contents with dry-run commands before any real publish.
 - 2026-05-11: Opened in planned status.
 - 2026-05-11: Started package dry-run validation after TASK-001 metadata audit.
   Status set to active.
+- 2026-05-11: `npm pack --dry-run` and `npm publish --dry-run` passed for
+  `commonloom@0.0.0`. Dry-run package contents are limited to
+  `CHANGELOG.md`, `LICENSE.md`, `README.md`, `package.json`, and built
+  `dist/` files. The tarball is 20.9 kB packed, 76.3 kB unpacked, with 52
+  total files. Status set to done.

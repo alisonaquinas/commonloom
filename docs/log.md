@@ -312,6 +312,13 @@ Completed [[plans/phase-4-npm-trusted-publishing/TASK-001|TASK-001]] by
 checking that `commonloom` is not currently published on npm and adding public
 package metadata for release dry-runs.
 
+## [2026-05-11] phase | Validate Phase 4 npm dry-runs
+
+Completed [[plans/phase-4-npm-trusted-publishing/TASK-002|TASK-002]] after
+`npm pack --dry-run` and `npm publish --dry-run` passed for `commonloom@0.0.0`.
+The dry-run package contains only root public docs, package metadata, and
+`dist/` files.
+
 ## [2026-05-11] assets | Add Commonloom documentation assets
 
 Added Commonloom logo, icon, and source PNG assets under [[assets/index]].
