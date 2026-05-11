@@ -51,6 +51,7 @@
     "pack:dry-run": "npm pack --dry-run",
     "precommit": "npm run check",
     "publish:dry-run": "npm publish --dry-run",
+    "publish:dry-run:ci": "node scripts/npm-ci-publish-dry-run.mjs",
     "release:check": "node scripts/verify-release-tag.mjs",
     "test": "vitest run",
     "test:battery": "npm run test:unit && npm run test:integration && npm run test:e2e",

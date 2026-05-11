@@ -65,8 +65,8 @@ Phase 1 imported the Commonloom package source and tests. Phase 2 added the
 local and CI quality gate. Phase 3 expanded unit coverage, added integration
 and end-to-end compiler tests, and added static verification for boundaries,
 traceability, and phase/ticket process rules. Phase 4 is adding npm release
-automation; manual bootstrap publishing is still blocked until an npm package
-owner authenticates and publishes the initial `0.0.0` package.
+automation. The initial `0.0.0` npm package exists, and trusted publishing is
+ready for validation through the GitHub Actions release workflow.
 
 Use Node.js 24 or newer.
 
@@ -98,6 +98,7 @@ npm run typecheck
 npm run build
 npm run pack:dry-run
 npm run publish:dry-run
+npm run publish:dry-run:ci
 npm run test:battery
 npm run test:unit
 npm run test:integration

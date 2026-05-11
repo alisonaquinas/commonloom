@@ -2,7 +2,7 @@
 id: CHORE-001
 title: Phase 4 Evidence And Closeout
 type: chore
-status: blocked
+status: active
 priority: high
 phase: 4
 parent: FEAT-001
@@ -39,12 +39,13 @@ the requirements matrix is updated, and CI has passed for the branch.
 - update [[roadmap|Commonloom Roadmap]]
 - append [[log|Vault Log]]
 - record local `npm run check` evidence
-- record release dry-run or test-tag evidence
+- record GitHub Actions release dry-run or test-tag evidence
 - record remote CI evidence
 
 ## Acceptance
 
-- Phase 4 plan includes final local, release-dry-run, and remote evidence.
+- Phase 4 plan includes final local quality-gate evidence plus GitHub Actions
+  CI and release-dry-run evidence.
 - Release/publish requirement gaps are updated.
 - No npm token secret is introduced.
 - Production publishing uses npm trusted publishing.
@@ -55,7 +56,7 @@ the requirements matrix is updated, and CI has passed for the branch.
 - `npm run lint:docs`
 - `npm run check`
 - GitHub Actions run for the Phase 4 PR
-- release workflow dry-run or test-tag run
+- GitHub Actions release workflow dry-run or test-tag run
 
 ## Workflow Log
 
@@ -64,3 +65,7 @@ the requirements matrix is updated, and CI has passed for the branch.
   matrix updates are implemented, but closeout remains blocked until
   TASK-003/TASK-004 receive npm owner evidence and remote CI/release dry-run
   evidence is captured. Status set to blocked.
+- 2026-05-11: TASK-003 is done with npm registry evidence and TASK-004 is done
+  with user-reported trusted publisher setup. Closeout is active pending local
+  quality-gate verification, branch push, and GitHub Actions CI/release dry-run
+  evidence.

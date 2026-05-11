@@ -336,6 +336,17 @@ Implemented the nonblocked Phase 4 release automation work by adding
 The workflow runs release dry-runs without publishing and limits OIDC publish
 permissions to version-tag jobs after the dry-run gate passes.
 
+## [2026-05-11] phase | Tighten Phase 4 release gates
+
+Confirmed `commonloom@0.0.0` exists on npm with `latest` set to `0.0.0`.
+Recorded user-reported npm trusted publishing setup, added package dry-run
+steps to the main CI workflow, and tightened the release guard so publish tags
+must point at the exact `origin/main` head.
+Added `npm run publish:dry-run:ci` so CI can dry-run npm publish mechanics with
+a temporary prerelease version after `0.0.0` already exists on npm.
+Clarified that release dry-run evidence for Phase 4 must come from GitHub
+Actions workflow output; local dry-runs are preflight checks only.
+
 ## [2026-05-11] assets | Add Commonloom documentation assets
 
 Added Commonloom logo, icon, and source PNG assets under [[assets/index]].

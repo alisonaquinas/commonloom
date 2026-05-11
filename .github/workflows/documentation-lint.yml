@@ -53,6 +53,12 @@ jobs:
       - name: Run build
         run: npm run build
 
+      - name: Validate package tarball
+        run: npm run pack:dry-run
+
+      - name: Validate npm publish payload
+        run: npm run publish:dry-run:ci
+
       - name: Run unit tests
         run: npm run test:unit
 

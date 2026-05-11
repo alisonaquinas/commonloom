@@ -17,16 +17,16 @@ aliases:
 Commonloom publishes to npm through GitHub Actions and npm OIDC trusted
 publishing.
 
-> [!WARNING] Bootstrap Blocker
-> The package owner must still authenticate to npm and manually publish
-> `commonloom@0.0.0` once. Trusted publisher setup cannot be completed until
-> the npm package exists.
+> [!NOTE] Bootstrap Status
+> `commonloom@0.0.0` exists on npm with `latest` pointing to `0.0.0`. The
+> package owner has reported trusted publishing is configured; the next release
+> workflow run validates the end-to-end OIDC path.
 
 ## Release Boundary
 
 Production npm publishing shall:
 
-- run from a version tag on `main`
+- run from a version tag that points at the current head of `main`
 - use Node.js 24
 - rebuild from source at the tag commit
 - run `npm run check`
@@ -72,12 +72,14 @@ Record the setup evidence in
 
 ## Production Release
 
-Normal releases happen through a version tag on `main`.
+Normal releases happen through a version tag that points at the current head of
+`main`.
 
 1. Prepare the release through the git-flow `release/<version>` branch.
 2. Confirm `package.json` version matches the planned tag.
 3. Merge the release branch to `main`.
-4. Create a tag named `vX.Y.Z` or `vX.Y.Z-prerelease`.
+4. Create a tag named `vX.Y.Z` or `vX.Y.Z-prerelease` on the current head of
+   `main`.
 5. Push the tag.
 6. Confirm `.github/workflows/npm-publish.yml` completes the dry-run job.
 7. Approve the protected `npm` environment when the publish should proceed.
@@ -85,24 +87,34 @@ Normal releases happen through a version tag on `main`.
 9. Record GitHub Actions and npm evidence in the phase or release ticket.
 
 The release workflow rejects production publishing when the tag name does not
-match the package version or the tag commit is not reachable from `main`.
+match the package version or the tag commit is not exactly the current
+`origin/main` head.
 
 ## Dry-Run Validation
 
-Maintainers can run the release validation path without publishing by starting
-the `npm Trusted Publishing` workflow with `workflow_dispatch`.
+Authoritative dry-run evidence comes from GitHub Actions, not a local
+workstation. Maintainers validate release machinery without publishing by
+starting the `npm Trusted Publishing` workflow with `workflow_dispatch`.
 
 The dry-run job installs dependencies, runs `npm run check`, validates the
-package tarball, and runs `npm publish --dry-run`. The publish job is disabled
-for `workflow_dispatch`, so this path cannot publish a production artifact.
+package tarball, and runs `npm run publish:dry-run:ci`. That CI script
+temporarily uses a unique prerelease version so dry-runs still work after the
+current package version already exists on npm. The publish job is disabled for
+`workflow_dispatch`, so this path cannot publish a production artifact.
 
-Local dry-run validation uses:
+Local dry-run commands are useful preflight checks only:
 
 ```bash
 npm run check
 npm run pack:dry-run
 npm run publish:dry-run
+npm run publish:dry-run:ci
 ```
+
+Use `npm run publish:dry-run` when validating a not-yet-published release
+version. Use `npm run publish:dry-run:ci` when validating publish mechanics
+without depending on the current `package.json` version being unpublished.
+Do not treat local command output as Phase 4 closeout evidence.
 
 ## Failure Response
 

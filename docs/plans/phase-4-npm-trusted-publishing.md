@@ -21,8 +21,9 @@ Phase 4 establishes Commonloom release and npm publishing automation using
 GitHub Actions and npm OIDC trusted publishing.
 
 This phase has implemented the release workflow, package dry-runs, release
-guardrails, and operator runbook. Manual bootstrap publishing and npm trusted
-publisher setup remain blocked on authenticated npm package owner action.
+guardrails, and operator runbook. The manual bootstrap package now exists on
+npm, and npm trusted publisher setup is user-reported configured. Final closeout
+still needs remote CI and release dry-run evidence.
 
 ## Objective
 
@@ -40,8 +41,8 @@ Phase 4 includes:
 - npm trusted publisher authorization for the GitHub Actions release workflow
 - a release workflow that uses Node.js 24, `id-token: write`, npm registry
   setup, and OIDC trusted publishing
-- tag and release guardrails so production publishes come from version tags on
-  `main`
+- tag and release guardrails so production publishes come from version tags
+  that point at the current head of `main`
 - test-tag or dry-run release validation that exercises packaging without
   publishing production artifacts
 - release operator documentation
@@ -83,7 +84,7 @@ checkout action also needs `contents: read`.
 | P4-003 | Perform manual bootstrap publish. | A package owner manually publishes `0.0.0` from the verified commit and records npm package URL, dist-tag, and command evidence. |
 | P4-004 | Configure npm trusted publisher. | npm is configured to trust the exact GitHub repository, workflow file, and protected environment that will publish Commonloom. |
 | P4-005 | Add release workflow. | GitHub Actions publishes on approved version tags or releases using Node.js 24, `contents: read`, `id-token: write`, npm registry setup, and no npm token. |
-| P4-006 | Add release guardrails. | Workflow verifies tag ancestry from `main`, package version/tag agreement, full quality battery, and protected environment approval before publish. |
+| P4-006 | Add release guardrails. | Workflow verifies the tag commit equals the current head of `main`, package version/tag agreement, full quality battery, and protected environment approval before publish. |
 | P4-007 | Add test-tag or dry-run release validation. | A safe non-production path exercises packaging and workflow guardrails without publishing production artifacts. |
 | P4-008 | Document release operations. | Maintainers have a release runbook covering manual bootstrap, trusted publisher setup, release execution, rollback/deprecation, and evidence capture. |
 | P4-009 | Update traceability and closeout evidence. | Requirements matrix, roadmap, phase tickets, and vault log reflect release and publishing coverage after local and remote CI pass. |
@@ -111,22 +112,25 @@ Required Phase 4 gate:
 4. Perform the manual `0.0.0` bootstrap publish only from a verified commit.
 5. Configure npm trusted publishing for the exact workflow before enabling
    automated production publishing.
-6. Run release workflow dry-run or test-tag validation.
-7. Record local and remote CI evidence before closing the phase.
+6. Run GitHub Actions release workflow dry-run or test-tag validation.
+7. Record local quality-gate evidence and GitHub Actions CI evidence before
+   closing the phase.
 
 ## Acceptance Criteria
 
 - [ ] Package metadata is ready for public npm publication.
-- [ ] Manual `0.0.0` bootstrap publish evidence is recorded.
-- [ ] npm trusted publisher authorization is configured without long-lived npm
+- [x] Manual `0.0.0` bootstrap publish evidence is recorded.
+- [x] npm trusted publisher authorization is configured without long-lived npm
   tokens.
 - [x] Release workflow uses Node.js 24 and least-privilege permissions.
 - [x] Release workflow is gated by the full Commonloom quality battery.
-- [x] Production publishes are limited to approved version tags on `main`.
+- [x] Production publishes are limited to approved version tags at the head of
+  `main`.
 - [x] Test-tag or dry-run release validation exists.
 - [x] Release operator runbook is documented.
 - [x] Requirements matrix release and publishing gaps are updated.
-- [ ] Remote CI evidence is captured before phase completion.
+- [ ] GitHub Actions CI and release dry-run evidence is captured before phase
+  completion.
 
 ## Evidence
 
@@ -171,5 +175,20 @@ Required Phase 4 gate:
 > [!SUCCESS] Release automation · 2026-05-11
 > TASK-005 through TASK-008 added the npm trusted publishing workflow,
 > release-tag guardrails, package dry-run scripts, release runbook, and
-> requirements matrix updates. CHORE-001 remains blocked on npm owner and
-> remote evidence.
+> requirements matrix updates. At that point CHORE-001 still needed npm owner
+> and remote evidence.
+
+> [!SUCCESS] CI publish dry-run guard · 2026-05-11
+> The main CI workflow now runs `npm run pack:dry-run` and
+> `npm run publish:dry-run:ci`. The release guard now requires version tags to
+> point at the exact `origin/main` head before publishing.
+
+> [!INFO] Evidence boundary · 2026-05-11
+> Local dry-runs are useful preflight checks only. Phase 4 release dry-run
+> evidence must come from GitHub Actions workflow output.
+
+> [!SUCCESS] Bootstrap and trusted publisher setup · 2026-05-11
+> `npm view commonloom version dist-tags --json` confirms `commonloom@0.0.0`
+> exists with `latest` set to `0.0.0`. The package owner reported npm trusted
+> publishing has been configured. CHORE-001 is active pending local verification
+> and remote CI/release dry-run evidence.

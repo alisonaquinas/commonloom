@@ -58,10 +58,10 @@ verification battery.
 | VER-TRACE | Verification | [verify-traceability.mjs](../../scripts/verify-traceability.mjs) checks requirements matrix completeness, duplicate matrix rows, stale requirement IDs, and BDD requirement links. |
 | VER-PROCESS | Verification | [verify-plan-process.mjs](../../scripts/verify-plan-process.mjs) checks phase ticket metadata, ticket indexes, ID uniqueness, terminal status evidence, and done-phase ticket closure. |
 | VER-DOCS | Verification | `npm run lint:docs` runs root Markdown, Obsidian, and ADR lint. |
-| VER-CI | Verification | `.github/workflows/documentation-lint.yml` runs Node.js 24, `npm ci --ignore-scripts`, lint, verification, typecheck, build, unit, integration, and E2E test steps. |
+| VER-CI | Verification | `.github/workflows/documentation-lint.yml` runs Node.js 24, `npm ci --ignore-scripts`, lint, verification, typecheck, build, package dry-runs, unit, integration, and E2E test steps. |
 | REL-WORKFLOW | Verification | `.github/workflows/npm-publish.yml` runs Node.js 24 release dry-runs and reserves OIDC publish permissions for version-tag publish jobs. |
-| REL-GUARD | Verification | [verify-release-tag.mjs](../../scripts/verify-release-tag.mjs) checks tag shape, package-version agreement, and `origin/main` ancestry before publish. |
-| REL-DRYRUN | Verification | `npm run pack:dry-run` and `npm run publish:dry-run` validate package contents and the npm publish payload. |
+| REL-GUARD | Verification | [verify-release-tag.mjs](../../scripts/verify-release-tag.mjs) checks tag shape, package-version agreement, and exact `origin/main` head agreement before publish. |
+| REL-DRYRUN | Verification | `npm run pack:dry-run`, `npm run publish:dry-run`, and `npm run publish:dry-run:ci` validate package contents and the npm publish payload. |
 | DOC-PHASE | Documentation | Phase and ticket records under [[plans/phase-1-import-commonloom-package]], [[plans/phase-2-ci-quality-gates]], and [[plans/phase-3-close-testing-gaps]]. |
 
 ## User Requirements
@@ -164,22 +164,22 @@ verification battery.
 | CLR-OPS-025 | VER-DOCS | Partial | Layout prose is manual; Obsidian lint catches links only. |
 | CLR-OPS-026 | VER-DOCS, DOC-PHASE | Partial | Log entry completeness is manual. |
 | CLR-OPS-027 | VER-DOCS, VER-TRACE | Covered | None for current wikilink and BDD requirement-link resolution. |
-| CLR-OPS-040 | REL-WORKFLOW, REL-GUARD | Partial | Workflow and guard script are present; remote version-tag evidence is pending. |
+| CLR-OPS-040 | REL-WORKFLOW, REL-GUARD | Partial | Workflow and guard script require release tags to point at `origin/main` head; remote version-tag evidence is pending. |
 | CLR-OPS-041 | REL-WORKFLOW, REL-DRYRUN | Partial | Workflow rebuilds from source and dry-runs package contents; production tag evidence is pending. |
 | CLR-OPS-042 | VER-CI | Covered | Current workflow has no path filters and runs full checks. |
-| CLR-OPS-043 | VER-CI, REL-WORKFLOW | Partial | Validation and release workflows use scoped permissions; npm trusted publisher setup remains blocked. |
+| CLR-OPS-043 | VER-CI, REL-WORKFLOW | Partial | Validation and release workflows use scoped permissions; remote trusted-publisher workflow evidence is pending. |
 | CLR-OPS-044 | REL-WORKFLOW, REL-DRYRUN | Partial | `workflow_dispatch` and local dry-run commands exist; remote dry-run evidence is pending. |
 | CLR-OPS-045 | VER-CI | Covered | Current workflow uses Node.js 24. |
-| CLR-OPS-046 | REL-WORKFLOW | Partial | OIDC workflow exists without npm tokens; manual bootstrap and npm trusted publisher setup remain blocked. |
+| CLR-OPS-046 | REL-WORKFLOW | Partial | OIDC workflow exists without npm tokens, bootstrap package exists, and trusted publisher setup is user-reported; remote workflow evidence is pending. |
 | CLR-OPS-047 | VER-CI, DOC-PHASE | Partial | CI runs git-flow branches; no branch-name enforcement hook exists. |
 | CLR-OPS-048 | VER-CI, DOC-PHASE | Covered | Current CI has no publish, release, or deployment step. |
 | CLR-OPS-060 | VER-BOUNDARY | Covered | Dependencies use exact package versions and are checked by `npm run verify`. |
 | CLR-OPS-061 | VER-CI | Covered | CI uses `npm ci --ignore-scripts`. |
 | CLR-OPS-062 | VER-CI | Covered | CI uses `npm ci --ignore-scripts`. |
 | CLR-OPS-063 | Gap | Gap | No advisory-review test or workflow exists. |
-| CLR-OPS-064 | REL-WORKFLOW | Partial | Workflow is ready for npm trusted publishing; npm trusted publisher setup remains blocked. |
+| CLR-OPS-064 | REL-WORKFLOW | Partial | Workflow is ready for npm trusted publishing and setup is user-reported; remote workflow evidence is pending. |
 | CLR-OPS-065 | REL-DRYRUN | Partial | Package dry-runs verify contents; published provenance evidence waits on real release. |
-| CLR-OPS-066 | REL-WORKFLOW | Partial | Publish workflow uses trusted-publishing shape; npm-side provenance setup remains blocked. |
+| CLR-OPS-066 | REL-WORKFLOW | Partial | Publish workflow uses trusted-publishing shape; npm-side provenance evidence is pending the first trusted publish. |
 | CLR-OPS-080 | DOC-PHASE | Partial | Process requirement is documented; no automated phase-order check exists. |
 | CLR-OPS-081 | DOC-PHASE | Partial | Ownership is manual in phase records. |
 | CLR-OPS-082 | VER-PROCESS, DOC-PHASE | Partial | Ticket metadata is schema-checked; lifecycle order remains reviewer judgment. |

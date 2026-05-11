@@ -16,7 +16,7 @@ aliases:
 
 | ID | Requirement | Acceptance |
 | --- | --- | --- |
-| CLR-OPS-040 | Production releases shall be created from version tags whose commits are on `main`. | Release workflow verifies tag ancestry before publishing. |
+| CLR-OPS-040 | Production releases shall be created only from version tags that point at the current head of `main`. | Release workflow verifies the tag commit equals `origin/main` before publishing. |
 | CLR-OPS-041 | Release jobs shall rebuild from source at the tag commit. | Published artifacts are produced in CI, not copied from a workstation. |
 | CLR-OPS-042 | Pull requests shall run the checks relevant to changed package, docs, and generated-output behavior. | CI path filters, if used, cannot skip required checks for changed artifacts. |
 | CLR-OPS-043 | Release workflows shall use least-privilege permissions. | Publish permissions are scoped per job and protected environment. |

@@ -2,7 +2,7 @@
 id: TASK-004
 title: Configure npm Trusted Publisher
 type: task
-status: blocked
+status: done
 priority: high
 phase: 4
 parent: FEAT-001
@@ -59,3 +59,6 @@ Commonloom.
 - 2026-05-11: Opened in planned status.
 - 2026-05-11: Trusted publisher setup is blocked until TASK-003 creates the
   npm package with the manual `0.0.0` bootstrap publish. Status set to blocked.
+- 2026-05-11: User reported npm trusted publishing is configured for the
+  Commonloom package. The next GitHub Actions publish or dry-run evidence will
+  validate the end-to-end OIDC path. Status set to done.

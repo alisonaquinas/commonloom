@@ -28,18 +28,28 @@ try {
   execFileSync('git', ['fetch', 'origin', 'main', '--quiet'], {
     stdio: 'inherit',
   });
-  execFileSync('git', ['merge-base', '--is-ancestor', 'HEAD', 'origin/main'], {
-    stdio: 'inherit',
-  });
+  const headSha = readGit(['rev-parse', 'HEAD']);
+  const mainSha = readGit(['rev-parse', 'origin/main^{commit}']);
+
+  if (headSha !== mainSha) {
+    fail('tag commit is not the current origin/main head.');
+  }
 } catch {
-  fail('tag commit is not reachable from origin/main.');
+  fail('could not verify tag commit against origin/main.');
 }
 
 console.log(
-  `Release tag ${refName} matches package version ${version} and is reachable from origin/main.`,
+  `Release tag ${refName} matches package version ${version} and points at origin/main head.`,
 );
 
 function fail(message) {
   console.error(`Release tag verification failed: ${message}`);
   process.exit(1);
+}
+
+function readGit(args) {
+  return execFileSync('git', args, {
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'inherit'],
+  }).trim();
 }

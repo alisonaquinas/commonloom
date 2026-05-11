@@ -46,6 +46,7 @@ npm run typecheck
 npm run build
 npm run pack:dry-run
 npm run publish:dry-run
+npm run publish:dry-run:ci
 npm run test:battery
 npm run test:unit
 npm run test:integration

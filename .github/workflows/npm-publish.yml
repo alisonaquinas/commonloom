@@ -42,7 +42,12 @@ jobs:
       - name: Validate package tarball
         run: npm run pack:dry-run
 
-      - name: Validate npm publish payload
+      - name: Validate npm publish payload for manual dry run
+        if: github.event_name == 'workflow_dispatch'
+        run: npm run publish:dry-run:ci
+
+      - name: Validate npm publish payload for release tag
+        if: github.event_name != 'workflow_dispatch'
         run: npm run publish:dry-run
 
   publish:

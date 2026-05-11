@@ -20,13 +20,13 @@ updated: 2026-05-11
 | [[plans/phase-4-npm-trusted-publishing/FEAT-001|FEAT-001]] | Establish npm Trusted Publishing | Feature | `active` |
 | [[plans/phase-4-npm-trusted-publishing/TASK-001|TASK-001]] | Audit Package Publication Readiness | Task | `done` |
 | [[plans/phase-4-npm-trusted-publishing/TASK-002|TASK-002]] | Validate Package Dry Runs | Task | `done` |
-| [[plans/phase-4-npm-trusted-publishing/TASK-003|TASK-003]] | Coordinate Manual Bootstrap Publish | Task | `blocked` |
-| [[plans/phase-4-npm-trusted-publishing/TASK-004|TASK-004]] | Configure npm Trusted Publisher | Task | `blocked` |
+| [[plans/phase-4-npm-trusted-publishing/TASK-003|TASK-003]] | Coordinate Manual Bootstrap Publish | Task | `done` |
+| [[plans/phase-4-npm-trusted-publishing/TASK-004|TASK-004]] | Configure npm Trusted Publisher | Task | `done` |
 | [[plans/phase-4-npm-trusted-publishing/TASK-005|TASK-005]] | Add OIDC Release Workflow | Task | `done` |
 | [[plans/phase-4-npm-trusted-publishing/TASK-006|TASK-006]] | Add Release Guardrails | Task | `done` |
 | [[plans/phase-4-npm-trusted-publishing/TASK-007|TASK-007]] | Add Test Tag Dry Run Path | Task | `done` |
 | [[plans/phase-4-npm-trusted-publishing/TASK-008|TASK-008]] | Document Release Operations | Task | `done` |
-| [[plans/phase-4-npm-trusted-publishing/CHORE-001|CHORE-001]] | Phase 4 Evidence And Closeout | Chore | `blocked` |
+| [[plans/phase-4-npm-trusted-publishing/CHORE-001|CHORE-001]] | Phase 4 Evidence And Closeout | Chore | `active` |
 
 ## Phase Summary
 

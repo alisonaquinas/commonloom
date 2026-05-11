@@ -2,7 +2,7 @@
 id: TASK-003
 title: Coordinate Manual Bootstrap Publish
 type: task
-status: blocked
+status: done
 priority: high
 phase: 4
 parent: FEAT-001
@@ -65,3 +65,6 @@ This task is intentionally manual. It must not create a long-lived npm token.
   authenticated to npm. Manual bootstrap publishing is blocked until a package
   owner authenticates and explicitly authorizes `npm publish` for
   `commonloom@0.0.0`. Status set to blocked.
+- 2026-05-11: `npm view commonloom version dist-tags --json` confirms
+  `commonloom@0.0.0` exists on npm and `latest` points to `0.0.0`.
+  Status set to done.

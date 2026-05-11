@@ -51,6 +51,10 @@ start once the package is ready for npm publication.
   publishing workflow that uses Node.js 24 and GitHub Actions OIDC.
 - Added release operations documentation for manual bootstrap publishing,
   trusted publisher setup, dry runs, and production releases.
+- Added package dry-run validation to the CI workflow and tightened release
+  tag validation so publishing only runs for tags at the current `main` head.
+- Added a CI-safe npm publish dry-run script that uses a temporary prerelease
+  version after `commonloom@0.0.0` has been published.
 
 ### Fixed
 

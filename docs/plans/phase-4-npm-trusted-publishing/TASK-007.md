@@ -44,8 +44,7 @@ production npm package.
 ## Verification
 
 - GitHub Actions dry-run or test-tag run
-- `npm pack --dry-run`
-- `npm publish --dry-run`
+- local `npm pack --dry-run` and publish dry-run commands as preflight only
 
 ## Linked Requirements
 
@@ -58,3 +57,11 @@ production npm package.
 - 2026-05-11: Added `npm run pack:dry-run`, `npm run publish:dry-run`, and a
   `workflow_dispatch` release dry-run path that cannot enter the publish job.
   Status set to done.
+- 2026-05-11: Added package tarball and npm publish payload dry-run steps to
+  the main CI workflow so pull requests and git-flow branch pushes validate
+  publishability before release tagging.
+- 2026-05-11: Added `npm run publish:dry-run:ci` so CI can validate npm
+  publish mechanics with a temporary prerelease version after
+  `commonloom@0.0.0` already exists on npm.
+- 2026-05-11: Clarified that Phase 4 dry-run evidence must come from GitHub
+  Actions workflow output. Local dry-runs are preflight checks only.
