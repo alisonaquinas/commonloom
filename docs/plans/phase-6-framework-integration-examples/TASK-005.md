@@ -2,7 +2,7 @@
 id: TASK-005
 title: Build Svelte Example
 type: task
-status: planned
+status: done
 priority: medium
 phase: 6
 parent: FEAT-001
@@ -62,3 +62,7 @@ content and style substrate.
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 6 acceptance criteria.
+- 2026-05-11: Started Svelte example implementation. Status set to active.
+- 2026-05-11: Added `examples/svelte/` with a Vite Svelte app, shared
+  Commonloom content generation, shared SCSS import, shared asset usage, and
+  local dev/build/preview instructions. Status set to done.

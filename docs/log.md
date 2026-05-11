@@ -477,3 +477,10 @@ Completed
 [[plans/phase-6-framework-integration-examples/TASK-004|TASK-004]] by adding a
 Vue and Vite example that uses the same generated Commonloom content, shared
 SCSS, shared assets, and dev/build/preview command shape as the React example.
+
+## [2026-05-11] phase | Add Phase 6 Svelte example
+
+Completed
+[[plans/phase-6-framework-integration-examples/TASK-005|TASK-005]] by adding a
+Svelte and Vite example that renders the shared Commonloom output with the same
+content, SCSS, assets, and dev/build/preview command shape.
