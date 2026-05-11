@@ -10,6 +10,9 @@ Commonloom follows a `0.x` release line while the standalone public API settles.
   covering React, Vue, Svelte, Next.js, Angular, and Node.
 - Closed Phase 4 release documentation with `v0.1.0` trusted-publishing
   evidence.
+- Tightened Phase 6 plan review findings for Node styling parity, Angular
+  production preview instructions, lifecycle status definitions, and ticket
+  traceability.
 
 ## [0.1.0] - 2026-05-11
 

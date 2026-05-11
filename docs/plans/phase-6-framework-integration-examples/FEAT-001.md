@@ -40,6 +40,30 @@ from multiple TypeScript ecosystems without framework-specific coupling.
 - Local validation passes before PR.
 - Remote CI evidence is recorded before phase completion.
 
+## Linked Requirements
+
+- CLR-USER-010
+- CLR-USER-012
+- CLR-USER-013
+- CLR-USER-014
+- CLR-TECH-001
+- CLR-TECH-003
+- CLR-TECH-004
+- CLR-FUNC-080
+- CLR-FUNC-081
+- CLR-FUNC-082
+- CLR-OPS-082
+- CLR-OPS-103
+
+## Evidence
+
+- [[adr/0001-keep-commonloom-adapter-neutral|ADR 0001]]
+- [[adr/0003-keep-generated-typescript-adapter-owned|ADR 0003]]
+- [[Commonloom Architecture]]
+- [[requirements/user/adapter-development|Adapter Development]]
+- [[requirements/technical/library-boundary|Library Boundary]]
+- [[requirements/functional/adapter-output-contract|Adapter Output Contract]]
+
 ## Child Tickets
 
 - [[plans/phase-6-framework-integration-examples/TASK-001|TASK-001]]

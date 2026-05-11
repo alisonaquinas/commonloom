@@ -44,6 +44,23 @@ conventions before framework-specific examples are implemented.
   production preview or run behavior.
 - The strategy does not add framework code to Commonloom core.
 
+## Linked Requirements
+
+- CLR-USER-010
+- CLR-USER-012
+- CLR-USER-014
+- CLR-TECH-001
+- CLR-TECH-003
+- CLR-TECH-004
+- CLR-OPS-045
+
+## Evidence
+
+- [[adr/0001-keep-commonloom-adapter-neutral|ADR 0001]]
+- [[adr/0003-keep-generated-typescript-adapter-owned|ADR 0003]]
+- [[requirements/technical/library-boundary|Library Boundary]]
+- [[requirements/operational/release-and-ci|Release And CI]]
+
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 6 example setup requirements.

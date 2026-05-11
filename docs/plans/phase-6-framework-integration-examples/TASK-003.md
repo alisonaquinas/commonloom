@@ -41,6 +41,24 @@ content and style substrate.
 - Local instructions include Vite-style dev, build, and preview commands.
 - Build verification passes locally or a blocker is recorded.
 
+## Linked Requirements
+
+- CLR-USER-010
+- CLR-USER-012
+- CLR-USER-013
+- CLR-USER-014
+- CLR-TECH-003
+- CLR-TECH-004
+- CLR-FUNC-080
+
+## Evidence
+
+- [[adr/0001-keep-commonloom-adapter-neutral|ADR 0001]]
+- [[adr/0003-keep-generated-typescript-adapter-owned|ADR 0003]]
+- [[requirements/user/adapter-development|Adapter Development]]
+- [[requirements/technical/library-boundary|Library Boundary]]
+- Context7 planning baseline: `/vitejs/vite`.
+
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 6 acceptance criteria.

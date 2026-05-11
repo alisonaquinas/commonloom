@@ -44,6 +44,18 @@ example must consume.
 - Later example tickets can consume the substrate without copying divergent
   content or styles.
 
+## Linked Requirements
+
+- CLR-USER-013
+- CLR-TECH-004
+- CLR-FUNC-080
+
+## Evidence
+
+- [[Commonloom Architecture]]
+- [[requirements/user/adapter-development|Adapter Development]]
+- [[requirements/technical/library-boundary|Library Boundary]]
+
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 6 acceptance criteria.

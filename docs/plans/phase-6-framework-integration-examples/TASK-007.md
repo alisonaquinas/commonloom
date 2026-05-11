@@ -32,7 +32,7 @@ content and style substrate.
 - create the Angular example under `examples/angular/`
 - use shared content, styles, and assets
 - keep Angular-specific code limited to component, service, and app glue
-- document install, serve, and build commands
+- document install, serve, build, and production preview commands
 
 ## Acceptance
 
@@ -40,7 +40,28 @@ content and style substrate.
 - The example imports Commonloom through public package exports.
 - Local instructions include `ng serve` and `ng build` or package-script
   equivalents.
+- Local instructions include a production preview path, such as
+  `ng serve --configuration=production` or a documented static preview of the
+  built output.
 - Build verification passes locally or a blocker is recorded.
+
+## Linked Requirements
+
+- CLR-USER-010
+- CLR-USER-012
+- CLR-USER-013
+- CLR-USER-014
+- CLR-TECH-003
+- CLR-TECH-004
+- CLR-FUNC-080
+
+## Evidence
+
+- [[adr/0001-keep-commonloom-adapter-neutral|ADR 0001]]
+- [[adr/0003-keep-generated-typescript-adapter-owned|ADR 0003]]
+- [[requirements/user/adapter-development|Adapter Development]]
+- [[requirements/technical/library-boundary|Library Boundary]]
+- Context7 planning baseline: `/websites/angular_dev`.
 
 ## Workflow Log
 

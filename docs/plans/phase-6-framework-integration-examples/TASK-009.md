@@ -47,6 +47,25 @@ fixes make framework integration simpler and preserve the adapter-neutral core.
 - Behavior changes include tests or equivalent verification evidence.
 - `npm run check` passes after source changes.
 
+## Linked Requirements
+
+- CLR-USER-010
+- CLR-USER-014
+- CLR-USER-022
+- CLR-TECH-001
+- CLR-TECH-003
+- CLR-TECH-004
+- CLR-OPS-083
+- CLR-OPS-084
+
+## Evidence
+
+- [[adr/0001-keep-commonloom-adapter-neutral|ADR 0001]]
+- [[Commonloom Architecture]]
+- [[requirements/technical/library-boundary|Library Boundary]]
+- [[requirements/operational/phase-execution|Phase Execution]]
+- [[tests/requirements-matrix|Requirements Test Matrix]]
+
 ## Workflow Log
 
 - 2026-05-11: Planned as the explicit coupling-remediation lane for Phase 6.

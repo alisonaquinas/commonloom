@@ -47,6 +47,22 @@ covered by local or CI validation.
 - Parity checks make divergent content, style, or asset copies visible.
 - Validation evidence is recorded before closeout.
 
+## Linked Requirements
+
+- CLR-OPS-001
+- CLR-OPS-002
+- CLR-OPS-042
+- CLR-OPS-045
+- CLR-OPS-087
+- CLR-OPS-112
+
+## Evidence
+
+- [[requirements/operational/quality-gates|Quality Gates]]
+- [[requirements/operational/release-and-ci|Release And CI]]
+- [[requirements/operational/task-management|Task Management]]
+- [[tests/requirements-matrix|Requirements Test Matrix]]
+
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 6 parity and preview requirements.

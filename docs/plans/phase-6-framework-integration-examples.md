@@ -28,14 +28,18 @@ this phase.
 
 ## Framework Documentation Baseline
 
-Current framework docs were checked through Context7 on 2026-05-11:
+Current framework docs were checked through Context7 on 2026-05-11.
 
-- Vite docs for TypeScript React, Vue, and Svelte dev/build/preview scripts.
-- Next.js docs for TypeScript app conventions and dev/build scripts.
-- Angular docs for `ng serve` and `ng build` local workflows.
+| Framework Area | Context7 Library ID | Planning Query |
+| --- | --- | --- |
+| React, Vue, and Svelte with Vite | `/vitejs/vite` | Current minimal commands and conventions for TypeScript React, Vue, and Svelte examples with local dev preview and build commands. |
+| Next.js | `/vercel/next.js` | Current minimal conventions for a TypeScript Next.js example app, including local development and production build commands. |
+| Angular | `/websites/angular_dev` | Current minimal conventions for an Angular TypeScript example app, including local serve and production build commands. |
 
 Node integration uses the local Node.js 24 runtime requirement already recorded
 in [[requirements/operational/release-and-ci|Release And CI]].
+Implementation tickets should re-check current framework docs when adding
+framework package metadata or CLI commands.
 
 ## Scope
 
@@ -77,6 +81,21 @@ Each framework example may contain only the glue required by that framework:
 - framework-native configuration
 - README instructions for that example
 
+## Lifecycle Statuses
+
+Phase 6 tickets use these statuses:
+
+- `planned`: work is defined but not started.
+- `active`: work is in progress.
+- `blocked`: work cannot proceed until a named blocker is resolved.
+- `in-review`: implementation is complete and awaiting review or CI evidence.
+- `done`: work is complete and verified.
+- `deferred`: work is intentionally moved out of Phase 6 with rationale.
+- `cancelled`: work is no longer valid or needed.
+
+Terminal statuses are `done`, `deferred`, and `cancelled`. The phase cannot
+close while any ticket is `planned`, `active`, `blocked`, or `in-review`.
+
 ## Work Items
 
 | ID | Work Item | Acceptance |
@@ -87,8 +106,8 @@ Each framework example may contain only the glue required by that framework:
 | P6-004 | Build Vue integration example. | Vue example renders the shared content and documents dev/build/preview commands. |
 | P6-005 | Build Svelte integration example. | Svelte example renders the shared content and documents dev/build/preview commands. |
 | P6-006 | Build Next.js integration example. | Next.js example renders the shared content and documents dev/build/preview commands. |
-| P6-007 | Build Angular integration example. | Angular example renders the shared content and documents serve/build commands. |
-| P6-008 | Build Node integration example. | Node example compiles the shared content without a browser framework and documents run/build commands. |
+| P6-007 | Build Angular integration example. | Angular example renders the shared content and documents serve/build/production-preview commands. |
+| P6-008 | Build Node integration example. | Node example compiles the shared content and shared SCSS without a browser framework and documents run/build commands. |
 | P6-009 | Remediate framework coupling. | Any Commonloom coupling discovered by examples is fixed through focused source and test changes. |
 | P6-010 | Verify example parity and CI coverage. | Example builds and parity checks are wired into local validation or documented with explicit rationale. |
 | P6-011 | Document adopter guidance. | Root or examples documentation explains when to use Commonloom directly and when to write an adapter. |

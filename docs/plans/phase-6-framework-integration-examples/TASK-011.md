@@ -47,6 +47,24 @@ difference between Commonloom core and framework glue.
   requirements.
 - `CHANGELOG.md` records the example documentation addition.
 
+## Linked Requirements
+
+- CLR-USER-010
+- CLR-USER-012
+- CLR-USER-013
+- CLR-USER-014
+- CLR-TECH-004
+- CLR-OPS-001
+- CLR-OPS-103
+
+## Evidence
+
+- [[adr/0001-keep-commonloom-adapter-neutral|ADR 0001]]
+- [[adr/0003-keep-generated-typescript-adapter-owned|ADR 0003]]
+- [[requirements/user/adapter-development|Adapter Development]]
+- [[requirements/technical/library-boundary|Library Boundary]]
+- [[requirements/operational/task-management|Task Management]]
+
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 6 adopter guidance goal.

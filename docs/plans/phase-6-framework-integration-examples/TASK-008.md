@@ -30,18 +30,40 @@ without a browser framework.
 ## Work Scope
 
 - create the Node example under `examples/node/`
-- use shared content and assets
+- use shared content, SCSS, and assets
 - demonstrate direct Commonloom compilation from a Node script
 - document install, build or typecheck, and run commands
-- optionally emit static HTML for preview when useful
+- emit static HTML or another inspectable artifact that applies the shared
+  styling for preview
 
 ## Acceptance
 
 - The Node example compiles the same shared content used by the framework
   examples.
+- The Node example applies the same shared SCSS or compiled CSS used by the
+  framework examples.
 - The example imports Commonloom through public package exports.
 - Local instructions explain how to run the Node example and inspect output.
 - Build or typecheck verification passes locally or a blocker is recorded.
+
+## Linked Requirements
+
+- CLR-USER-012
+- CLR-USER-013
+- CLR-USER-014
+- CLR-TECH-003
+- CLR-TECH-004
+- CLR-FUNC-080
+- CLR-FUNC-082
+- CLR-OPS-045
+
+## Evidence
+
+- [[adr/0001-keep-commonloom-adapter-neutral|ADR 0001]]
+- [[adr/0003-keep-generated-typescript-adapter-owned|ADR 0003]]
+- [[requirements/user/adapter-development|Adapter Development]]
+- [[requirements/technical/library-boundary|Library Boundary]]
+- [[requirements/operational/release-and-ci|Release And CI]]
 
 ## Workflow Log
 
