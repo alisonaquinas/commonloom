@@ -4,6 +4,7 @@
 ![Commonloom logo for dark mode](../docs/assets/commonloom-logo-dark-transparent.png#gh-dark-mode-only)
 
 [![Commonloom quality and test battery][ci-badge]][ci-workflow]
+[![npm package][npm-badge]][npm-package]
 [![Node.js 24][node-badge]][node-docs]
 [![TypeScript][ts-badge]][ts-docs]
 [![MIT License][license-badge]][license]
@@ -103,5 +104,7 @@ Then read:
 [license-badge]: https://img.shields.io/badge/license-MIT-blue
 [node-badge]: https://img.shields.io/badge/node-24.x-43853d
 [node-docs]: https://nodejs.org/
+[npm-badge]: https://img.shields.io/npm/v/commonloom?label=npm
+[npm-package]: https://www.npmjs.com/package/commonloom
 [ts-badge]: https://img.shields.io/badge/TypeScript-6.x-3178c6
 [ts-docs]: https://www.typescriptlang.org/
