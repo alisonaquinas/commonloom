@@ -2,7 +2,7 @@
 id: CHORE-001
 title: Phase 4 Evidence And Closeout
 type: chore
-status: planned
+status: blocked
 priority: high
 phase: 4
 parent: FEAT-001
@@ -60,3 +60,7 @@ the requirements matrix is updated, and CI has passed for the branch.
 ## Workflow Log
 
 - 2026-05-11: Opened in planned status.
+- 2026-05-11: Release workflow, guardrails, dry-run scripts, runbook, and
+  matrix updates are implemented, but closeout remains blocked until
+  TASK-003/TASK-004 receive npm owner evidence and remote CI/release dry-run
+  evidence is captured. Status set to blocked.

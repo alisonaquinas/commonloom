@@ -2,7 +2,7 @@
 id: TASK-007
 title: Add Test Tag Dry Run Path
 type: task
-status: planned
+status: done
 priority: medium
 phase: 4
 parent: FEAT-001
@@ -55,3 +55,6 @@ production npm package.
 ## Workflow Log
 
 - 2026-05-11: Opened in planned status.
+- 2026-05-11: Added `npm run pack:dry-run`, `npm run publish:dry-run`, and a
+  `workflow_dispatch` release dry-run path that cannot enter the publish job.
+  Status set to done.

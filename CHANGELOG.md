@@ -47,6 +47,10 @@ start once the package is ready for npm publication.
 - Updated CI documentation so the test battery is described by category instead
   of only by the catch-all Vitest command.
 - Updated package metadata for public npm publication readiness.
+- Added npm package dry-run scripts, a release tag verifier, and an npm trusted
+  publishing workflow that uses Node.js 24 and GitHub Actions OIDC.
+- Added release operations documentation for manual bootstrap publishing,
+  trusted publisher setup, dry runs, and production releases.
 
 ### Fixed
 

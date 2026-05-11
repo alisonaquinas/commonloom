@@ -20,8 +20,9 @@ aliases:
 Phase 4 establishes Commonloom release and npm publishing automation using
 GitHub Actions and npm OIDC trusted publishing.
 
-This phase is planning-only until execution starts. It intentionally does not
-add publish workflows on this branch.
+This phase has implemented the release workflow, package dry-runs, release
+guardrails, and operator runbook. Manual bootstrap publishing and npm trusted
+publisher setup remain blocked on authenticated npm package owner action.
 
 ## Objective
 
@@ -119,12 +120,12 @@ Required Phase 4 gate:
 - [ ] Manual `0.0.0` bootstrap publish evidence is recorded.
 - [ ] npm trusted publisher authorization is configured without long-lived npm
   tokens.
-- [ ] Release workflow uses Node.js 24 and least-privilege permissions.
-- [ ] Release workflow is gated by the full Commonloom quality battery.
-- [ ] Production publishes are limited to approved version tags on `main`.
-- [ ] Test-tag or dry-run release validation exists.
-- [ ] Release operator runbook is documented.
-- [ ] Requirements matrix release and publishing gaps are updated.
+- [x] Release workflow uses Node.js 24 and least-privilege permissions.
+- [x] Release workflow is gated by the full Commonloom quality battery.
+- [x] Production publishes are limited to approved version tags on `main`.
+- [x] Test-tag or dry-run release validation exists.
+- [x] Release operator runbook is documented.
+- [x] Requirements matrix release and publishing gaps are updated.
 - [ ] Remote CI evidence is captured before phase completion.
 
 ## Evidence
@@ -132,6 +133,7 @@ Required Phase 4 gate:
 - [[requirements/operational/release-and-ci|Release And CI]]
 - [[requirements/operational/supply-chain|Supply Chain]]
 - [[requirements/operational/quality-gates|Quality Gates]]
+- [[release|Release Operations]]
 - [[tests/requirements-matrix|Requirements Test Matrix]]
 - npm trusted publishing documentation, verified 2026-05-11.
 - GitHub Actions OIDC documentation, verified 2026-05-11.
@@ -165,3 +167,9 @@ Required Phase 4 gate:
 > TASK-003 and TASK-004 are blocked because `npm whoami` returns `E401` locally.
 > A package owner must authenticate, perform the manual `0.0.0` bootstrap
 > publish, and configure npm trusted publishing before Phase 4 can close.
+
+> [!SUCCESS] Release automation · 2026-05-11
+> TASK-005 through TASK-008 added the npm trusted publishing workflow,
+> release-tag guardrails, package dry-run scripts, release runbook, and
+> requirements matrix updates. CHORE-001 remains blocked on npm owner and
+> remote evidence.

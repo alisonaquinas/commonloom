@@ -44,6 +44,8 @@ npm run lint
 npm run verify
 npm run typecheck
 npm run build
+npm run pack:dry-run
+npm run publish:dry-run
 npm run test:battery
 npm run test:unit
 npm run test:integration
@@ -55,9 +57,9 @@ npm test
 documentation linting, TypeScript linting, static verification, typecheck,
 build, and the unit, integration, and end-to-end Vitest battery.
 
-The current validation gate is check-only. Do not add release, deployment,
-package publishing, or npm trusted-publishing jobs unless a later phase
-explicitly owns that work.
+Release and package-publishing changes belong to Phase 4 or later release
+tickets. Production npm publishing must use trusted publishing, must not use a
+long-lived npm token, and must follow [docs/release.md](docs/release.md).
 
 ## Branch And Ticket Workflow
 

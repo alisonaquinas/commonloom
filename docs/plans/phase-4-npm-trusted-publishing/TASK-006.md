@@ -2,7 +2,7 @@
 id: TASK-006
 title: Add Release Guardrails
 type: task
-status: planned
+status: done
 priority: high
 phase: 4
 parent: FEAT-001
@@ -58,3 +58,7 @@ Add checks that prevent accidental or unauthorized production publishes.
 ## Workflow Log
 
 - 2026-05-11: Opened in planned status.
+- 2026-05-11: Added `scripts/verify-release-tag.mjs` and wired
+  `npm run release:check` into the publish job so production publishes require
+  a supported version tag, package-version agreement, and tag ancestry from
+  `origin/main`. Status set to done.

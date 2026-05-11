@@ -324,8 +324,17 @@ The dry-run package contains only root public docs, package metadata, and
 Marked [[plans/phase-4-npm-trusted-publishing/TASK-003|TASK-003]] and
 [[plans/phase-4-npm-trusted-publishing/TASK-004|TASK-004]] blocked because
 `npm whoami` returned `E401`.
-Manual bootstrap publishing and npm trusted publisher setup require authenticated
-npm package owner action.
+Manual bootstrap publishing and npm trusted publisher setup require
+authenticated npm package owner action.
+
+## [2026-05-11] phase | Add Phase 4 release automation
+
+Implemented the nonblocked Phase 4 release automation work by adding
+`.github/workflows/npm-publish.yml`, `npm run pack:dry-run`,
+`npm run publish:dry-run`, `npm run release:check`, and
+[[release|Release Operations]].
+The workflow runs release dry-runs without publishing and limits OIDC publish
+permissions to version-tag jobs after the dry-run gate passes.
 
 ## [2026-05-11] assets | Add Commonloom documentation assets
 
