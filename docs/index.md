@@ -5,7 +5,7 @@ tags:
   - index
   - llm-wiki
 status: active
-updated: 2026-05-10
+updated: 2026-05-11
 aliases:
   - Commonloom Index
 ---
@@ -29,9 +29,11 @@ the Flavor Grenade website content pipeline into this standalone repository.
 | [[adr|Commonloom ADRs]] | MADR-backed decisions and rejected alternatives. |
 | [[ddd/index|Commonloom DDD]] | Domains, bounded contexts, ubiquitous language, and tactical model. |
 | [[bdd/index|Commonloom BDD]] | Actors and Cucumber-style behavior specifications. |
-| [[roadmap|Commonloom Roadmap]] | Implementation phases and active tickets. |
+| [[tests/index|Commonloom Test Battery]] | Test taxonomy, current automated battery, verification gate, and coverage gaps. |
+| [[roadmap|Commonloom Roadmap]] | Implementation phases and ticket status. |
 | [[Commonloom Extraction Plan]] | W8 migration and extraction plan summary. |
-| [[phase-2-ci-quality-gates|Phase 2 CI Quality Gates]] | Draft Phase 2 plan for strict TypeScript linting and full unit test CI runs. |
+| [[phase-2-ci-quality-gates|Phase 2 CI Quality Gates]] | Completed Phase 2 plan for strict TypeScript linting and full package CI checks. |
+| [[phase-3-close-testing-gaps|Phase 3 Close Testing Gaps]] | Completed Phase 3 work closing the first requirements test matrix gaps. |
 | [[sources/index|Source Imports]] | Catalog of imported upstream source files. |
 | [[log]] | Chronological vault maintenance record. |
 
@@ -46,10 +48,9 @@ components, product copy, and generated website module formatting.
 
 ## Open Questions
 
-- What package manager and build layout should this standalone repository use?
 - Which prototype APIs become stable public exports?
-- Should Commonloom generate TypeScript itself, or expose normalized records and
-  let adapters generate code?
+- Which adapter examples should be documented before the first standalone
+  release?
 - How much exact source-position data is required for first standalone release?
 
 ## Source Hubs

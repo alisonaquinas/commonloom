@@ -209,3 +209,86 @@ Phase remains in review pending remote CI evidence.
 Completed [[plans/phase-2-ci-quality-gates|Phase 2]] after GitHub Actions
 passed for PR 6:
 <https://github.com/alisonaquinas/commonloom/actions/runs/25642675440/job/75265702932>.
+
+## [2026-05-10] tests | Document test battery taxonomy
+
+Added [[tests/index|Commonloom Test Battery]] with dedicated unit,
+integration, end-to-end, verification, and validation sections.
+Classified the current Vitest files as unit tests, documented the active
+`npm run check` verification gate, and recorded missing dedicated integration,
+end-to-end, and validation suites as explicit gaps.
+
+## [2026-05-10] tests | Add requirements test matrix
+
+Added [[tests/requirements-matrix|Requirements Test Matrix]] to map current
+user, functional, technical, and operational requirements to unit-test evidence,
+verification gates, partial coverage, or explicit gaps.
+
+## [2026-05-10] roadmap | Draft Phase 3 testing gap closure
+
+Added [[plans/phase-3-close-testing-gaps|Phase 3]] and
+[[plans/phase-3-close-testing-gaps/index|Phase 3 Tickets]] to close the current
+unit, integration, end-to-end, verification, and validation gaps documented in
+the requirements test matrix.
+
+## [2026-05-11] phase | Start Phase 3 testing gap closure
+
+Started [[plans/phase-3-close-testing-gaps|Phase 3]] execution on
+`feature/document-test-battery`.
+
+## [2026-05-11] phase | Close Phase 3 unit gap group
+
+Completed [[plans/phase-3-close-testing-gaps/TASK-001|TASK-001]],
+[[plans/phase-3-close-testing-gaps/TASK-002|TASK-002]], and
+[[plans/phase-3-close-testing-gaps/TASK-003|TASK-003]] by expanding
+Markdown/GFM, HTML safety, and link/media unit tests and updating the
+requirements matrix.
+
+## [2026-05-11] phase | Add Phase 3 compiler flow tests
+
+Completed [[plans/phase-3-close-testing-gaps/TASK-004|TASK-004]],
+[[plans/phase-3-close-testing-gaps/TASK-005|TASK-005]], and
+[[plans/phase-3-close-testing-gaps/TASK-006|TASK-006]] by implementing
+manifest-driven compilation, adding integration coverage, adding an E2E fixture
+workflow, and updating the requirements matrix.
+
+## [2026-05-11] phase | Add Phase 3 security and boundary checks
+
+Completed [[plans/phase-3-close-testing-gaps/TASK-007|TASK-007]] and
+[[plans/phase-3-close-testing-gaps/TASK-008|TASK-008]] by adding parser and
+filesystem security tests, realpath media confinement, frontmatter size bounds,
+and static boundary verification through `npm run verify`.
+
+## [2026-05-11] phase | Add Phase 3 traceability and process checks
+
+Completed [[plans/phase-3-close-testing-gaps/TASK-009|TASK-009]] and
+[[plans/phase-3-close-testing-gaps/TASK-010|TASK-010]] by adding requirements
+matrix validation, BDD requirement-link validation, and phase/ticket process
+verification to `npm run verify`.
+
+## [2026-05-11] phase | Phase 3 local closeout
+
+Moved [[plans/phase-3-close-testing-gaps|Phase 3]] to in-review after all task
+tickets reached done and local `npm run check` passed with documentation lint,
+traceability/process verification, typecheck, build, and 25 Vitest tests.
+Remote CI evidence remains required before marking the phase done.
+
+## [2026-05-11] phase | Phase 3 remote closeout
+
+Completed [[plans/phase-3-close-testing-gaps|Phase 3]] after GitHub Actions
+passed for PR 7:
+<https://github.com/alisonaquinas/commonloom/actions/runs/25644613719/job/75271020126>.
+
+## [2026-05-11] docs | Reconcile current repository status
+
+Updated root and vault documentation after Phase 3 completion so status,
+quality-gate, test-battery, and phase-ledger claims reflect the current branch.
+Reconciled Phase 1 from in-review to done using later passing PR 7 CI evidence.
+
+## [2026-05-11] ci | Wire typed test battery into CI
+
+Added `npm run test:unit`, `npm run test:integration`, `npm run test:e2e`, and
+`npm run test:battery`.
+Updated GitHub Actions to run lint, verification, typecheck, build, unit,
+integration, and E2E steps explicitly while preserving `npm run check` as the
+matching local gate.

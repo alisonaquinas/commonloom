@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
-    "check": "npm run lint && npm run typecheck && npm run build && npm test",
+    "check": "npm run lint && npm run verify && npm run typecheck && npm run build && npm run test:battery",
     "hooks:install": "git config core.hooksPath .githooks",
     "lint": "npm run lint:docs && eslint --max-warnings 0 --no-error-on-unmatched-pattern \"src/**/*.ts\" \"test/**/*.ts\" \"*.config.js\" \"*.config.ts\"",
     "lint:docs": "npm run lint:docs:markdown && npm run lint:docs:obsidian && npm run lint:docs:adr",
@@ -28,19 +28,24 @@
     "lint:docs:obsidian": "node scripts/lint-obsidian-docs.mjs",
     "precommit": "npm run check",
     "test": "vitest run",
-    "typecheck": "tsc --project tsconfig.json --noEmit"
+    "test:battery": "npm run test:unit && npm run test:integration && npm run test:e2e",
+    "test:e2e": "vitest run content-pipeline-e2e.test.ts",
+    "test:integration": "vitest run content-pipeline-integration.test.ts",
+    "test:unit": "vitest run content-pipeline-core.test.ts content-pipeline-markdown.test.ts content-pipeline-html.test.ts content-pipeline-links-media.test.ts content-pipeline-security.test.ts",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
+    "verify": "node scripts/verify-boundaries.mjs && node scripts/verify-traceability.mjs && node scripts/verify-plan-process.mjs"
   },
   "dependencies": {
-    "gray-matter": "^4.0.3",
-    "rehype-raw": "^7.0.0",
-    "rehype-sanitize": "^6.0.0",
-    "rehype-stringify": "^10.0.1",
-    "remark-gfm": "^4.0.1",
-    "remark-parse": "^11.0.0",
-    "remark-rehype": "^11.1.2",
-    "unified": "^11.0.5",
-    "unist-util-visit": "^5.1.0",
-    "zod": "^4.4.3"
+    "gray-matter": "4.0.3",
+    "rehype-raw": "7.0.0",
+    "rehype-sanitize": "6.0.0",
+    "rehype-stringify": "10.0.1",
+    "remark-gfm": "4.0.1",
+    "remark-parse": "11.0.0",
+    "remark-rehype": "11.1.2",
+    "unified": "11.0.5",
+    "unist-util-visit": "5.1.0",
+    "zod": "4.4.3"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",

@@ -5,7 +5,7 @@ tags:
   - concept
   - content-pipeline
 status: active
-updated: 2026-05-10
+updated: 2026-05-11
 aliases:
   - Commonloom Core
   - Commonloom Library
@@ -51,7 +51,8 @@ The upstream Flavor Grenade W8 source remains evidence for the import in
 and `website/src/content/pipeline/commonloom` in the source repository.
 
 Local verification is available through `npm run check`, which runs
-documentation lint, package lint, typecheck, build, and tests.
+documentation lint, package lint, boundary and traceability verification,
+typecheck, build, and tests.
 
 > [!NOTE] Evidence
 > ADR 0002 names Commonloom as the reusable Markdown compilation and validation

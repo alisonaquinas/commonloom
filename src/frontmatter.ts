@@ -9,6 +9,8 @@ import { z } from 'zod';
 
 import type { CommonloomDiagnostic } from './types.js';
 
+const maxFrontmatterBytes = 64 * 1024;
+
 /**
  * Parsed frontmatter and Markdown body returned by {@link parseFrontmatter}.
  */
@@ -31,6 +33,24 @@ export function parseFrontmatter<Frontmatter>(
   markdown: string,
   frontmatterSchema: z.ZodType<Frontmatter>,
 ): ParsedFrontmatter<Frontmatter> {
+  const frontmatterBlock = extractFrontmatterBlock(markdown);
+
+  if (frontmatterBlock && Buffer.byteLength(frontmatterBlock, 'utf8') > maxFrontmatterBytes) {
+    return {
+      frontmatter: undefined,
+      bodyMarkdown: markdown,
+      contentStartLine: 1,
+      diagnostics: [
+        {
+          code: 'FRONTMATTER_INVALID',
+          severity: 'error',
+          message: `Frontmatter exceeds ${String(maxFrontmatterBytes)} bytes.`,
+          sourcePath,
+        },
+      ],
+    };
+  }
+
   let file: matter.GrayMatterFile<string>;
 
   try {
@@ -76,4 +96,10 @@ export function parseFrontmatter<Frontmatter>(
       sourcePath,
     })),
   };
+}
+
+function extractFrontmatterBlock(markdown: string): string | undefined {
+  const match = /^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/.exec(markdown);
+
+  return match?.[1];
 }

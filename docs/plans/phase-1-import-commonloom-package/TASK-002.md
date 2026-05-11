@@ -2,7 +2,7 @@
 id: TASK-002
 title: Create Standalone Package Scaffold
 type: task
-status: in-review
+status: done
 priority: high
 phase: PHASE-001
 parent: FEAT-001
@@ -62,3 +62,5 @@ Verification should pass before TASK-003 begins.
   temporary no-test state until TASK-004 ports the upstream tests.
 - 2026-05-10: Full `npm run check` passes after source and tests were imported.
   Status set to in-review.
+- 2026-05-11: Reconciled ticket status after later branch CI proved the package
+  scaffold in PR 7. Status set to done.

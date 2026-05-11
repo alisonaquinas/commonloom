@@ -5,7 +5,7 @@ tags:
   - architecture
   - content-pipeline
 status: active
-updated: 2026-05-10
+updated: 2026-05-11
 aliases:
   - Content Pipeline Architecture
   - Reusable Library Boundary
@@ -73,7 +73,7 @@ traversal.
 | `src/paths.ts` | Root-confined path resolution. |
 | `src/source-trace.ts` | Content hash, heading, link, and image source traces. |
 | `src/types.ts` | Public Commonloom contracts. |
-| `test/` | Ported core behavior tests from Flavor Grenade W8. |
+| `test/` | Unit, integration, end-to-end, and security tests for Commonloom behavior. |
 
 > [!WARNING] Adapter Drift
 > If route ids, renderer shapes, or generated TypeScript formatting leak into

@@ -5,6 +5,7 @@
  * These types define the adapter-neutral boundary. Keep product-specific route,
  * component, and generated-module concepts outside this file.
  */
+import type { ZodType } from 'zod';
 
 /** Source location in a Markdown document when parser metadata is available. */
 export interface CommonloomSourcePosition {
@@ -124,10 +125,11 @@ export interface CommonloomLinkPolicy {
 }
 
 /** Top-level configuration for a Commonloom compile run. */
-export interface CommonloomConfig {
+export interface CommonloomConfig<Frontmatter = unknown, AdapterData = unknown> {
   copyRoot: string;
   mediaRoot: string;
-  manifests?: CommonloomManifestEntry[];
+  manifests?: CommonloomManifestEntry<AdapterData>[];
+  frontmatterSchema?: ZodType<Frontmatter>;
   html?: CommonloomHtmlPolicy;
   links?: CommonloomLinkPolicy;
 }
@@ -135,14 +137,14 @@ export interface CommonloomConfig {
 /** A compiled document plus the diagnostics and trace data that produced it. */
 export interface CommonloomCompiledDocument<Frontmatter = unknown, AdapterData = unknown> {
   manifest: CommonloomManifestEntry<AdapterData>;
-  frontmatter: Frontmatter;
+  frontmatter: Frontmatter | undefined;
   bodyHtml: string;
   sourceTrace: CommonloomSourceTrace;
   diagnostics: CommonloomDiagnostic[];
 }
 
 /** Top-level compiler output. */
-export interface CommonloomResult {
+export interface CommonloomResult<Frontmatter = unknown, AdapterData = unknown> {
   diagnostics: CommonloomDiagnostic[];
-  documents?: CommonloomCompiledDocument[];
+  documents?: CommonloomCompiledDocument<Frontmatter, AdapterData>[];
 }

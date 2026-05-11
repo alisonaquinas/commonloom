@@ -17,6 +17,7 @@ docs/
 ├── architecture/     # Architecture synthesis notes
 ├── ddd/              # Domain model, boundaries, and ubiquitous language
 ├── bdd/              # Actors and Cucumber-style behavior specifications
+├── tests/            # Test taxonomy, current battery, and coverage gaps
 ├── requirements/     # User, functional, technical, and operational requirements
 ├── plans/            # Phase plans, tickets, and migration synthesis notes
 └── sources/          # Immutable source imports
@@ -66,6 +67,7 @@ Use these local conventions:
 | `architecture/` | System boundaries, flows, and module responsibility. |
 | `ddd/` | Domain model, bounded contexts, context map, and ubiquitous language. |
 | `bdd/` | Actor model, scenario catalog, and Cucumber-style behavior specifications. |
+| `tests/` | Test taxonomy, current battery, verification gate, and coverage gaps. |
 | `requirements/` | User, functional, technical, and operational requirements. |
 | `plans/` | Phase plans, tickets, migration, roadmap, and execution synthesis. |
 | `sources/` | Imported upstream Markdown kept as evidence. |
@@ -117,5 +119,6 @@ Use these local conventions:
 - [[Commonloom]]
 - [[ddd/index|Commonloom DDD]]
 - [[bdd/index|Commonloom BDD]]
+- [[tests/index|Commonloom Test Battery]]
 - [[roadmap|Commonloom Roadmap]]
 - [../AGENTS.md](../AGENTS.md) - repo-wide instructions

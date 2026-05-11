@@ -50,5 +50,4 @@ This chore closes the documentation loop for Phase 2.
 - 2026-05-10: Opened in planned status.
 - 2026-05-10: Recorded local Phase 2 evidence after type-aware linting and
   documentation updates. Status set to in-review pending remote CI evidence.
-- 2026-05-10: Recorded passing GitHub Actions evidence for PR 6. Status set to
-  done.
+- 2026-05-10: Recorded passing GitHub Actions evidence for PR 6. Status set to done.

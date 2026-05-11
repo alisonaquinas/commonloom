@@ -6,7 +6,7 @@ tags:
   - cucumber
   - index
 status: active
-updated: 2026-05-10
+updated: 2026-05-11
 aliases:
   - BDD Index
   - Commonloom Behaviors
@@ -17,8 +17,8 @@ aliases:
 This folder documents Commonloom behavior with Cucumber-style examples.
 
 The scenarios are acceptance specifications for shared review. They are not yet
-bound to executable step definitions because this repository does not yet have
-the package source, test runner, or Cucumber dependency scaffold.
+bound to executable step definitions because this repository does not include a
+Cucumber dependency or step-definition scaffold.
 
 ## Notes
 

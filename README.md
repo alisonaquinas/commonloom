@@ -62,7 +62,9 @@ Stabilize it here before the first standalone release.
 ## Status
 
 Phase 1 imported the Commonloom package source and tests. Phase 2 added the
-current local and CI quality gate.
+local and CI quality gate. Phase 3 expanded unit coverage, added integration
+and end-to-end compiler tests, and added static verification for boundaries,
+traceability, and phase/ticket process rules.
 
 Use Node.js 24 or newer.
 
@@ -89,8 +91,13 @@ Focused commands:
 ```bash
 npm run lint
 npm run lint:docs
+npm run verify
 npm run typecheck
 npm run build
+npm run test:battery
+npm run test:unit
+npm run test:integration
+npm run test:e2e
 npm test
 ```
 

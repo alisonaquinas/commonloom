@@ -2,7 +2,7 @@
 id: FEAT-001
 title: Import Commonloom Package And Tests
 type: feature
-status: in-review
+status: done
 priority: high
 phase: PHASE-001
 created: 2026-05-10
@@ -75,3 +75,5 @@ The requirements keep the import aligned with the standalone package boundary.
 - 2026-05-10: Phase 1 execution started; status set to active.
 - 2026-05-10: Source, tests, package checks, CI workflow, and docs evidence
   are locally complete. Status set to in-review pending remote CI evidence.
+- 2026-05-11: Reconciled remote evidence using passing PR 7 CI on the branch
+  containing the Phase 1 import. Status set to done.

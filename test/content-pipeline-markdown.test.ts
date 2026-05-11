@@ -15,6 +15,18 @@ const frontmatterSchema = z.object({
   description: z.string(),
 });
 
+interface TestTreeNode {
+  type: string;
+  children?: TestTreeNode[];
+}
+
+function collectNodeTypes(node: TestTreeNode): string[] {
+  return [
+    node.type,
+    ...(node.children ?? []).flatMap((child) => collectNodeTypes(child)),
+  ];
+}
+
 describe('Commonloom Markdown parser', () => {
   it('parses frontmatter, CommonMark headings, and GFM constructs', () => {
     const result = parseMarkdown({
@@ -50,6 +62,45 @@ describe('Commonloom Markdown parser', () => {
         column: 1,
       },
     ]);
+    expect(result.diagnostics).toEqual([]);
+  });
+
+  it('parses broad CommonMark and GFM constructs into mdast nodes', () => {
+    const result = parseMarkdown({
+      sourcePath: 'copy/rich.md',
+      markdown: [
+        '---',
+        'title: Rich',
+        'description: Rich Markdown',
+        '---',
+        '# Rich',
+        '',
+        '> A quoted note with *emphasis*.',
+        '',
+        '```ts',
+        'const answer = 42;',
+        '```',
+        '',
+        'Use `inline code`, ~~old copy~~, and https://example.com/docs.',
+        '',
+        '![Diagram](diagram.png)',
+      ].join('\n'),
+      frontmatterSchema,
+    });
+
+    const nodeTypes = collectNodeTypes(result.mdast);
+
+    expect(nodeTypes).toEqual(
+      expect.arrayContaining([
+        'blockquote',
+        'code',
+        'delete',
+        'emphasis',
+        'image',
+        'inlineCode',
+        'link',
+      ]),
+    );
     expect(result.diagnostics).toEqual([]);
   });
 

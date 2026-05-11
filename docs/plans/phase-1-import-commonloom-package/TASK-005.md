@@ -2,7 +2,7 @@
 id: TASK-005
 title: Remove Website Specific Coupling
 type: task
-status: in-review
+status: done
 priority: high
 phase: PHASE-001
 parent: FEAT-001
@@ -62,3 +62,5 @@ Verification should leave any remaining coupling visible and intentional.
 - 2026-05-10: Static review found no Flavor Grenade website paths, Svelte,
   route, product, or generated-output config leakage in `src/` or `test/`.
   Status set to in-review.
+- 2026-05-11: Reconciled ticket status after later branch CI and boundary
+  verification proved the adapter-neutral import in PR 7. Status set to done.

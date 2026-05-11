@@ -2,7 +2,7 @@
 id: TASK-004
 title: Port Commonloom Tests Into Test
 type: task
-status: in-review
+status: done
 priority: high
 phase: PHASE-001
 parent: FEAT-001
@@ -62,3 +62,5 @@ Verification protects against silently dropping upstream behavior.
   pending verification.
 - 2026-05-10: `npm test` passes with 12 assertions across four test files.
   Status set to in-review.
+- 2026-05-11: Reconciled ticket status after later branch CI proved the ported
+  tests and expanded battery in PR 7. Status set to done.
