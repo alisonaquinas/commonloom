@@ -23,8 +23,8 @@ updated: 2026-05-10
 | [[plans/phase-3-close-testing-gaps/TASK-004|TASK-004]] | Test Manifest-Driven Compiled Records | Task | `done` |
 | [[plans/phase-3-close-testing-gaps/TASK-005|TASK-005]] | Add Integration Test Suite | Task | `done` |
 | [[plans/phase-3-close-testing-gaps/TASK-006|TASK-006]] | Add End-To-End Fixture Workflow | Task | `done` |
-| [[plans/phase-3-close-testing-gaps/TASK-007|TASK-007]] | Add Parser And Filesystem Security Tests | Task | `planned` |
-| [[plans/phase-3-close-testing-gaps/TASK-008|TASK-008]] | Add Static Boundary Verification | Task | `planned` |
+| [[plans/phase-3-close-testing-gaps/TASK-007|TASK-007]] | Add Parser And Filesystem Security Tests | Task | `done` |
+| [[plans/phase-3-close-testing-gaps/TASK-008|TASK-008]] | Add Static Boundary Verification | Task | `done` |
 | [[plans/phase-3-close-testing-gaps/TASK-009|TASK-009]] | Add Requirements And BDD Traceability Validation | Task | `planned` |
 | [[plans/phase-3-close-testing-gaps/TASK-010|TASK-010]] | Add Phase And Ticket Process Verification | Task | `planned` |
 | [[plans/phase-3-close-testing-gaps/CHORE-001|CHORE-001]] | Phase 3 Evidence And Closeout | Chore | `planned` |

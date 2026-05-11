@@ -14,6 +14,7 @@ Svelte components, generated module names, or product content.
 | [content-pipeline-markdown.test.ts](content-pipeline-markdown.test.ts) | Frontmatter validation, Markdown parsing, GFM support, and heading extraction. |
 | [content-pipeline-html.test.ts](content-pipeline-html.test.ts) | HTML rendering, unsafe HTML diagnostics, and source trace hashes. |
 | [content-pipeline-links-media.test.ts](content-pipeline-links-media.test.ts) | Link extraction, wiki-link resolution, media validation, alt text, and path confinement. |
+| [content-pipeline-security.test.ts](content-pipeline-security.test.ts) | Parser bounds, prototype-pollution safety, long wiki-link parsing, and symlink escape rejection. |
 | [content-pipeline-integration.test.ts](content-pipeline-integration.test.ts) | Public compiler integration across parse, render, links, media, and traces. |
 | [content-pipeline-e2e.test.ts](content-pipeline-e2e.test.ts) | Fixture content tree compiled into adapter-visible records. |
 

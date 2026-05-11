@@ -29,6 +29,8 @@ start once the package is ready for npm publication.
 - Added Phase 3 roadmap and tickets for closing documented testing gaps.
 - Added manifest-driven compiler behavior plus integration and E2E tests for
   adapter-visible compiled records.
+- Added parser and filesystem security tests plus static boundary verification
+  in `npm run check`.
 
 ### Changed
 

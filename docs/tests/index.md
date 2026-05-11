@@ -34,9 +34,10 @@ repository verification gate that runs lint, typecheck, build, and tests.
 
 | Command | Type | What It Proves |
 | --- | --- | --- |
-| `npm test` | [[tests/unit/index|Unit]], [[tests/integration/index|Integration]], [[tests/e2e/index|E2E]] | Runs six Vitest files with twenty-one assertions over current package behavior. |
+| `npm test` | [[tests/unit/index|Unit]], [[tests/integration/index|Integration]], [[tests/e2e/index|E2E]] | Runs seven Vitest files with twenty-five assertions over current package behavior. |
 | `npm run lint:docs` | [[tests/verification/index|Verification]] | Checks root Markdown, Obsidian vault Markdown, and MADR ADR shape. |
 | `npm run lint` | [[tests/verification/index|Verification]] | Runs documentation linting and TypeScript ESLint with warnings blocked. |
+| `npm run verify` | [[tests/verification/index|Verification]] | Runs static boundary, dependency, and generated-output checks. |
 | `npm run typecheck` | [[tests/verification/index|Verification]] | Confirms TypeScript contracts typecheck without emitting output. |
 | `npm run build` | [[tests/verification/index|Verification]] | Confirms the distributable TypeScript build compiles. |
 | `npm run check` | [[tests/verification/index|Verification]] | Runs the full local and CI quality gate. |
@@ -58,6 +59,7 @@ closing the current matrix gaps.
 | [content-pipeline-markdown.test.ts](../../test/content-pipeline-markdown.test.ts) | [[tests/unit/index|Unit]] | Frontmatter parsing, Zod validation diagnostics, CommonMark/GFM parsing, GFM autolinks, strikethrough, blockquotes, code, images, and heading extraction. |
 | [content-pipeline-html.test.ts](../../test/content-pipeline-html.test.ts) | [[tests/unit/index|Unit]] | Markdown-to-HTML rendering, unsafe HTML diagnostics, static inline HTML allowlisting, sanitization, and source trace hashing. |
 | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts) | [[tests/unit/index|Unit]] | Link classification, link extraction, wiki-link adapter resolution, unsupported schemes, media path checks, missing media, traversal rejection, and alt text diagnostics. |
+| [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts) | [[tests/unit/index|Unit]] | Frontmatter bounds, prototype-pollution safety, long wiki-link parsing, and symlinked media escapes. |
 | [content-pipeline-integration.test.ts](../../test/content-pipeline-integration.test.ts) | [[tests/integration/index|Integration]] | Public compiler flow across manifest input, parsing, rendering, wiki-link resolution, media validation, and source traces. |
 | [content-pipeline-e2e.test.ts](../../test/content-pipeline-e2e.test.ts) | [[tests/e2e/index|E2E]] | Fixture content tree compiled through the public API into adapter-visible records. |
 
@@ -67,6 +69,8 @@ closing the current matrix gaps.
   BDD scenario.
 - Generated-output reproducibility remains adapter-owned and has no local
   adapter fixture yet.
+- Release, npm publishing, provenance, and test-tag workflows remain future
+  operational work.
 
 ## See Also
 

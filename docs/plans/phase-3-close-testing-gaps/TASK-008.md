@@ -2,7 +2,7 @@
 id: TASK-008
 title: Add Static Boundary Verification
 type: task
-status: planned
+status: done
 priority: medium
 phase: 3
 parent: FEAT-001
@@ -66,3 +66,8 @@ This task should prefer small deterministic scripts over broad fragile scans.
 ## Workflow Log
 
 - 2026-05-10: Opened in planned status.
+- 2026-05-11: Added `npm run verify` with
+  `scripts/verify-boundaries.mjs` to check forbidden source imports,
+  disallowed core dependencies, exact dependency versions, and tracked
+  generated output. Updated dependency ranges to exact versions and refreshed
+  `package-lock.json`. Status set to done after `npm run verify` passed.

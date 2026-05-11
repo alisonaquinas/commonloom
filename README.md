@@ -89,6 +89,7 @@ Focused commands:
 ```bash
 npm run lint
 npm run lint:docs
+npm run verify
 npm run typecheck
 npm run build
 npm test

@@ -251,3 +251,10 @@ Completed [[plans/phase-3-close-testing-gaps/TASK-004|TASK-004]],
 [[plans/phase-3-close-testing-gaps/TASK-006|TASK-006]] by implementing
 manifest-driven compilation, adding integration coverage, adding an E2E fixture
 workflow, and updating the requirements matrix.
+
+## [2026-05-11] phase | Add Phase 3 security and boundary checks
+
+Completed [[plans/phase-3-close-testing-gaps/TASK-007|TASK-007]] and
+[[plans/phase-3-close-testing-gaps/TASK-008|TASK-008]] by adding parser and
+filesystem security tests, realpath media confinement, frontmatter size bounds,
+and static boundary verification through `npm run verify`.

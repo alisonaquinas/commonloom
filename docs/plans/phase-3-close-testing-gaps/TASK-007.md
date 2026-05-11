@@ -2,7 +2,7 @@
 id: TASK-007
 title: Add Parser And Filesystem Security Tests
 type: task
-status: planned
+status: done
 priority: high
 phase: 3
 parent: FEAT-001
@@ -65,3 +65,10 @@ Tests must avoid timing-dependent assertions unless they are bounded and stable.
 ## Workflow Log
 
 - 2026-05-10: Opened in planned status.
+- 2026-05-11: Added
+  [content-pipeline-security.test.ts](../../../test/content-pipeline-security.test.ts)
+  for oversized frontmatter rejection, prototype-pollution safety, long
+  wiki-link parsing, and symlinked media escape rejection. Failing tests exposed
+  missing frontmatter bounds and realpath media confinement; implementation was
+  updated. YAML alias/depth and broader resource-limit hardening remain partial
+  in the matrix. Status set to done after targeted security tests passed.

@@ -152,3 +152,8 @@ with a clear blocker or deferral instead of silently marking it covered.
 > TASK-004, TASK-005, and TASK-006 added manifest-driven compiler behavior,
 > integration coverage, and E2E fixture coverage. `npm test`, `npm run lint`,
 > and `npm run typecheck` pass locally with 21 tests across six files.
+
+> [!SUCCESS] Security and boundary group · 2026-05-11
+> TASK-007 and TASK-008 added parser/filesystem security coverage and static
+> boundary verification. `npm test -- content-pipeline-security.test.ts` and
+> `npm run verify` pass locally.

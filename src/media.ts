@@ -4,7 +4,7 @@
  * This module enforces alt text, approved local roots, and missing-file
  * diagnostics without knowing any consuming website's asset pipeline.
  */
-import { stat } from 'node:fs/promises';
+import { realpath, stat } from 'node:fs/promises';
 
 import { resolveInsideRoot } from './paths.js';
 import type { CommonloomDiagnostic, CommonloomImageReference } from './types.js';
@@ -82,6 +82,20 @@ export async function validateMediaReference(
       line: reference.line,
       column: reference.column,
     });
+
+    return { resolvedPath: resolved.resolvedPath, diagnostics };
+  }
+
+  const realMediaRoot = await realpath(options.mediaRoot);
+  const realResolvedPath = await realpath(resolved.resolvedPath);
+  const realPathCheck = resolveInsideRoot({
+    root: realMediaRoot,
+    target: realResolvedPath,
+    sourcePath: reference.sourcePath ?? options.sourcePath,
+  });
+
+  if (!realPathCheck.resolvedPath) {
+    return { diagnostics: [...diagnostics, ...realPathCheck.diagnostics] };
   }
 
   return { resolvedPath: resolved.resolvedPath, diagnostics };

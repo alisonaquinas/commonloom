@@ -38,9 +38,10 @@ npm run lint && npm run typecheck && npm run build && npm test
 | Obsidian vault lint | `npm run lint:docs:obsidian` | Maintained vault notes under `docs/`, excluding raw `docs/sources/` imports. |
 | ADR lint | `npm run lint:docs:adr` | MADR-style records under `docs/adr`. |
 | TypeScript lint | `npm run lint` | `src/**/*.ts`, `test/**/*.ts`, and config files with warnings blocked. |
+| Static boundary verification | `npm run verify` | Adapter-neutral source imports, disallowed core dependencies, exact dependency versions, and generated output tracking. |
 | Typecheck | `npm run typecheck` | TypeScript project check with no emit. |
 | Build | `npm run build` | Distributable TypeScript build. |
-| Unit, integration, and E2E tests | `npm test` | Six Vitest files, twenty-one tests. |
+| Unit, integration, and E2E tests | `npm test` | Seven Vitest files, twenty-five tests. |
 
 ## CI Shape
 

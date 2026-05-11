@@ -49,7 +49,12 @@ verification battery.
 | UT-LINK-006 | Unit | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts), `keeps absolute and encoded traversal targets inside approved path rules` |
 | INT-001 | Integration | [content-pipeline-integration.test.ts](../../test/content-pipeline-integration.test.ts), `compiles manifests through parse, render, links, media, and traces` |
 | E2E-001 | E2E | [content-pipeline-e2e.test.ts](../../test/content-pipeline-e2e.test.ts), `compiles a fixture content tree into adapter-visible records` |
+| SEC-001 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `rejects oversized frontmatter before schema validation` |
+| SEC-002 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `does not pollute object prototypes from hostile frontmatter keys` |
+| SEC-003 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `handles long wiki-link shaped input without runaway parsing` |
+| SEC-004 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `rejects symlinked media that resolves outside the approved root` |
 | VER-CHECK | Verification | `npm run check` runs docs lint, TypeScript lint, typecheck, build, and unit tests. |
+| VER-BOUNDARY | Verification | `npm run verify` checks source boundaries, disallowed dependencies, exact dependency versions, and tracked generated outputs. |
 | VER-DOCS | Verification | `npm run lint:docs` runs root Markdown, Obsidian, and ADR lint. |
 | VER-CI | Verification | `.github/workflows/documentation-lint.yml` runs Node.js 24, `npm ci --ignore-scripts`, and `npm run check`. |
 | DOC-PHASE | Documentation | Phase and ticket records under [[plans/phase-1-import-commonloom-package]] and [[plans/phase-2-ci-quality-gates]]. |
@@ -109,28 +114,28 @@ verification battery.
 
 | Requirement | Current Evidence | Status | Gap Or Next Test |
 | --- | --- | --- | --- |
-| CLR-TECH-001 | UT-CORE-003 | Partial | Add static forbidden-import verification for `src/`. |
+| CLR-TECH-001 | UT-CORE-003, VER-BOUNDARY | Covered | None for current source boundary. |
 | CLR-TECH-002 | UT-CORE-002, VER-CHECK | Covered | None for current entrypoint. |
-| CLR-TECH-003 | UT-CORE-003 | Partial | Needs adapter package boundary tests once adapters exist. |
-| CLR-TECH-004 | VER-DOCS | Partial | No automated scan for Flavor Grenade-specific examples exists. |
-| CLR-TECH-005 | Gap | Gap | No generated-output behavior exists yet. |
+| CLR-TECH-003 | UT-CORE-003, VER-BOUNDARY | Partial | Needs adapter package boundary tests once adapters exist. |
+| CLR-TECH-004 | VER-DOCS, VER-BOUNDARY | Partial | Static scans cover source imports, but docs example review remains manual. |
+| CLR-TECH-005 | VER-BOUNDARY | Partial | Generated-output tracking is checked, but adapter generation behavior does not exist yet. |
 | CLR-TECH-020 | VER-CHECK | Covered | None. |
 | CLR-TECH-021 | UT-MD-001, UT-HTML-001, VER-CHECK | Covered | None for current dependencies. |
 | CLR-TECH-022 | UT-MD-001, UT-LINK-001 | Partial | Static AST-use verification is not automated. |
 | CLR-TECH-023 | UT-MD-002 | Covered | None for frontmatter schema boundary. |
-| CLR-TECH-024 | VER-CHECK | Partial | Add dependency/import scan for disallowed Markdown compiler plugins. |
-| CLR-TECH-025 | Gap | Gap | No optional syntax-highlighting boundary test exists. |
+| CLR-TECH-024 | VER-CHECK, VER-BOUNDARY | Covered | None for current dependency set. |
+| CLR-TECH-025 | VER-BOUNDARY | Covered | No syntax-highlighting dependency is required by the core package. |
 | CLR-TECH-040 | UT-CORE-002 | Covered | None. |
 | CLR-TECH-041 | UT-CORE-002, INT-001, E2E-001 | Covered | None for current exported contracts. |
 | CLR-TECH-042 | UT-CORE-003, INT-001, E2E-001 | Covered | None for current generic adapter data flow. |
 | CLR-TECH-043 | UT-MD-002, UT-MD-003 | Partial | Manifest/config programmer-error boundaries are not tested. |
 | CLR-TECH-044 | UT-CORE-002, UT-MD-001, UT-LINK-001 | Covered | None. |
-| CLR-TECH-060 | Gap | Gap | No ReDoS or parser-sensitive regex test exists. |
-| CLR-TECH-061 | Gap | Gap | No frontmatter size, alias, or resource-limit test exists. |
+| CLR-TECH-060 | SEC-003 | Partial | Long wiki-link input is covered; broader ReDoS review remains manual. |
+| CLR-TECH-061 | SEC-001 | Partial | Oversized frontmatter is covered; YAML alias/depth limits remain future hardening. |
 | CLR-TECH-062 | UT-LINK-003, UT-LINK-006 | Covered | None for current canonicalization policy. |
-| CLR-TECH-063 | Gap | Gap | No symlink escape test exists. |
-| CLR-TECH-064 | Gap | Gap | No prototype-pollution test exists. |
-| CLR-TECH-065 | Gap | Gap | No pathological-input resource-bound test exists. |
+| CLR-TECH-063 | SEC-004 | Covered | None for media symlink escapes. |
+| CLR-TECH-064 | SEC-002 | Covered | None for current frontmatter parsing path. |
+| CLR-TECH-065 | SEC-001, SEC-003 | Partial | Frontmatter and long wiki-link cases are covered; broader resource bounds remain future hardening. |
 
 ## Operational Requirements
 
@@ -139,7 +144,7 @@ verification battery.
 | CLR-OPS-001 | VER-CHECK, VER-CI | Covered | No format script exists; requirement wording includes format checks. |
 | CLR-OPS-002 | UT-MD-001, UT-MD-002, UT-MD-004, UT-HTML-002, UT-HTML-004, UT-LINK-000, UT-LINK-001, UT-LINK-003, UT-CORE-002, UT-CORE-003, INT-001, E2E-001 | Covered | None for current core test surface. |
 | CLR-OPS-003 | VER-CHECK, VER-CI | Covered | None. |
-| CLR-OPS-004 | Gap | Gap | No generated-output stale-file check exists. |
+| CLR-OPS-004 | VER-BOUNDARY | Partial | Tracked generated output is checked; generated adapter output does not exist yet. |
 | CLR-OPS-005 | VER-DOCS | Covered | None for current tooling. |
 | CLR-OPS-006 | VER-CHECK | Covered | None for current pre-commit gate. |
 | CLR-OPS-007 | VER-CHECK, VER-CI | Covered | None. |
@@ -163,7 +168,7 @@ verification battery.
 | CLR-OPS-046 | Gap | Gap | No npm publish workflow exists. |
 | CLR-OPS-047 | VER-CI, DOC-PHASE | Partial | CI runs git-flow branches; no branch-name enforcement hook exists. |
 | CLR-OPS-048 | VER-CI, DOC-PHASE | Covered | Current CI has no publish, release, or deployment step. |
-| CLR-OPS-060 | Gap | Gap | Dependencies currently use ranges; no exact-version policy check exists. |
+| CLR-OPS-060 | VER-BOUNDARY | Covered | Dependencies use exact package versions and are checked by `npm run verify`. |
 | CLR-OPS-061 | VER-CI | Covered | CI uses `npm ci --ignore-scripts`. |
 | CLR-OPS-062 | VER-CI | Covered | CI uses `npm ci --ignore-scripts`. |
 | CLR-OPS-063 | Gap | Gap | No advisory-review test or workflow exists. |
@@ -209,9 +214,8 @@ verification battery.
 Clear untested areas:
 
 - release, npm publishing, provenance, and test-tag workflows
-- generated-output reproducibility checks
-- security hardening tests for ReDoS, bounded frontmatter, symlink escapes,
-  prototype pollution, and pathological inputs
+- generated-output reproducibility checks for future adapters
+- broader parser hardening for YAML aliases/depth and resource limits
 - automated process checks for phase order, ticket schemas, ticket status/log
   agreement, ticket ID uniqueness, and source-evidence completeness
 
