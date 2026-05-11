@@ -2,7 +2,7 @@
 id: TASK-022
 title: Verify BDD Requirement Ranges
 type: task
-status: planned
+status: done
 priority: medium
 phase: 5
 parent: FEAT-001
@@ -46,3 +46,12 @@ requirement IDs.
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 5 audit findings.
+
+> [!SUCCESS] Done · 2026-05-11
+> Status set to done. Implemented during Phase 5 execution. `npm run check` passed locally after the change.
+
+> [!SUCCESS] Auditor confirmation · 2026-05-11
+> Requirements review confirmed BDD range notation is now expanded by
+> `verify-traceability.mjs`. The verifier exposed an invalid
+> `CLR-OPS-080..112` range across a numbering gap, which was split into the
+> defined `CLR-OPS-080..093` and `CLR-OPS-100..112` ranges.

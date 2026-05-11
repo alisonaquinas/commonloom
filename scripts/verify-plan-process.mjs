@@ -44,6 +44,7 @@ async function listPhaseDirectories() {
 }
 
 async function verifyPhaseDirectory(phaseDirName) {
+  const expectedPhase = Number.parseInt(/^phase-(\d+)-/.exec(phaseDirName)?.[1] ?? '', 10);
   const phaseDir = join(plansRoot, phaseDirName);
   const indexPath = join(phaseDir, 'index.md');
   const indexContent = await readFile(indexPath, 'utf8');
@@ -70,6 +71,10 @@ async function verifyPhaseDirectory(phaseDirName) {
       failures.push(`${phaseDirName}/${ticketFile} id does not match filename.`);
     }
 
+    if (ticket.data.phase !== expectedPhase) {
+      failures.push(`${phaseDirName}/${ticketFile} phase must be numeric ${String(expectedPhase)}.`);
+    }
+
     if (seenTicketIds.has(ticketId)) {
       failures.push(`${phaseDirName} has duplicate ticket id ${ticketId}.`);
     }
@@ -79,6 +84,14 @@ async function verifyPhaseDirectory(phaseDirName) {
 
     if (!indexContent.includes(`/${ticketId}|${ticketId}`)) {
       failures.push(`${phaseDirName}/index.md does not list ${ticketId}.`);
+    }
+
+    const indexStatus = indexStatusForTicket(indexContent, ticketId);
+
+    if (indexStatus && indexStatus !== ticketStatus) {
+      failures.push(
+        `${phaseDirName}/index.md lists ${ticketId} as ${indexStatus} but frontmatter is ${ticketStatus}.`,
+      );
     }
 
     if (terminalStatuses.has(ticketStatus) && !ticket.content.includes(`Status set to ${ticketStatus}`)) {
@@ -96,4 +109,19 @@ async function verifyPhaseDirectory(phaseDirName) {
       }
     }
   }
+}
+
+function indexStatusForTicket(indexContent, ticketId) {
+  const pattern = new RegExp(
+    '\\| \\[\\[[^\\]]+/' +
+      `${escapeRegExp(ticketId)}\\|${escapeRegExp(ticketId)}` +
+      '\\]\\] \\| [^|]+ \\| [^|]+ \\| `([^`]+)` \\|',
+  );
+  const match = pattern.exec(indexContent);
+
+  return match?.[1];
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }

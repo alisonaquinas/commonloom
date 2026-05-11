@@ -2,7 +2,7 @@
 id: TASK-019
 title: Normalize Public API Documentation
 type: task
-status: planned
+status: done
 priority: low
 phase: 5
 parent: FEAT-001
@@ -44,3 +44,12 @@ Clarify README API snapshot wording or add a complete public API reference.
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 5 audit findings.
+
+> [!SUCCESS] Done · 2026-05-11
+> Status set to done. Implemented during Phase 5 execution. `npm run check` passed locally after the change.
+
+> [!INFO] Auditor follow-up · 2026-05-11
+> Documentation review found `src/README.md` omitted the new
+> `markdown-processors.ts` module and test inventory notes still used Phase 3
+> counts. The source module map and test inventory docs now reflect the Phase 5
+> module and the current 30-test battery.

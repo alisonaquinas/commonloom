@@ -118,7 +118,7 @@ Required Phase 4 gate:
 
 ## Acceptance Criteria
 
-- [ ] Package metadata is ready for public npm publication.
+- [x] Package metadata is ready for public npm publication.
 - [x] Manual `0.0.0` bootstrap publish evidence is recorded.
 - [x] npm trusted publisher authorization is configured without long-lived npm
   tokens.

@@ -5,12 +5,10 @@
  * and heading extraction used by source traces.
  */
 import type { Heading, PhrasingContent, Root } from 'mdast';
-import remarkGfm from 'remark-gfm';
-import remarkParse from 'remark-parse';
-import { unified } from 'unified';
 import { z } from 'zod';
 
 import { parseFrontmatter } from './frontmatter.js';
+import { createMarkdownProcessor } from './markdown-processors.js';
 import type { CommonloomDiagnostic, CommonloomHeading } from './types.js';
 
 /** Input required to parse one Markdown source document. */
@@ -28,12 +26,13 @@ export interface ParsedMarkdown<Frontmatter> {
   sourcePath: string;
   frontmatter: Frontmatter | undefined;
   bodyMarkdown: string;
+  contentStartLine: number;
   headings: CommonloomHeading[];
   mdast: Root;
   diagnostics: CommonloomDiagnostic[];
 }
 
-const markdownProcessor = unified().use(remarkParse).use(remarkGfm);
+const markdownProcessor = createMarkdownProcessor();
 
 /**
  * Parse frontmatter and Markdown into an mdast tree with normalized headings.
@@ -56,6 +55,7 @@ export function parseMarkdown<Frontmatter>(
     sourcePath: input.sourcePath,
     frontmatter: frontmatter.frontmatter,
     bodyMarkdown: frontmatter.bodyMarkdown,
+    contentStartLine: frontmatter.contentStartLine,
     headings: extractHeadings(mdast, frontmatter.contentStartLine),
     mdast,
     diagnostics: frontmatter.diagnostics,

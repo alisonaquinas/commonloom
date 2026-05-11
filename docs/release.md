@@ -39,8 +39,11 @@ Production npm publishing shall:
 
 ## One-Time Bootstrap Publish
 
-The first publish must be performed by an authenticated npm package owner from
-a verified commit after the Phase 4 changes land.
+The one-time `0.0.0` bootstrap publish has been completed. Future maintainers
+should not repeat it for the same version because npm package versions are
+immutable.
+
+The historical bootstrap procedure was:
 
 1. Check out the verified commit intended for `commonloom@0.0.0`.
 2. Run `npm ci --ignore-scripts`.
@@ -53,12 +56,13 @@ a verified commit after the Phase 4 changes land.
 9. Record the npm package URL, version, dist-tag, and command evidence in
    [[plans/phase-4-npm-trusted-publishing/TASK-003|TASK-003]].
 
-Do not perform this bootstrap publish from an unverified workstation state.
+Use this section only as historical context for why the trusted publisher could
+be configured after the package name existed on npm.
 
 ## Trusted Publisher Setup
 
-After the bootstrap package exists, configure npm trusted publishing for the
-exact GitHub Actions publisher:
+Trusted publishing is reported configured for the exact GitHub Actions
+publisher:
 
 | Setting | Value |
 | --- | --- |

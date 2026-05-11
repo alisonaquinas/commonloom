@@ -2,7 +2,7 @@
 id: TASK-006
 title: Consolidate Markdown Processor Setup
 type: task
-status: planned
+status: done
 priority: medium
 phase: 5
 parent: FEAT-001
@@ -45,3 +45,6 @@ configuration.
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 5 audit findings.
+
+> [!SUCCESS] Done · 2026-05-11
+> Status set to done. Implemented during Phase 5 execution. `npm run check` passed locally after the change.

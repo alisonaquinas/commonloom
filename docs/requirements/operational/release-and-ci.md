@@ -6,7 +6,7 @@ tags:
   - ci
   - release
 status: active
-updated: 2026-05-10
+updated: 2026-05-11
 aliases:
   - Release Requirements
   - CI Requirements
@@ -25,6 +25,7 @@ aliases:
 | CLR-OPS-046 | npm publishing shall use OIDC trusted publishing. | Production npm publish workflows use npm trusted publishers, grant `id-token: write`, configure the npm registry URL, and publish with `npm publish` without long-lived npm tokens. |
 | CLR-OPS-047 | Commonloom shall use git-flow branch naming standards. | Long-lived branches are `main` and `develop`; supporting branches use `feature/<short-description>`, `release/<version>`, and `hotfix/<short-description>`, with PRs as the merge gate. |
 | CLR-OPS-048 | Validation-only CI phases shall not include CD or package publishing. | Phase plans such as [[phase-2-ci-quality-gates]] grant no publish permissions and define no deployment, release, or npm publish jobs. |
+| CLR-OPS-049 | GitHub Actions workflow steps shall pin third-party actions by full-length commit SHA. | Workflow `uses:` entries reference immutable full SHAs with version comments documenting the reviewed upstream tag. |
 
 ## Evidence
 
@@ -34,3 +35,4 @@ aliases:
 - [[sources/flavor-grenade-lsp/docs/adr/ADR007-git-flow-branching|ADR007 git-flow branching]]
 - [[phase-2-ci-quality-gates]]
 - npm trusted publishing documentation, verified 2026-05-10.
+- GitHub Actions secure-use documentation, verified 2026-05-11.

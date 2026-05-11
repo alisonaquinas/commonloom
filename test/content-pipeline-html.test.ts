@@ -44,6 +44,9 @@ describe('Commonloom HTML rendering and source traces', () => {
         '<abbr title="World Wide Web">WWW</abbr>',
         '<figure><picture><source srcset="diagram.webp" type="image/webp"><img src="diagram.png" alt="Diagram"></picture><figcaption>Diagram</figcaption></figure>',
         '<a href="javascript:alert(1)" onclick="alert(1)">unsafe link</a>',
+        '<img src="javascript:alert(1)" onerror="alert(1)" alt="Unsafe image">',
+        '<a href="java&#x73;cript&colon;alert(1)">encoded unsafe link</a>',
+        '<source srcset="diagram.webp 1x, java&#115;cript:alert(1) 2x" type="image/webp">',
       ].join('\n'),
     );
     const result = await renderMarkdownHtml({ parsed, allowHtml: true });
@@ -56,6 +59,40 @@ describe('Commonloom HTML rendering and source traces', () => {
     expect(result.bodyHtml).toContain('<a>unsafe link</a>');
     expect(result.bodyHtml).not.toContain('javascript:');
     expect(result.bodyHtml).not.toContain('onclick');
+    expect(result.diagnostics).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          code: 'HTML_UNSAFE',
+          message: expect.stringContaining('href') as string,
+          line: 8,
+        }),
+        expect.objectContaining({
+          code: 'HTML_UNSAFE',
+          message: expect.stringContaining('onclick') as string,
+          line: 8,
+        }),
+        expect.objectContaining({
+          code: 'HTML_UNSAFE',
+          message: expect.stringContaining('src') as string,
+          line: 9,
+        }),
+        expect.objectContaining({
+          code: 'HTML_UNSAFE',
+          message: expect.stringContaining('onerror') as string,
+          line: 9,
+        }),
+        expect.objectContaining({
+          code: 'HTML_UNSAFE',
+          message: expect.stringContaining('href') as string,
+          line: 10,
+        }),
+        expect.objectContaining({
+          code: 'HTML_UNSAFE',
+          message: expect.stringContaining('srcset') as string,
+          line: 11,
+        }),
+      ]),
+    );
   });
 
   it('diagnoses and removes unsafe inline HTML', async () => {

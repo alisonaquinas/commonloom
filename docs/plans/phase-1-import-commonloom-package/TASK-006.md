@@ -4,7 +4,7 @@ title: Wire Local Checks And CI
 type: task
 status: done
 priority: high
-phase: PHASE-001
+phase: 1
 parent: FEAT-001
 created: 2026-05-10
 updated: 2026-05-10

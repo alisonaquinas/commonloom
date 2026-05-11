@@ -2,7 +2,7 @@
 id: TASK-018
 title: Normalize Ticket Phase Metadata
 type: task
-status: planned
+status: done
 priority: low
 phase: 5
 parent: FEAT-001
@@ -43,3 +43,12 @@ Choose and enforce one `phase` frontmatter value style for ticket files.
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 5 audit findings.
+
+> [!SUCCESS] Done · 2026-05-11
+> Status set to done. Implemented during Phase 5 execution. `npm run check` passed locally after the change.
+
+> [!INFO] Auditor follow-up · 2026-05-11
+> Documentation review found the Phase 5 index showed several tickets as done
+> while their frontmatter still said planned. The ticket frontmatter has been
+> corrected, and `verify-plan-process.mjs` now compares index status against
+> ticket frontmatter so this drift is caught automatically.

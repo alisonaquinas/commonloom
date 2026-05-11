@@ -1,3 +1,15 @@
+---
+title: Docs Agent Guide
+tags:
+  - commonloom
+  - agents
+  - documentation
+status: active
+updated: 2026-05-11
+aliases:
+  - Docs AGENTS
+---
+
 # AGENTS.md - Guide for AI Agents Working in `docs/`
 
 `docs/` is an Obsidian vault that maintains the evolving Commonloom wiki from
@@ -52,6 +64,8 @@ Use these local conventions:
   `sources/`.
 - Use frontmatter on durable notes with at least `title`, `tags`, `status`, and
   `updated`.
+- ADR files under `adr/` are the exception: they use MADR frontmatter fields
+  checked by `npm run lint:docs:adr`.
 - Use aliases for common alternate names, especially imported phase or ADR
   names.
 - Use callouts for evidence and risk notes:

@@ -4,7 +4,7 @@ title: Import Commonloom Package And Tests
 type: feature
 status: done
 priority: high
-phase: PHASE-001
+phase: 1
 created: 2026-05-10
 updated: 2026-05-10
 dependencies: []

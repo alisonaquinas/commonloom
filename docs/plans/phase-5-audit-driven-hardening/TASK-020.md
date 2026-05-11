@@ -2,7 +2,7 @@
 id: TASK-020
 title: Clarify Standard Internal Link Validation
 type: task
-status: planned
+status: done
 priority: high
 phase: 5
 parent: FEAT-001
@@ -46,3 +46,11 @@ only classifies them for adapter-owned resolution.
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 5 audit findings.
+
+> [!SUCCESS] Done · 2026-05-11
+> Status set to done. Implemented during Phase 5 execution. `npm run check` passed locally after the change.
+
+> [!SUCCESS] Auditor confirmation · 2026-05-11
+> Requirements review confirmed standard internal links now route through the
+> adapter callback and produce unresolved diagnostics when the adapter cannot
+> resolve them.

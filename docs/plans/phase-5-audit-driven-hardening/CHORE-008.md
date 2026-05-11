@@ -2,7 +2,7 @@
 id: CHORE-008
 title: Phase Retrospective
 type: chore
-status: planned
+status: done
 priority: medium
 phase: 5
 parent: FEAT-001
@@ -38,3 +38,19 @@ Record Phase 5 retrospective notes before completion.
 ## Workflow Log
 
 - 2026-05-11: Planned before Phase 5 completion.
+
+> [!SUCCESS] Done · 2026-05-11
+> Status set to done. `npm run check` passed locally after Phase 5 remediation.
+
+## Retrospective
+
+Phase 5 worked best when audit findings were converted into explicit owner
+tickets before remediation began. That kept source hardening, CI hardening, and
+documentation reconciliation traceable.
+
+The main deviation was inherited source work already in progress before the
+final Phase 5 test updates landed. The remediation still closed with focused
+tests for every behavior change and a full local `npm run check` pass.
+
+Carry-forward action: remote CI evidence remains required before Phase 5 can be
+closed as done.

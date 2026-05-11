@@ -39,6 +39,12 @@ start once the package is ready for npm publication.
 - Added Git LFS tracking for Commonloom documentation PNG assets.
 - Added a GitHub-facing `.github/README.md` that uses the new light and dark
   Commonloom logo assets.
+- Added configurable Commonloom compile limits for manifest count, Markdown
+  bytes, reference count, and rendered HTML bytes.
+- Added compiler hardening tests for Markdown symlink escapes, unsafe HTML
+  attributes, internal link diagnostics, source-position offsets, and resource
+  limits.
+- Added a `format:check` script for the root Markdown format gate.
 
 ### Changed
 
@@ -55,7 +61,17 @@ start once the package is ready for npm publication.
   tag validation so publishing only runs for tags at the current `main` head.
 - Added a CI-safe npm publish dry-run script that uses a temporary prerelease
   version after `commonloom@0.0.0` has been published.
+- Pinned GitHub Actions workflow actions to reviewed full-length commit SHAs.
+- Consolidated Markdown processor setup shared by parser and renderer paths.
+- Normalized phase ticket metadata to numeric phase values.
+- Refactored compiler trace resolution helpers to return diagnostics with
+  values instead of mutating caller-owned diagnostic arrays.
 
 ### Fixed
 
-- Nothing yet.
+- Corrected source positions for links and images when Markdown frontmatter is
+  present.
+- Ensured standard internal links can be resolved by adapter callbacks before
+  unresolved diagnostics are emitted.
+- Stripped entity-encoded and whitespace-obfuscated unsafe HTML URL attributes
+  before rendering sanitized output.

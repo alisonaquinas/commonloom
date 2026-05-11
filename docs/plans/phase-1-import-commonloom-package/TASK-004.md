@@ -4,7 +4,7 @@ title: Port Commonloom Tests Into Test
 type: task
 status: done
 priority: high
-phase: PHASE-001
+phase: 1
 parent: FEAT-001
 created: 2026-05-10
 updated: 2026-05-10

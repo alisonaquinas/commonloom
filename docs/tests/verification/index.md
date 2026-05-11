@@ -5,7 +5,7 @@ tags:
   - tests
   - verification
 status: active
-updated: 2026-05-10
+updated: 2026-05-11
 aliases:
   - Verification Tests
   - Verification Gate
@@ -41,7 +41,7 @@ npm run lint && npm run verify && npm run typecheck && npm run build && npm run 
 | Static and process verification | `npm run verify` | Adapter-neutral source imports, disallowed core dependencies, exact dependency versions, generated output tracking, requirements traceability, BDD requirement links, and phase/ticket process rules. |
 | Typecheck | `npm run typecheck` | TypeScript project check with no emit. |
 | Build | `npm run build` | Distributable TypeScript build. |
-| Unit tests | `npm run test:unit` | Five Vitest files, twenty-three tests. |
+| Unit tests | `npm run test:unit` | Five Vitest files, twenty-eight tests. |
 | Integration tests | `npm run test:integration` | Public compiler integration flow. |
 | E2E tests | `npm run test:e2e` | Fixture content tree compiled into adapter-visible records. |
 

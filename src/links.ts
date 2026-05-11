@@ -77,7 +77,7 @@ export function extractMarkdownReferences<Frontmatter>(
     links.push({
       ...classifyLinkTarget(node.url),
       sourcePath: parsed.sourcePath,
-      line: node.position?.start.line,
+      line: offsetLine(node.position?.start.line, parsed.contentStartLine),
       column: node.position?.start.column,
     });
   });
@@ -87,7 +87,7 @@ export function extractMarkdownReferences<Frontmatter>(
       rawTarget: node.url,
       altText: node.alt ?? '',
       sourcePath: parsed.sourcePath,
-      line: node.position?.start.line,
+      line: offsetLine(node.position?.start.line, parsed.contentStartLine),
       column: node.position?.start.column,
     });
   });
@@ -102,7 +102,7 @@ export function extractMarkdownReferences<Frontmatter>(
         rawTarget: match[1].trim(),
         kind: 'wiki-link',
         sourcePath: parsed.sourcePath,
-        line: node.position?.start.line,
+        line: offsetLine(node.position?.start.line, parsed.contentStartLine),
         column: node.position?.start.column
           ? node.position.start.column + match.index
           : undefined,
@@ -116,7 +116,7 @@ export function extractMarkdownReferences<Frontmatter>(
 /**
  * Resolve wiki-links through the adapter policy and collect diagnostics.
  *
- * Non-wiki links pass through unchanged after classification. Unsupported
+ * Wiki and internal links can resolve through the adapter policy. Unsupported
  * schemes become `LINK_UNRESOLVED` diagnostics because Commonloom cannot safely
  * route them.
  */
@@ -134,7 +134,7 @@ export async function resolveLinkReferences(
       continue;
     }
 
-    if (link.kind !== 'wiki-link') {
+    if (link.kind !== 'wiki-link' && link.kind !== 'internal') {
       resolvedLinks.push(link);
       continue;
     }
@@ -151,11 +151,17 @@ export async function resolveLinkReferences(
     if (resolution.diagnostic) {
       diagnostics.push(resolution.diagnostic);
     } else if (!resolution.resolvedTarget) {
-      diagnostics.push(unresolvedDiagnostic(link, `Unresolved wiki-link: ${link.rawTarget}`));
+      diagnostics.push(
+        unresolvedDiagnostic(link, `Unresolved ${link.kind}: ${link.rawTarget}`),
+      );
     }
   }
 
   return { links: resolvedLinks, diagnostics };
+}
+
+function offsetLine(line: number | undefined, contentStartLine: number): number | undefined {
+  return line ? line + contentStartLine - 1 : undefined;
 }
 
 /** Build a normalized unresolved-link diagnostic at the original source span. */

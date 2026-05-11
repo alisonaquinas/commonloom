@@ -2,7 +2,7 @@
 id: TASK-012
 title: Diagnose Unsafe HTML Attributes
 type: task
-status: planned
+status: done
 priority: high
 phase: 5
 parent: FEAT-001
@@ -50,3 +50,18 @@ HTML tags.
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 5 audit findings.
+
+> [!SUCCESS] Done · 2026-05-11
+> Status set to done. Implemented during Phase 5 execution. `npm run check` passed locally after the change.
+
+> [!INFO] Auditor confirmation · 2026-05-11
+> Security and requirements reviewers confirmed unsafe event-attribute and
+> literal JavaScript URL diagnostics. Review requested broader representative
+> evidence, so the HTML test now also covers `src=\"javascript:\"` and
+> `onerror`. Obfuscated or entity-encoded protocols remain follow-up debt for a
+> parser or sanitizer-diff based diagnostic pass.
+
+> [!SUCCESS] Remaining finding closed · 2026-05-11
+> Added detection and pre-sanitize stripping for numeric-entity, `&colon;`, and
+> whitespace-obfuscated JavaScript URL attributes. Tests now cover encoded
+> `href` and `srcset` values as well as literal unsafe attributes.

@@ -5,7 +5,7 @@ tags:
   - tests
   - unit
 status: active
-updated: 2026-05-10
+updated: 2026-05-11
 aliases:
   - Unit Tests
 ---
@@ -32,8 +32,8 @@ media validation.
 | [content-pipeline-core.test.ts](../../../test/content-pipeline-core.test.ts) | 3 | Compiler no-manifest behavior, diagnostics, source traces, and adapter-owned callbacks. |
 | [content-pipeline-markdown.test.ts](../../../test/content-pipeline-markdown.test.ts) | 4 | Frontmatter parsing, invalid and malformed frontmatter diagnostics, heading extraction, CommonMark constructs, and GFM constructs. |
 | [content-pipeline-html.test.ts](../../../test/content-pipeline-html.test.ts) | 5 | Safe inline HTML, unsafe inline HTML diagnostics, static tag allowlisting, sanitization, and stable source trace hashes. |
-| [content-pipeline-links-media.test.ts](../../../test/content-pipeline-links-media.test.ts) | 7 | Link classification, link extraction, wiki-link resolution, unsupported schemes, local media validation, traversal rejection, and alt text diagnostics. |
-| [content-pipeline-security.test.ts](../../../test/content-pipeline-security.test.ts) | 4 | Oversized frontmatter, prototype-pollution safety, long wiki-link parsing, and symlinked media escape rejection. |
+| [content-pipeline-links-media.test.ts](../../../test/content-pipeline-links-media.test.ts) | 10 | Link classification, link extraction, source positions, internal and wiki-link resolution, unsupported schemes, local media validation, traversal rejection, Windows/UNC root rejection, and alt text diagnostics. |
+| [content-pipeline-security.test.ts](../../../test/content-pipeline-security.test.ts) | 6 | Oversized frontmatter, prototype-pollution safety, long wiki-link parsing, symlinked media and Markdown escape rejection, and compile resource limits. |
 
 ## Local Gate
 
@@ -41,7 +41,7 @@ media validation.
 npm run test:unit
 ```
 
-The current unit battery contains five Vitest files and twenty-three tests.
+The current unit battery contains five Vitest files and twenty-eight tests.
 
 ## Invariants
 

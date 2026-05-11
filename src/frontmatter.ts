@@ -72,9 +72,7 @@ export function parseFrontmatter<Frontmatter>(
   }
 
   const validation = frontmatterSchema.safeParse(file.data);
-  const contentIndex = markdown.indexOf(file.content);
-  const contentStartLine =
-    contentIndex > 0 ? markdown.slice(0, contentIndex).split(/\r?\n/).length : 1;
+  const contentStartLine = findContentStartLine(markdown);
 
   if (validation.success) {
     return {
@@ -102,4 +100,14 @@ function extractFrontmatterBlock(markdown: string): string | undefined {
   const match = /^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/.exec(markdown);
 
   return match?.[1];
+}
+
+function findContentStartLine(markdown: string): number {
+  const match = /^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)/.exec(markdown);
+
+  if (!match) {
+    return 1;
+  }
+
+  return match[0].split(/\r?\n/).length;
 }

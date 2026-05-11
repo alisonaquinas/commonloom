@@ -2,7 +2,7 @@
 id: TASK-013
 title: Pin GitHub Actions By SHA
 type: task
-status: planned
+status: done
 priority: medium
 phase: 5
 parent: FEAT-001
@@ -45,3 +45,11 @@ full-length commit SHAs.
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 5 audit findings.
+
+> [!SUCCESS] Done · 2026-05-11
+> Status set to done. Implemented during Phase 5 execution. `npm run check` passed locally after the change.
+
+> [!SUCCESS] Auditor confirmation · 2026-05-11
+> Security review confirmed all GitHub Actions `uses:` references are pinned to
+> full 40-character commit SHAs and that the pinned SHAs match the reviewed
+> upstream action tags.

@@ -2,7 +2,7 @@
 id: TASK-005
 title: Harden Path Confinement
 type: task
-status: planned
+status: done
 priority: high
 phase: 5
 parent: FEAT-001
@@ -47,3 +47,24 @@ source symlink or junction escapes.
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 5 audit findings.
+
+> [!SUCCESS] Done · 2026-05-11
+> Status set to done. Implemented during Phase 5 execution. `npm run check` passed locally after the change.
+
+> [!INFO] Auditor confirmation · 2026-05-11
+> Code quality and security auditors confirmed the path-confinement and
+> Markdown source symlink fixes. Security review identified a TOCTOU edge where
+> the compiler checked the real path but read the original lexical path; the
+> compiler now reads the canonical real Markdown path. Follow-up debt remains
+> for explicit cross-drive and UNC regression tests.
+
+> [!SUCCESS] Remaining finding closed · 2026-05-11
+> Added explicit Windows drive and UNC path regression coverage for
+> `resolveInsideRoot`, closing the path-test follow-up from the code quality
+> auditor.
+
+> [!SUCCESS] CI portability fix · 2026-05-11
+> Code quality revalidation found the Windows/UNC regression would fail on
+> Ubuntu because Node's default `path` module is platform-native. Path
+> confinement now detects Windows-shaped absolute paths and applies `path.win32`
+> semantics, so the regression can run on both Windows and Linux CI.

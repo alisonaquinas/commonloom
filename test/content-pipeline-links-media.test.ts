@@ -19,6 +19,7 @@ import {
 import { validateMediaReference } from '../src/media.js';
 import { parseMarkdown } from '../src/markdown.js';
 import { resolveInsideRoot } from '../src/paths.js';
+import { makeTempDir } from './temp-dir.js';
 
 const frontmatterSchema = z.object({
   title: z.string(),
@@ -82,7 +83,23 @@ describe('Commonloom link and media validation', () => {
       expect.objectContaining({
         rawTarget: 'diagram.png',
         altText: 'Architecture diagram',
+        line: 12,
       }),
+    );
+  });
+
+  it('reports link and image positions against the original Markdown source', () => {
+    const parsed = parse('[Home](/)\n\n[[Quick Start]]\n\n![Architecture diagram](diagram.png)');
+    const references = extractMarkdownReferences(parsed);
+
+    expect(references.links).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ rawTarget: '/', line: 6, column: 1 }),
+        expect.objectContaining({ rawTarget: 'Quick Start', line: 8, column: 1 }),
+      ]),
+    );
+    expect(references.images).toContainEqual(
+      expect.objectContaining({ rawTarget: 'diagram.png', line: 10, column: 1 }),
     );
   });
 
@@ -129,65 +146,97 @@ describe('Commonloom link and media validation', () => {
     );
   });
 
+  it('resolves internal links through adapter callbacks before reporting gaps', async () => {
+    const parsed = parse('[Known](/known/)\n\n[Missing](/missing/)');
+    const references = extractMarkdownReferences(parsed);
+    const result = await resolveLinkReferences(references.links, {
+      resolveLink: ({ rawTarget }) => ({
+        kind: 'internal',
+        resolvedTarget: rawTarget === '/known/' ? '/known/' : undefined,
+      }),
+    });
+
+    expect(result.links).toContainEqual(
+      expect.objectContaining({
+        rawTarget: '/known/',
+        resolvedTarget: '/known/',
+        kind: 'internal',
+      }),
+    );
+    expect(result.diagnostics).toContainEqual(
+      expect.objectContaining({
+        code: 'LINK_UNRESOLVED',
+        message: 'Unresolved internal: /missing/',
+      }),
+    );
+  });
+
   it('validates local media paths, missing files, traversal, and alt text', async () => {
-    const mediaRoot = join(process.cwd(), 'node_modules', '.tmp-commonloom-media');
-    await mkdir(mediaRoot, { recursive: true });
-    await writeFile(join(mediaRoot, 'diagram.png'), 'fixture');
+    const fixture = await makeTempDir('commonloom-media-');
 
-    await expect(
-      validateMediaReference(
-        { rawTarget: 'diagram.png', altText: 'Architecture diagram' },
-        { mediaRoot, sourcePath: 'copy/page.md' },
-      ),
-    ).resolves.toEqual({ resolvedPath: join(mediaRoot, 'diagram.png'), diagnostics: [] });
+    try {
+      const mediaRoot = fixture.root;
 
-    await expect(
-      validateMediaReference(
-        { rawTarget: 'missing.png', altText: 'Missing diagram' },
-        { mediaRoot, sourcePath: 'copy/page.md' },
-      ),
-    ).resolves.toEqual(
-      expect.objectContaining({
-        diagnostics: [
-          expect.objectContaining({
-            code: 'MEDIA_UNRESOLVED',
-            severity: 'error',
-          }),
-        ],
-      }),
-    );
+      await mkdir(mediaRoot, { recursive: true });
+      await writeFile(join(mediaRoot, 'diagram.png'), 'fixture');
 
-    await expect(
-      validateMediaReference(
-        { rawTarget: '../outside.png', altText: 'Outside' },
-        { mediaRoot, sourcePath: 'copy/page.md' },
-      ),
-    ).resolves.toEqual(
-      expect.objectContaining({
-        diagnostics: [
-          expect.objectContaining({
-            code: 'PATH_OUTSIDE_ROOT',
-            severity: 'error',
-          }),
-        ],
-      }),
-    );
+      await expect(
+        validateMediaReference(
+          { rawTarget: 'diagram.png', altText: 'Architecture diagram' },
+          { mediaRoot, sourcePath: 'copy/page.md' },
+        ),
+      ).resolves.toEqual({ resolvedPath: join(mediaRoot, 'diagram.png'), diagnostics: [] });
 
-    await expect(
-      validateMediaReference(
-        { rawTarget: 'diagram.png', altText: '' },
-        { mediaRoot, sourcePath: 'copy/page.md' },
-      ),
-    ).resolves.toEqual(
-      expect.objectContaining({
-        diagnostics: [
-          expect.objectContaining({
-            code: 'MEDIA_ALT_MISSING',
-            severity: 'error',
-          }),
-        ],
-      }),
-    );
+      await expect(
+        validateMediaReference(
+          { rawTarget: 'missing.png', altText: 'Missing diagram' },
+          { mediaRoot, sourcePath: 'copy/page.md' },
+        ),
+      ).resolves.toEqual(
+        expect.objectContaining({
+          diagnostics: [
+            expect.objectContaining({
+              code: 'MEDIA_UNRESOLVED',
+              severity: 'error',
+            }),
+          ],
+        }),
+      );
+
+      await expect(
+        validateMediaReference(
+          { rawTarget: '../outside.png', altText: 'Outside' },
+          { mediaRoot, sourcePath: 'copy/page.md' },
+        ),
+      ).resolves.toEqual(
+        expect.objectContaining({
+          diagnostics: [
+            expect.objectContaining({
+              code: 'PATH_OUTSIDE_ROOT',
+              severity: 'error',
+            }),
+          ],
+        }),
+      );
+
+      await expect(
+        validateMediaReference(
+          { rawTarget: 'diagram.png', altText: '' },
+          { mediaRoot, sourcePath: 'copy/page.md' },
+        ),
+      ).resolves.toEqual(
+        expect.objectContaining({
+          diagnostics: [
+            expect.objectContaining({
+              code: 'MEDIA_ALT_MISSING',
+              severity: 'error',
+            }),
+          ],
+        }),
+      );
+    } finally {
+      await fixture.cleanup();
+    }
   });
 
   it('rejects unsupported media URI schemes before filesystem lookup', async () => {
@@ -207,7 +256,7 @@ describe('Commonloom link and media validation', () => {
   });
 
   it('keeps absolute and encoded traversal targets inside approved path rules', () => {
-    const mediaRoot = join(process.cwd(), 'node_modules', '.tmp-commonloom-media');
+    const mediaRoot = join(process.cwd(), 'node_modules', '.tmp-commonloom-media-paths');
     const absoluteOutside = resolve(process.cwd(), 'outside.png');
 
     expect(
@@ -235,5 +284,41 @@ describe('Commonloom link and media validation', () => {
 
     expect(encoded.resolvedPath?.startsWith(mediaRoot)).toBe(true);
     expect(encoded.diagnostics).toEqual([]);
+  });
+
+  it('rejects Windows drive and UNC roots that resolve outside the configured root', () => {
+    expect(
+      resolveInsideRoot({
+        root: 'C:\\commonloom\\media',
+        target: 'D:\\escape.png',
+        sourcePath: 'copy/page.md',
+      }),
+    ).toEqual(
+      expect.objectContaining({
+        diagnostics: [
+          expect.objectContaining({
+            code: 'PATH_OUTSIDE_ROOT',
+            severity: 'error',
+          }),
+        ],
+      }),
+    );
+
+    expect(
+      resolveInsideRoot({
+        root: '\\\\server\\share\\media',
+        target: '\\\\server\\other\\escape.png',
+        sourcePath: 'copy/page.md',
+      }),
+    ).toEqual(
+      expect.objectContaining({
+        diagnostics: [
+          expect.objectContaining({
+            code: 'PATH_OUTSIDE_ROOT',
+            severity: 'error',
+          }),
+        ],
+      }),
+    );
   });
 });

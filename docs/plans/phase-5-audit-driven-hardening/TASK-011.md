@@ -2,7 +2,7 @@
 id: TASK-011
 title: Add Markdown Resource Limits
 type: task
-status: planned
+status: done
 priority: medium
 phase: 5
 parent: FEAT-001
@@ -45,3 +45,13 @@ Add whole-document and collection-size limits for Markdown compilation.
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 5 audit findings.
+
+> [!SUCCESS] Done · 2026-05-11
+> Status set to done. Implemented during Phase 5 execution. `npm run check` passed locally after the change.
+
+> [!INFO] Auditor confirmation · 2026-05-11
+> Security review confirmed configurable limits for manifest count, Markdown
+> bytes, reference count, and rendered HTML bytes. The auditor found reference
+> and rendered HTML limits were still returning oversized documents; the
+> compiler now stops compilation and returns only diagnostics for those hard
+> limit failures.
