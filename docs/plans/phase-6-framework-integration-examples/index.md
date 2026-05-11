@@ -24,7 +24,7 @@ updated: 2026-05-11
 | [[plans/phase-6-framework-integration-examples/TASK-005|TASK-005]] | Build Svelte Example | Task | `done` |
 | [[plans/phase-6-framework-integration-examples/TASK-006|TASK-006]] | Build Next.js Example | Task | `done` |
 | [[plans/phase-6-framework-integration-examples/TASK-007|TASK-007]] | Build Angular Example | Task | `done` |
-| [[plans/phase-6-framework-integration-examples/TASK-008|TASK-008]] | Build Node Example | Task | `planned` |
+| [[plans/phase-6-framework-integration-examples/TASK-008|TASK-008]] | Build Node Example | Task | `done` |
 | [[plans/phase-6-framework-integration-examples/TASK-009|TASK-009]] | Remediate Integration Coupling | Task | `planned` |
 | [[plans/phase-6-framework-integration-examples/TASK-010|TASK-010]] | Verify Example Parity And CI Coverage | Task | `planned` |
 | [[plans/phase-6-framework-integration-examples/TASK-011|TASK-011]] | Document Adopter Guidance | Task | `planned` |

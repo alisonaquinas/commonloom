@@ -498,3 +498,11 @@ Completed
 [[plans/phase-6-framework-integration-examples/TASK-007|TASK-007]] by adding an
 Angular CLI example that renders the shared Commonloom output with the same
 content, SCSS, assets, and dev/build/production-preview command shape.
+
+## [2026-05-11] phase | Add Phase 6 Node example
+
+Completed
+[[plans/phase-6-framework-integration-examples/TASK-008|TASK-008]] by adding a
+Node example that compiles the shared Commonloom content into static HTML,
+compiles the shared SCSS with Sass, copies shared assets, and serves the
+generated output with a small Node HTTP preview script.
