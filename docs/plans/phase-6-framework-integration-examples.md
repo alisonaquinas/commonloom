@@ -6,7 +6,7 @@ tags:
   - phase-6
   - examples
   - framework-integration
-status: active
+status: done
 updated: 2026-05-11
 aliases:
   - Phase 6
@@ -140,15 +140,15 @@ close while any ticket is `planned`, `active`, `blocked`, or `in-review`.
 
 ## Acceptance Criteria
 
-- [ ] Shared SCSS, content, and assets exist under `examples/shared/`.
-- [ ] React, Vue, Svelte, Next.js, Angular, and Node examples use the shared
+- [x] Shared SCSS, content, and assets exist under `examples/shared/`.
+- [x] React, Vue, Svelte, Next.js, Angular, and Node examples use the shared
       materials.
-- [ ] Each example documents install, build, and local preview or run commands.
-- [ ] Example-specific code is limited to framework integration glue.
-- [ ] Commonloom source changes are made only when examples reveal coupling.
-- [ ] Coupling fixes include tests or verification evidence.
-- [ ] Local validation passes.
-- [ ] Remote CI evidence is captured before completion.
+- [x] Each example documents install, build, and local preview or run commands.
+- [x] Example-specific code is limited to framework integration glue.
+- [x] Commonloom source changes are made only when examples reveal coupling.
+- [x] Coupling fixes include tests or verification evidence.
+- [x] Local validation passes.
+- [x] Remote CI evidence is captured before completion.
 
 ## Evidence
 
@@ -166,3 +166,11 @@ close while any ticket is `planned`, `active`, `blocked`, or `in-review`.
 > Phase 6 execution started on
 > `feature/phase-6-framework-examples-implementation` from `origin/develop`
 > after the `0.1.0` release and Phase 6 planning PR were merged.
+
+> [!SUCCESS] Done · 2026-05-11
+> Phase 6 completed with shared-content examples for React, Vue, Svelte,
+> Next.js, Angular, and Node; `npm run examples:check` wired into local and CI
+> validation; and passing PR 15 GitHub Actions evidence:
+> <https://github.com/alisonaquinas/commonloom/actions/runs/25687047698/job/75413431464>
+> and
+> <https://github.com/alisonaquinas/commonloom/actions/runs/25687065066/job/75413489173>.

@@ -2,7 +2,7 @@
 id: CHORE-008
 title: Phase Retrospective
 type: chore
-status: planned
+status: done
 priority: medium
 phase: 6
 parent: FEAT-001
@@ -38,3 +38,10 @@ Record Phase 6 retrospective notes before completion.
 ## Workflow Log
 
 - 2026-05-11: Planned before Phase 6 completion.
+- 2026-05-11: Retrospective recorded. The shared substrate kept example
+  content, styling, and assets aligned; framework-specific work stayed in
+  disjoint `examples/<framework>/` directories; Svelte, Next.js, and Angular
+  required package-specific adjustments that are captured in task logs; and no
+  Commonloom core coupling fix was required. Carry-forward: watch the Next.js
+  canary pin and Angular TypeScript peer range during future dependency
+  refreshes. Status set to done.

@@ -23,7 +23,7 @@ This roadmap tracks standalone Commonloom implementation phases.
 | [[plans/phase-3-close-testing-gaps|Phase 3]] | done | Close documented unit, integration, E2E, verification, and validation test gaps. |
 | [[plans/phase-4-npm-trusted-publishing|Phase 4]] | done | Add release automation and npm OIDC trusted publishing. |
 | [[plans/phase-5-audit-driven-hardening|Phase 5]] | done | Audit code quality, security, documentation, and requirements evidence before hardening. |
-| [[plans/phase-6-framework-integration-examples|Phase 6]] | active | Prove framework independence with shared-content examples for React, Vue, Svelte, Next.js, Angular, and Node. |
+| [[plans/phase-6-framework-integration-examples|Phase 6]] | done | Prove framework independence with shared-content examples for React, Vue, Svelte, Next.js, Angular, and Node. |
 
 ## Phase Principles
 
