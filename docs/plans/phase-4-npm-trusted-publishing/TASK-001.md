@@ -2,7 +2,7 @@
 id: TASK-001
 title: Audit Package Publication Readiness
 type: task
-status: planned
+status: done
 priority: high
 phase: 4
 parent: FEAT-001
@@ -57,3 +57,11 @@ publish operation.
 ## Workflow Log
 
 - 2026-05-11: Opened in planned status.
+- 2026-05-11: Started package publication readiness audit. Status set to
+  active.
+- 2026-05-11: Confirmed `commonloom` returns npm 404 and appears unclaimed.
+  Added package description, MIT license metadata, repository, bugs, homepage,
+  keywords, `sideEffects: false`, and public npm publish config. Removed
+  `private: true` so dry-run and manual bootstrap publish can proceed. Updated
+  `package-lock.json` with root license metadata. Status set to done after
+  `npm install --package-lock-only --ignore-scripts`.

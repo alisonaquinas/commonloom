@@ -301,6 +301,57 @@ automation and npm OIDC trusted publishing.
 The plan records the required one-time manual `0.0.0` bootstrap publish before
 npm trusted publisher authorization is configured.
 
+## [2026-05-11] phase | Start Phase 4 npm trusted publishing
+
+Started [[plans/phase-4-npm-trusted-publishing|Phase 4]] execution on
+`feature/phase-4-npm-trusted-publishing`.
+
+## [2026-05-11] phase | Audit Phase 4 publication metadata
+
+Completed [[plans/phase-4-npm-trusted-publishing/TASK-001|TASK-001]] by
+checking that `commonloom` is not currently published on npm and adding public
+package metadata for release dry-runs.
+
+## [2026-05-11] phase | Validate Phase 4 npm dry-runs
+
+Completed [[plans/phase-4-npm-trusted-publishing/TASK-002|TASK-002]] after
+`npm pack --dry-run` and `npm publish --dry-run` passed for `commonloom@0.0.0`.
+The dry-run package contains only root public docs, package metadata, and
+`dist/` files.
+
+## [2026-05-11] phase | Record Phase 4 npm publishing blocker
+
+Marked [[plans/phase-4-npm-trusted-publishing/TASK-003|TASK-003]] and
+[[plans/phase-4-npm-trusted-publishing/TASK-004|TASK-004]] blocked because
+`npm whoami` returned `E401`.
+Manual bootstrap publishing and npm trusted publisher setup require
+authenticated npm package owner action.
+
+## [2026-05-11] phase | Add Phase 4 release automation
+
+Implemented the nonblocked Phase 4 release automation work by adding
+`.github/workflows/npm-publish.yml`, `npm run pack:dry-run`,
+`npm run publish:dry-run`, `npm run release:check`, and
+[[release|Release Operations]].
+The workflow runs release dry-runs without publishing and limits OIDC publish
+permissions to version-tag jobs after the dry-run gate passes.
+
+## [2026-05-11] phase | Tighten Phase 4 release gates
+
+Confirmed `commonloom@0.0.0` exists on npm with `latest` set to `0.0.0`.
+Recorded user-reported npm trusted publishing setup, added package dry-run
+steps to the main CI workflow, and tightened the release guard so publish tags
+must point at the exact `origin/main` head.
+Added `npm run publish:dry-run:ci` so CI can dry-run npm publish mechanics with
+a temporary prerelease version after `0.0.0` already exists on npm.
+Clarified that release dry-run evidence for Phase 4 must come from GitHub
+Actions workflow output; local dry-runs are preflight checks only.
+Opened PR 10 and captured passing GitHub Actions PR CI evidence:
+<https://github.com/alisonaquinas/commonloom/actions/runs/25670022163/job/75352512283>.
+GitHub returned 404 when dispatching `npm-publish.yml` from the feature branch
+because new workflow dispatches require the workflow to exist on the default
+branch first.
+
 ## [2026-05-11] assets | Add Commonloom documentation assets
 
 Added Commonloom logo, icon, and source PNG assets under [[assets/index]].

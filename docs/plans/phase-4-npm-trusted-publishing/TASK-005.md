@@ -2,7 +2,7 @@
 id: TASK-005
 title: Add OIDC Release Workflow
 type: task
-status: planned
+status: done
 priority: high
 phase: 4
 parent: FEAT-001
@@ -65,3 +65,9 @@ trusted publishing.
 ## Workflow Log
 
 - 2026-05-11: Opened in planned status.
+- 2026-05-11: Started OIDC release workflow implementation while TASK-003 and
+  TASK-004 remain blocked on external npm owner actions. Status set to active.
+- 2026-05-11: Added `.github/workflows/npm-publish.yml` with a dry-run job
+  for tag and manual dispatch events, a publish job restricted to version-tag
+  pushes, Node.js 24, npm registry setup, read-only contents permission, and
+  OIDC write permission only on the publish job. Status set to done.

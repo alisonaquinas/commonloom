@@ -46,6 +46,15 @@ start once the package is ready for npm publication.
   gate, and pre-release API status.
 - Updated CI documentation so the test battery is described by category instead
   of only by the catch-all Vitest command.
+- Updated package metadata for public npm publication readiness.
+- Added npm package dry-run scripts, a release tag verifier, and an npm trusted
+  publishing workflow that uses Node.js 24 and GitHub Actions OIDC.
+- Added release operations documentation for manual bootstrap publishing,
+  trusted publisher setup, dry runs, and production releases.
+- Added package dry-run validation to the CI workflow and tightened release
+  tag validation so publishing only runs for tags at the current `main` head.
+- Added a CI-safe npm publish dry-run script that uses a temporary prerelease
+  version after `commonloom@0.0.0` has been published.
 
 ### Fixed
 

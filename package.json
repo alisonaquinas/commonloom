@@ -1,7 +1,8 @@
 {
   "name": "commonloom",
   "version": "0.0.0",
-  "private": true,
+  "description": "Adapter-neutral Markdown content pipeline for validated, traceable renderer-ready records.",
+  "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -17,6 +18,27 @@
     "README.md",
     "CHANGELOG.md"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alisonaquinas/commonloom.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alisonaquinas/commonloom/issues"
+  },
+  "homepage": "https://github.com/alisonaquinas/commonloom#readme",
+  "keywords": [
+    "markdown",
+    "content-pipeline",
+    "frontmatter",
+    "static-site",
+    "obsidian",
+    "unified"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
     "check": "npm run lint && npm run verify && npm run typecheck && npm run build && npm run test:battery",
@@ -26,7 +48,11 @@
     "lint:docs:adr": "python scripts/lint-adr.py docs/adr --strict",
     "lint:docs:markdown": "markdownlint-cli2 --config .config/markdownlint-cli2.jsonc",
     "lint:docs:obsidian": "node scripts/lint-obsidian-docs.mjs",
+    "pack:dry-run": "npm pack --dry-run",
     "precommit": "npm run check",
+    "publish:dry-run": "npm publish --dry-run",
+    "publish:dry-run:ci": "node scripts/npm-ci-publish-dry-run.mjs",
+    "release:check": "node scripts/verify-release-tag.mjs",
     "test": "vitest run",
     "test:battery": "npm run test:unit && npm run test:integration && npm run test:e2e",
     "test:e2e": "vitest run content-pipeline-e2e.test.ts",

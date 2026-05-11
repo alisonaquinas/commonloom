@@ -64,7 +64,9 @@ Stabilize it here before the first standalone release.
 Phase 1 imported the Commonloom package source and tests. Phase 2 added the
 local and CI quality gate. Phase 3 expanded unit coverage, added integration
 and end-to-end compiler tests, and added static verification for boundaries,
-traceability, and phase/ticket process rules.
+traceability, and phase/ticket process rules. Phase 4 is adding npm release
+automation. The initial `0.0.0` npm package exists, and trusted publishing is
+ready for validation through the GitHub Actions release workflow.
 
 Use Node.js 24 or newer.
 
@@ -94,6 +96,9 @@ npm run lint:docs
 npm run verify
 npm run typecheck
 npm run build
+npm run pack:dry-run
+npm run publish:dry-run
+npm run publish:dry-run:ci
 npm run test:battery
 npm run test:unit
 npm run test:integration
@@ -108,7 +113,8 @@ Expected next steps:
 1. Stabilize the public API before the first standalone release.
 2. Document adapter integration examples without moving adapter behavior into
    the core package.
-3. Add release automation and npm OIDC trusted publishing in a later phase.
+3. Complete the one-time npm bootstrap publish and configure npm trusted
+   publishing for the release workflow.
 
 ## Project Layout
 

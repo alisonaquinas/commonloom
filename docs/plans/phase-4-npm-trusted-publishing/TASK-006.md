@@ -2,7 +2,7 @@
 id: TASK-006
 title: Add Release Guardrails
 type: task
-status: planned
+status: done
 priority: high
 phase: 4
 parent: FEAT-001
@@ -27,7 +27,7 @@ Add checks that prevent accidental or unauthorized production publishes.
 
 ## Work Scope
 
-- verify production tags resolve to commits reachable from `main`
+- verify production tags resolve to the current head of `main`
 - verify package version and git tag agree
 - block publishing from `develop`, `feature/*`, test tags, or unapproved
   environments
@@ -37,8 +37,8 @@ Add checks that prevent accidental or unauthorized production publishes.
 
 ## Acceptance
 
-- Production publish attempts fail when tag ancestry or version agreement is
-  invalid.
+- Production publish attempts fail when tag head agreement or version agreement
+  is invalid.
 - Workflow cannot publish from the wrong branch family.
 - Guardrail behavior is documented and tested where practical.
 
@@ -58,3 +58,9 @@ Add checks that prevent accidental or unauthorized production publishes.
 ## Workflow Log
 
 - 2026-05-11: Opened in planned status.
+- 2026-05-11: Added `scripts/verify-release-tag.mjs` and wired
+  `npm run release:check` into the publish job so production publishes require
+  a supported version tag, package-version agreement, and tag ancestry from
+  `origin/main`. Status set to done.
+- 2026-05-11: Tightened `npm run release:check` so production publish tags
+  must point at the exact `origin/main` head, not merely an older ancestor.

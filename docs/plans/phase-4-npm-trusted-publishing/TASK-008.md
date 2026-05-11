@@ -2,7 +2,7 @@
 id: TASK-008
 title: Document Release Operations
 type: task
-status: planned
+status: done
 priority: medium
 phase: 4
 parent: FEAT-001
@@ -65,3 +65,7 @@ setup, production releases, and release recovery.
 ## Workflow Log
 
 - 2026-05-11: Opened in planned status.
+- 2026-05-11: Added [[release|Release Operations]] and updated README,
+  CONTRIBUTING, changelog, vault index, vault log, and the requirements matrix
+  with release automation status and remaining npm-owner blockers.
+  Status set to done.

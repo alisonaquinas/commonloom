@@ -2,7 +2,7 @@
 id: FEAT-001
 title: Establish npm Trusted Publishing
 type: feature
-status: planned
+status: active
 priority: high
 phase: 4
 created: 2026-05-11
@@ -77,3 +77,8 @@ Acceptance closes only after remote CI evidence is captured.
 ## Workflow Log
 
 - 2026-05-11: Opened in planned status.
+- 2026-05-11: Phase 4 execution started on
+  `feature/phase-4-npm-trusted-publishing`. Status set to active.
+- 2026-05-11: Completed the nonblocked release workflow, guardrail, dry-run,
+  and runbook tickets. Feature remains active because npm bootstrap publishing,
+  trusted publisher setup, and remote evidence require external owner action.
