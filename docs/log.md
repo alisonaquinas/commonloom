@@ -362,6 +362,14 @@ Created [[audits/index|Commonloom Audits]] and collected independent
 [[audits/documentation-audit|documentation]], and
 [[audits/requirements-audit|requirements]] audit reports.
 
+## [2026-05-11] phase | Map Phase 5 findings and controls
+
+Added remediation tickets for every Phase 5 audit finding and linked each
+finding back to its owner ticket.
+Added operational chore tickets for every
+[[requirements/operational/phase-execution|Phase Execution]] requirement from
+CLR-OPS-080 through CLR-OPS-093.
+
 ## [2026-05-11] assets | Add Commonloom documentation assets
 
 Added Commonloom logo, icon, and source PNG assets under [[assets/index]].

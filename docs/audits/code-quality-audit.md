@@ -35,6 +35,9 @@ code or run remediation.
 
 ### CQ-001 - High - Cross-Drive Absolute Paths Can Bypass Root Confinement
 
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-005|TASK-005]].
+
 **Evidence:** `resolveInsideRoot` builds a resolved path, then delegates to
 `isInsideRoot` in `src/paths.ts:30` and `src/paths.ts:51`. The containment check
 accepts any relative path that does not start with `..`:
@@ -64,6 +67,9 @@ UNC paths, root equality, root siblings, and normal in-root paths.
 
 ### CQ-002 - Medium - Markdown Pipeline Configuration Is Duplicated
 
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-006|TASK-006]].
+
 **Evidence:** `src/markdown.ts:36` defines a `unified().use(remarkParse).use(remarkGfm)`
 processor and parses into mdast at `src/markdown.ts:53`. Rendering then builds a
 second parser stack in `src/html.ts:77` through `src/html.ts:89` using
@@ -82,6 +88,9 @@ if parser and renderer GFM support diverge, especially tables, task lists,
 autolinks, and future extension points.
 
 ### CQ-003 - Medium - Compiler Entrypoint Has Mixed Responsibilities
+
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-007|TASK-007]].
 
 **Evidence:** `compileCommonloom` in `src/compiler.ts:31` directly handles empty
 manifest behavior, path resolution, filesystem reads, Markdown parsing, HTML
@@ -106,6 +115,9 @@ instead of mutating `sourceTrace.links` and `sourceTrace.images` after
 
 ### CQ-004 - Medium - Tests Share Persistent Temporary Paths
 
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-008|TASK-008]].
+
 **Evidence:** Several tests write under fixed `node_modules/.tmp-commonloom-*`
 locations:
 
@@ -129,6 +141,9 @@ test scratch data outside `node_modules`.
 
 ### CQ-005 - Low - Public Diagnostic Codes Include Unreachable Categories
 
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-009|TASK-009]].
+
 **Evidence:** `commonloomDiagnosticCodes` includes `MARKDOWN_INVALID` and
 `MANIFEST_INVALID` in `src/types.ts:68` through `src/types.ts:79`. The public
 surface test locks these values in `test/content-pipeline-core.test.ts:38`
@@ -146,6 +161,9 @@ manifest and Markdown validation behavior with tests. If they are placeholders,
 document them as reserved and avoid treating them as active behavior.
 
 ### CQ-006 - Low - Frontmatter Line Offsets Use Brittle Substring Lookup
+
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-010|TASK-010]].
 
 **Evidence:** `parseFrontmatter` computes `contentIndex` with
 `markdown.indexOf(file.content)` at `src/frontmatter.ts:75`, then derives

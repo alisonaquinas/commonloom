@@ -39,6 +39,9 @@ traces into adapter-owned records. The important trust boundaries are:
 
 ## Finding: Markdown Source Symlinks Bypass `copyRoot` Confinement
 
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-005|TASK-005]].
+
 - Severity: high
 - Priority: P1
 - Confidence: high
@@ -101,6 +104,9 @@ Canonicalize Markdown sources before `readFile`.
 
 ## Finding: Markdown Compilation Has No Whole-Document Resource Bound
 
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-011|TASK-011]].
+
 - Severity: medium
 - Priority: P2
 - Confidence: medium
@@ -157,6 +163,9 @@ large HTML rendering.
 
 ## Finding: Unsafe Inline HTML Attributes Are Sanitized Without Diagnostics
 
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-012|TASK-012]].
+
 - Severity: low
 - Priority: P3
 - Confidence: high
@@ -212,6 +221,9 @@ avoid the audit signal intended by the documented policy.
 - Keep `rehype-sanitize` as the output safety control.
 
 ## Finding: Release Workflows Use Mutable Action Tags in OIDC Publish Path
+
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-013|TASK-013]].
 
 - Severity: medium
 - Priority: P2

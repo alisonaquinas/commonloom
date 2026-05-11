@@ -44,6 +44,9 @@ local/GitHub/npm state.
 
 ### [High] Security audit file keeps documentation lint red
 
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-014|TASK-014]].
+
 References:
 
 - `docs/audits/security-audit.md:103`
@@ -81,6 +84,9 @@ Recommended remediation:
 - Re-run `npm run lint:docs` after updating the security audit report.
 
 ### [High] Phase 5 has started without phase or ticket records
+
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-015|TASK-015]].
 
 References:
 
@@ -125,6 +131,9 @@ Recommended remediation:
 
 ### [Medium] Root README has stale npm bootstrap next step
 
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-016|TASK-016]].
+
 References:
 
 - `README.md:64`
@@ -160,6 +169,9 @@ Recommended remediation:
 
 ### [Medium] Phase 4 acceptance checklist underreports metadata readiness
 
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-016|TASK-016]].
+
 References:
 
 - `docs/plans/phase-4-npm-trusted-publishing.md:121`
@@ -191,6 +203,9 @@ Recommended remediation:
 
 ### [Medium] Release runbook mixes completed bootstrap with future procedure
 
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-016|TASK-016]].
+
 References:
 
 - `docs/release.md:20`
@@ -217,6 +232,9 @@ Recommended remediation:
 - Preserve the original bootstrap steps as evidence, not as a current action.
 
 ### [Medium] Durable docs frontmatter does not consistently match vault schema
+
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-017|TASK-017]].
 
 References:
 
@@ -252,6 +270,9 @@ Recommended remediation:
 
 ### [Low] Ticket frontmatter has mixed `phase` value types
 
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-018|TASK-018]].
+
 References:
 
 - `docs/plans/phase-1-import-commonloom-package/TASK-001.md:7`
@@ -281,6 +302,9 @@ Recommended remediation:
 
 ### [Low] Vault index omits the audits hub
 
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-015|TASK-015]].
+
 References:
 
 - `docs/index.md:24`
@@ -306,6 +330,9 @@ Recommended remediation:
   hub is intended to remain durable.
 
 ### [Low] README API snapshot omits many exported public types
+
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-019|TASK-019]].
 
 References:
 

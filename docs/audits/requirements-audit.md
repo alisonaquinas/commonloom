@@ -29,6 +29,9 @@ Local verification evidence:
 
 ### REQ-AUDIT-001 - Unsafe Attribute Diagnostics Are Overstated
 
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-012|TASK-012]].
+
 Severity: High
 
 Requirement IDs: `CLR-FUNC-022`, `CLR-USER-004`
@@ -62,6 +65,9 @@ Recommended remediation:
 
 ### REQ-AUDIT-002 - Broken Standard Internal Links Lack Evidence
 
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-020|TASK-020]].
+
 Severity: High
 
 Requirement IDs: `CLR-USER-004`, `CLR-FUNC-041`, `CLR-FUNC-042`
@@ -92,6 +98,9 @@ Recommended remediation:
   implemented or explicitly excluded.
 
 ### REQ-AUDIT-003 - Link And Image Source Positions Are Not Proven Source-Absolute
+
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-010|TASK-010]].
 
 Severity: Medium
 
@@ -128,6 +137,9 @@ Recommended remediation:
 
 ### REQ-AUDIT-004 - Format-Check Requirement Is Marked Covered Without A Format Script
 
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-021|TASK-021]].
+
 Severity: Medium
 
 Requirement IDs: `CLR-OPS-001`
@@ -156,6 +168,9 @@ Recommended remediation:
 
 ### REQ-AUDIT-005 - BDD Requirement Ranges Are Not Fully Verified
 
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-022|TASK-022]].
+
 Severity: Medium
 
 Requirement IDs: `CLR-OPS-027`, `VER-TRACE`
@@ -181,6 +196,9 @@ Recommended remediation:
 - Narrow the `VER-TRACE` catalog wording until range expansion is enforced.
 
 ### REQ-AUDIT-006 - Phase 4 Release Evidence Status Is Stale In Public Docs
+
+Phase 5 ticket:
+[[plans/phase-5-audit-driven-hardening/TASK-016|TASK-016]].
 
 Severity: Medium
 
@@ -226,6 +244,12 @@ Recommended remediation:
   already implemented lint, typecheck, build, and test scripts.
 - Clarify whether `CLR-FUNC-040` source positions must be source-file absolute
   after frontmatter stripping.
+
+These split or clarification candidates are owned by
+[[plans/phase-5-audit-driven-hardening/TASK-012|TASK-012]],
+[[plans/phase-5-audit-driven-hardening/TASK-020|TASK-020]],
+[[plans/phase-5-audit-driven-hardening/TASK-021|TASK-021]], and
+[[plans/phase-5-audit-driven-hardening/TASK-010|TASK-010]], respectively.
 
 ## Evidence Summary
 
