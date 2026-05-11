@@ -16,7 +16,7 @@ aliases:
 
 ## Scope
 
-These requirements adapt the Flavor Grenade ticket templates and lifecycle
+These requirements adapt the imported upstream ticket templates and lifecycle
 documents for Commonloom task management.
 
 They apply when Commonloom work is tracked as tickets, phases, or release
@@ -47,16 +47,16 @@ milestones. Active tickets live under the owning phase directory in
 
 ## Commonloom Adaptation Notes
 
-Flavor Grenade's templates reference BDD files, test matrix pages, LSP module
-paths, and Bun commands.
+The imported upstream templates reference BDD files, test matrix pages,
+application-specific module paths, and Bun commands.
 Commonloom should keep the structure and traceability model, but local ticket
 templates must use Commonloom-specific commands, source paths, and package
 scripts after they exist.
 
 Use this page and [[requirements/operational/phase-execution|phase-execution]]
-as the operational source of truth for task management. Upstream Flavor Grenade
-templates are evidence, not executable local templates, until they are imported
-or rewritten for Commonloom.
+as the operational source of truth for task management. Imported upstream
+templates are evidence, not executable local templates, until they are rewritten
+for Commonloom.
 
 ## Evidence
 

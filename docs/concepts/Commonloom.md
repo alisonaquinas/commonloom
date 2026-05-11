@@ -18,9 +18,9 @@ aliases:
 Commonloom is the standalone TypeScript library for reusable Markdown content
 compilation.
 
-It began as the reusable core boundary inside the Flavor Grenade website W8
-content pipeline. This repository is now its standalone home and is preparing
-`commonloom@0.1.0` as the first standalone release.
+It began as a reusable core boundary in an upstream website pipeline. This
+repository is now its standalone home and is preparing `commonloom@0.1.0` as
+the first standalone release.
 
 ## Responsibility
 
@@ -39,8 +39,8 @@ Commonloom should own generic content processing:
 Commonloom should not own:
 
 - Svelte components
-- Flavor Grenade route ids
-- Flavor Grenade product data
+- consuming-application route ids
+- consuming-application product data
 - website navigation structures
 - generated module names for one consuming website
 - renderer-specific compatibility records
@@ -50,9 +50,9 @@ Commonloom should not own:
 The Commonloom core source lives in local `src/`, with unit, integration,
 end-to-end, security, verification, and validation coverage documented through
 [[tests/index|Commonloom Test Battery]].
-The upstream Flavor Grenade W8 source remains evidence for the import in
-[[sources/flavor-grenade-lsp/website/docs/architecture/content-pipeline|Flavor Grenade's content pipeline design]]
-and `website/src/content/pipeline/commonloom` in the source repository.
+Historical import evidence remains preserved under [[sources/index|Source Imports]],
+but maintainers should treat local `src/`, `test/`, and maintained vault notes
+as the active source of truth.
 
 Local verification is available through `npm run check`, which runs
 documentation lint, package lint, boundary and traceability verification,
@@ -60,7 +60,7 @@ typecheck, build, and tests.
 
 > [!NOTE] Evidence
 > ADR 0002 names Commonloom as the reusable Markdown compilation and validation
-> core, while the website adapter owns Flavor Grenade route and renderer
+> core, while consuming adapters own route, product, and renderer
 > concerns.
 
 ## See Also

@@ -406,3 +406,11 @@ and
 Opened `release/0.1.0` from `develop`, updated package metadata to
 `commonloom@0.1.0`, moved the accumulated changelog into the `0.1.0` entry,
 and updated root and vault docs for the first standalone release candidate.
+
+## [2026-05-11] docs | Remove external source-of-truth guidance
+
+Updated release-branch documentation so active maintainer guidance points to
+local `src/`, `test/`, and maintained vault notes instead of the upstream
+repository. Historical upstream references remain only as imported source
+evidence under [[sources/index|Source Imports]] and in provenance-oriented
+records.

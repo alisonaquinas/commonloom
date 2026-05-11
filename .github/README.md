@@ -9,7 +9,7 @@
 [![MIT License][license-badge]][license]
 
 Commonloom is the standalone TypeScript home for a reusable Markdown content
-pipeline first proven inside Flavor Grenade.
+pipeline.
 
 It turns Markdown, frontmatter, links, media, source traces, and diagnostics
 into normalized records that adapters can map into framework-specific renderer

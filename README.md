@@ -1,8 +1,7 @@
 # Commonloom
 
-Commonloom is the standalone TypeScript home for the reusable content pipeline
-first proven inside
-[`flavor-grenade-lsp`](https://github.com/alisonaquinas/flavor-grenade-lsp/tree/feature/w8-commonloom-content-pipeline).
+Commonloom is the standalone TypeScript home for the reusable Markdown content
+pipeline maintained in this repository.
 
 The imported implementation now lives in this repository:
 
@@ -149,7 +148,7 @@ Keep inside this package:
 
 Keep outside this package:
 
-- Flavor Grenade route ids
+- consuming-application route ids
 - Svelte components
 - website navigation models
 - product copy and media

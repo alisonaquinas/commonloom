@@ -12,8 +12,8 @@ aliases:
 
 # Commonloom Vault Index
 
-This vault is the maintained knowledge base for extracting [[Commonloom]] from
-the Flavor Grenade website content pipeline into this standalone repository.
+This vault is the maintained knowledge base for Commonloom as a standalone
+content-pipeline repository.
 
 > [!NOTE] Navigation
 > Start here, then follow links into synthesized notes. Use
@@ -48,8 +48,8 @@ Commonloom should be a reusable TypeScript content pipeline that compiles
 Markdown, frontmatter, links, media, source traces, and diagnostics into
 adapter-owned renderer records.
 
-The core package should stay independent from Flavor Grenade route ids, Svelte
-components, product copy, and generated website module formatting.
+The core package should stay independent from consuming-application route ids,
+framework components, product copy, and generated website module formatting.
 
 ## Open Questions
 

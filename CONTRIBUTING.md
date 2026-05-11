@@ -6,14 +6,19 @@ package boundary.
 
 ## Source of Truth
 
-When changing imported behavior, verify it against:
+When changing behavior, verify it against the maintained sources in this
+repository:
 
-- `flavor-grenade-lsp/website/src/content/pipeline/commonloom`
-- `flavor-grenade-lsp/website/tests/content-pipeline-*.test.ts`
-- `flavor-grenade-lsp/website/docs/architecture/content-pipeline.md`
+- `src/`
+- `test/`
+- `docs/architecture/`
+- `docs/requirements/`
+- `docs/adr/`
+- `docs/tests/`
 
-Do not document or implement new behavior unless it is visible in those files,
-implemented locally, or explicitly accepted for the standalone package.
+Do not document or implement new behavior unless it is implemented locally,
+specified in maintained local docs, or explicitly accepted for the standalone
+package.
 
 ## Development Workflow
 
@@ -83,7 +88,7 @@ them, or before unrelated follow-on work starts.
 ## Design Rules
 
 - Keep Commonloom adapter-neutral.
-- Do not import Flavor Grenade website modules from library code.
+- Do not import consuming-application modules from library code.
 - Use callbacks or typed interfaces for project-specific routing decisions.
 - Preserve source paths, source positions, diagnostics, and content hashes where
   the parser can provide them.
