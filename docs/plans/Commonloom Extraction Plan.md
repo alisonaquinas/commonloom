@@ -4,8 +4,8 @@ tags:
   - commonloom
   - plans
   - extraction
-status: draft
-updated: 2026-05-10
+status: active
+updated: 2026-05-11
 aliases:
   - Phase W8
   - Commonloom Content Pipeline
@@ -30,14 +30,14 @@ W8 moves website copy from hand-maintained TypeScript content modules into:
 
 ## Standalone Extraction Scope
 
-This repository should receive:
+This repository has received:
 
 - Commonloom source modules
-- Commonloom unit tests
+- Commonloom unit, integration, end-to-end, and security tests
 - public API exports
 - package scaffold and build scripts
-- README examples once commands are real
 - extracted architecture and requirements notes from this vault
+- README command examples backed by local scripts
 
 It should not receive Flavor Grenade public copy, Svelte route code, product
 assets, route ids, renderer compatibility facades, or website-specific generated
@@ -58,12 +58,35 @@ module formatting.
 
 ## First Local Milestones
 
-1. Add package scaffold.
-2. Port Commonloom source modules.
-3. Port Commonloom-only tests.
-4. Remove or isolate Flavor Grenade adapter dependencies.
-5. Define the public API surface.
-6. Replace bootstrap README command gaps with verified local commands.
+1. [x] Add package scaffold.
+2. [x] Port Commonloom source modules.
+3. [x] Port Commonloom-only tests.
+4. [x] Remove or isolate Flavor Grenade adapter dependencies.
+5. [x] Define the current public API surface.
+6. [x] Replace bootstrap README command gaps with verified local commands.
+
+## Current Local Evidence
+
+- `src/` contains the imported Commonloom core modules.
+- `test/` contains the ported core Commonloom behavior tests.
+- `npm run check` runs docs lint, package lint, verification scripts,
+  typecheck, build, and tests.
+- Generated TypeScript output remains adapter-owned per
+  [[adr/0003-keep-generated-typescript-adapter-owned|ADR 0003]].
+
+## Local Phase Plan
+
+| Phase | Focus | Status |
+| --- | --- | --- |
+| [[phase-1-import-commonloom-package|Phase 1]] | package scaffold, source port, unit test library, and strict TypeScript baseline | done |
+| [[phase-2-ci-quality-gates|Phase 2]] | strict TypeScript linting and full package checks in CI | done |
+| [[phase-3-close-testing-gaps|Phase 3]] | unit, integration, E2E, security, traceability, and process test gaps | done |
+| [[phase-4-npm-trusted-publishing|Phase 4]] | CD, release automation, and npm OIDC trusted publishing | active |
+| [[phase-5-audit-driven-hardening|Phase 5]] | audit-driven compiler, workflow, documentation, and requirements hardening | done |
+
+The current CI workflow runs validation plus package dry-run checks. Production
+publishing remains isolated to version tags that point at the current `main`
+head and pass the trusted-publishing workflow guard.
 
 ## Evidence
 

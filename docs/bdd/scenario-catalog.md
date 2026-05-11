@@ -31,7 +31,7 @@ aliases:
 | [[bdd/features/adapter-integration|Adapter Integration]] | Adapter developer | API acceptance | `CLR-USER-010..014`, `CLR-FUNC-040..045`, `CLR-FUNC-080..084`, `CLR-TECH-001..005` |
 | [[bdd/features/compilation-safety|Compilation Safety]] | Adapter developer, maintainer | Component/API | `CLR-FUNC-022`, `CLR-FUNC-043..045`, `CLR-TECH-060..065` |
 | [[bdd/features/diagnostics-and-traces|Diagnostics And Traces]] | Reviewer, maintainer | API acceptance | `CLR-FUNC-060..064`, `CLR-TECH-040..044` |
-| [[bdd/features/documentation-and-operations|Documentation And Operations]] | Maintainer, reviewer, release operator, LLM agent | Acceptance/process | `CLR-OPS-001..005`, `CLR-OPS-020..024`, `CLR-OPS-040..047`, `CLR-OPS-080..112` |
+| [[bdd/features/documentation-and-operations|Documentation And Operations]] | Maintainer, reviewer, release operator, LLM agent | Acceptance/process | `CLR-OPS-001..005`, `CLR-OPS-020..024`, `CLR-OPS-040..049`, `CLR-OPS-080..093`, `CLR-OPS-100..112` |
 
 ## Step Wording Rules
 

@@ -73,7 +73,7 @@ This decision is confirmed when:
 
 ## Pros and Cons of the Options
 
-### Keep Commonloom Adapter-Neutral
+### Option: Keep Commonloom Adapter-Neutral
 
 - Good, because it matches the extraction intent.
 - Good, because it keeps the standalone package reusable.
@@ -89,7 +89,8 @@ This decision is confirmed when:
 ### Bundle A Flavor Grenade Adapter Package Now
 
 - Good, because it preserves a concrete adapter example.
-- Bad, because this standalone repository does not yet have a package scaffold.
+- Bad, because this standalone repository did not yet have a package scaffold
+  when this decision was recorded.
 - Bad, because it may prematurely freeze adapter boundaries before extraction
   is proven locally.
 

@@ -1,3 +1,15 @@
+---
+title: Docs Agent Guide
+tags:
+  - commonloom
+  - agents
+  - documentation
+status: active
+updated: 2026-05-11
+aliases:
+  - Docs AGENTS
+---
+
 # AGENTS.md - Guide for AI Agents Working in `docs/`
 
 `docs/` is an Obsidian vault that maintains the evolving Commonloom wiki from
@@ -12,13 +24,15 @@ docs/
 ├── adr.md            # Commonloom ADR index
 ├── index.md          # Content-oriented wiki catalog
 ├── log.md            # Chronological maintenance log
+├── assets/           # Git LFS-managed images and documentation assets
 ├── adr/              # MADR-style architecture decision records
 ├── concepts/         # Entity and concept notes
 ├── architecture/     # Architecture synthesis notes
 ├── ddd/              # Domain model, boundaries, and ubiquitous language
 ├── bdd/              # Actors and Cucumber-style behavior specifications
+├── tests/            # Test taxonomy, current battery, and coverage gaps
 ├── requirements/     # User, functional, technical, and operational requirements
-├── plans/            # Planning and migration synthesis notes
+├── plans/            # Phase plans, tickets, and migration synthesis notes
 └── sources/          # Immutable source imports
 ```
 
@@ -33,6 +47,8 @@ Use these local conventions:
 
 - `sources/` is the raw source layer. Preserve imported files unless refreshing
   from the original source path.
+- `assets/` is the binary documentation asset layer. Track PNG assets with Git
+  LFS and link them from synthesized notes instead of duplicating copies.
 - Topic folders are the wiki layer. They contain synthesized notes that agents
   maintain over time.
 - This file is the schema layer. Update it when vault conventions change.
@@ -48,6 +64,8 @@ Use these local conventions:
   `sources/`.
 - Use frontmatter on durable notes with at least `title`, `tags`, `status`, and
   `updated`.
+- ADR files under `adr/` are the exception: they use MADR frontmatter fields
+  checked by `npm run lint:docs:adr`.
 - Use aliases for common alternate names, especially imported phase or ADR
   names.
 - Use callouts for evidence and risk notes:
@@ -61,13 +79,15 @@ Use these local conventions:
 
 | Folder | Purpose |
 | --- | --- |
+| `assets/` | Git LFS-managed images and documentation assets. |
 | `adr/` | MADR-style architecture decision records and decision index. |
 | `concepts/` | Core vocabulary, entities, and reusable ideas. |
 | `architecture/` | System boundaries, flows, and module responsibility. |
 | `ddd/` | Domain model, bounded contexts, context map, and ubiquitous language. |
 | `bdd/` | Actor model, scenario catalog, and Cucumber-style behavior specifications. |
+| `tests/` | Test taxonomy, current battery, verification gate, and coverage gaps. |
 | `requirements/` | User, functional, technical, and operational requirements. |
-| `plans/` | Migration, roadmap, and execution synthesis. |
+| `plans/` | Phase plans, tickets, migration, roadmap, and execution synthesis. |
 | `sources/` | Imported upstream Markdown kept as evidence. |
 
 ## Workflows
@@ -117,4 +137,6 @@ Use these local conventions:
 - [[Commonloom]]
 - [[ddd/index|Commonloom DDD]]
 - [[bdd/index|Commonloom BDD]]
+- [[tests/index|Commonloom Test Battery]]
+- [[roadmap|Commonloom Roadmap]]
 - [../AGENTS.md](../AGENTS.md) - repo-wide instructions

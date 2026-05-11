@@ -16,7 +16,7 @@ agents who author content, integrate adapters, and maintain the package.
 
 | Requirement Set | Covers |
 | --- | --- |
-| [[content-authoring|Content Authoring]] | Markdown authors and LLM-maintained docs. |
+| [[requirements/user/content-authoring|Content Authoring]] | Markdown authors and LLM-maintained docs. |
 | [[adapter-development|Adapter Development]] | Site and app developers integrating Commonloom. |
 | [[maintenance-and-review|Maintenance And Review]] | Maintainers, reviewers, and release operators. |
 

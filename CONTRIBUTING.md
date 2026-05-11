@@ -1,36 +1,94 @@
 # Contributing
 
-Commonloom is in extraction. Keep changes small, evidence-based, and tied to
-the current prototype until this repository has its own implementation.
+Commonloom has imported its initial source and tests and is on the `0.x`
+release line. Keep changes small, evidence-based, and tied to the standalone
+package boundary.
 
 ## Source of Truth
 
-Until the migration is complete, verify behavior against:
+When changing behavior, verify it against the maintained sources in this
+repository:
 
-- `flavor-grenade-lsp/website/src/content/pipeline/commonloom`
-- `flavor-grenade-lsp/website/tests/content-pipeline-*.test.ts`
-- `flavor-grenade-lsp/website/docs/architecture/content-pipeline.md`
+- `src/`
+- `test/`
+- `docs/architecture/`
+- `docs/requirements/`
+- `docs/adr/`
+- `docs/tests/`
 
-Do not document or implement behavior here unless it is visible in those files
-or has been explicitly accepted for the standalone package.
+Do not document or implement new behavior unless it is implemented locally,
+specified in maintained local docs, or explicitly accepted for the standalone
+package.
 
 ## Development Workflow
 
-This repository does not yet define setup or validation commands.
+Use Node.js 24 or newer.
 
-Once the package scaffold exists, update this section with exact commands for:
+Install dependencies:
 
-- installing dependencies
-- building the package
-- running unit tests
-- checking types
-- linting and formatting
-- publishing or dry-running releases
+```bash
+npm ci
+```
+
+Install the repository hook path once per clone:
+
+```bash
+npm run hooks:install
+```
+
+Run the full validation gate:
+
+```bash
+npm run check
+```
+
+Focused local commands:
+
+```bash
+npm run lint
+npm run format:check
+npm run verify
+npm run typecheck
+npm run build
+npm run pack:dry-run
+npm run publish:dry-run
+npm run publish:dry-run:ci
+npm run test:battery
+npm run test:unit
+npm run test:integration
+npm run test:e2e
+npm test
+```
+
+`npm run check` is the required local and CI quality gate. It runs
+documentation linting, root Markdown format checks, TypeScript linting, static
+verification, typecheck, build, and the unit, integration, and end-to-end
+Vitest battery.
+
+Release and package-publishing changes belong to Phase 4 or later release
+tickets. Production npm publishing must use trusted publishing, must not use a
+long-lived npm token, and must follow [docs/release.md](docs/release.md).
+
+## Branch And Ticket Workflow
+
+Use git-flow branch names:
+
+- `main` for production release history
+- `develop` for integration
+- `feature/<short-description>` for feature work
+- `release/<version>` for release preparation
+- `hotfix/<short-description>` for urgent production fixes
+
+Do not use `codex/*` branch names in this repository.
+
+When a phase or tracked ticket is active, commit workflow-log entries, status
+changes, blocker updates, and verification notes with the work that caused
+them, or before unrelated follow-on work starts.
 
 ## Design Rules
 
 - Keep Commonloom adapter-neutral.
-- Do not import Flavor Grenade website modules from library code.
+- Do not import consuming-application modules from library code.
 - Use callbacks or typed interfaces for project-specific routing decisions.
 - Preserve source paths, source positions, diagnostics, and content hashes where
   the parser can provide them.
@@ -43,13 +101,16 @@ Once the package scaffold exists, update this section with exact commands for:
 - Keep docs synchronized with implemented behavior.
 - Mark planned behavior as planned.
 - Link to source evidence when the standalone package has not caught up yet.
-- Remove bootstrap wording once the package is real and commands are verified.
+- Keep root docs public and concise; keep detailed design synthesis in `docs/`.
+- Update `docs/index.md` when adding durable vault pages.
 
 ## Pull Request Checklist
 
 - The change keeps the library boundary generic.
+- `npm run check` passes locally.
 - Public API changes are reflected in `README.md`.
 - User-visible changes are reflected in `CHANGELOG.md`.
+- Phase or ticket workflow changes are committed with their triggering work.
 - Tests cover new parsing, rendering, validation, or diagnostic behavior.
 - New docs avoid website-specific assumptions unless they are clearly adapter
   examples.

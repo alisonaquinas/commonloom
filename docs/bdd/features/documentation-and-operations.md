@@ -14,7 +14,7 @@ aliases:
 # BDD Feature - Documentation And Operations
 
 Covered requirements: `CLR-OPS-001..005`, `CLR-OPS-020..024`,
-`CLR-OPS-040..047`, `CLR-OPS-080..112`.
+`CLR-OPS-040..049`, `CLR-OPS-080..093`, `CLR-OPS-100..112`.
 
 Suggested automation level: process acceptance checks, documentation lint, CI
 workflow tests, and release dry-runs where tooling exists.
@@ -79,4 +79,3 @@ Feature: Documentation and operations
 - [[requirements/operational/phase-execution|Phase Execution]]
 - [[requirements/operational/release-and-ci|Release And CI]]
 - [[requirements/operational/supply-chain|Supply Chain]]
-

@@ -1,0 +1,92 @@
+{
+  "name": "commonloom",
+  "version": "0.1.0",
+  "description": "Adapter-neutral Markdown content pipeline for validated, traceable renderer-ready records.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE.md",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alisonaquinas/commonloom.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alisonaquinas/commonloom/issues"
+  },
+  "homepage": "https://github.com/alisonaquinas/commonloom#readme",
+  "keywords": [
+    "markdown",
+    "content-pipeline",
+    "frontmatter",
+    "static-site",
+    "obsidian",
+    "unified"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "check": "npm run lint && npm run verify && npm run typecheck && npm run build && npm run test:battery",
+    "format:check": "npm run lint:docs:markdown",
+    "hooks:install": "git config core.hooksPath .githooks",
+    "lint": "npm run lint:docs && eslint --max-warnings 0 --no-error-on-unmatched-pattern \"src/**/*.ts\" \"test/**/*.ts\" \"*.config.js\" \"*.config.ts\"",
+    "lint:docs": "npm run format:check && npm run lint:docs:obsidian && npm run lint:docs:adr",
+    "lint:docs:adr": "python scripts/lint-adr.py docs/adr --strict",
+    "lint:docs:markdown": "markdownlint-cli2 --config .config/markdownlint-cli2.jsonc",
+    "lint:docs:obsidian": "node scripts/lint-obsidian-docs.mjs",
+    "pack:dry-run": "npm pack --dry-run",
+    "precommit": "npm run check",
+    "publish:dry-run": "npm publish --dry-run",
+    "publish:dry-run:ci": "node scripts/npm-ci-publish-dry-run.mjs",
+    "release:check": "node scripts/verify-release-tag.mjs",
+    "test": "vitest run",
+    "test:battery": "npm run test:unit && npm run test:integration && npm run test:e2e",
+    "test:e2e": "vitest run content-pipeline-e2e.test.ts",
+    "test:integration": "vitest run content-pipeline-integration.test.ts",
+    "test:unit": "vitest run content-pipeline-core.test.ts content-pipeline-markdown.test.ts content-pipeline-html.test.ts content-pipeline-links-media.test.ts content-pipeline-security.test.ts",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
+    "verify": "node scripts/verify-boundaries.mjs && node scripts/verify-traceability.mjs && node scripts/verify-plan-process.mjs"
+  },
+  "dependencies": {
+    "gray-matter": "4.0.3",
+    "rehype-raw": "7.0.0",
+    "rehype-sanitize": "6.0.0",
+    "rehype-stringify": "10.0.1",
+    "remark-gfm": "4.0.1",
+    "remark-parse": "11.0.0",
+    "remark-rehype": "11.1.2",
+    "unified": "11.0.5",
+    "unist-util-visit": "5.1.0",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/node": "25.6.0",
+    "eslint": "10.3.0",
+    "globals": "17.6.0",
+    "markdownlint-cli2": "0.22.1",
+    "markdownlint-obsidian": "1.1.0",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.59.2",
+    "vite": "8.0.11",
+    "vitest": "4.1.5"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

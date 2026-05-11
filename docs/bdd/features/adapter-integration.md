@@ -78,4 +78,3 @@ Feature: Adapter integration
 - [[requirements/functional/adapter-output-contract|Adapter Output Contract]]
 - [[adr/0001-keep-commonloom-adapter-neutral|ADR 0001]]
 - [[adr/0003-keep-generated-typescript-adapter-owned|ADR 0003]]
-

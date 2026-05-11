@@ -5,7 +5,7 @@ tags:
   - requirements/operational
   - quality
 status: active
-updated: 2026-05-10
+updated: 2026-05-11
 aliases:
   - Quality Gate Requirements
 ---
@@ -19,9 +19,15 @@ aliases:
 | CLR-OPS-003 | CI shall fail on TypeScript errors, lint errors, lint warnings, test failures, and build failures. | CI jobs use zero-warning lint and strict typecheck. |
 | CLR-OPS-004 | Generated or disposable outputs shall be reproducible and excluded from source control unless a later ADR changes this. | Generated output checks fail on stale or committed build artifacts. |
 | CLR-OPS-005 | Documentation checks shall verify requirement links and ADR structure where tooling exists. | ADR lint passes for `docs/adr/`; synthesized wikilinks resolve. |
+| CLR-OPS-006 | Pre-commit hooks shall run the available local quality gates for touched work. | Documentation-only commits run `npm run lint:docs`; package commits also run package gates once those scripts exist. |
+| CLR-OPS-007 | Lint warnings are blocking findings, not advisory output. | A commit, PR, or phase gate is not green while any configured lint warning remains. |
+| CLR-OPS-008 | Quality gates shall be fixed by correcting files, not by weakening rules, unless a rule change is approved as its own documented decision. | Rule relaxations require explicit approval and a linked rationale. |
+| CLR-OPS-009 | CI shall run the complete test battery once the test library exists. | Required CI test jobs run unit, integration, and E2E test commands without watch mode, focused-only execution, or skip-only shortcuts. |
+| CLR-OPS-010 | TypeScript linting shall be strict and warning-free. | Required lint jobs cover package source and test TypeScript files, treat warnings as failures, and document any explicit generated-output exclusions. |
 
 ## Evidence
 
 - [[sources/flavor-grenade-lsp/website/docs/requirements/technical/ci-cd|website CI/CD requirements]]
 - [[sources/flavor-grenade-lsp/docs/requirements/code-quality|code quality requirements]]
 - [[sources/flavor-grenade-lsp/docs/plans/phase-W8-commonloom-content-pipeline/TASK-275|TASK-275]]
+- [[phase-2-ci-quality-gates]]

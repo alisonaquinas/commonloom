@@ -87,4 +87,3 @@ future source code.
 - [[domains|Domains]]
 - [[bounded-contexts|Bounded Contexts]]
 - [[Commonloom Architecture]]
-

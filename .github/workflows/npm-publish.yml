@@ -1,0 +1,94 @@
+name: npm Trusted Publishing
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  dry-run:
+    name: Release dry run
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: "24"
+          cache: npm
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Setup Python
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Run quality battery
+        run: npm run check
+
+      - name: Validate package tarball
+        run: npm run pack:dry-run
+
+      - name: Validate npm publish payload for manual dry run
+        if: github.event_name == 'workflow_dispatch'
+        run: npm run publish:dry-run:ci
+
+      - name: Validate npm publish payload for release tag
+        if: github.event_name != 'workflow_dispatch'
+        run: npm run publish:dry-run
+
+  publish:
+    name: Publish to npm
+    if: github.event_name == 'push' && github.ref_type == 'tag'
+    needs: dry-run
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: npm
+      url: https://www.npmjs.com/package/commonloom
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: "24"
+          cache: npm
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Setup Python
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Verify release tag
+        run: npm run release:check
+
+      - name: Run quality battery
+        run: npm run check
+
+      - name: Publish to npm
+        run: npm publish

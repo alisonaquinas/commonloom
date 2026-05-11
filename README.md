@@ -1,17 +1,14 @@
 # Commonloom
 
-Commonloom is the planned standalone home for the reusable content pipeline
-currently being proven inside
-[`flavor-grenade-lsp`](https://github.com/alisonaquinas/flavor-grenade-lsp/tree/feature/w8-commonloom-content-pipeline).
+Commonloom is the standalone TypeScript home for the reusable Markdown content
+pipeline maintained in this repository.
 
-The implementation source of record is currently:
+The imported implementation now lives in this repository:
 
-- `website/src/content/pipeline/commonloom` in the source repository
-- `website/tests/content-pipeline-*.test.ts` for the current behavior contract
-- `website/docs/architecture/content-pipeline.md` for the extraction boundary
-
-This repository is a bootstrap shell. It does not yet contain the package
-scaffold, source files, build scripts, or published release artifacts.
+- `src/` for Commonloom core modules
+- `test/` for Commonloom core behavior tests
+- `docs/` for requirements, ADRs, DDD, BDD, and roadmap notes
+- `.github/workflows/` and `.githooks/` for validation gates
 
 ## Purpose
 
@@ -33,7 +30,7 @@ adapters.
 
 ## Current API Snapshot
 
-The in-repo prototype currently exports:
+The in-repo package currently exports:
 
 - `compileCommonloom`
 - `parseFrontmatter`
@@ -57,25 +54,84 @@ Core public types include:
 - `CommonloomCompiledDocument`
 - `CommonloomLinkPolicy`
 - `CommonloomHtmlPolicy`
-- `CommonloomOutputConfig`
+- `CommonloomLimitsPolicy`
 
-Treat this list as an extraction target, not a locked public API. Stabilize it
-here before the first standalone release.
+This is the `0.1.0` public surface for the first standalone release. The
+package remains on the `0.x` line, so minor releases may still refine API
+shape before a future `1.0.0` stability commitment.
 
 ## Status
 
-No install, build, test, lint, or release commands are defined in this
-repository yet.
+Phase 1 imported the Commonloom package source and tests. Phase 2 added the
+local and CI quality gate. Phase 3 expanded unit coverage, added integration
+and end-to-end compiler tests, and added static verification for boundaries,
+traceability, and phase/ticket process rules. Phase 4 added npm release
+automation. Phase 5 completed audit-driven compiler, workflow security, and
+documentation hardening. This `release/0.1.0` branch prepares
+`commonloom@0.1.0` for merge to `main` and the `v0.1.0` release tag.
+
+Use Node.js 24 or newer.
+
+Install dependencies:
+
+```bash
+npm ci
+```
+
+Install the repository pre-commit hook:
+
+```bash
+npm run hooks:install
+```
+
+Run the full validation gate:
+
+```bash
+npm run check
+```
+
+Focused commands:
+
+```bash
+npm run lint
+npm run lint:docs
+npm run format:check
+npm run verify
+npm run typecheck
+npm run build
+npm run pack:dry-run
+npm run publish:dry-run
+npm run publish:dry-run:ci
+npm run test:battery
+npm run test:unit
+npm run test:integration
+npm run test:e2e
+npm test
+```
 
 The design and extraction knowledge base lives in [docs/index.md](docs/index.md).
 
 Expected next steps:
 
-1. Add the package scaffold.
-2. Move or copy the prototype implementation from the source repository.
-3. Port the content-pipeline tests.
-4. Define the supported runtime, package manager, and build output.
-5. Start release notes in `CHANGELOG.md` once changes are versioned here.
+1. Merge `release/0.1.0` to `main` after CI passes.
+2. Tag the resulting `main` head as `v0.1.0` to run trusted publishing.
+3. Record release workflow and npm publication evidence in the vault.
+4. Document adapter integration examples without moving adapter behavior into
+   the core package.
+
+## Project Layout
+
+```text
+commonloom/
+├── src/                 # TypeScript library source
+├── test/                # Vitest behavior tests
+├── docs/                # Obsidian-style design and planning vault
+├── scripts/             # Documentation validation helpers
+├── .github/workflows/   # GitHub Actions quality gate
+├── .githooks/           # Local pre-commit gate
+├── package.json         # npm scripts, exports, and dependencies
+└── tsconfig*.json       # TypeScript build and check configuration
+```
 
 ## Design Boundary
 
@@ -88,11 +144,11 @@ Keep inside this package:
 - diagnostics and source traces
 - link and media reference extraction
 - filesystem-safe path resolution
-- generic manifest and output contracts
+- generic manifest and compiled record contracts
 
 Keep outside this package:
 
-- Flavor Grenade route ids
+- consuming-application route ids
 - Svelte components
 - website navigation models
 - product copy and media

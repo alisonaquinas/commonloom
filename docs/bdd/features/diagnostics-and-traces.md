@@ -68,4 +68,3 @@ Feature: Diagnostics and source traces
 - [[requirements/functional/diagnostics-and-source-traces|Diagnostics And Source Traces]]
 - [[requirements/technical/schema-and-type-contracts|Schema And Type Contracts]]
 - [[ddd/tactical-model|Tactical Model]]
-
