@@ -52,4 +52,4 @@ Clarify README API snapshot wording or add a complete public API reference.
 > Documentation review found `src/README.md` omitted the new
 > `markdown-processors.ts` module and test inventory notes still used Phase 3
 > counts. The source module map and test inventory docs now reflect the Phase 5
-> module and the current 29-test battery.
+> module and the current 30-test battery.

@@ -49,6 +49,7 @@ verification battery.
 | UT-LINK-006 | Unit | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts), `keeps absolute and encoded traversal targets inside approved path rules` |
 | UT-LINK-007 | Unit | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts), `reports link and image positions against the original Markdown source` |
 | UT-LINK-008 | Unit | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts), `resolves internal links through adapter callbacks before reporting gaps` |
+| UT-LINK-009 | Unit | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts), `rejects Windows drive and UNC roots that resolve outside the configured root` |
 | INT-001 | Integration | [content-pipeline-integration.test.ts](../../test/content-pipeline-integration.test.ts), `compiles manifests through parse, render, links, media, and traces` |
 | E2E-001 | E2E | [content-pipeline-e2e.test.ts](../../test/content-pipeline-e2e.test.ts), `compiles a fixture content tree into adapter-visible records` |
 | SEC-001 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `rejects oversized frontmatter before schema validation` |
@@ -143,7 +144,7 @@ verification battery.
 | CLR-TECH-044 | UT-CORE-002, UT-MD-001, UT-LINK-001 | Covered | None. |
 | CLR-TECH-060 | SEC-003 | Partial | Long wiki-link input is covered; broader ReDoS review remains manual. |
 | CLR-TECH-061 | SEC-001 | Partial | Oversized frontmatter is covered; YAML alias/depth limits remain future hardening. |
-| CLR-TECH-062 | UT-LINK-003, UT-LINK-006, SEC-005 | Covered | None for current canonicalization policy. |
+| CLR-TECH-062 | UT-LINK-003, UT-LINK-006, UT-LINK-009, SEC-005 | Covered | None for current canonicalization policy. |
 | CLR-TECH-063 | SEC-004, SEC-005 | Covered | None for media or Markdown symlink escapes. |
 | CLR-TECH-064 | SEC-002 | Covered | None for current frontmatter parsing path. |
 | CLR-TECH-065 | SEC-001, SEC-003, SEC-006 | Covered | None for current configurable resource bounds. |

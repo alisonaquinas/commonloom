@@ -57,3 +57,8 @@ source symlink or junction escapes.
 > the compiler checked the real path but read the original lexical path; the
 > compiler now reads the canonical real Markdown path. Follow-up debt remains
 > for explicit cross-drive and UNC regression tests.
+
+> [!SUCCESS] Remaining finding closed · 2026-05-11
+> Added explicit Windows drive and UNC path regression coverage for
+> `resolveInsideRoot`, closing the path-test follow-up from the code quality
+> auditor.

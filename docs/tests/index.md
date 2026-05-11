@@ -36,7 +36,7 @@ tests.
 | Command | Type | What It Proves |
 | --- | --- | --- |
 | `npm run test:battery` | [[tests/unit/index|Unit]], [[tests/integration/index|Integration]], [[tests/e2e/index|E2E]] | Runs the typed unit, integration, and E2E Vitest commands used by CI. |
-| `npm run test:unit` | [[tests/unit/index|Unit]] | Runs five Vitest files with twenty-seven assertions over module and helper behavior. |
+| `npm run test:unit` | [[tests/unit/index|Unit]] | Runs five Vitest files with twenty-eight assertions over module and helper behavior. |
 | `npm run test:integration` | [[tests/integration/index|Integration]] | Runs the public compiler integration flow. |
 | `npm run test:e2e` | [[tests/e2e/index|E2E]] | Runs the fixture content tree through adapter-visible compiled records. |
 | `npm test` | [[tests/unit/index|Unit]], [[tests/integration/index|Integration]], [[tests/e2e/index|E2E]] | Runs every Vitest file without category filtering. |

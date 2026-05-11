@@ -285,4 +285,40 @@ describe('Commonloom link and media validation', () => {
     expect(encoded.resolvedPath?.startsWith(mediaRoot)).toBe(true);
     expect(encoded.diagnostics).toEqual([]);
   });
+
+  it('rejects Windows drive and UNC roots that resolve outside the configured root', () => {
+    expect(
+      resolveInsideRoot({
+        root: 'C:\\commonloom\\media',
+        target: 'D:\\escape.png',
+        sourcePath: 'copy/page.md',
+      }),
+    ).toEqual(
+      expect.objectContaining({
+        diagnostics: [
+          expect.objectContaining({
+            code: 'PATH_OUTSIDE_ROOT',
+            severity: 'error',
+          }),
+        ],
+      }),
+    );
+
+    expect(
+      resolveInsideRoot({
+        root: '\\\\server\\share\\media',
+        target: '\\\\server\\other\\escape.png',
+        sourcePath: 'copy/page.md',
+      }),
+    ).toEqual(
+      expect.objectContaining({
+        diagnostics: [
+          expect.objectContaining({
+            code: 'PATH_OUTSIDE_ROOT',
+            severity: 'error',
+          }),
+        ],
+      }),
+    );
+  });
 });

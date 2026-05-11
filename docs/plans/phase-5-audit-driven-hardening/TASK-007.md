@@ -55,3 +55,7 @@ compilation, validation, and trace mutation responsibilities.
 > noted remaining cleanup debt around helpers that append to shared diagnostics
 > arrays; that is nonblocking and should become a later refactor ticket if it
 > grows.
+
+> [!SUCCESS] Remaining finding closed · 2026-05-11
+> Refactored trace and image resolution helpers to return diagnostics alongside
+> values instead of appending to a caller-owned diagnostics array.

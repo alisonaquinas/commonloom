@@ -60,3 +60,8 @@ HTML tags.
 > evidence, so the HTML test now also covers `src=\"javascript:\"` and
 > `onerror`. Obfuscated or entity-encoded protocols remain follow-up debt for a
 > parser or sanitizer-diff based diagnostic pass.
+
+> [!SUCCESS] Remaining finding closed · 2026-05-11
+> Added detection and pre-sanitize stripping for numeric-entity, `&colon;`, and
+> whitespace-obfuscated JavaScript URL attributes. Tests now cover encoded
+> `href` and `srcset` values as well as literal unsafe attributes.

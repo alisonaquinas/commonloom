@@ -64,6 +64,8 @@ start once the package is ready for npm publication.
 - Pinned GitHub Actions workflow actions to reviewed full-length commit SHAs.
 - Consolidated Markdown processor setup shared by parser and renderer paths.
 - Normalized phase ticket metadata to numeric phase values.
+- Refactored compiler trace resolution helpers to return diagnostics with
+  values instead of mutating caller-owned diagnostic arrays.
 
 ### Fixed
 
@@ -71,3 +73,5 @@ start once the package is ready for npm publication.
   present.
 - Ensured standard internal links can be resolved by adapter callbacks before
   unresolved diagnostics are emitted.
+- Stripped entity-encoded and whitespace-obfuscated unsafe HTML URL attributes
+  before rendering sanitized output.

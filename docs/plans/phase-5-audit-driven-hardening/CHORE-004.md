@@ -61,3 +61,8 @@ equivalent verification before implementation.
 > resource-limit failures now assert no document is returned, unsafe HTML
 > attribute evidence includes additional attributes, and process verification
 > now catches ticket index/frontmatter status drift.
+
+> [!SUCCESS] Remaining findings closed · 2026-05-11
+> Added final follow-up regression work for Windows/UNC path handling,
+> diagnostics-return helper structure, and encoded unsafe URL attributes before
+> requesting the second auditor confirmation pass.

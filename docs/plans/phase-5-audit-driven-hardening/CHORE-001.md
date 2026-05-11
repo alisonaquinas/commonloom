@@ -81,3 +81,6 @@ passes.
   fixes and logged follow-up hardening recommendations in the owning tickets.
   Documentation and requirements auditors found stale docs and ticket metadata
   drift; those findings were corrected before the next validation run.
+- 2026-05-11: Remaining local follow-up findings were fixed and
+  `npm run check` passed with documentation lint, traceability and
+  plan-process verification, typecheck, build, and 30 tests.

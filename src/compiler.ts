@@ -184,13 +184,13 @@ async function compileDocument<Frontmatter, AdapterData>(
   const resolvedTrace = await resolveTraceReferences(sourceTrace, config, documentDiagnostics);
 
   return {
-    diagnostics: documentDiagnostics,
+    diagnostics: resolvedTrace.diagnostics,
     document: {
       manifest,
       frontmatter: parsed.frontmatter,
       bodyHtml: rendered.bodyHtml,
-      sourceTrace: resolvedTrace,
-      diagnostics: documentDiagnostics,
+      sourceTrace: resolvedTrace.sourceTrace,
+      diagnostics: resolvedTrace.diagnostics,
     },
   };
 }
@@ -279,9 +279,10 @@ async function resolveExistingMarkdownPath(
 async function resolveTraceReferences<Frontmatter, AdapterData>(
   sourceTrace: CommonloomSourceTrace,
   config: CommonloomConfig<Frontmatter, AdapterData>,
-  diagnostics: CommonloomDiagnostic[],
-): Promise<CommonloomSourceTrace> {
+  initialDiagnostics: CommonloomDiagnostic[],
+): Promise<{ sourceTrace: CommonloomSourceTrace; diagnostics: CommonloomDiagnostic[] }> {
   let links = sourceTrace.links;
+  const diagnostics = [...initialDiagnostics];
 
   if (config.links) {
     const resolvedLinks = await resolveLinkReferences(sourceTrace.links, config.links);
@@ -289,21 +290,25 @@ async function resolveTraceReferences<Frontmatter, AdapterData>(
     diagnostics.push(...resolvedLinks.diagnostics);
   }
 
-  const images = await validateImages(sourceTrace.images, config.mediaRoot, diagnostics);
+  const imageValidation = await validateImages(sourceTrace.images, config.mediaRoot);
+  diagnostics.push(...imageValidation.diagnostics);
 
   return {
-    ...sourceTrace,
-    links,
-    images,
+    sourceTrace: {
+      ...sourceTrace,
+      links,
+      images: imageValidation.images,
+    },
+    diagnostics,
   };
 }
 
 async function validateImages(
   images: CommonloomImageReference[],
   mediaRoot: string,
-  diagnostics: CommonloomDiagnostic[],
-): Promise<CommonloomImageReference[]> {
+): Promise<{ images: CommonloomImageReference[]; diagnostics: CommonloomDiagnostic[] }> {
   const validatedImages: CommonloomImageReference[] = [];
+  const diagnostics: CommonloomDiagnostic[] = [];
 
   for (const image of images) {
     const validation = await validateMediaReference(image, {
@@ -318,5 +323,5 @@ async function validateImages(
     });
   }
 
-  return validatedImages;
+  return { images: validatedImages, diagnostics };
 }
