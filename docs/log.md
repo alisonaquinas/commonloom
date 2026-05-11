@@ -470,3 +470,10 @@ Completed
 React and Vite example that compiles shared Markdown through Commonloom's
 public package entrypoint, applies shared SCSS, uses shared assets, and
 documents dev/build/preview commands.
+
+## [2026-05-11] phase | Add Phase 6 Vue example
+
+Completed
+[[plans/phase-6-framework-integration-examples/TASK-004|TASK-004]] by adding a
+Vue and Vite example that uses the same generated Commonloom content, shared
+SCSS, shared assets, and dev/build/preview command shape as the React example.

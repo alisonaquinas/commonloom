@@ -1,0 +1,24 @@
+{
+  "name": "@commonloom/example-vue",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "node ../shared/scripts/generate-content.mjs .",
+    "dev": "npm run generate && vite",
+    "build": "npm run generate && vue-tsc -b && vite build",
+    "preview": "npm run generate && vite preview"
+  },
+  "dependencies": {
+    "commonloom": "file:../..",
+    "vue": "3.5.34"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "6.0.6",
+    "@vue/tsconfig": "0.9.1",
+    "sass": "1.99.0",
+    "typescript": "6.0.3",
+    "vite": "8.0.11",
+    "vue-tsc": "3.2.8"
+  }
+}

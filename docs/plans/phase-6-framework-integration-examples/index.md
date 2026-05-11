@@ -20,7 +20,7 @@ updated: 2026-05-11
 | [[plans/phase-6-framework-integration-examples/TASK-001|TASK-001]] | Define Shared Example Substrate | Task | `done` |
 | [[plans/phase-6-framework-integration-examples/TASK-002|TASK-002]] | Define Example Workspace Strategy | Task | `done` |
 | [[plans/phase-6-framework-integration-examples/TASK-003|TASK-003]] | Build React Example | Task | `done` |
-| [[plans/phase-6-framework-integration-examples/TASK-004|TASK-004]] | Build Vue Example | Task | `planned` |
+| [[plans/phase-6-framework-integration-examples/TASK-004|TASK-004]] | Build Vue Example | Task | `done` |
 | [[plans/phase-6-framework-integration-examples/TASK-005|TASK-005]] | Build Svelte Example | Task | `planned` |
 | [[plans/phase-6-framework-integration-examples/TASK-006|TASK-006]] | Build Next.js Example | Task | `planned` |
 | [[plans/phase-6-framework-integration-examples/TASK-007|TASK-007]] | Build Angular Example | Task | `planned` |
