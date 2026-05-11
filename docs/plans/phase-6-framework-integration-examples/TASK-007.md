@@ -2,7 +2,7 @@
 id: TASK-007
 title: Build Angular Example
 type: task
-status: planned
+status: done
 priority: medium
 phase: 6
 parent: FEAT-001
@@ -66,3 +66,11 @@ content and style substrate.
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 6 acceptance criteria.
+- 2026-05-11: Started Angular example implementation. Status set to active.
+- 2026-05-11: Added `examples/angular/` with Angular CLI build and serve
+  configuration, a standalone component, shared Commonloom content generation,
+  shared SCSS import, shared asset usage, and local dev/build/production
+  preview instructions. Status set to done.
+- 2026-05-11: Pinned the Angular example's local TypeScript dependency to
+  `5.9.3` because `@angular/build@21.2.10` declares a `<6.0` peer range while
+  the root Commonloom package remains on TypeScript `6.0.3`.

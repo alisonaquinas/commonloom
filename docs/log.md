@@ -491,3 +491,10 @@ Completed
 [[plans/phase-6-framework-integration-examples/TASK-006|TASK-006]] by adding a
 Next.js app-router example that renders the shared Commonloom output with the
 same content, SCSS, assets, and dev/build/production-preview command shape.
+
+## [2026-05-11] phase | Add Phase 6 Angular example
+
+Completed
+[[plans/phase-6-framework-integration-examples/TASK-007|TASK-007]] by adding an
+Angular CLI example that renders the shared Commonloom output with the same
+content, SCSS, assets, and dev/build/production-preview command shape.

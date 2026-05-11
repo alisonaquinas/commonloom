@@ -1,0 +1,30 @@
+{
+  "name": "@commonloom/example-angular",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "node ../shared/scripts/generate-content.mjs .",
+    "dev": "npm run generate && ng serve",
+    "serve": "npm run dev",
+    "build": "npm run generate && ng build",
+    "preview": "npm run generate && ng serve --configuration=production"
+  },
+  "dependencies": {
+    "@angular/common": "21.2.12",
+    "@angular/compiler": "21.2.12",
+    "@angular/core": "21.2.12",
+    "@angular/platform-browser": "21.2.12",
+    "commonloom": "file:../..",
+    "rxjs": "7.8.2",
+    "tslib": "2.8.1",
+    "zone.js": "0.16.2"
+  },
+  "devDependencies": {
+    "@angular/build": "21.2.10",
+    "@angular/cli": "21.2.10",
+    "@angular/compiler-cli": "21.2.12",
+    "sass": "1.99.0",
+    "typescript": "5.9.3"
+  }
+}
