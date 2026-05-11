@@ -36,6 +36,8 @@ start once the package is ready for npm publication.
 - Added typed unit, integration, E2E, and aggregate test-battery npm scripts
   and wired them into CI as explicit steps.
 - Added Git LFS tracking for Commonloom documentation PNG assets.
+- Added a GitHub-facing `.github/README.md` that uses the new light and dark
+  Commonloom logo assets.
 
 ### Changed
 

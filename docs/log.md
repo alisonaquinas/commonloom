@@ -298,3 +298,9 @@ matching local gate.
 Added Commonloom logo, icon, and source PNG assets under [[assets/index]].
 Configured Git LFS tracking for `docs/assets/*.png` and linked the primary logo
 from [[Commonloom]].
+
+## [2026-05-11] docs | Add GitHub-facing README
+
+Added `.github/README.md` as a rich GitHub-flavored Markdown landing document
+that links the Commonloom quality battery, documentation vault, requirements
+matrix, and light/dark mode logo assets.
