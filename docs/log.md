@@ -484,3 +484,10 @@ Completed
 [[plans/phase-6-framework-integration-examples/TASK-005|TASK-005]] by adding a
 Svelte and Vite example that renders the shared Commonloom output with the same
 content, SCSS, assets, and dev/build/preview command shape.
+
+## [2026-05-11] phase | Add Phase 6 Next.js example
+
+Completed
+[[plans/phase-6-framework-integration-examples/TASK-006|TASK-006]] by adding a
+Next.js app-router example that renders the shared Commonloom output with the
+same content, SCSS, assets, and dev/build/production-preview command shape.
