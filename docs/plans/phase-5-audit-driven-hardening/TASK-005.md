@@ -62,3 +62,9 @@ source symlink or junction escapes.
 > Added explicit Windows drive and UNC path regression coverage for
 > `resolveInsideRoot`, closing the path-test follow-up from the code quality
 > auditor.
+
+> [!SUCCESS] CI portability fix · 2026-05-11
+> Code quality revalidation found the Windows/UNC regression would fail on
+> Ubuntu because Node's default `path` module is platform-native. Path
+> confinement now detects Windows-shaped absolute paths and applies `path.win32`
+> semantics, so the regression can run on both Windows and Linux CI.
