@@ -2,7 +2,7 @@
 id: TASK-010
 title: Add Phase And Ticket Process Verification
 type: task
-status: planned
+status: done
 priority: medium
 phase: 3
 parent: FEAT-001
@@ -89,3 +89,10 @@ This task should document any process rule that remains reviewer judgment.
 ## Workflow Log
 
 - 2026-05-10: Opened in planned status.
+- 2026-05-11: Added
+  [verify-plan-process.mjs](../../../scripts/verify-plan-process.mjs) to
+  validate ticket frontmatter, ticket ID and filename agreement, phase ticket
+  index completeness, duplicate ticket IDs, terminal-status workflow evidence,
+  and done-phase terminal tickets. Corrected existing ticket logs that wrapped
+  terminal status text. Added it to `npm run verify`. Status set to done after
+  `npm run verify` passed.

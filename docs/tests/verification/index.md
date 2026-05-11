@@ -27,7 +27,7 @@ npm run check
 It expands to:
 
 ```bash
-npm run lint && npm run typecheck && npm run build && npm test
+npm run lint && npm run verify && npm run typecheck && npm run build && npm test
 ```
 
 ## Included Checks
@@ -38,10 +38,16 @@ npm run lint && npm run typecheck && npm run build && npm test
 | Obsidian vault lint | `npm run lint:docs:obsidian` | Maintained vault notes under `docs/`, excluding raw `docs/sources/` imports. |
 | ADR lint | `npm run lint:docs:adr` | MADR-style records under `docs/adr`. |
 | TypeScript lint | `npm run lint` | `src/**/*.ts`, `test/**/*.ts`, and config files with warnings blocked. |
-| Static boundary verification | `npm run verify` | Adapter-neutral source imports, disallowed core dependencies, exact dependency versions, and generated output tracking. |
+| Static and process verification | `npm run verify` | Adapter-neutral source imports, disallowed core dependencies, exact dependency versions, generated output tracking, requirements traceability, BDD requirement links, and phase/ticket process rules. |
 | Typecheck | `npm run typecheck` | TypeScript project check with no emit. |
 | Build | `npm run build` | Distributable TypeScript build. |
 | Unit, integration, and E2E tests | `npm test` | Seven Vitest files, twenty-five tests. |
+
+`npm run verify` expands to:
+
+```bash
+node scripts/verify-boundaries.mjs && node scripts/verify-traceability.mjs && node scripts/verify-plan-process.mjs
+```
 
 ## CI Shape
 

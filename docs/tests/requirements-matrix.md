@@ -54,10 +54,12 @@ verification battery.
 | SEC-003 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `handles long wiki-link shaped input without runaway parsing` |
 | SEC-004 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `rejects symlinked media that resolves outside the approved root` |
 | VER-CHECK | Verification | `npm run check` runs docs lint, TypeScript lint, typecheck, build, and unit tests. |
-| VER-BOUNDARY | Verification | `npm run verify` checks source boundaries, disallowed dependencies, exact dependency versions, and tracked generated outputs. |
+| VER-BOUNDARY | Verification | [verify-boundaries.mjs](../../scripts/verify-boundaries.mjs) checks source boundaries, disallowed dependencies, exact dependency versions, and tracked generated outputs. |
+| VER-TRACE | Verification | [verify-traceability.mjs](../../scripts/verify-traceability.mjs) checks requirements matrix completeness, duplicate matrix rows, stale requirement IDs, and BDD requirement links. |
+| VER-PROCESS | Verification | [verify-plan-process.mjs](../../scripts/verify-plan-process.mjs) checks phase ticket metadata, ticket indexes, ID uniqueness, terminal status evidence, and done-phase ticket closure. |
 | VER-DOCS | Verification | `npm run lint:docs` runs root Markdown, Obsidian, and ADR lint. |
 | VER-CI | Verification | `.github/workflows/documentation-lint.yml` runs Node.js 24, `npm ci --ignore-scripts`, and `npm run check`. |
-| DOC-PHASE | Documentation | Phase and ticket records under [[plans/phase-1-import-commonloom-package]] and [[plans/phase-2-ci-quality-gates]]. |
+| DOC-PHASE | Documentation | Phase and ticket records under [[plans/phase-1-import-commonloom-package]], [[plans/phase-2-ci-quality-gates]], and [[plans/phase-3-close-testing-gaps]]. |
 
 ## User Requirements
 
@@ -74,7 +76,7 @@ verification battery.
 | CLR-USER-013 | UT-LINK-003, UT-LINK-005, UT-LINK-006, INT-001, E2E-001 | Covered | Adapter-specific bundler mapping remains outside core. |
 | CLR-USER-014 | UT-CORE-003 | Partial | Add static forbidden-import verification. |
 | CLR-USER-020 | VER-DOCS, DOC-PHASE | Verified | None for documentation process. |
-| CLR-USER-021 | VER-DOCS, DOC-PHASE | Partial | No automated source-evidence completeness check exists. |
+| CLR-USER-021 | VER-DOCS, VER-TRACE, DOC-PHASE | Partial | Matrix completeness is automated; source-evidence completeness remains manual. |
 | CLR-USER-022 | UT-CORE-003, VER-DOCS | Partial | No automated API-to-ADR impact check exists. |
 | CLR-USER-023 | VER-CHECK, VER-CI | Verified | Release validation remains future work. |
 
@@ -151,14 +153,14 @@ verification battery.
 | CLR-OPS-008 | DOC-PHASE | Partial | No automated guard prevents rule weakening. |
 | CLR-OPS-009 | VER-CHECK, VER-CI | Covered | None. |
 | CLR-OPS-010 | VER-CHECK, VER-CI | Covered | None. |
-| CLR-OPS-020 | VER-DOCS, DOC-PHASE | Partial | No automated source-evidence completeness check. |
+| CLR-OPS-020 | VER-DOCS, VER-TRACE, DOC-PHASE | Partial | Matrix completeness is automated; source-evidence completeness remains manual. |
 | CLR-OPS-021 | VER-DOCS | Covered | None for link/layout checks. |
-| CLR-OPS-022 | VER-DOCS | Partial | No automated requirements-index completeness check exists. |
+| CLR-OPS-022 | VER-DOCS, VER-TRACE | Partial | Matrix completeness is automated; central requirements index semantics remain manual. |
 | CLR-OPS-023 | VER-DOCS | Partial | ADR shape is checked; ADR impact detection is not automated. |
 | CLR-OPS-024 | VER-DOCS | Covered | README commands are now verified by `package.json` and `npm run check`. |
 | CLR-OPS-025 | VER-DOCS | Partial | Layout prose is manual; Obsidian lint catches links only. |
 | CLR-OPS-026 | VER-DOCS, DOC-PHASE | Partial | Log entry completeness is manual. |
-| CLR-OPS-027 | VER-DOCS | Covered | None for current wikilink resolution. |
+| CLR-OPS-027 | VER-DOCS, VER-TRACE | Covered | None for current wikilink and BDD requirement-link resolution. |
 | CLR-OPS-040 | Gap | Gap | No release workflow exists. |
 | CLR-OPS-041 | Gap | Gap | No release workflow exists. |
 | CLR-OPS-042 | VER-CI | Covered | Current workflow has no path filters and runs full checks. |
@@ -177,33 +179,33 @@ verification battery.
 | CLR-OPS-066 | Gap | Gap | No npm publish workflow exists. |
 | CLR-OPS-080 | DOC-PHASE | Partial | Process requirement is documented; no automated phase-order check exists. |
 | CLR-OPS-081 | DOC-PHASE | Partial | Ownership is manual in phase records. |
-| CLR-OPS-082 | DOC-PHASE | Partial | Ticket lifecycle states are documented; no schema validation exists. |
+| CLR-OPS-082 | VER-PROCESS, DOC-PHASE | Partial | Ticket metadata is schema-checked; lifecycle order remains reviewer judgment. |
 | CLR-OPS-083 | DOC-PHASE | Partial | No automated red-first enforcement exists. |
 | CLR-OPS-084 | DOC-PHASE | Partial | Sweep ticketing is manual. |
-| CLR-OPS-085 | DOC-PHASE | Partial | No automated check ensures all tickets are terminal before phase close. |
+| CLR-OPS-085 | VER-PROCESS, DOC-PHASE | Partial | Done phases cannot keep open tickets; in-review closeout timing remains manual. |
 | CLR-OPS-086 | DOC-PHASE | Partial | Gate order is manual. |
 | CLR-OPS-087 | DOC-PHASE | Partial | CI evidence is recorded manually. |
 | CLR-OPS-088 | DOC-PHASE | Partial | Retrospectives are manual. |
 | CLR-OPS-089 | DOC-PHASE | Partial | Process update discipline is manual. |
-| CLR-OPS-090 | VER-DOCS, DOC-PHASE | Partial | Layout exists; no schema check enforces it. |
-| CLR-OPS-091 | VER-DOCS, DOC-PHASE | Partial | Ticket indexes exist for active phases; no completeness checker exists. |
+| CLR-OPS-090 | VER-DOCS, VER-PROCESS, DOC-PHASE | Covered | Phase and ticket layout are checked. |
+| CLR-OPS-091 | VER-DOCS, VER-PROCESS, DOC-PHASE | Covered | Ticket indexes must include existing phase tickets. |
 | CLR-OPS-092 | VER-DOCS | Partial | Wikilinks resolve; roadmap target semantics are manual. |
-| CLR-OPS-093 | VER-DOCS | Covered | Obsidian lint resolves current phase plan links. |
+| CLR-OPS-093 | VER-DOCS, VER-PROCESS | Covered | Obsidian lint resolves current phase links and process verification checks phase ticket links. |
 | CLR-OPS-100 | DOC-PHASE | Partial | Ticket use is documented; no automated threshold check exists. |
-| CLR-OPS-101 | DOC-PHASE | Partial | Current IDs are stable; no uniqueness checker exists. |
-| CLR-OPS-102 | DOC-PHASE | Partial | Metadata exists; no ticket schema validator exists. |
+| CLR-OPS-101 | VER-PROCESS, DOC-PHASE | Covered | Ticket IDs are checked against filenames and duplicate IDs are rejected. |
+| CLR-OPS-102 | VER-PROCESS, DOC-PHASE | Covered | Required ticket metadata is checked. |
 | CLR-OPS-103 | DOC-PHASE | Partial | Trace links are manual. |
 | CLR-OPS-104 | DOC-PHASE | Partial | Atomicity is reviewer judgment. |
 | CLR-OPS-105 | DOC-PHASE | Partial | Red-green flow is manual. |
 | CLR-OPS-106 | Gap | Gap | No bug tickets exist to verify lifecycle. |
 | CLR-OPS-107 | Gap | Gap | No spike tickets exist to verify lifecycle. |
-| CLR-OPS-108 | DOC-PHASE | Partial | Chore lifecycle is documented but not schema-checked. |
-| CLR-OPS-109 | DOC-PHASE | Partial | Logs are append-only by convention; no automated check exists. |
-| CLR-OPS-110 | DOC-PHASE | Partial | Status/log agreement is manual. |
+| CLR-OPS-108 | VER-PROCESS, DOC-PHASE | Partial | Chore metadata is checked; lifecycle movement remains manual. |
+| CLR-OPS-109 | VER-PROCESS, DOC-PHASE | Partial | Terminal status log evidence is checked; append-only discipline remains manual. |
+| CLR-OPS-110 | VER-PROCESS, DOC-PHASE | Partial | Terminal status/log agreement is checked; active-state transitions remain manual. |
 | CLR-OPS-111 | Gap | Gap | No blocked-ticket example or checker exists. |
-| CLR-OPS-112 | DOC-PHASE | Partial | Closure evidence is present in phase tickets; no checker exists. |
-| CLR-OPS-113 | DOC-PHASE | Partial | Current phase tickets follow layout; no checker exists. |
-| CLR-OPS-114 | DOC-PHASE | Partial | Current phase IDs are unique; no checker exists. |
+| CLR-OPS-112 | VER-PROCESS, DOC-PHASE | Partial | Terminal ticket evidence is checked; CI evidence content remains manual. |
+| CLR-OPS-113 | VER-PROCESS, DOC-PHASE | Covered | Current phase tickets follow the checked layout. |
+| CLR-OPS-114 | VER-PROCESS, DOC-PHASE | Covered | Current phase ticket IDs are unique. |
 | CLR-OPS-115 | VER-DOCS | Covered | Ticket Markdown is linted by `npm run lint:docs`. |
 | CLR-OPS-116 | VER-DOCS | Covered | Markdown lint catches current spacing/readability failures. |
 | CLR-OPS-117 | DOC-PHASE | Partial | Commit discipline is manual. |
@@ -216,8 +218,8 @@ Clear untested areas:
 - release, npm publishing, provenance, and test-tag workflows
 - generated-output reproducibility checks for future adapters
 - broader parser hardening for YAML aliases/depth and resource limits
-- automated process checks for phase order, ticket schemas, ticket status/log
-  agreement, ticket ID uniqueness, and source-evidence completeness
+- automated checks for phase order, commit discipline, CI evidence semantics,
+  and source-evidence completeness
 
 [[plans/phase-3-close-testing-gaps|Phase 3]] contains the planned tickets for
 closing or explicitly deferring these gaps.

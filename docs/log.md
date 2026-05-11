@@ -258,3 +258,10 @@ Completed [[plans/phase-3-close-testing-gaps/TASK-007|TASK-007]] and
 [[plans/phase-3-close-testing-gaps/TASK-008|TASK-008]] by adding parser and
 filesystem security tests, realpath media confinement, frontmatter size bounds,
 and static boundary verification through `npm run verify`.
+
+## [2026-05-11] phase | Add Phase 3 traceability and process checks
+
+Completed [[plans/phase-3-close-testing-gaps/TASK-009|TASK-009]] and
+[[plans/phase-3-close-testing-gaps/TASK-010|TASK-010]] by adding requirements
+matrix validation, BDD requirement-link validation, and phase/ticket process
+verification to `npm run verify`.

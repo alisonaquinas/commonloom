@@ -70,5 +70,4 @@ This task must keep project-specific route resolution behind adapter callbacks.
   unsupported link diagnostics, unsupported media URI diagnostics, absolute
   path rejection, and encoded traversal confinement. Standard internal-link
   missing-target diagnostics remain adapter-owned and documented as partial in
-  the matrix. `npm test`, `npm run lint`, and `npm run typecheck` pass. Status
-  set to done.
+  the matrix. `npm test`, `npm run lint`, and `npm run typecheck` pass. Status set to done.

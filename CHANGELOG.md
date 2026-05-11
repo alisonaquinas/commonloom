@@ -31,6 +31,8 @@ start once the package is ready for npm publication.
   adapter-visible compiled records.
 - Added parser and filesystem security tests plus static boundary verification
   in `npm run check`.
+- Added requirements traceability, BDD requirement-link, and phase/ticket
+  process verification to `npm run verify`.
 
 ### Changed
 

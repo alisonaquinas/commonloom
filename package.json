@@ -29,7 +29,7 @@
     "precommit": "npm run check",
     "test": "vitest run",
     "typecheck": "tsc --project tsconfig.json --noEmit",
-    "verify": "node scripts/verify-boundaries.mjs"
+    "verify": "node scripts/verify-boundaries.mjs && node scripts/verify-traceability.mjs && node scripts/verify-plan-process.mjs"
   },
   "dependencies": {
     "gray-matter": "4.0.3",

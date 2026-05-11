@@ -157,3 +157,8 @@ with a clear blocker or deferral instead of silently marking it covered.
 > TASK-007 and TASK-008 added parser/filesystem security coverage and static
 > boundary verification. `npm test -- content-pipeline-security.test.ts` and
 > `npm run verify` pass locally.
+
+> [!SUCCESS] Traceability and process group · 2026-05-11
+> TASK-009 and TASK-010 added requirements/BDD traceability validation and
+> phase/ticket process verification to `npm run verify`. The gate passes
+> locally after correcting terminal ticket workflow log wording.

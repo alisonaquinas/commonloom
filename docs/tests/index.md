@@ -13,20 +13,21 @@ aliases:
 
 # Commonloom Test Battery
 
-Commonloom currently has a Vitest battery for imported package behavior and a
-repository verification gate that runs lint, typecheck, build, and tests.
+Commonloom currently has a Vitest battery for package behavior and a repository
+verification gate that runs lint, static verification, typecheck, build, and
+tests.
 
 > [!NOTE] Scope
-> This section documents the current test surface. It does not claim missing
-> integration, end-to-end, or validation suites exist.
+> This section documents the current test surface. It distinguishes executable
+> coverage from requirements that remain intentionally visible as gaps.
 
 ## Test Types
 
 | Type | Current Status | Purpose |
 | --- | --- | --- |
 | [[tests/unit/index|Unit Tests]] | Active | Exercise library modules and exported contracts through focused Vitest cases. |
-| [[tests/integration/index|Integration Tests]] | Not dedicated yet | Future cross-module or adapter integration suites. |
-| [[tests/e2e/index|End-To-End Tests]] | Not present yet | Future consumer-level workflows from content inputs to adapter-visible outputs. |
+| [[tests/integration/index|Integration Tests]] | Active | Exercise public compiler behavior across parser, renderer, resolver, media, and trace modules. |
+| [[tests/e2e/index|End-To-End Tests]] | Active | Exercise fixture workflows from content inputs to adapter-visible compiled records. |
 | [[tests/verification/index|Verification]] | Active | Prove repository checks run as specified. |
 | [[tests/validation/index|Validation]] | Partial | Connect tested behavior to intended Commonloom outcomes and requirements. |
 
@@ -37,7 +38,7 @@ repository verification gate that runs lint, typecheck, build, and tests.
 | `npm test` | [[tests/unit/index|Unit]], [[tests/integration/index|Integration]], [[tests/e2e/index|E2E]] | Runs seven Vitest files with twenty-five assertions over current package behavior. |
 | `npm run lint:docs` | [[tests/verification/index|Verification]] | Checks root Markdown, Obsidian vault Markdown, and MADR ADR shape. |
 | `npm run lint` | [[tests/verification/index|Verification]] | Runs documentation linting and TypeScript ESLint with warnings blocked. |
-| `npm run verify` | [[tests/verification/index|Verification]] | Runs static boundary, dependency, and generated-output checks. |
+| `npm run verify` | [[tests/verification/index|Verification]] | Runs static boundary, dependency, generated-output, traceability, and phase/ticket process checks. |
 | `npm run typecheck` | [[tests/verification/index|Verification]] | Confirms TypeScript contracts typecheck without emitting output. |
 | `npm run build` | [[tests/verification/index|Verification]] | Confirms the distributable TypeScript build compiles. |
 | `npm run check` | [[tests/verification/index|Verification]] | Runs the full local and CI quality gate. |

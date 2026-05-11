@@ -2,7 +2,7 @@
 id: TASK-009
 title: Add Requirements And BDD Traceability Validation
 type: task
-status: planned
+status: done
 priority: medium
 phase: 3
 parent: FEAT-001
@@ -63,3 +63,8 @@ closed.
 ## Workflow Log
 
 - 2026-05-10: Opened in planned status.
+- 2026-05-11: Added
+  [verify-traceability.mjs](../../../scripts/verify-traceability.mjs) to detect
+  missing matrix rows, duplicate matrix rows, stale requirement IDs, and BDD
+  requirement links that do not resolve. Added it to `npm run verify`. Status set to done
+  after `npm run verify` passed.

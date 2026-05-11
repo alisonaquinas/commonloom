@@ -18,8 +18,9 @@ domain, and requirements outcomes.
 
 ## Current Status
 
-Commonloom has partial validation through behavior-oriented unit tests and BDD
-documentation. It does not yet have a dedicated validation test suite.
+Commonloom has partial validation through behavior-oriented unit tests, BDD
+documentation, and a blocking requirements traceability check. It does not yet
+have a dedicated validation test suite.
 
 ## Current Evidence
 
@@ -33,12 +34,16 @@ documentation. It does not yet have a dedicated validation test suite.
 | [content-pipeline-core.test.ts](../../../test/content-pipeline-core.test.ts) | Confirms current public contracts remain adapter-neutral. |
 | [content-pipeline-integration.test.ts](../../../test/content-pipeline-integration.test.ts) | Confirms the public compiler combines parser, renderer, resolver, media, and trace behavior. |
 | [content-pipeline-e2e.test.ts](../../../test/content-pipeline-e2e.test.ts) | Confirms a fixture content tree compiles into adapter-visible records. |
+| [verify-traceability.mjs](../../../scripts/verify-traceability.mjs) | Confirms every requirement appears in the matrix, matrix IDs are current, matrix rows are unique, and BDD requirement links resolve. |
 
 ## Requirements Traceability
 
 The [[tests/requirements-matrix|Requirements Test Matrix]] is the current
 validation map from requirements to executable tests, process verification, and
 known gaps.
+
+`npm run verify` runs the traceability check as a blocking local and CI
+verification step.
 
 ## Future Validation Suite
 
@@ -52,8 +57,10 @@ scenarios. Candidate labels:
 
 ## Gap
 
-No automated validation report currently proves coverage from each requirement
-or BDD scenario to executable tests.
+No automated validation report currently proves that every requirement or BDD
+scenario has executable coverage. The current traceability check proves that
+the map itself is complete and current, then leaves intentional gaps visible in
+the matrix.
 
 ## See Also
 

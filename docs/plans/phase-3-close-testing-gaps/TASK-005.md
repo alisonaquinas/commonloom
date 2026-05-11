@@ -67,5 +67,5 @@ This task should not duplicate unit assertions line-for-line.
 - 2026-05-11: Added
   [content-pipeline-integration.test.ts](../../../test/content-pipeline-integration.test.ts)
   covering public compiler integration across parse, render, links, media, and
-  traces. Updated integration documentation and matrix evidence. Status set to
-  done after `npm run lint`, `npm run typecheck`, and `npm test`.
+  traces. Updated integration documentation and matrix evidence. Status set to done
+  after `npm run lint`, `npm run typecheck`, and `npm test`.
