@@ -6,7 +6,10 @@ Commonloom follows a `0.x` release line while the standalone public API settles.
 
 ## Unreleased
 
-No changes yet.
+- Added Phase 6 planning for shared-content framework integration examples
+  covering React, Vue, Svelte, Next.js, Angular, and Node.
+- Closed Phase 4 release documentation with `v0.1.0` trusted-publishing
+  evidence.
 
 ## [0.1.0] - 2026-05-11
 

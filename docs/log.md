@@ -414,3 +414,20 @@ local `src/`, `test/`, and maintained vault notes instead of the upstream
 repository. Historical upstream references remain only as imported source
 evidence under [[sources/index|Source Imports]] and in provenance-oriented
 records.
+
+## [2026-05-11] roadmap | Draft Phase 6 framework examples
+
+Added [[plans/phase-6-framework-integration-examples|Phase 6]] and
+[[plans/phase-6-framework-integration-examples/index|Phase 6 Tickets]] to plan
+shared-content adopter examples for React, Vue, Svelte, Next.js, Angular, and
+Node.
+The plan records the rule that shared content, SCSS, and assets must remain
+identical across examples, with only framework glue changing.
+
+## [2026-05-11] phase | Phase 4 trusted-publishing closeout
+
+Closed [[plans/phase-4-npm-trusted-publishing|Phase 4]] after tag `v0.1.0`
+published `commonloom@0.1.0` through GitHub Actions trusted publishing.
+The release workflow run passed both the release dry-run and publish jobs:
+<https://github.com/alisonaquinas/commonloom/actions/runs/25682420237>.
+npm reports `0.1.0` as the `latest` dist-tag.

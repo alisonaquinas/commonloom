@@ -2,7 +2,7 @@
 id: FEAT-001
 title: Establish npm Trusted Publishing
 type: feature
-status: active
+status: done
 priority: high
 phase: 4
 created: 2026-05-11
@@ -82,3 +82,6 @@ Acceptance closes only after remote CI evidence is captured.
 - 2026-05-11: Completed the nonblocked release workflow, guardrail, dry-run,
   and runbook tickets. Feature remains active because npm bootstrap publishing,
   trusted publisher setup, and remote evidence require external owner action.
+- 2026-05-11: `v0.1.0` release workflow passed release dry-run and trusted
+  publish jobs, and npm reports `commonloom@0.1.0` as `latest`.
+  Status set to done.
