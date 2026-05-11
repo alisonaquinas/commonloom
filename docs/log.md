@@ -522,3 +522,11 @@ Completed
 root `examples:check` battery that verifies shared content/style/asset parity,
 forbids internal Commonloom coupling in examples, builds all example
 workspaces, and runs in both local `npm run check` and GitHub Actions.
+
+## [2026-05-11] phase | Document Phase 6 adopter guidance
+
+Completed
+[[plans/phase-6-framework-integration-examples/TASK-011|TASK-011]] by updating
+root, GitHub-facing, changelog, agent, and vault documentation so adopters can
+find every example and understand that framework glue remains outside
+Commonloom core.

@@ -27,7 +27,7 @@ updated: 2026-05-11
 | [[plans/phase-6-framework-integration-examples/TASK-008|TASK-008]] | Build Node Example | Task | `done` |
 | [[plans/phase-6-framework-integration-examples/TASK-009|TASK-009]] | Remediate Integration Coupling | Task | `done` |
 | [[plans/phase-6-framework-integration-examples/TASK-010|TASK-010]] | Verify Example Parity And CI Coverage | Task | `done` |
-| [[plans/phase-6-framework-integration-examples/TASK-011|TASK-011]] | Document Adopter Guidance | Task | `planned` |
+| [[plans/phase-6-framework-integration-examples/TASK-011|TASK-011]] | Document Adopter Guidance | Task | `done` |
 | [[plans/phase-6-framework-integration-examples/CHORE-001|CHORE-001]] | Phase 6 Closeout | Chore | `planned` |
 | [[plans/phase-6-framework-integration-examples/CHORE-002|CHORE-002]] | Phase Sequencing And Ownership | Chore | `done` |
 | [[plans/phase-6-framework-integration-examples/CHORE-003|CHORE-003]] | Ticket Lifecycle Control | Chore | `active` |

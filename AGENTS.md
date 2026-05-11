@@ -12,6 +12,7 @@ commonloom/
 ├── .github/workflows/ # GitHub Actions validation
 ├── .githooks/         # Local pre-commit hooks
 ├── docs/              # Obsidian vault for Commonloom design knowledge
+├── examples/          # Shared-content integration examples
 ├── scripts/           # Documentation validation helpers
 ├── src/               # Commonloom TypeScript source
 ├── test/              # Commonloom behavior tests

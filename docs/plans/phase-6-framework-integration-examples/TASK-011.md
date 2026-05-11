@@ -2,7 +2,7 @@
 id: TASK-011
 title: Document Adopter Guidance
 type: task
-status: planned
+status: done
 priority: medium
 phase: 6
 parent: FEAT-001
@@ -68,3 +68,8 @@ difference between Commonloom core and framework glue.
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 6 adopter guidance goal.
+- 2026-05-11: Started adopter documentation update. Status set to active.
+- 2026-05-11: Updated root README, GitHub-facing README, changelog,
+  repository agent layout, and vault index so adopters can find all examples,
+  understand shared substrate parity, and distinguish framework glue from
+  Commonloom core. Status set to done.

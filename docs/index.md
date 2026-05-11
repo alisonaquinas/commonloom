@@ -39,7 +39,7 @@ content-pipeline repository.
 | [[phase-3-close-testing-gaps|Phase 3 Close Testing Gaps]] | Completed Phase 3 work closing the first requirements test matrix gaps. |
 | [[phase-4-npm-trusted-publishing|Phase 4 npm Trusted Publishing]] | Completed release automation and npm OIDC trusted publishing work. |
 | [[phase-5-audit-driven-hardening|Phase 5 Audit Driven Hardening]] | Completed audit-driven hardening and closeout evidence. |
-| [[phase-6-framework-integration-examples|Phase 6 Framework Integration Examples]] | Planned adopter examples proving framework independence. |
+| [[phase-6-framework-integration-examples|Phase 6 Framework Integration Examples]] | Active adopter examples proving framework independence. |
 | [[sources/index|Source Imports]] | Catalog of imported upstream source files. |
 | [[log]] | Chronological vault maintenance record. |
 
@@ -54,8 +54,6 @@ framework components, product copy, and generated website module formatting.
 
 ## Open Questions
 
-- Which Phase 6 examples uncover real coupling issues versus documentation
-  gaps?
 - Which `0.x` API refinements should be reserved for a future `1.0.0`
   stability commitment?
 
