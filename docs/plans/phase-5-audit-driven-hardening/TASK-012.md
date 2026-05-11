@@ -2,7 +2,7 @@
 id: TASK-012
 title: Diagnose Unsafe HTML Attributes
 type: task
-status: planned
+status: done
 priority: high
 phase: 5
 parent: FEAT-001
@@ -53,3 +53,10 @@ HTML tags.
 
 > [!SUCCESS] Done · 2026-05-11
 > Status set to done. Implemented during Phase 5 execution. `npm run check` passed locally after the change.
+
+> [!INFO] Auditor confirmation · 2026-05-11
+> Security and requirements reviewers confirmed unsafe event-attribute and
+> literal JavaScript URL diagnostics. Review requested broader representative
+> evidence, so the HTML test now also covers `src=\"javascript:\"` and
+> `onerror`. Obfuscated or entity-encoded protocols remain follow-up debt for a
+> parser or sanitizer-diff based diagnostic pass.

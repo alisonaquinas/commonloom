@@ -2,7 +2,7 @@
 id: TASK-010
 title: Correct Source Position Offsets
 type: task
-status: planned
+status: done
 priority: medium
 phase: 5
 parent: FEAT-001

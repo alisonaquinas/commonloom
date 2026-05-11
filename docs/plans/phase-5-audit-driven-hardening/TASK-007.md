@@ -2,7 +2,7 @@
 id: TASK-007
 title: Refactor Compiler Orchestration
 type: task
-status: planned
+status: done
 priority: medium
 phase: 5
 parent: FEAT-001
@@ -48,3 +48,10 @@ compilation, validation, and trace mutation responsibilities.
 
 > [!SUCCESS] Done · 2026-05-11
 > Status set to done. Implemented during Phase 5 execution. `npm run check` passed locally after the change.
+
+> [!INFO] Auditor confirmation · 2026-05-11
+> Code quality review confirmed compiler orchestration is improved by the
+> `compileDocument`, path resolution, and trace resolution helpers. The auditor
+> noted remaining cleanup debt around helpers that append to shared diagnostics
+> arrays; that is nonblocking and should become a later refactor ticket if it
+> grows.

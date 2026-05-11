@@ -68,7 +68,7 @@ verification battery.
 | REL-WORKFLOW | Verification | `.github/workflows/npm-publish.yml` runs Node.js 24 release dry-runs and reserves OIDC publish permissions for version-tag publish jobs. |
 | REL-GUARD | Verification | [verify-release-tag.mjs](../../scripts/verify-release-tag.mjs) checks tag shape, package-version agreement, and exact `origin/main` head agreement before publish. |
 | REL-DRYRUN | Verification | `npm run pack:dry-run`, `npm run publish:dry-run`, and `npm run publish:dry-run:ci` validate package contents and the npm publish payload. |
-| DOC-PHASE | Documentation | Phase and ticket records under [[plans/phase-1-import-commonloom-package]], [[plans/phase-2-ci-quality-gates]], and [[plans/phase-3-close-testing-gaps]]. |
+| DOC-PHASE | Documentation | Phase and ticket records under [[plans/phase-1-import-commonloom-package]], [[plans/phase-2-ci-quality-gates]], [[plans/phase-3-close-testing-gaps]], [[plans/phase-4-npm-trusted-publishing]], and [[plans/phase-5-audit-driven-hardening]]. |
 
 ## User Requirements
 
@@ -225,8 +225,7 @@ verification battery.
 
 Clear untested areas:
 
-- manual npm bootstrap publishing, npm trusted publisher setup, and remote
-  release evidence
+- remote CI and release dry-run evidence for trusted publishing
 - generated-output reproducibility checks for future adapters
 - broader parser hardening for YAML aliases and depth
 - automated checks for phase order, commit discipline, CI evidence semantics,
@@ -236,9 +235,10 @@ Clear untested areas:
 Remaining gaps should be converted into later roadmap phases or explicitly
 deferred when they are outside the core package boundary.
 
-[[plans/phase-4-npm-trusted-publishing|Phase 4]] contains active tickets for
-manual npm bootstrap publishing, npm trusted publisher setup, provenance, and
-remote release evidence gaps.
+[[plans/phase-4-npm-trusted-publishing|Phase 4]] records completed bootstrap
+publishing and user-reported trusted publisher setup. Remote release dry-run
+and provenance evidence remain pending until the workflow runs from GitHub
+Actions.
 
 ## See Also
 

@@ -2,7 +2,7 @@
 id: CHORE-004
 title: Test-First Gate Control
 type: chore
-status: planned
+status: done
 priority: high
 phase: 5
 parent: FEAT-001
@@ -54,3 +54,10 @@ equivalent verification before implementation.
 
 > [!SUCCESS] Done · 2026-05-11
 > Status set to done. Implemented during Phase 5 execution. `npm run check` passed locally after the change.
+
+> [!INFO] Auditor follow-up · 2026-05-11
+> The auditor pass produced concrete misses after the first implementation
+> commit. Follow-up tests and verification changes were added before closeout:
+> resource-limit failures now assert no document is returned, unsafe HTML
+> attribute evidence includes additional attributes, and process verification
+> now catches ticket index/frontmatter status drift.

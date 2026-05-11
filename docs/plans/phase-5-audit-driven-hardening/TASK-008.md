@@ -2,7 +2,7 @@
 id: TASK-008
 title: Isolate Test Temporary Directories
 type: task
-status: planned
+status: done
 priority: medium
 phase: 5
 parent: FEAT-001

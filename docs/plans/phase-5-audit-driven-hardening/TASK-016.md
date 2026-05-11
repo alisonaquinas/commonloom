@@ -2,7 +2,7 @@
 id: TASK-016
 title: Reconcile Release Documentation State
 type: task
-status: planned
+status: done
 priority: medium
 phase: 5
 parent: FEAT-001
@@ -51,3 +51,10 @@ exists and trusted publishing is user-reported configured.
 
 > [!SUCCESS] Done · 2026-05-11
 > Status set to done. Implemented during Phase 5 execution. `npm run check` passed locally after the change.
+
+> [!INFO] Auditor follow-up · 2026-05-11
+> Documentation and requirements reviewers found stale release status in the
+> README and requirements matrix after the first remediation commit. The README
+> now lists remote CI and release dry-run evidence as the remaining next step,
+> and the matrix gap summary no longer treats bootstrap publishing or trusted
+> publisher setup as open work.

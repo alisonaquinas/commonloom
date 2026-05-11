@@ -134,26 +134,23 @@ describe('Commonloom parser and filesystem security', () => {
       await writeFile(join(copyRoot, 'references.md'), '# References\n\n[One](/one)\n\n![Alt](missing.png)');
       await writeFile(join(copyRoot, 'rendered.md'), '# Rendered\n\nA rendered body that is too large.');
 
-      await expect(
-        compileCommonloom({
-          copyRoot,
-          mediaRoot,
-          manifests: [
-            { id: 'one', sourcePath: 'large.md' },
-            { id: 'two', sourcePath: 'large.md' },
-          ],
-          limits: { maxManifestEntries: 1 },
-        }),
-      ).resolves.toEqual(
+      const manifestLimitResult = await compileCommonloom({
+        copyRoot,
+        mediaRoot,
+        manifests: [
+          { id: 'one', sourcePath: 'large.md' },
+          { id: 'two', sourcePath: 'large.md' },
+        ],
+        limits: { maxManifestEntries: 1 },
+      });
+
+      expect(manifestLimitResult).not.toHaveProperty('documents');
+      expect(manifestLimitResult.diagnostics).toEqual([
         expect.objectContaining({
-          diagnostics: [
-            expect.objectContaining({
-              code: 'MANIFEST_INVALID',
-              severity: 'error',
-            }),
-          ],
+          code: 'MANIFEST_INVALID',
+          severity: 'error',
         }),
-      );
+      ]);
 
       await expect(
         compileCommonloom({
@@ -164,6 +161,7 @@ describe('Commonloom parser and filesystem security', () => {
         }),
       ).resolves.toEqual(
         expect.objectContaining({
+          documents: [],
           diagnostics: [
             expect.objectContaining({
               code: 'MARKDOWN_INVALID',
@@ -182,6 +180,7 @@ describe('Commonloom parser and filesystem security', () => {
         }),
       ).resolves.toEqual(
         expect.objectContaining({
+          documents: [],
           diagnostics: expect.arrayContaining([
             expect.objectContaining({
               code: 'MARKDOWN_INVALID',
@@ -201,6 +200,7 @@ describe('Commonloom parser and filesystem security', () => {
         }),
       ).resolves.toEqual(
         expect.objectContaining({
+          documents: [],
           diagnostics: [
             expect.objectContaining({
               code: 'MARKDOWN_INVALID',

@@ -2,7 +2,7 @@
 id: TASK-017
 title: Normalize Durable Document Frontmatter Policy
 type: task
-status: planned
+status: done
 priority: medium
 phase: 5
 parent: FEAT-001
@@ -48,3 +48,8 @@ and `docs/AGENTS.md`.
 
 > [!SUCCESS] Done · 2026-05-11
 > Status set to done. Implemented during Phase 5 execution. `npm run check` passed locally after the change.
+
+> [!SUCCESS] Auditor confirmation · 2026-05-11
+> Documentation review confirmed `docs/AGENTS.md` now has vault frontmatter and
+> documents ADR files as the MADR-compatible frontmatter exception checked by
+> ADR lint.

@@ -2,7 +2,7 @@
 id: TASK-009
 title: Reconcile Diagnostic Contract
 type: task
-status: planned
+status: done
 priority: low
 phase: 5
 parent: FEAT-001

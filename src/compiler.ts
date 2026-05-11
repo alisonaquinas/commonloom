@@ -140,36 +140,48 @@ async function compileDocument<Frontmatter, AdapterData>(
     markdown,
     frontmatterSchema,
   });
-  const rendered = await renderMarkdownHtml({
-    parsed,
-    allowHtml: config.html?.allowInlineHtml ?? false,
-  });
   const sourceTrace = createSourceTrace({
     markdownPath: manifest.sourcePath,
     markdown,
     parsed,
   });
-  const documentDiagnostics = [...rendered.diagnostics];
-  const resolvedTrace = await resolveTraceReferences(sourceTrace, config, documentDiagnostics);
-  const totalReferences = resolvedTrace.links.length + resolvedTrace.images.length;
+  const totalReferences = sourceTrace.links.length + sourceTrace.images.length;
 
   if (totalReferences > limits.maxReferences) {
-    documentDiagnostics.push({
-      code: 'MARKDOWN_INVALID',
-      severity: 'error',
-      message: `Markdown references exceed ${String(limits.maxReferences)} total links and images.`,
-      sourcePath: manifest.sourcePath,
-    });
+    return {
+      diagnostics: [
+        ...parsed.diagnostics,
+        {
+          code: 'MARKDOWN_INVALID',
+          severity: 'error',
+          message: `Markdown references exceed ${String(limits.maxReferences)} total links and images.`,
+          sourcePath: manifest.sourcePath,
+        },
+      ],
+    };
   }
 
+  const rendered = await renderMarkdownHtml({
+    parsed,
+    allowHtml: config.html?.allowInlineHtml ?? false,
+  });
+  const documentDiagnostics = [...rendered.diagnostics];
+
   if (Buffer.byteLength(rendered.bodyHtml, 'utf8') > limits.maxRenderedHtmlBytes) {
-    documentDiagnostics.push({
-      code: 'MARKDOWN_INVALID',
-      severity: 'error',
-      message: `Rendered HTML exceeds ${String(limits.maxRenderedHtmlBytes)} bytes.`,
-      sourcePath: manifest.sourcePath,
-    });
+    return {
+      diagnostics: [
+        ...documentDiagnostics,
+        {
+          code: 'MARKDOWN_INVALID',
+          severity: 'error',
+          message: `Rendered HTML exceeds ${String(limits.maxRenderedHtmlBytes)} bytes.`,
+          sourcePath: manifest.sourcePath,
+        },
+      ],
+    };
   }
+
+  const resolvedTrace = await resolveTraceReferences(sourceTrace, config, documentDiagnostics);
 
   return {
     diagnostics: documentDiagnostics,
@@ -261,7 +273,7 @@ async function resolveExistingMarkdownPath(
     return { size: 0, diagnostics: realPathCheck.diagnostics };
   }
 
-  return { resolvedPath: resolvedMarkdown.resolvedPath, size: fileStat.size, diagnostics: [] };
+  return { resolvedPath: realResolvedPath, size: fileStat.size, diagnostics: [] };
 }
 
 async function resolveTraceReferences<Frontmatter, AdapterData>(

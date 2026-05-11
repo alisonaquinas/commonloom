@@ -2,7 +2,7 @@
 id: TASK-021
 title: Resolve Format Check Requirement
 type: task
-status: planned
+status: done
 priority: medium
 phase: 5
 parent: FEAT-001
@@ -47,3 +47,7 @@ Make the format-check operational requirement match implemented tooling.
 
 > [!SUCCESS] Done · 2026-05-11
 > Status set to done. Implemented during Phase 5 execution. `npm run check` passed locally after the change.
+
+> [!SUCCESS] Auditor confirmation · 2026-05-11
+> Requirements review confirmed `npm run format:check` exists and is represented
+> as `VER-FORMAT` evidence in the requirements matrix.

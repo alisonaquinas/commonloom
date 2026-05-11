@@ -14,6 +14,7 @@ behavior can be tested independently before the first standalone release.
 | [types.ts](types.ts) | Shared contracts for diagnostics, traces, links, manifests, and compile results. |
 | [compiler.ts](compiler.ts) | Top-level manifest-driven compile entry point. |
 | [frontmatter.ts](frontmatter.ts) | Gray Matter parsing plus Zod validation diagnostics. |
+| [markdown-processors.ts](markdown-processors.ts) | Shared CommonMark and GFM processor setup. |
 | [markdown.ts](markdown.ts) | CommonMark and GFM parsing plus heading extraction. |
 | [html.ts](html.ts) | Markdown-to-HTML rendering with sanitization diagnostics. |
 | [links.ts](links.ts) | Link, wiki-link, and image-reference extraction and resolution. |

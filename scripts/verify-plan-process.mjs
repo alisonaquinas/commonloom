@@ -86,6 +86,14 @@ async function verifyPhaseDirectory(phaseDirName) {
       failures.push(`${phaseDirName}/index.md does not list ${ticketId}.`);
     }
 
+    const indexStatus = indexStatusForTicket(indexContent, ticketId);
+
+    if (indexStatus && indexStatus !== ticketStatus) {
+      failures.push(
+        `${phaseDirName}/index.md lists ${ticketId} as ${indexStatus} but frontmatter is ${ticketStatus}.`,
+      );
+    }
+
     if (terminalStatuses.has(ticketStatus) && !ticket.content.includes(`Status set to ${ticketStatus}`)) {
       failures.push(`${phaseDirName}/${ticketFile} is ${ticketStatus} without matching workflow log text.`);
     }
@@ -101,4 +109,19 @@ async function verifyPhaseDirectory(phaseDirName) {
       }
     }
   }
+}
+
+function indexStatusForTicket(indexContent, ticketId) {
+  const pattern = new RegExp(
+    '\\| \\[\\[[^\\]]+/' +
+      `${escapeRegExp(ticketId)}\\|${escapeRegExp(ticketId)}` +
+      '\\]\\] \\| [^|]+ \\| [^|]+ \\| `([^`]+)` \\|',
+  );
+  const match = pattern.exec(indexContent);
+
+  return match?.[1];
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }

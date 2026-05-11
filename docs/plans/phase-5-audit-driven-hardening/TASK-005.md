@@ -2,7 +2,7 @@
 id: TASK-005
 title: Harden Path Confinement
 type: task
-status: planned
+status: done
 priority: high
 phase: 5
 parent: FEAT-001
@@ -50,3 +50,10 @@ source symlink or junction escapes.
 
 > [!SUCCESS] Done · 2026-05-11
 > Status set to done. Implemented during Phase 5 execution. `npm run check` passed locally after the change.
+
+> [!INFO] Auditor confirmation · 2026-05-11
+> Code quality and security auditors confirmed the path-confinement and
+> Markdown source symlink fixes. Security review identified a TOCTOU edge where
+> the compiler checked the real path but read the original lexical path; the
+> compiler now reads the canonical real Markdown path. Follow-up debt remains
+> for explicit cross-drive and UNC regression tests.

@@ -2,7 +2,7 @@
 id: TASK-006
 title: Consolidate Markdown Processor Setup
 type: task
-status: planned
+status: done
 priority: medium
 phase: 5
 parent: FEAT-001

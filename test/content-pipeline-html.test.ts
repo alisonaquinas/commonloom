@@ -44,6 +44,7 @@ describe('Commonloom HTML rendering and source traces', () => {
         '<abbr title="World Wide Web">WWW</abbr>',
         '<figure><picture><source srcset="diagram.webp" type="image/webp"><img src="diagram.png" alt="Diagram"></picture><figcaption>Diagram</figcaption></figure>',
         '<a href="javascript:alert(1)" onclick="alert(1)">unsafe link</a>',
+        '<img src="javascript:alert(1)" onerror="alert(1)" alt="Unsafe image">',
       ].join('\n'),
     );
     const result = await renderMarkdownHtml({ parsed, allowHtml: true });
@@ -67,6 +68,16 @@ describe('Commonloom HTML rendering and source traces', () => {
           code: 'HTML_UNSAFE',
           message: expect.stringContaining('onclick') as string,
           line: 8,
+        }),
+        expect.objectContaining({
+          code: 'HTML_UNSAFE',
+          message: expect.stringContaining('src') as string,
+          line: 9,
+        }),
+        expect.objectContaining({
+          code: 'HTML_UNSAFE',
+          message: expect.stringContaining('onerror') as string,
+          line: 9,
         }),
       ]),
     );

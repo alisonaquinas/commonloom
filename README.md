@@ -115,8 +115,8 @@ Expected next steps:
 1. Stabilize the public API before the first standalone release.
 2. Document adapter integration examples without moving adapter behavior into
    the core package.
-3. Complete the one-time npm bootstrap publish and configure npm trusted
-   publishing for the release workflow.
+3. Capture remote CI and release dry-run evidence for the trusted publishing
+   workflow.
 
 ## Project Layout
 
