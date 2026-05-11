@@ -1,7 +1,7 @@
 ---
 title: Phase 6 Framework Integration Examples Tickets
 phase: 6
-status: planned
+status: active
 tags:
   - plans/phase-6
   - tickets/index
@@ -16,7 +16,7 @@ updated: 2026-05-11
 
 | Ticket | Title | Type | Status |
 | --- | --- | --- | --- |
-| [[plans/phase-6-framework-integration-examples/FEAT-001|FEAT-001]] | Framework Integration Examples | Feature | `planned` |
+| [[plans/phase-6-framework-integration-examples/FEAT-001|FEAT-001]] | Framework Integration Examples | Feature | `active` |
 | [[plans/phase-6-framework-integration-examples/TASK-001|TASK-001]] | Define Shared Example Substrate | Task | `planned` |
 | [[plans/phase-6-framework-integration-examples/TASK-002|TASK-002]] | Define Example Workspace Strategy | Task | `planned` |
 | [[plans/phase-6-framework-integration-examples/TASK-003|TASK-003]] | Build React Example | Task | `planned` |
@@ -29,8 +29,8 @@ updated: 2026-05-11
 | [[plans/phase-6-framework-integration-examples/TASK-010|TASK-010]] | Verify Example Parity And CI Coverage | Task | `planned` |
 | [[plans/phase-6-framework-integration-examples/TASK-011|TASK-011]] | Document Adopter Guidance | Task | `planned` |
 | [[plans/phase-6-framework-integration-examples/CHORE-001|CHORE-001]] | Phase 6 Closeout | Chore | `planned` |
-| [[plans/phase-6-framework-integration-examples/CHORE-002|CHORE-002]] | Phase Sequencing And Ownership | Chore | `planned` |
-| [[plans/phase-6-framework-integration-examples/CHORE-003|CHORE-003]] | Ticket Lifecycle Control | Chore | `planned` |
+| [[plans/phase-6-framework-integration-examples/CHORE-002|CHORE-002]] | Phase Sequencing And Ownership | Chore | `done` |
+| [[plans/phase-6-framework-integration-examples/CHORE-003|CHORE-003]] | Ticket Lifecycle Control | Chore | `active` |
 | [[plans/phase-6-framework-integration-examples/CHORE-004|CHORE-004]] | Test-First Coupling Fix Control | Chore | `planned` |
 | [[plans/phase-6-framework-integration-examples/CHORE-005|CHORE-005]] | Sweep Finding Ticketing Control | Chore | `planned` |
 | [[plans/phase-6-framework-integration-examples/CHORE-006|CHORE-006]] | Fixed Phase Gate Order Control | Chore | `planned` |

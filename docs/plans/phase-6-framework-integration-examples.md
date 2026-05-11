@@ -6,7 +6,7 @@ tags:
   - phase-6
   - examples
   - framework-integration
-status: planned
+status: active
 updated: 2026-05-11
 aliases:
   - Phase 6
@@ -161,3 +161,8 @@ close while any ticket is `planned`, `active`, `blocked`, or `in-review`.
 
 > [!INFO] Planned · 2026-05-11
 > Phase 6 planning started on `feature/phase-6-framework-examples`.
+
+> [!INFO] Active · 2026-05-11
+> Phase 6 execution started on
+> `feature/phase-6-framework-examples-implementation` from `origin/develop`
+> after the `0.1.0` release and Phase 6 planning PR were merged.

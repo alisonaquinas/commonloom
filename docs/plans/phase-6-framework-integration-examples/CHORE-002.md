@@ -2,7 +2,7 @@
 id: CHORE-002
 title: Phase Sequencing And Ownership
 type: chore
-status: planned
+status: done
 priority: medium
 phase: 6
 parent: FEAT-001
@@ -38,3 +38,7 @@ when examples are implemented in parallel.
 ## Workflow Log
 
 - 2026-05-11: Planned during Phase 6 planning.
+- 2026-05-11: Phase 6 started from `origin/develop` on
+  `feature/phase-6-framework-examples-implementation`. Shared substrate work
+  owns `examples/shared/`; framework examples will use disjoint
+  `examples/<framework>/` directories. Status set to done.
