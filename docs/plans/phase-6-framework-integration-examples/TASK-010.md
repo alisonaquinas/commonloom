@@ -76,3 +76,6 @@ covered by local or CI validation.
 - 2026-05-11: Updated `examples:verify` to require published
   `commonloom@0.1.0` dependencies in each example package before example
   builds run.
+- 2026-05-11: Added formal requirements and requirements-matrix evidence for
+  example compatibility coverage: `CLR-USER-015`, `CLR-FUNC-085`,
+  `CLR-TECH-006`, and `CLR-OPS-011`.

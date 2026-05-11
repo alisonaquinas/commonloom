@@ -24,6 +24,7 @@ aliases:
 | CLR-OPS-008 | Quality gates shall be fixed by correcting files, not by weakening rules, unless a rule change is approved as its own documented decision. | Rule relaxations require explicit approval and a linked rationale. |
 | CLR-OPS-009 | CI shall run the complete test battery once the test library exists. | Required CI test jobs run unit, integration, and E2E test commands without watch mode, focused-only execution, or skip-only shortcuts. |
 | CLR-OPS-010 | TypeScript linting shall be strict and warning-free. | Required lint jobs cover package source and test TypeScript files, treat warnings as failures, and document any explicit generated-output exclusions. |
+| CLR-OPS-011 | CI shall run the example compatibility battery when examples exist. | Required CI jobs verify example parity and build every example workspace on Node.js 24 before reporting success. |
 
 ## Evidence
 

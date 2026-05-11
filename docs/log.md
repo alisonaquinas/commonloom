@@ -553,3 +553,12 @@ and
 Updated Phase 6 examples to depend on published `commonloom@0.1.0` from npm
 after the example implementation confirmed no library changes were required.
 The example verifier now enforces that dependency contract before builds.
+
+## [2026-05-11] requirements | Trace Phase 6 compatibility evidence
+
+Added formal user, functional, technical, and operational requirements for the
+example compatibility battery.
+Updated [[tests/requirements-matrix|Requirements Test Matrix]] so
+`npm run examples:verify`, `npm run examples:build`, and the GitHub Actions
+example steps are recorded as evidence for React, Vue, Svelte, Next.js,
+Angular, and Node compatibility.

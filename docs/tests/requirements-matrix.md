@@ -52,19 +52,22 @@ verification battery.
 | UT-LINK-009 | Unit | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts), `rejects Windows drive and UNC roots that resolve outside the configured root` |
 | INT-001 | Integration | [content-pipeline-integration.test.ts](../../test/content-pipeline-integration.test.ts), `compiles manifests through parse, render, links, media, and traces` |
 | E2E-001 | E2E | [content-pipeline-e2e.test.ts](../../test/content-pipeline-e2e.test.ts), `compiles a fixture content tree into adapter-visible records` |
+| EX-VERIFY | Verification | `npm run examples:verify` runs [verify-examples.mjs](../../scripts/verify-examples.mjs) to check published `commonloom@0.1.0` dependencies, shared substrate usage, and forbidden internal imports. |
+| EX-BUILD | Verification | `npm run examples:build` builds the React, Vue, Svelte, Next.js, Angular, and Node examples from the shared content, SCSS, and asset substrate. |
+| EX-CI | Verification | `.github/workflows/documentation-lint.yml` runs explicit `Verify examples` and `Build examples` steps on Node.js 24. |
 | SEC-001 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `rejects oversized frontmatter before schema validation` |
 | SEC-002 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `does not pollute object prototypes from hostile frontmatter keys` |
 | SEC-003 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `handles long wiki-link shaped input without runaway parsing` |
 | SEC-004 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `rejects symlinked media that resolves outside the approved root` |
 | SEC-005 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `rejects symlinked Markdown sources that resolve outside the copy root` |
 | SEC-006 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `enforces configured manifest and Markdown size limits` |
-| VER-CHECK | Verification | `npm run check` runs docs lint, TypeScript lint, verification scripts, typecheck, build, and `npm run test:battery`. |
+| VER-CHECK | Verification | `npm run check` runs docs lint, TypeScript lint, verification scripts, typecheck, build, `npm run examples:check`, and `npm run test:battery`. |
 | VER-FORMAT | Verification | `npm run format:check` runs the root Markdown formatting/lint gate used by `npm run lint:docs`. |
 | VER-BOUNDARY | Verification | [verify-boundaries.mjs](../../scripts/verify-boundaries.mjs) checks source boundaries, disallowed dependencies, exact dependency versions, and tracked generated outputs. |
 | VER-TRACE | Verification | [verify-traceability.mjs](../../scripts/verify-traceability.mjs) checks requirements matrix completeness, duplicate matrix rows, stale requirement IDs, and BDD requirement links, including range notation. |
 | VER-PROCESS | Verification | [verify-plan-process.mjs](../../scripts/verify-plan-process.mjs) checks phase ticket metadata, ticket indexes, ID uniqueness, terminal status evidence, and done-phase ticket closure. |
 | VER-DOCS | Verification | `npm run lint:docs` runs root Markdown, Obsidian, and ADR lint. |
-| VER-CI | Verification | `.github/workflows/documentation-lint.yml` runs Node.js 24, `npm ci --ignore-scripts`, lint, verification, typecheck, build, package dry-runs, unit, integration, and E2E test steps. |
+| VER-CI | Verification | `.github/workflows/documentation-lint.yml` runs Node.js 24, `npm ci --ignore-scripts`, lint, verification, typecheck, build, example verification, example builds, package dry-runs, unit, integration, and E2E test steps. |
 | VER-ACTION-PIN | Verification | GitHub Actions workflow `uses:` entries are pinned to full commit SHAs with reviewed version comments. |
 | REL-WORKFLOW | Verification | `.github/workflows/npm-publish.yml` runs Node.js 24 release dry-runs and reserves OIDC publish permissions for version-tag publish jobs. |
 | REL-GUARD | Verification | [verify-release-tag.mjs](../../scripts/verify-release-tag.mjs) checks tag shape, package-version agreement, and exact `origin/main` head agreement before publish. |
@@ -85,6 +88,7 @@ verification battery.
 | CLR-USER-012 | UT-CORE-001, UT-CORE-003, INT-001, E2E-001 | Covered | None for normalized record output. |
 | CLR-USER-013 | UT-LINK-003, UT-LINK-005, UT-LINK-006, INT-001, E2E-001 | Covered | Adapter-specific bundler mapping remains outside core. |
 | CLR-USER-014 | UT-CORE-003 | Partial | Add static forbidden-import verification. |
+| CLR-USER-015 | EX-VERIFY, EX-BUILD, EX-CI | Covered | None for current React, Vue, Svelte, Next.js, Angular, and Node examples. |
 | CLR-USER-020 | VER-DOCS, DOC-PHASE | Verified | None for documentation process. |
 | CLR-USER-021 | VER-DOCS, VER-TRACE, DOC-PHASE | Partial | Matrix completeness is automated; source-evidence completeness remains manual. |
 | CLR-USER-022 | UT-CORE-003, VER-DOCS | Partial | No automated API-to-ADR impact check exists. |
@@ -121,6 +125,7 @@ verification battery.
 | CLR-FUNC-082 | UT-CORE-003, E2E-001 | Covered | Generated TypeScript remains absent from core output. |
 | CLR-FUNC-083 | UT-CORE-001, INT-001, E2E-001 | Covered | None for current check-only compile flow. |
 | CLR-FUNC-084 | UT-HTML-003, E2E-001 | Partial | Needs deterministic generated-output tests once adapters write files. |
+| CLR-FUNC-085 | EX-BUILD, EX-VERIFY | Covered | None for current shared-content compatibility examples. |
 
 ## Technical Requirements
 
@@ -131,6 +136,7 @@ verification battery.
 | CLR-TECH-003 | UT-CORE-003, VER-BOUNDARY | Partial | Needs adapter package boundary tests once adapters exist. |
 | CLR-TECH-004 | VER-DOCS, VER-BOUNDARY | Partial | Static scans cover source imports, but docs example review remains manual. |
 | CLR-TECH-005 | VER-BOUNDARY | Partial | Generated-output tracking is checked, but adapter generation behavior does not exist yet. |
+| CLR-TECH-006 | EX-VERIFY, EX-BUILD, VER-CI | Covered | None for current published-package example contract. |
 | CLR-TECH-020 | VER-CHECK | Covered | None. |
 | CLR-TECH-021 | UT-MD-001, UT-HTML-001, VER-CHECK | Covered | None for current dependencies. |
 | CLR-TECH-022 | UT-MD-001, UT-LINK-001 | Partial | Static AST-use verification is not automated. |
@@ -163,6 +169,7 @@ verification battery.
 | CLR-OPS-008 | DOC-PHASE | Partial | No automated guard prevents rule weakening. |
 | CLR-OPS-009 | VER-CHECK, VER-CI | Covered | None. |
 | CLR-OPS-010 | VER-CHECK, VER-CI | Covered | None. |
+| CLR-OPS-011 | EX-VERIFY, EX-BUILD, EX-CI, VER-CHECK | Covered | None for current example compatibility battery. |
 | CLR-OPS-020 | VER-DOCS, VER-TRACE, DOC-PHASE | Partial | Matrix completeness is automated; source-evidence completeness remains manual. |
 | CLR-OPS-021 | VER-DOCS | Covered | None for link/layout checks. |
 | CLR-OPS-022 | VER-DOCS, VER-TRACE | Partial | Matrix completeness is automated; central requirements index semantics remain manual. |
