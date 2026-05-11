@@ -81,11 +81,12 @@ module formatting.
 | [[phase-1-import-commonloom-package|Phase 1]] | package scaffold, source port, unit test library, and strict TypeScript baseline | done |
 | [[phase-2-ci-quality-gates|Phase 2]] | strict TypeScript linting and full package checks in CI | done |
 | [[phase-3-close-testing-gaps|Phase 3]] | unit, integration, E2E, security, traceability, and process test gaps | done |
-| [[phase-4-npm-trusted-publishing|Phase 4]] | CD, release automation, and npm OIDC trusted publishing | planned |
+| [[phase-4-npm-trusted-publishing|Phase 4]] | CD, release automation, and npm OIDC trusted publishing | active |
+| [[phase-5-audit-driven-hardening|Phase 5]] | audit-driven compiler, workflow, documentation, and requirements hardening | done |
 
-The current CI workflow remains validation-only. It wires lint, verification,
-typecheck, build, and complete test execution into CI without creating release,
-deployment, or publish jobs.
+The current CI workflow runs validation plus package dry-run checks. Production
+publishing remains isolated to version tags that point at the current `main`
+head and pass the trusted-publishing workflow guard.
 
 ## Evidence
 

@@ -391,3 +391,26 @@ setup, compiler orchestration, isolated test fixtures, internal link
 diagnostics, source-position offsets, resource limits, unsafe HTML attributes,
 GitHub Actions SHA pinning, format-check scripting, BDD range verification,
 frontmatter policy, and ticket phase metadata.
+
+## [2026-05-11] phase | Phase 5 remote closeout
+
+Closed [[plans/phase-5-audit-driven-hardening|Phase 5]] after PR 12 merged into
+`develop` at `6baf2d379b3a97f364bbfeebb6aaff4023f30b7a` and the GitHub
+Actions Commonloom quality and test battery jobs passed:
+<https://github.com/alisonaquinas/commonloom/actions/runs/25677350830/job/75378949859>
+and
+<https://github.com/alisonaquinas/commonloom/actions/runs/25677369183/job/75379014454>.
+
+## [2026-05-11] release | Prepare 0.1.0 release branch
+
+Opened `release/0.1.0` from `develop`, updated package metadata to
+`commonloom@0.1.0`, moved the accumulated changelog into the `0.1.0` entry,
+and updated root and vault docs for the first standalone release candidate.
+
+## [2026-05-11] docs | Remove external source-of-truth guidance
+
+Updated release-branch documentation so active maintainer guidance points to
+local `src/`, `test/`, and maintained vault notes instead of the upstream
+repository. Historical upstream references remain only as imported source
+evidence under [[sources/index|Source Imports]] and in provenance-oriented
+records.

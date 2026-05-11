@@ -2,10 +2,13 @@
 
 All notable changes to Commonloom will be documented in this file.
 
-This project is not yet released as a standalone package. Version entries should
-start once the package is ready for npm publication.
+Commonloom follows a `0.x` release line while the standalone public API settles.
 
 ## Unreleased
+
+No changes yet.
+
+## [0.1.0] - 2026-05-11
 
 ### Added
 
@@ -49,7 +52,7 @@ start once the package is ready for npm publication.
 ### Changed
 
 - Updated root documentation to describe the imported package, current quality
-  gate, and pre-release API status.
+  gate, and `0.1.0` public API status.
 - Updated CI documentation so the test battery is described by category instead
   of only by the catch-all Vitest command.
 - Updated package metadata for public npm publication readiness.

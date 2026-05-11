@@ -78,7 +78,7 @@ traversal.
 > [!WARNING] Adapter Drift
 > If route ids, renderer shapes, or generated TypeScript formatting leak into
 > Commonloom, the extraction stops being reusable and becomes a relocated
-> Flavor Grenade implementation detail.
+> application-specific implementation detail.
 
 ## Evidence
 

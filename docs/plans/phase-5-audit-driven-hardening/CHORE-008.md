@@ -52,5 +52,5 @@ The main deviation was inherited source work already in progress before the
 final Phase 5 test updates landed. The remediation still closed with focused
 tests for every behavior change and a full local `npm run check` pass.
 
-Carry-forward action: remote CI evidence remains required before Phase 5 can be
-closed as done.
+Carry-forward action: keep remote CI evidence as a required phase closeout
+control. For Phase 5, PR 12 supplied that evidence before completion.

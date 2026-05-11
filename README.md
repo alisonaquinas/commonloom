@@ -1,8 +1,7 @@
 # Commonloom
 
-Commonloom is the standalone TypeScript home for the reusable content pipeline
-first proven inside
-[`flavor-grenade-lsp`](https://github.com/alisonaquinas/flavor-grenade-lsp/tree/feature/w8-commonloom-content-pipeline).
+Commonloom is the standalone TypeScript home for the reusable Markdown content
+pipeline maintained in this repository.
 
 The imported implementation now lives in this repository:
 
@@ -57,8 +56,9 @@ Core public types include:
 - `CommonloomHtmlPolicy`
 - `CommonloomLimitsPolicy`
 
-Treat this list as a pre-release public surface, not a locked stable API.
-Stabilize it here before the first standalone release.
+This is the `0.1.0` public surface for the first standalone release. The
+package remains on the `0.x` line, so minor releases may still refine API
+shape before a future `1.0.0` stability commitment.
 
 ## Status
 
@@ -66,8 +66,9 @@ Phase 1 imported the Commonloom package source and tests. Phase 2 added the
 local and CI quality gate. Phase 3 expanded unit coverage, added integration
 and end-to-end compiler tests, and added static verification for boundaries,
 traceability, and phase/ticket process rules. Phase 4 added npm release
-automation. Phase 5 is hardening the compiler, workflow security, and
-documentation accuracy from audit findings.
+automation. Phase 5 completed audit-driven compiler, workflow security, and
+documentation hardening. This `release/0.1.0` branch prepares
+`commonloom@0.1.0` for merge to `main` and the `v0.1.0` release tag.
 
 Use Node.js 24 or newer.
 
@@ -112,11 +113,11 @@ The design and extraction knowledge base lives in [docs/index.md](docs/index.md)
 
 Expected next steps:
 
-1. Stabilize the public API before the first standalone release.
-2. Document adapter integration examples without moving adapter behavior into
+1. Merge `release/0.1.0` to `main` after CI passes.
+2. Tag the resulting `main` head as `v0.1.0` to run trusted publishing.
+3. Record release workflow and npm publication evidence in the vault.
+4. Document adapter integration examples without moving adapter behavior into
    the core package.
-3. Capture remote CI and release dry-run evidence for the trusted publishing
-   workflow.
 
 ## Project Layout
 
@@ -147,7 +148,7 @@ Keep inside this package:
 
 Keep outside this package:
 
-- Flavor Grenade route ids
+- consuming-application route ids
 - Svelte components
 - website navigation models
 - product copy and media

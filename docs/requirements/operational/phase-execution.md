@@ -16,8 +16,8 @@ aliases:
 
 ## Scope
 
-These requirements adapt the Flavor Grenade phase execution procedure for the
-standalone Commonloom project.
+These requirements adapt the imported upstream phase execution procedure for
+the standalone Commonloom project.
 
 They apply when Commonloom work is organized into explicit implementation
 phases, tickets, or release milestones. Active phase plans and tickets live
@@ -42,8 +42,8 @@ under `docs/plans/`.
 
 ## Commonloom Adaptation Notes
 
-Flavor Grenade's source procedure references Bun commands, LSP-specific paths,
-BDD checks, and platform gates.
+The imported upstream source procedure references Bun commands,
+application-specific paths, BDD checks, and platform gates.
 For Commonloom, the same operational shape applies, but concrete commands must
 be replaced with verified package scripts once the standalone package scaffold
 exists.

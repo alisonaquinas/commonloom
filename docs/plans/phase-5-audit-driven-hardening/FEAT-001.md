@@ -2,7 +2,7 @@
 id: FEAT-001
 title: Audit Driven Hardening
 type: feature
-status: active
+status: done
 priority: high
 phase: 5
 created: 2026-05-11
@@ -78,4 +78,6 @@ Coordinate independent audit discovery and the resulting Phase 5 remediation.
 - 2026-05-11: Phase 5 started on `feature/phase-5-audits`.
   Status set to active.
 - 2026-05-11: Phase 5 remediation executed on `feature/phase-5-hardening`.
-  `npm run check` passed locally; remote CI evidence remains pending.
+  `npm run check` passed locally before PR review.
+- 2026-05-11: PR 12 merged into `develop` after GitHub Actions passed.
+  Status set to done.
