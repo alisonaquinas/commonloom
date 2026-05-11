@@ -7,7 +7,7 @@ tags:
   - release
   - npm
   - oidc
-status: active
+status: done
 updated: 2026-05-11
 aliases:
   - Phase 4
@@ -20,10 +20,9 @@ aliases:
 Phase 4 establishes Commonloom release and npm publishing automation using
 GitHub Actions and npm OIDC trusted publishing.
 
-This phase has implemented the release workflow, package dry-runs, release
-guardrails, and operator runbook. The manual bootstrap package now exists on
-npm, and npm trusted publisher setup is user-reported configured. Final closeout
-still needs remote CI and release dry-run evidence.
+This phase implemented the release workflow, package dry-runs, release
+guardrails, and operator runbook. The manual bootstrap package exists on npm,
+and `v0.1.0` proved the GitHub Actions trusted-publishing path end to end.
 
 ## Objective
 
@@ -129,7 +128,7 @@ Required Phase 4 gate:
 - [x] Test-tag or dry-run release validation exists.
 - [x] Release operator runbook is documented.
 - [x] Requirements matrix release and publishing gaps are updated.
-- [ ] GitHub Actions CI and release dry-run evidence is captured before phase
+- [x] GitHub Actions CI and release dry-run evidence is captured before phase
   completion.
 
 ## Evidence
@@ -141,6 +140,13 @@ Required Phase 4 gate:
 - [[tests/requirements-matrix|Requirements Test Matrix]]
 - npm trusted publishing documentation, verified 2026-05-11.
 - GitHub Actions OIDC documentation, verified 2026-05-11.
+- Release workflow run:
+  <https://github.com/alisonaquinas/commonloom/actions/runs/25682420237>
+- Release dry-run job:
+  <https://github.com/alisonaquinas/commonloom/actions/runs/25682420237/job/75397206008>
+- Publish job:
+  <https://github.com/alisonaquinas/commonloom/actions/runs/25682420237/job/75397328076>
+- npm registry evidence: `commonloom@0.1.0` with `latest` pointing to `0.1.0`.
 
 ## See Also
 
@@ -197,5 +203,12 @@ Required Phase 4 gate:
 > [!SUCCESS] Bootstrap and trusted publisher setup · 2026-05-11
 > `npm view commonloom version dist-tags --json` confirms `commonloom@0.0.0`
 > exists with `latest` set to `0.0.0`. The package owner reported npm trusted
-> publishing has been configured. CHORE-001 is active pending local verification
-> and remote CI/release dry-run evidence.
+> publishing has been configured. At that point CHORE-001 still needed local
+> verification and remote CI/release dry-run evidence.
+
+> [!SUCCESS] Trusted publishing release · 2026-05-11
+> Tag `v0.1.0` points at `origin/main`
+> `4ac9929fcfe12af7555cc869ff661b1f2c01ff69`. GitHub Actions run
+> <https://github.com/alisonaquinas/commonloom/actions/runs/25682420237>
+> passed the release dry-run job and the publish job. `npm view commonloom
+> version dist-tags --json` reports `0.1.0` as `latest`. Phase 4 is done.

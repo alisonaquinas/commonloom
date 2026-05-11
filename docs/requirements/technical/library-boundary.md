@@ -19,6 +19,7 @@ aliases:
 | CLR-TECH-003 | Website-specific adapters shall live outside the reusable core boundary. | Adapter modules may import project routes and renderer types; core modules may not. |
 | CLR-TECH-004 | Commonloom examples shall distinguish adapter examples from core requirements. | Docs do not present Flavor Grenade route ids or frontmatter fields as universal. |
 | CLR-TECH-005 | Generated output directories shall be treated as build output when adapters write files. | Generated records are reproducible from source content and not treated as source of truth. |
+| CLR-TECH-006 | Compatibility examples shall consume Commonloom as an external package. | Example packages depend on the latest published Commonloom version and do not import local `src/`, generated `dist/`, or upstream repository paths. |
 
 ## Evidence
 

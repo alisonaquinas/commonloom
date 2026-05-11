@@ -7,6 +7,7 @@ The imported implementation now lives in this repository:
 
 - `src/` for Commonloom core modules
 - `test/` for Commonloom core behavior tests
+- `examples/` for shared-content adopter examples
 - `docs/` for requirements, ADRs, DDD, BDD, and roadmap notes
 - `.github/workflows/` and `.githooks/` for validation gates
 
@@ -62,13 +63,10 @@ shape before a future `1.0.0` stability commitment.
 
 ## Status
 
-Phase 1 imported the Commonloom package source and tests. Phase 2 added the
-local and CI quality gate. Phase 3 expanded unit coverage, added integration
-and end-to-end compiler tests, and added static verification for boundaries,
-traceability, and phase/ticket process rules. Phase 4 added npm release
-automation. Phase 5 completed audit-driven compiler, workflow security, and
-documentation hardening. This `release/0.1.0` branch prepares
-`commonloom@0.1.0` for merge to `main` and the `v0.1.0` release tag.
+Commonloom `0.1.0` has been released through npm trusted publishing. Phase 6
+is adding shared-content integration examples that exercise the package from
+React, Vue, Svelte, Next.js, Angular, and Node without moving framework glue
+into the core library.
 
 Use Node.js 24 or newer.
 
@@ -99,6 +97,9 @@ npm run format:check
 npm run verify
 npm run typecheck
 npm run build
+npm run examples:check
+npm run examples:build
+npm run examples:verify
 npm run pack:dry-run
 npm run publish:dry-run
 npm run publish:dry-run:ci
@@ -111,18 +112,35 @@ npm test
 
 The design and extraction knowledge base lives in [docs/index.md](docs/index.md).
 
-Expected next steps:
+## Examples
 
-1. Merge `release/0.1.0` to `main` after CI passes.
-2. Tag the resulting `main` head as `v0.1.0` to run trusted publishing.
-3. Record release workflow and npm publication evidence in the vault.
-4. Document adapter integration examples without moving adapter behavior into
-   the core package.
+Adopter examples live in [examples/](examples/). They all use the same shared
+Markdown, SCSS, and Commonloom logo assets; only the backing technology changes.
+
+Available examples:
+
+- [React](examples/react/README.md)
+- [Vue](examples/vue/README.md)
+- [Svelte](examples/svelte/README.md)
+- [Next.js](examples/nextjs/README.md)
+- [Angular](examples/angular/README.md)
+- [Node](examples/node/README.md)
+
+Run all example parity checks and builds from the repository root:
+
+```bash
+npm run examples:check
+```
+
+The framework examples are integration patterns, not Commonloom runtime
+requirements. Commonloom core remains adapter-neutral; consuming projects own
+routes, components, generated modules, and renderer-specific record transforms.
 
 ## Project Layout
 
 ```text
 commonloom/
+├── examples/            # Shared-content framework and Node examples
 ├── src/                 # TypeScript library source
 ├── test/                # Vitest behavior tests
 ├── docs/                # Obsidian-style design and planning vault

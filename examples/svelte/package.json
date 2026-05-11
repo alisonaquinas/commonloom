@@ -1,0 +1,22 @@
+{
+  "name": "@commonloom/example-svelte",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "node ../shared/scripts/generate-content.mjs .",
+    "dev": "npm run generate && vite",
+    "build": "npm run generate && vite build",
+    "preview": "npm run generate && vite preview"
+  },
+  "dependencies": {
+    "commonloom": "0.1.0",
+    "svelte": "5.55.5"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "7.1.2",
+    "sass": "1.99.0",
+    "typescript": "6.0.3",
+    "vite": "8.0.11"
+  }
+}

@@ -52,19 +52,22 @@ verification battery.
 | UT-LINK-009 | Unit | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts), `rejects Windows drive and UNC roots that resolve outside the configured root` |
 | INT-001 | Integration | [content-pipeline-integration.test.ts](../../test/content-pipeline-integration.test.ts), `compiles manifests through parse, render, links, media, and traces` |
 | E2E-001 | E2E | [content-pipeline-e2e.test.ts](../../test/content-pipeline-e2e.test.ts), `compiles a fixture content tree into adapter-visible records` |
+| EX-VERIFY | Verification | `npm run examples:verify` runs [verify-examples.mjs](../../scripts/verify-examples.mjs) to check published `commonloom@0.1.0` dependencies, shared substrate usage, and forbidden internal imports. |
+| EX-BUILD | Verification | `npm run examples:build` builds the React, Vue, Svelte, Next.js, Angular, and Node examples from the shared content, SCSS, and asset substrate. |
+| EX-CI | Verification | `.github/workflows/documentation-lint.yml` runs explicit `Verify examples` and `Build examples` steps on Node.js 24. |
 | SEC-001 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `rejects oversized frontmatter before schema validation` |
 | SEC-002 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `does not pollute object prototypes from hostile frontmatter keys` |
 | SEC-003 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `handles long wiki-link shaped input without runaway parsing` |
 | SEC-004 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `rejects symlinked media that resolves outside the approved root` |
 | SEC-005 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `rejects symlinked Markdown sources that resolve outside the copy root` |
 | SEC-006 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `enforces configured manifest and Markdown size limits` |
-| VER-CHECK | Verification | `npm run check` runs docs lint, TypeScript lint, verification scripts, typecheck, build, and `npm run test:battery`. |
+| VER-CHECK | Verification | `npm run check` runs docs lint, TypeScript lint, verification scripts, typecheck, build, `npm run examples:check`, and `npm run test:battery`. |
 | VER-FORMAT | Verification | `npm run format:check` runs the root Markdown formatting/lint gate used by `npm run lint:docs`. |
 | VER-BOUNDARY | Verification | [verify-boundaries.mjs](../../scripts/verify-boundaries.mjs) checks source boundaries, disallowed dependencies, exact dependency versions, and tracked generated outputs. |
 | VER-TRACE | Verification | [verify-traceability.mjs](../../scripts/verify-traceability.mjs) checks requirements matrix completeness, duplicate matrix rows, stale requirement IDs, and BDD requirement links, including range notation. |
 | VER-PROCESS | Verification | [verify-plan-process.mjs](../../scripts/verify-plan-process.mjs) checks phase ticket metadata, ticket indexes, ID uniqueness, terminal status evidence, and done-phase ticket closure. |
 | VER-DOCS | Verification | `npm run lint:docs` runs root Markdown, Obsidian, and ADR lint. |
-| VER-CI | Verification | `.github/workflows/documentation-lint.yml` runs Node.js 24, `npm ci --ignore-scripts`, lint, verification, typecheck, build, package dry-runs, unit, integration, and E2E test steps. |
+| VER-CI | Verification | `.github/workflows/documentation-lint.yml` runs Node.js 24, `npm ci --ignore-scripts`, lint, verification, typecheck, build, example verification, example builds, package dry-runs, unit, integration, and E2E test steps. |
 | VER-ACTION-PIN | Verification | GitHub Actions workflow `uses:` entries are pinned to full commit SHAs with reviewed version comments. |
 | REL-WORKFLOW | Verification | `.github/workflows/npm-publish.yml` runs Node.js 24 release dry-runs and reserves OIDC publish permissions for version-tag publish jobs. |
 | REL-GUARD | Verification | [verify-release-tag.mjs](../../scripts/verify-release-tag.mjs) checks tag shape, package-version agreement, and exact `origin/main` head agreement before publish. |
@@ -85,6 +88,7 @@ verification battery.
 | CLR-USER-012 | UT-CORE-001, UT-CORE-003, INT-001, E2E-001 | Covered | None for normalized record output. |
 | CLR-USER-013 | UT-LINK-003, UT-LINK-005, UT-LINK-006, INT-001, E2E-001 | Covered | Adapter-specific bundler mapping remains outside core. |
 | CLR-USER-014 | UT-CORE-003 | Partial | Add static forbidden-import verification. |
+| CLR-USER-015 | EX-VERIFY, EX-BUILD, EX-CI | Covered | None for current React, Vue, Svelte, Next.js, Angular, and Node examples. |
 | CLR-USER-020 | VER-DOCS, DOC-PHASE | Verified | None for documentation process. |
 | CLR-USER-021 | VER-DOCS, VER-TRACE, DOC-PHASE | Partial | Matrix completeness is automated; source-evidence completeness remains manual. |
 | CLR-USER-022 | UT-CORE-003, VER-DOCS | Partial | No automated API-to-ADR impact check exists. |
@@ -121,6 +125,7 @@ verification battery.
 | CLR-FUNC-082 | UT-CORE-003, E2E-001 | Covered | Generated TypeScript remains absent from core output. |
 | CLR-FUNC-083 | UT-CORE-001, INT-001, E2E-001 | Covered | None for current check-only compile flow. |
 | CLR-FUNC-084 | UT-HTML-003, E2E-001 | Partial | Needs deterministic generated-output tests once adapters write files. |
+| CLR-FUNC-085 | EX-BUILD, EX-VERIFY | Covered | None for current shared-content compatibility examples. |
 
 ## Technical Requirements
 
@@ -131,6 +136,7 @@ verification battery.
 | CLR-TECH-003 | UT-CORE-003, VER-BOUNDARY | Partial | Needs adapter package boundary tests once adapters exist. |
 | CLR-TECH-004 | VER-DOCS, VER-BOUNDARY | Partial | Static scans cover source imports, but docs example review remains manual. |
 | CLR-TECH-005 | VER-BOUNDARY | Partial | Generated-output tracking is checked, but adapter generation behavior does not exist yet. |
+| CLR-TECH-006 | EX-VERIFY, EX-BUILD, VER-CI | Covered | None for current published-package example contract. |
 | CLR-TECH-020 | VER-CHECK | Covered | None. |
 | CLR-TECH-021 | UT-MD-001, UT-HTML-001, VER-CHECK | Covered | None for current dependencies. |
 | CLR-TECH-022 | UT-MD-001, UT-LINK-001 | Partial | Static AST-use verification is not automated. |
@@ -163,6 +169,7 @@ verification battery.
 | CLR-OPS-008 | DOC-PHASE | Partial | No automated guard prevents rule weakening. |
 | CLR-OPS-009 | VER-CHECK, VER-CI | Covered | None. |
 | CLR-OPS-010 | VER-CHECK, VER-CI | Covered | None. |
+| CLR-OPS-011 | EX-VERIFY, EX-BUILD, EX-CI, VER-CHECK | Covered | None for current example compatibility battery. |
 | CLR-OPS-020 | VER-DOCS, VER-TRACE, DOC-PHASE | Partial | Matrix completeness is automated; source-evidence completeness remains manual. |
 | CLR-OPS-021 | VER-DOCS | Covered | None for link/layout checks. |
 | CLR-OPS-022 | VER-DOCS, VER-TRACE | Partial | Matrix completeness is automated; central requirements index semantics remain manual. |
@@ -171,13 +178,13 @@ verification battery.
 | CLR-OPS-025 | VER-DOCS | Partial | Layout prose is manual; Obsidian lint catches links only. |
 | CLR-OPS-026 | VER-DOCS, DOC-PHASE | Partial | Log entry completeness is manual. |
 | CLR-OPS-027 | VER-DOCS, VER-TRACE | Covered | None for current wikilink and BDD requirement-link resolution. |
-| CLR-OPS-040 | REL-WORKFLOW, REL-GUARD | Partial | Workflow and guard script require release tags to point at `origin/main` head; remote version-tag evidence is pending. |
-| CLR-OPS-041 | REL-WORKFLOW, REL-DRYRUN | Partial | Workflow rebuilds from source and dry-runs package contents; production tag evidence is pending. |
+| CLR-OPS-040 | REL-WORKFLOW, REL-GUARD | Covered | `v0.1.0` release workflow verified the tag points at the current `origin/main` head before publishing. |
+| CLR-OPS-041 | REL-WORKFLOW, REL-DRYRUN | Covered | `v0.1.0` release workflow rebuilt from source, ran the quality battery, dry-ran package contents, and published from CI. |
 | CLR-OPS-042 | VER-CI | Covered | Current workflow has no path filters and runs full checks. |
-| CLR-OPS-043 | VER-CI, REL-WORKFLOW | Partial | Validation and release workflows use scoped permissions; remote trusted-publisher workflow evidence is pending. |
-| CLR-OPS-044 | REL-WORKFLOW, REL-DRYRUN | Partial | `workflow_dispatch` and local dry-run commands exist; remote dry-run evidence is pending. |
+| CLR-OPS-043 | VER-CI, REL-WORKFLOW | Covered | Validation and release workflows use scoped permissions; `v0.1.0` release workflow completed through the protected npm publish job. |
+| CLR-OPS-044 | REL-WORKFLOW, REL-DRYRUN | Covered | Release workflow dry-run evidence exists in the `v0.1.0` GitHub Actions run. |
 | CLR-OPS-045 | VER-CI | Covered | Current workflow uses Node.js 24. |
-| CLR-OPS-046 | REL-WORKFLOW | Partial | OIDC workflow exists without npm tokens, bootstrap package exists, and trusted publisher setup is user-reported; remote workflow evidence is pending. |
+| CLR-OPS-046 | REL-WORKFLOW | Covered | `v0.1.0` published through the OIDC trusted-publishing workflow without long-lived npm tokens. |
 | CLR-OPS-047 | VER-CI, DOC-PHASE | Partial | CI runs git-flow branches; no branch-name enforcement hook exists. |
 | CLR-OPS-048 | VER-CI, DOC-PHASE | Covered | Current CI has no publish, release, or deployment step. |
 | CLR-OPS-049 | VER-ACTION-PIN, VER-CI | Covered | None for current workflow action pinning. |
@@ -185,9 +192,9 @@ verification battery.
 | CLR-OPS-061 | VER-CI | Covered | CI uses `npm ci --ignore-scripts`. |
 | CLR-OPS-062 | VER-CI | Covered | CI uses `npm ci --ignore-scripts`. |
 | CLR-OPS-063 | Gap | Gap | No advisory-review test or workflow exists. |
-| CLR-OPS-064 | REL-WORKFLOW | Partial | Workflow is ready for npm trusted publishing and setup is user-reported; remote workflow evidence is pending. |
-| CLR-OPS-065 | REL-DRYRUN | Partial | Package dry-runs verify contents; published provenance evidence waits on real release. |
-| CLR-OPS-066 | REL-WORKFLOW | Partial | Publish workflow uses trusted-publishing shape; npm-side provenance evidence is pending the first trusted publish. |
+| CLR-OPS-064 | REL-WORKFLOW | Covered | `v0.1.0` published through the configured npm trusted publisher. |
+| CLR-OPS-065 | REL-DRYRUN | Covered | `v0.1.0` release workflow produced package dry-run evidence before publishing. |
+| CLR-OPS-066 | REL-WORKFLOW | Covered | `v0.1.0` relied on npm trusted publishing rather than manually injected credentials. |
 | CLR-OPS-080 | DOC-PHASE | Partial | Process requirement is documented; no automated phase-order check exists. |
 | CLR-OPS-081 | DOC-PHASE | Partial | Ownership is manual in phase records. |
 | CLR-OPS-082 | VER-PROCESS, DOC-PHASE | Partial | Ticket metadata is schema-checked; lifecycle order remains reviewer judgment. |
@@ -226,7 +233,7 @@ verification battery.
 
 Clear untested areas:
 
-- remote CI and release dry-run evidence for trusted publishing
+- advisory-review workflow for dependency upgrades
 - generated-output reproducibility checks for future adapters
 - broader parser hardening for YAML aliases and depth
 - automated checks for phase order, commit discipline, CI evidence semantics,
@@ -237,9 +244,9 @@ Remaining gaps should be converted into later roadmap phases or explicitly
 deferred when they are outside the core package boundary.
 
 [[plans/phase-4-npm-trusted-publishing|Phase 4]] records completed bootstrap
-publishing and user-reported trusted publisher setup. Remote release dry-run
-and provenance evidence remain pending until the workflow runs from GitHub
-Actions.
+publishing, trusted publisher setup, and the successful `v0.1.0` trusted
+publishing workflow. The release workflow run provides remote release dry-run
+and trusted-publish evidence for the first standalone release.
 
 ## See Also
 

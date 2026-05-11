@@ -17,15 +17,11 @@ aliases:
 Commonloom publishes to npm through GitHub Actions and npm OIDC trusted
 publishing.
 
-> [!NOTE] Bootstrap Status
-> `commonloom@0.0.0` exists on npm with `latest` pointing to `0.0.0`. The
-> package owner has reported trusted publishing is configured; the next release
-> workflow run validates the end-to-end OIDC path.
-
-> [!INFO] Current Release Candidate
-> `release/0.1.0` prepares `commonloom@0.1.0` for merge to `main`. Create the
-> `v0.1.0` tag only after the release branch is merged and the tag can point at
-> the current head of `main`.
+> [!SUCCESS] Current Release Status
+> `commonloom@0.1.0` is published on npm with `latest` pointing to `0.1.0`.
+> Tag `v0.1.0` points at the `main` merge commit
+> `4ac9929fcfe12af7555cc869ff661b1f2c01ff69`, and the GitHub Actions trusted
+> publishing workflow completed successfully.
 
 ## Release Boundary
 
@@ -78,6 +74,10 @@ publisher:
 
 Record the setup evidence in
 [[plans/phase-4-npm-trusted-publishing/TASK-004|TASK-004]].
+
+The first trusted-publishing release completed for `commonloom@0.1.0` in
+GitHub Actions run
+<https://github.com/alisonaquinas/commonloom/actions/runs/25682420237>.
 
 ## Production Release
 

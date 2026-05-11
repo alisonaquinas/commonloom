@@ -24,6 +24,7 @@ site, app, or publishing adapters.
 | CLR-USER-012 | Adapter developers shall choose their output artifact format. | Commonloom exposes normalized records; generated TypeScript remains adapter-owned. |
 | CLR-USER-013 | Adapter developers shall map content media to their bundler or runtime asset model. | Commonloom validates local media references and returns source data needed by an adapter-owned asset step. |
 | CLR-USER-014 | Adapter developers shall keep framework-specific code outside the reusable core. | Integrations can import framework modules while Commonloom core does not. |
+| CLR-USER-015 | Adapter developers shall have runnable examples for common adoption targets. | React, Vue, Svelte, Next.js, Angular, and Node examples use the same shared Markdown, SCSS, and assets while depending on the published Commonloom package. |
 
 ## Evidence
 

@@ -1,0 +1,25 @@
+{
+  "name": "@commonloom/example-nextjs",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "node ../shared/scripts/generate-content.mjs .",
+    "dev": "npm run generate && next dev",
+    "build": "npm run generate && next build",
+    "preview": "npm run generate && next start",
+    "start": "next start"
+  },
+  "dependencies": {
+    "commonloom": "0.1.0",
+    "next": "16.3.0-canary.19",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "sass": "1.99.0",
+    "typescript": "6.0.3"
+  }
+}

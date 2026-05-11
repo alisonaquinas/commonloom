@@ -13,9 +13,9 @@ aliases:
 
 # Commonloom Test Battery
 
-Commonloom currently has a Vitest battery for package behavior and a repository
-verification gate that runs lint, static verification, typecheck, build, and
-tests.
+Commonloom currently has a Vitest battery for package behavior, an example
+compatibility battery, and a repository verification gate that runs lint,
+static verification, typecheck, build, examples, and tests.
 
 > [!NOTE] Scope
 > This section documents the current test surface. It distinguishes executable
@@ -45,6 +45,9 @@ tests.
 | `npm run verify` | [[tests/verification/index|Verification]] | Runs static boundary, dependency, generated-output, traceability, and phase/ticket process checks. |
 | `npm run typecheck` | [[tests/verification/index|Verification]] | Confirms TypeScript contracts typecheck without emitting output. |
 | `npm run build` | [[tests/verification/index|Verification]] | Confirms the distributable TypeScript build compiles. |
+| `npm run examples:verify` | [[tests/verification/index|Verification]] | Confirms example packages use published Commonloom, shared substrate assets, and no forbidden internal imports. |
+| `npm run examples:build` | [[tests/verification/index|Verification]] | Builds React, Vue, Svelte, Next.js, Angular, and Node examples from the shared substrate. |
+| `npm run examples:check` | [[tests/verification/index|Verification]] | Runs example parity verification and all example builds. |
 | `npm run check` | [[tests/verification/index|Verification]] | Runs the full local quality gate and mirrors the CI step sequence. |
 
 ## Traceability
@@ -68,6 +71,7 @@ regressions for security, traceability, diagnostics, and source positions.
 | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts) | [[tests/unit/index|Unit]] | Frontmatter bounds, prototype-pollution safety, long wiki-link parsing, Markdown/media symlink escape rejection, and compile resource limits. |
 | [content-pipeline-integration.test.ts](../../test/content-pipeline-integration.test.ts) | [[tests/integration/index|Integration]] | Public compiler flow across manifest input, parsing, rendering, wiki-link resolution, media validation, and source traces. |
 | [content-pipeline-e2e.test.ts](../../test/content-pipeline-e2e.test.ts) | [[tests/e2e/index|E2E]] | Fixture content tree compiled through the public API into adapter-visible records. |
+| [verify-examples.mjs](../../scripts/verify-examples.mjs) | [[tests/verification/index|Verification]] | Published package dependency, shared content/style/asset parity, and forbidden internal import checks for examples. |
 
 ## Known Gaps
 
@@ -75,8 +79,8 @@ regressions for security, traceability, diagnostics, and source positions.
   BDD scenario.
 - Generated-output reproducibility remains adapter-owned and has no local
   adapter fixture yet.
-- Remote CI and release dry-run evidence remains pending for the trusted
-  publishing workflow.
+- Remote CI evidence is captured per phase or PR; requirements track the
+  required workflow shape rather than preserving every run link here.
 
 ## See Also
 

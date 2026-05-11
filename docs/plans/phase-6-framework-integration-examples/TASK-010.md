@@ -1,0 +1,81 @@
+---
+id: TASK-010
+title: Verify Example Parity And CI Coverage
+type: task
+status: done
+priority: high
+phase: 6
+parent: FEAT-001
+created: 2026-05-11
+updated: 2026-05-11
+dependencies:
+  - TASK-003
+  - TASK-004
+  - TASK-005
+  - TASK-006
+  - TASK-007
+  - TASK-008
+tags:
+  - tickets/task
+  - plans/phase-6
+  - ci
+  - verification
+aliases:
+  - TASK-010
+---
+
+# TASK-010: Verify Example Parity And CI Coverage
+
+## Description
+
+Add verification that examples stay aligned with the shared substrate and are
+covered by local or CI validation.
+
+## Work Scope
+
+- define parity checks for shared content, SCSS, and assets
+- add example build checks to `npm run check` or a documented example-specific
+  validation command
+- decide which preview steps are local-only and which can run in CI
+- update CI if example builds become part of the required battery
+
+## Acceptance
+
+- Example validation is repeatable from the repository root.
+- CI covers example builds unless a documented constraint makes a check
+  local-only.
+- Parity checks make divergent content, style, or asset copies visible.
+- Validation evidence is recorded before closeout.
+
+## Linked Requirements
+
+- CLR-OPS-001
+- CLR-OPS-002
+- CLR-OPS-042
+- CLR-OPS-045
+- CLR-OPS-087
+- CLR-OPS-112
+
+## Evidence
+
+- [[requirements/operational/quality-gates|Quality Gates]]
+- [[requirements/operational/release-and-ci|Release And CI]]
+- [[requirements/operational/task-management|Task Management]]
+- [[tests/requirements-matrix|Requirements Test Matrix]]
+
+## Workflow Log
+
+- 2026-05-11: Planned from Phase 6 parity and preview requirements.
+- 2026-05-11: Started example validation and CI coverage implementation.
+  Status set to active.
+- 2026-05-11: Added `npm run examples:verify`,
+  `npm run examples:build`, and `npm run examples:check`; wired
+  `examples:check` into `npm run check`; and updated GitHub Actions to verify
+  parity and build every example after the root package build.
+  Status set to done.
+- 2026-05-11: Updated `examples:verify` to require published
+  `commonloom@0.1.0` dependencies in each example package before example
+  builds run.
+- 2026-05-11: Added formal requirements and requirements-matrix evidence for
+  example compatibility coverage: `CLR-USER-015`, `CLR-FUNC-085`,
+  `CLR-TECH-006`, and `CLR-OPS-011`.

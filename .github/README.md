@@ -36,6 +36,7 @@ The repository has an explicit quality and test battery:
 - `npm run verify`
 - `npm run typecheck`
 - `npm run build`
+- `npm run examples:check`
 - `npm run test:unit`
 - `npm run test:integration`
 - `npm run test:e2e`
@@ -47,6 +48,21 @@ npm run check
 ```
 
 CI runs the same categories as named GitHub Actions steps on Node.js 24.
+
+## Integration Examples
+
+The [`examples/`](../examples) workspace demonstrates Commonloom with shared
+content, shared SCSS, and shared logo assets across:
+
+- [`React`](../examples/react/README.md)
+- [`Vue`](../examples/vue/README.md)
+- [`Svelte`](../examples/svelte/README.md)
+- [`Next.js`](../examples/nextjs/README.md)
+- [`Angular`](../examples/angular/README.md)
+- [`Node`](../examples/node/README.md)
+
+These examples show adapter patterns. They are not framework dependencies of
+the Commonloom core package.
 
 ## Documentation Surface
 
@@ -77,9 +93,9 @@ Then read:
 4. [`docs/roadmap.md`](../docs/roadmap.md)
 
 > [!NOTE]
-> Commonloom is preparing `commonloom@0.1.0` as its first standalone release.
-> The current public API is tested and visible, but the package remains on the
-> `0.x` line until a future `1.0.0` stability commitment.
+> Commonloom `0.1.0` is the first standalone release. The public API is tested
+> and visible, but the package remains on the `0.x` line until a future `1.0.0`
+> stability commitment.
 
 [ci-badge]: https://img.shields.io/github/actions/workflow/status/alisonaquinas/commonloom/documentation-lint.yml?branch=develop&label=quality%20battery
 [ci-workflow]: https://github.com/alisonaquinas/commonloom/actions/workflows/documentation-lint.yml
