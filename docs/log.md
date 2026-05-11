@@ -547,3 +547,9 @@ validation included:
 <https://github.com/alisonaquinas/commonloom/actions/runs/25687047698/job/75413431464>
 and
 <https://github.com/alisonaquinas/commonloom/actions/runs/25687065066/job/75413489173>.
+
+## [2026-05-11] phase | Switch Phase 6 examples to npm package
+
+Updated Phase 6 examples to depend on published `commonloom@0.1.0` from npm
+after the example implementation confirmed no library changes were required.
+The example verifier now enforces that dependency contract before builds.

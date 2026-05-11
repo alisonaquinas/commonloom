@@ -53,8 +53,8 @@ Phase 6 includes:
 - a simple React integration example
 - a simple Node integration example
 - local build and preview instructions for every example
-- verification that each example consumes Commonloom through public package
-  exports rather than internal source paths
+- verification that each example consumes published Commonloom package exports
+  rather than internal source paths
 - coupling fixes discovered while building the examples
 
 Phase 6 does not include:
@@ -101,7 +101,7 @@ close while any ticket is `planned`, `active`, `blocked`, or `in-review`.
 | ID | Work Item | Acceptance |
 | --- | --- | --- |
 | P6-001 | Define shared example substrate. | Shared content, SCSS, and assets live under `examples/shared/` and are consumed by every example. |
-| P6-002 | Define example workspace and dependency strategy. | Examples consume the local package through public exports and have repeatable install/build commands. |
+| P6-002 | Define example workspace and dependency strategy. | Examples consume the published package through public exports and have repeatable install/build commands. |
 | P6-003 | Build React integration example. | React example renders the shared content and documents dev/build/preview commands. |
 | P6-004 | Build Vue integration example. | Vue example renders the shared content and documents dev/build/preview commands. |
 | P6-005 | Build Svelte integration example. | Svelte example renders the shared content and documents dev/build/preview commands. |

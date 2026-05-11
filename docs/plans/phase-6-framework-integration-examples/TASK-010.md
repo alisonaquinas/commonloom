@@ -73,3 +73,6 @@ covered by local or CI validation.
   `examples:check` into `npm run check`; and updated GitHub Actions to verify
   parity and build every example after the root package build.
   Status set to done.
+- 2026-05-11: Updated `examples:verify` to require published
+  `commonloom@0.1.0` dependencies in each example package before example
+  builds run.

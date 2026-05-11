@@ -6,6 +6,7 @@ const examplesRoot = join(repositoryRoot, 'examples');
 const sharedRoot = join(examplesRoot, 'shared');
 const exampleNames = ['react', 'vue', 'svelte', 'nextjs', 'angular', 'node'];
 const browserExampleNames = ['react', 'vue', 'svelte', 'nextjs', 'angular'];
+const expectedCommonloomVersion = '0.1.0';
 const failures = [];
 
 await verifySharedSubstrate();
@@ -44,8 +45,10 @@ async function verifyExamplePackages() {
     const packageJson = await readJson(packageJsonPath);
     const readme = await readText(readmePath);
 
-    if (packageJson?.dependencies?.commonloom !== 'file:../..') {
-      failures.push(`${relativePath(packageJsonPath)} must depend on commonloom through file:../...`);
+    if (packageJson?.dependencies?.commonloom !== expectedCommonloomVersion) {
+      failures.push(
+        `${relativePath(packageJsonPath)} must depend on commonloom@${expectedCommonloomVersion}.`,
+      );
     }
 
     if (!readme.includes('## Commands')) {
@@ -203,4 +206,3 @@ async function safeReadDir(directoryPath) {
 function relativePath(filePath) {
   return relative(repositoryRoot, filePath).replaceAll('\\', '/');
 }
-

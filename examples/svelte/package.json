@@ -10,7 +10,7 @@
     "preview": "npm run generate && vite preview"
   },
   "dependencies": {
-    "commonloom": "file:../..",
+    "commonloom": "0.1.0",
     "svelte": "5.55.5"
   },
   "devDependencies": {
