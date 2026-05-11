@@ -2,7 +2,7 @@
 id: TASK-010
 title: Verify Example Parity And CI Coverage
 type: task
-status: planned
+status: done
 priority: high
 phase: 6
 parent: FEAT-001
@@ -66,3 +66,10 @@ covered by local or CI validation.
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 6 parity and preview requirements.
+- 2026-05-11: Started example validation and CI coverage implementation.
+  Status set to active.
+- 2026-05-11: Added `npm run examples:verify`,
+  `npm run examples:build`, and `npm run examples:check`; wired
+  `examples:check` into `npm run check`; and updated GitHub Actions to verify
+  parity and build every example after the root package build.
+  Status set to done.

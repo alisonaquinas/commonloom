@@ -514,3 +514,11 @@ Completed
 React, Vue, Svelte, Next.js, Angular, and Node examples all consumed
 Commonloom through the public package entrypoint without framework-specific
 core changes or internal source imports.
+
+## [2026-05-11] phase | Wire Phase 6 example validation
+
+Completed
+[[plans/phase-6-framework-integration-examples/TASK-010|TASK-010]] by adding a
+root `examples:check` battery that verifies shared content/style/asset parity,
+forbids internal Commonloom coupling in examples, builds all example
+workspaces, and runs in both local `npm run check` and GitHub Actions.
