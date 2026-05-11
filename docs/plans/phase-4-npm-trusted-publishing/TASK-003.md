@@ -2,7 +2,7 @@
 id: TASK-003
 title: Coordinate Manual Bootstrap Publish
 type: task
-status: active
+status: blocked
 priority: high
 phase: 4
 parent: FEAT-001
@@ -61,3 +61,7 @@ This task is intentionally manual. It must not create a long-lived npm token.
 - 2026-05-11: Opened in planned status.
 - 2026-05-11: Ready for one-time manual `0.0.0` bootstrap publish after
   TASK-002 dry-runs passed. Status set to active.
+- 2026-05-11: `npm whoami` returned `E401`, so this workstation is not
+  authenticated to npm. Manual bootstrap publishing is blocked until a package
+  owner authenticates and explicitly authorizes `npm publish` for
+  `commonloom@0.0.0`. Status set to blocked.

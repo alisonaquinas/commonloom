@@ -319,6 +319,14 @@ Completed [[plans/phase-4-npm-trusted-publishing/TASK-002|TASK-002]] after
 The dry-run package contains only root public docs, package metadata, and
 `dist/` files.
 
+## [2026-05-11] phase | Record Phase 4 npm publishing blocker
+
+Marked [[plans/phase-4-npm-trusted-publishing/TASK-003|TASK-003]] and
+[[plans/phase-4-npm-trusted-publishing/TASK-004|TASK-004]] blocked because
+`npm whoami` returned `E401`.
+Manual bootstrap publishing and npm trusted publisher setup require authenticated
+npm package owner action.
+
 ## [2026-05-11] assets | Add Commonloom documentation assets
 
 Added Commonloom logo, icon, and source PNG assets under [[assets/index]].

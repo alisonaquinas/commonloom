@@ -160,3 +160,8 @@ Required Phase 4 gate:
 > TASK-002 passed `npm pack --dry-run` and `npm publish --dry-run` for
 > `commonloom@0.0.0`. The publish set is limited to package metadata, root
 > public docs, and built `dist/` files.
+
+> [!WARNING] npm owner action required · 2026-05-11
+> TASK-003 and TASK-004 are blocked because `npm whoami` returns `E401` locally.
+> A package owner must authenticate, perform the manual `0.0.0` bootstrap
+> publish, and configure npm trusted publishing before Phase 4 can close.

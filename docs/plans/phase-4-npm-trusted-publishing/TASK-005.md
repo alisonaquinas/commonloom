@@ -2,7 +2,7 @@
 id: TASK-005
 title: Add OIDC Release Workflow
 type: task
-status: planned
+status: active
 priority: high
 phase: 4
 parent: FEAT-001
@@ -65,3 +65,5 @@ trusted publishing.
 ## Workflow Log
 
 - 2026-05-11: Opened in planned status.
+- 2026-05-11: Started OIDC release workflow implementation while TASK-003 and
+  TASK-004 remain blocked on external npm owner actions. Status set to active.
