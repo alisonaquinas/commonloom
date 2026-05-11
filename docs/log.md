@@ -293,6 +293,14 @@ Updated GitHub Actions to run lint, verification, typecheck, build, unit,
 integration, and E2E steps explicitly while preserving `npm run check` as the
 matching local gate.
 
+## [2026-05-11] roadmap | Draft Phase 4 npm trusted publishing
+
+Added [[plans/phase-4-npm-trusted-publishing|Phase 4]] and
+[[plans/phase-4-npm-trusted-publishing/index|Phase 4 Tickets]] to plan release
+automation and npm OIDC trusted publishing.
+The plan records the required one-time manual `0.0.0` bootstrap publish before
+npm trusted publisher authorization is configured.
+
 ## [2026-05-11] assets | Add Commonloom documentation assets
 
 Added Commonloom logo, icon, and source PNG assets under [[assets/index]].

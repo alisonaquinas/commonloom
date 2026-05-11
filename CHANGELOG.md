@@ -35,6 +35,7 @@ start once the package is ready for npm publication.
   process verification to `npm run verify`.
 - Added typed unit, integration, E2E, and aggregate test-battery npm scripts
   and wired them into CI as explicit steps.
+- Added Phase 4 roadmap and tickets for npm OIDC trusted publishing.
 - Added Git LFS tracking for Commonloom documentation PNG assets.
 - Added a GitHub-facing `.github/README.md` that uses the new light and dark
   Commonloom logo assets.
