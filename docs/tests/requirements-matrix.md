@@ -171,13 +171,13 @@ verification battery.
 | CLR-OPS-025 | VER-DOCS | Partial | Layout prose is manual; Obsidian lint catches links only. |
 | CLR-OPS-026 | VER-DOCS, DOC-PHASE | Partial | Log entry completeness is manual. |
 | CLR-OPS-027 | VER-DOCS, VER-TRACE | Covered | None for current wikilink and BDD requirement-link resolution. |
-| CLR-OPS-040 | REL-WORKFLOW, REL-GUARD | Partial | Workflow and guard script require release tags to point at `origin/main` head; remote version-tag evidence is pending. |
-| CLR-OPS-041 | REL-WORKFLOW, REL-DRYRUN | Partial | Workflow rebuilds from source and dry-runs package contents; production tag evidence is pending. |
+| CLR-OPS-040 | REL-WORKFLOW, REL-GUARD | Covered | `v0.1.0` release workflow verified the tag points at the current `origin/main` head before publishing. |
+| CLR-OPS-041 | REL-WORKFLOW, REL-DRYRUN | Covered | `v0.1.0` release workflow rebuilt from source, ran the quality battery, dry-ran package contents, and published from CI. |
 | CLR-OPS-042 | VER-CI | Covered | Current workflow has no path filters and runs full checks. |
-| CLR-OPS-043 | VER-CI, REL-WORKFLOW | Partial | Validation and release workflows use scoped permissions; remote trusted-publisher workflow evidence is pending. |
-| CLR-OPS-044 | REL-WORKFLOW, REL-DRYRUN | Partial | `workflow_dispatch` and local dry-run commands exist; remote dry-run evidence is pending. |
+| CLR-OPS-043 | VER-CI, REL-WORKFLOW | Covered | Validation and release workflows use scoped permissions; `v0.1.0` release workflow completed through the protected npm publish job. |
+| CLR-OPS-044 | REL-WORKFLOW, REL-DRYRUN | Covered | Release workflow dry-run evidence exists in the `v0.1.0` GitHub Actions run. |
 | CLR-OPS-045 | VER-CI | Covered | Current workflow uses Node.js 24. |
-| CLR-OPS-046 | REL-WORKFLOW | Partial | OIDC workflow exists without npm tokens, bootstrap package exists, and trusted publisher setup is user-reported; remote workflow evidence is pending. |
+| CLR-OPS-046 | REL-WORKFLOW | Covered | `v0.1.0` published through the OIDC trusted-publishing workflow without long-lived npm tokens. |
 | CLR-OPS-047 | VER-CI, DOC-PHASE | Partial | CI runs git-flow branches; no branch-name enforcement hook exists. |
 | CLR-OPS-048 | VER-CI, DOC-PHASE | Covered | Current CI has no publish, release, or deployment step. |
 | CLR-OPS-049 | VER-ACTION-PIN, VER-CI | Covered | None for current workflow action pinning. |
@@ -185,9 +185,9 @@ verification battery.
 | CLR-OPS-061 | VER-CI | Covered | CI uses `npm ci --ignore-scripts`. |
 | CLR-OPS-062 | VER-CI | Covered | CI uses `npm ci --ignore-scripts`. |
 | CLR-OPS-063 | Gap | Gap | No advisory-review test or workflow exists. |
-| CLR-OPS-064 | REL-WORKFLOW | Partial | Workflow is ready for npm trusted publishing and setup is user-reported; remote workflow evidence is pending. |
-| CLR-OPS-065 | REL-DRYRUN | Partial | Package dry-runs verify contents; published provenance evidence waits on real release. |
-| CLR-OPS-066 | REL-WORKFLOW | Partial | Publish workflow uses trusted-publishing shape; npm-side provenance evidence is pending the first trusted publish. |
+| CLR-OPS-064 | REL-WORKFLOW | Covered | `v0.1.0` published through the configured npm trusted publisher. |
+| CLR-OPS-065 | REL-DRYRUN | Covered | `v0.1.0` release workflow produced package dry-run evidence before publishing. |
+| CLR-OPS-066 | REL-WORKFLOW | Covered | `v0.1.0` relied on npm trusted publishing rather than manually injected credentials. |
 | CLR-OPS-080 | DOC-PHASE | Partial | Process requirement is documented; no automated phase-order check exists. |
 | CLR-OPS-081 | DOC-PHASE | Partial | Ownership is manual in phase records. |
 | CLR-OPS-082 | VER-PROCESS, DOC-PHASE | Partial | Ticket metadata is schema-checked; lifecycle order remains reviewer judgment. |
@@ -226,7 +226,7 @@ verification battery.
 
 Clear untested areas:
 
-- remote CI and release dry-run evidence for trusted publishing
+- advisory-review workflow for dependency upgrades
 - generated-output reproducibility checks for future adapters
 - broader parser hardening for YAML aliases and depth
 - automated checks for phase order, commit discipline, CI evidence semantics,
@@ -237,9 +237,9 @@ Remaining gaps should be converted into later roadmap phases or explicitly
 deferred when they are outside the core package boundary.
 
 [[plans/phase-4-npm-trusted-publishing|Phase 4]] records completed bootstrap
-publishing and user-reported trusted publisher setup. Remote release dry-run
-and provenance evidence remain pending until the workflow runs from GitHub
-Actions.
+publishing, trusted publisher setup, and the successful `v0.1.0` trusted
+publishing workflow. The release workflow run provides remote release dry-run
+and trusted-publish evidence for the first standalone release.
 
 ## See Also
 

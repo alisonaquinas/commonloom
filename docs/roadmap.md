@@ -21,8 +21,9 @@ This roadmap tracks standalone Commonloom implementation phases.
 | [[plans/phase-1-import-commonloom-package|Phase 1]] | done | Import the upstream Commonloom package source and tests into local `src/` and `test/`. |
 | [[plans/phase-2-ci-quality-gates|Phase 2]] | done | Add strict type-aware linting and prove full package checks in CI. |
 | [[plans/phase-3-close-testing-gaps|Phase 3]] | done | Close documented unit, integration, E2E, verification, and validation test gaps. |
-| [[plans/phase-4-npm-trusted-publishing|Phase 4]] | active | Add release automation and npm OIDC trusted publishing. |
+| [[plans/phase-4-npm-trusted-publishing|Phase 4]] | done | Add release automation and npm OIDC trusted publishing. |
 | [[plans/phase-5-audit-driven-hardening|Phase 5]] | done | Audit code quality, security, documentation, and requirements evidence before hardening. |
+| [[plans/phase-6-framework-integration-examples|Phase 6]] | planned | Prove framework independence with shared-content examples for React, Vue, Svelte, Next.js, Angular, and Node. |
 
 ## Phase Principles
 
@@ -42,6 +43,7 @@ This roadmap tracks standalone Commonloom implementation phases.
 - [[plans/phase-3-close-testing-gaps/index|Phase 3 Tickets]]
 - [[plans/phase-4-npm-trusted-publishing/index|Phase 4 Tickets]]
 - [[plans/phase-5-audit-driven-hardening/index|Phase 5 Tickets]]
+- [[plans/phase-6-framework-integration-examples/index|Phase 6 Tickets]]
 - [[Commonloom Architecture]]
 - [[ddd/index|Commonloom DDD]]
 - [[bdd/index|Commonloom BDD]]

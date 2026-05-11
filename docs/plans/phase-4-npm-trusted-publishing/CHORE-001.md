@@ -2,7 +2,7 @@
 id: CHORE-001
 title: Phase 4 Evidence And Closeout
 type: chore
-status: active
+status: done
 priority: high
 phase: 4
 parent: FEAT-001
@@ -66,9 +66,9 @@ the requirements matrix is updated, and CI has passed for the branch.
   TASK-003/TASK-004 receive npm owner evidence and remote CI/release dry-run
   evidence is captured. Status set to blocked.
 - 2026-05-11: TASK-003 is done with npm registry evidence and TASK-004 is done
-  with user-reported trusted publisher setup. Closeout is active pending local
-  quality-gate verification, branch push, and GitHub Actions CI/release dry-run
-  evidence.
+  with user-reported trusted publisher setup. At that point closeout still
+  needed local quality-gate verification, branch push, and GitHub Actions
+  CI/release dry-run evidence.
 - 2026-05-11: GitHub Actions PR CI evidence captured for PR 10:
   <https://github.com/alisonaquinas/commonloom/actions/runs/25670022163/job/75352512283>.
   The job passed lint, verification, typecheck, build, package tarball dry-run,
@@ -76,3 +76,9 @@ the requirements matrix is updated, and CI has passed for the branch.
   GitHub reports `npm-publish.yml` cannot be manually dispatched until the
   workflow file exists on the default branch, so release dry-run evidence
   remains pending after merge.
+- 2026-05-11: `v0.1.0` GitHub Actions release workflow passed. Release dry-run
+  job:
+  <https://github.com/alisonaquinas/commonloom/actions/runs/25682420237/job/75397206008>.
+  Publish job:
+  <https://github.com/alisonaquinas/commonloom/actions/runs/25682420237/job/75397328076>.
+  npm reports `commonloom@0.1.0` as `latest`. Status set to done.
