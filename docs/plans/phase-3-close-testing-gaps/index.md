@@ -1,7 +1,7 @@
 ---
 title: Phase 3 Close Testing Gaps Tickets
 phase: 3
-status: planned
+status: active
 tags:
   - plans/phase-3
   - tickets/index
@@ -16,7 +16,7 @@ updated: 2026-05-10
 
 | Ticket | Title | Type | Status |
 | --- | --- | --- | --- |
-| [[plans/phase-3-close-testing-gaps/FEAT-001|FEAT-001]] | Close Testing Gaps | Feature | `planned` |
+| [[plans/phase-3-close-testing-gaps/FEAT-001|FEAT-001]] | Close Testing Gaps | Feature | `active` |
 | [[plans/phase-3-close-testing-gaps/TASK-001|TASK-001]] | Broaden Markdown And GFM Unit Tests | Task | `planned` |
 | [[plans/phase-3-close-testing-gaps/TASK-002|TASK-002]] | Broaden HTML Safety Unit Tests | Task | `planned` |
 | [[plans/phase-3-close-testing-gaps/TASK-003|TASK-003]] | Broaden Link And Media Boundary Tests | Task | `planned` |

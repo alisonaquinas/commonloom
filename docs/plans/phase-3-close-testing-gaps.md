@@ -6,7 +6,7 @@ tags:
   - phase-3
   - tests
   - quality
-status: planned
+status: active
 updated: 2026-05-10
 aliases:
   - Phase 3
@@ -139,3 +139,6 @@ with a clear blocker or deferral instead of silently marking it covered.
 > [!INFO] Planned · 2026-05-10
 > Phase 3 was authored from the current requirements test matrix. Execution has
 > not started.
+
+> [!INFO] Active · 2026-05-11
+> Phase 3 execution started on `feature/document-test-battery`.

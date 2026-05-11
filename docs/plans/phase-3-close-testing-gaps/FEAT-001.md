@@ -2,7 +2,7 @@
 id: FEAT-001
 title: Close Testing Gaps
 type: feature
-status: planned
+status: active
 priority: high
 phase: 3
 created: 2026-05-10
@@ -71,3 +71,5 @@ Acceptance closes only after remote CI evidence is captured.
 ## Workflow Log
 
 - 2026-05-10: Opened in planned status.
+- 2026-05-11: Phase 3 execution started on `feature/document-test-battery`.
+  Status set to active.
