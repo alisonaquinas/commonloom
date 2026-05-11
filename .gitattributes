@@ -1,1 +1,2 @@
 docs/assets/*.png filter=lfs diff=lfs merge=lfs -text
+examples/shared/assets/*.png filter=lfs diff=lfs merge=lfs -text

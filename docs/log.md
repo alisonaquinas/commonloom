@@ -447,3 +447,10 @@ Started [[plans/phase-6-framework-integration-examples|Phase 6]] execution on
 `feature/phase-6-framework-examples-implementation` from `origin/develop`.
 Recorded branch ownership and moved the Phase 6 feature to active before
 shared example substrate work.
+
+## [2026-05-11] phase | Add Phase 6 shared example substrate
+
+Completed
+[[plans/phase-6-framework-integration-examples/TASK-001|TASK-001]] by adding
+framework-neutral shared Markdown content, shared SCSS, and Commonloom assets
+under `examples/shared/`.

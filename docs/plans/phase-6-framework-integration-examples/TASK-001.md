@@ -2,7 +2,7 @@
 id: TASK-001
 title: Define Shared Example Substrate
 type: task
-status: planned
+status: done
 priority: high
 phase: 6
 parent: FEAT-001
@@ -59,3 +59,8 @@ example must consume.
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 6 acceptance criteria.
+- 2026-05-11: Started shared substrate implementation. Status set to active.
+- 2026-05-11: Added `examples/shared/content/`,
+  `examples/shared/styles/commonloom-example.scss`, shared Commonloom PNG
+  assets under Git LFS tracking, and `examples/shared/README.md`.
+  Status set to done.
