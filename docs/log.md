@@ -209,3 +209,17 @@ Phase remains in review pending remote CI evidence.
 Completed [[plans/phase-2-ci-quality-gates|Phase 2]] after GitHub Actions
 passed for PR 6:
 <https://github.com/alisonaquinas/commonloom/actions/runs/25642675440/job/75265702932>.
+
+## [2026-05-10] tests | Document test battery taxonomy
+
+Added [[tests/index|Commonloom Test Battery]] with dedicated unit,
+integration, end-to-end, verification, and validation sections.
+Classified the current Vitest files as unit tests, documented the active
+`npm run check` verification gate, and recorded missing dedicated integration,
+end-to-end, and validation suites as explicit gaps.
+
+## [2026-05-10] tests | Add requirements test matrix
+
+Added [[tests/requirements-matrix|Requirements Test Matrix]] to map current
+user, functional, technical, and operational requirements to unit-test evidence,
+verification gates, partial coverage, or explicit gaps.

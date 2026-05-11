@@ -29,9 +29,10 @@ the Flavor Grenade website content pipeline into this standalone repository.
 | [[adr|Commonloom ADRs]] | MADR-backed decisions and rejected alternatives. |
 | [[ddd/index|Commonloom DDD]] | Domains, bounded contexts, ubiquitous language, and tactical model. |
 | [[bdd/index|Commonloom BDD]] | Actors and Cucumber-style behavior specifications. |
+| [[tests/index|Commonloom Test Battery]] | Test taxonomy, current automated battery, verification gate, and coverage gaps. |
 | [[roadmap|Commonloom Roadmap]] | Implementation phases and active tickets. |
 | [[Commonloom Extraction Plan]] | W8 migration and extraction plan summary. |
-| [[phase-2-ci-quality-gates|Phase 2 CI Quality Gates]] | Draft Phase 2 plan for strict TypeScript linting and full unit test CI runs. |
+| [[phase-2-ci-quality-gates|Phase 2 CI Quality Gates]] | Completed Phase 2 plan for strict TypeScript linting and full unit test CI runs. |
 | [[sources/index|Source Imports]] | Catalog of imported upstream source files. |
 | [[log]] | Chronological vault maintenance record. |
 
@@ -46,7 +47,6 @@ components, product copy, and generated website module formatting.
 
 ## Open Questions
 
-- What package manager and build layout should this standalone repository use?
 - Which prototype APIs become stable public exports?
 - Should Commonloom generate TypeScript itself, or expose normalized records and
   let adapters generate code?

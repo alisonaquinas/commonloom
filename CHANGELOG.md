@@ -22,6 +22,10 @@ start once the package is ready for npm publication.
 - Added Phase 1 and Phase 2 planning, tickets, and closeout evidence in `docs/`.
 - Added source and test folder documentation plus JSDoc for public source
   contracts and helpers.
+- Added `docs/tests/` with unit, integration, end-to-end, verification, and
+  validation taxonomy for the current test battery.
+- Added a requirements-to-tests matrix that records covered, partial, verified,
+  and untested requirements.
 
 ### Changed
 
