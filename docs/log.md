@@ -506,3 +506,11 @@ Completed
 Node example that compiles the shared Commonloom content into static HTML,
 compiles the shared SCSS with Sass, copies shared assets, and serves the
 generated output with a small Node HTTP preview script.
+
+## [2026-05-11] phase | Review Phase 6 integration coupling
+
+Completed
+[[plans/phase-6-framework-integration-examples/TASK-009|TASK-009]] after the
+React, Vue, Svelte, Next.js, Angular, and Node examples all consumed
+Commonloom through the public package entrypoint without framework-specific
+core changes or internal source imports.

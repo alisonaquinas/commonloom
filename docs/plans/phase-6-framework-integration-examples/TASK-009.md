@@ -2,7 +2,7 @@
 id: TASK-009
 title: Remediate Integration Coupling
 type: task
-status: planned
+status: done
 priority: high
 phase: 6
 parent: FEAT-001
@@ -69,3 +69,7 @@ fixes make framework integration simpler and preserve the adapter-neutral core.
 ## Workflow Log
 
 - 2026-05-11: Planned as the explicit coupling-remediation lane for Phase 6.
+- 2026-05-11: Reviewed the completed React, Vue, Svelte, Next.js, Angular, and
+  Node examples for framework coupling and internal Commonloom imports. No
+  `src/`, `dist/`, upstream repository, or framework-owned core coupling was
+  found, so no source remediation was required. Status set to done.
