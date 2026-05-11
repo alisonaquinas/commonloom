@@ -49,14 +49,15 @@ The [[tests/requirements-matrix|Requirements Test Matrix]] maps every current
 Commonloom requirement to existing unit tests, verification gates, partial
 coverage, or an explicit test gap.
 
-[[plans/phase-3-close-testing-gaps|Phase 3]] is the planned roadmap phase for
-closing the current matrix gaps.
+[[plans/phase-3-close-testing-gaps|Phase 3]] closed the first set of test
+matrix gaps and left remaining release, publishing, and adapter-output gaps
+visible for later phases.
 
 ## Vitest Inventory
 
 | File | Primary Type | Current Coverage |
 | --- | --- | --- |
-| [content-pipeline-core.test.ts](../../test/content-pipeline-core.test.ts) | [[tests/unit/index|Unit]] | Compiler scaffold, public exports, diagnostics, source traces, and adapter-owned link callbacks. |
+| [content-pipeline-core.test.ts](../../test/content-pipeline-core.test.ts) | [[tests/unit/index|Unit]] | Public exports, diagnostics, source traces, compiler no-manifest behavior, and adapter-owned link callbacks. |
 | [content-pipeline-markdown.test.ts](../../test/content-pipeline-markdown.test.ts) | [[tests/unit/index|Unit]] | Frontmatter parsing, Zod validation diagnostics, CommonMark/GFM parsing, GFM autolinks, strikethrough, blockquotes, code, images, and heading extraction. |
 | [content-pipeline-html.test.ts](../../test/content-pipeline-html.test.ts) | [[tests/unit/index|Unit]] | Markdown-to-HTML rendering, unsafe HTML diagnostics, static inline HTML allowlisting, sanitization, and source trace hashing. |
 | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts) | [[tests/unit/index|Unit]] | Link classification, link extraction, wiki-link adapter resolution, unsupported schemes, media path checks, missing media, traversal rejection, and alt text diagnostics. |

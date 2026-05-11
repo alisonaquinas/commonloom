@@ -277,4 +277,10 @@ Remote CI evidence remains required before marking the phase done.
 
 Completed [[plans/phase-3-close-testing-gaps|Phase 3]] after GitHub Actions
 passed for PR 7:
-<https://github.com/alisonaquinas/commonloom/actions/runs/25644560315/job/75270860243>.
+<https://github.com/alisonaquinas/commonloom/actions/runs/25644613719/job/75271020126>.
+
+## [2026-05-11] docs | Reconcile current repository status
+
+Updated root and vault documentation after Phase 3 completion so status,
+quality-gate, test-battery, and phase-ledger claims reflect the current branch.
+Reconciled Phase 1 from in-review to done using later passing PR 7 CI evidence.

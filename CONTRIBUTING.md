@@ -51,8 +51,9 @@ npm test
 documentation linting, TypeScript linting, static verification, typecheck,
 build, and Vitest.
 
-Phase 2 is validation-only. Do not add release, deployment, package publishing,
-or npm trusted-publishing jobs unless a later phase explicitly owns that work.
+The current validation gate is check-only. Do not add release, deployment,
+package publishing, or npm trusted-publishing jobs unless a later phase
+explicitly owns that work.
 
 ## Branch And Ticket Workflow
 

@@ -170,5 +170,5 @@ with a clear blocker or deferral instead of silently marking it covered.
 
 > [!SUCCESS] Remote closeout · 2026-05-11
 > GitHub Actions passed for PR 7:
-> <https://github.com/alisonaquinas/commonloom/actions/runs/25644560315/job/75270860243>.
+> <https://github.com/alisonaquinas/commonloom/actions/runs/25644613719/job/75271020126>.
 > Phase 3 is done.

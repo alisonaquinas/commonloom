@@ -5,7 +5,7 @@ tags:
   - plans
   - extraction
 status: active
-updated: 2026-05-10
+updated: 2026-05-11
 aliases:
   - Phase W8
   - Commonloom Content Pipeline
@@ -33,7 +33,7 @@ W8 moves website copy from hand-maintained TypeScript content modules into:
 This repository has received:
 
 - Commonloom source modules
-- Commonloom unit tests
+- Commonloom unit, integration, end-to-end, and security tests
 - public API exports
 - package scaffold and build scripts
 - extracted architecture and requirements notes from this vault
@@ -69,7 +69,8 @@ module formatting.
 
 - `src/` contains the imported Commonloom core modules.
 - `test/` contains the ported core Commonloom behavior tests.
-- `npm run check` runs docs lint, package lint, typecheck, build, and tests.
+- `npm run check` runs docs lint, package lint, verification scripts,
+  typecheck, build, and tests.
 - Generated TypeScript output remains adapter-owned per
   [[adr/0003-keep-generated-typescript-adapter-owned|ADR 0003]].
 
@@ -77,13 +78,14 @@ module formatting.
 
 | Phase | Focus | Status |
 | --- | --- | --- |
-| Phase 1 | package scaffold, source port, unit test library, and strict TypeScript baseline | planned |
-| [[phase-2-ci-quality-gates|Phase 2]] | strict TypeScript linting and full unit test runs in CI | draft |
+| [[phase-1-import-commonloom-package|Phase 1]] | package scaffold, source port, unit test library, and strict TypeScript baseline | done |
+| [[phase-2-ci-quality-gates|Phase 2]] | strict TypeScript linting and full package checks in CI | done |
+| [[phase-3-close-testing-gaps|Phase 3]] | unit, integration, E2E, security, traceability, and process test gaps | done |
 | Later phase | CD, release automation, and package publishing | reserved |
 
-Phase 2 is intentionally validation-only.
-It wires lint, typecheck where available, and complete unit test execution into
-CI without creating release, deployment, or publish jobs.
+The current CI workflow remains validation-only. It wires lint, verification,
+typecheck, build, and complete test execution into CI without creating release,
+deployment, or publish jobs.
 
 ## Evidence
 

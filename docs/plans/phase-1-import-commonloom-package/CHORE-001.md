@@ -2,7 +2,7 @@
 id: CHORE-001
 title: Update Documentation Evidence After Import
 type: chore
-status: in-review
+status: done
 priority: medium
 phase: PHASE-001
 parent: FEAT-001
@@ -60,3 +60,4 @@ Verification should run after the import checks are known.
 - 2026-05-10: Updated Commonloom concept, architecture, extraction plan,
   README, phase summary, and ticket evidence after local source and tests were
   imported. Status set to in-review pending remote CI evidence.
+- 2026-05-11: Reconciled documentation evidence with passing PR 7 CI. Status set to done.

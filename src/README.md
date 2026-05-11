@@ -12,7 +12,7 @@ behavior can be tested independently before the first standalone release.
 | --- | --- |
 | [index.ts](index.ts) | Public exports for consumers. |
 | [types.ts](types.ts) | Shared contracts for diagnostics, traces, links, manifests, and compile results. |
-| [compiler.ts](compiler.ts) | Top-level compile entry point. Currently a scaffold until manifest-driven compilation is implemented. |
+| [compiler.ts](compiler.ts) | Top-level manifest-driven compile entry point. |
 | [frontmatter.ts](frontmatter.ts) | Gray Matter parsing plus Zod validation diagnostics. |
 | [markdown.ts](markdown.ts) | CommonMark and GFM parsing plus heading extraction. |
 | [html.ts](html.ts) | Markdown-to-HTML rendering with sanitization diagnostics. |

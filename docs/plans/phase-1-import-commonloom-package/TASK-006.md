@@ -2,7 +2,7 @@
 id: TASK-006
 title: Wire Local Checks And CI
 type: task
-status: in-review
+status: done
 priority: high
 phase: PHASE-001
 parent: FEAT-001
@@ -67,3 +67,5 @@ Verification evidence should be copied into the phase workflow log.
   verification.
 - 2026-05-10: `npm run check` and the pre-commit hook pass locally. Status set
   to in-review pending remote CI evidence.
+- 2026-05-11: Reconciled ticket status after PR 7 CI passed the current package
+  check workflow. Status set to done.

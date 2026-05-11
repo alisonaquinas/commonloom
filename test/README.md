@@ -1,6 +1,6 @@
 # Tests
 
-`test/` contains Vitest coverage for the imported Commonloom package behavior.
+`test/` contains Vitest coverage for Commonloom package behavior.
 
 These tests protect the standalone extraction boundary. They should verify
 generic content-pipeline behavior without depending on Flavor Grenade routes,

@@ -53,7 +53,7 @@ verification battery.
 | SEC-002 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `does not pollute object prototypes from hostile frontmatter keys` |
 | SEC-003 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `handles long wiki-link shaped input without runaway parsing` |
 | SEC-004 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `rejects symlinked media that resolves outside the approved root` |
-| VER-CHECK | Verification | `npm run check` runs docs lint, TypeScript lint, typecheck, build, and unit tests. |
+| VER-CHECK | Verification | `npm run check` runs docs lint, TypeScript lint, verification scripts, typecheck, build, and the full Vitest battery. |
 | VER-BOUNDARY | Verification | [verify-boundaries.mjs](../../scripts/verify-boundaries.mjs) checks source boundaries, disallowed dependencies, exact dependency versions, and tracked generated outputs. |
 | VER-TRACE | Verification | [verify-traceability.mjs](../../scripts/verify-traceability.mjs) checks requirements matrix completeness, duplicate matrix rows, stale requirement IDs, and BDD requirement links. |
 | VER-PROCESS | Verification | [verify-plan-process.mjs](../../scripts/verify-plan-process.mjs) checks phase ticket metadata, ticket indexes, ID uniqueness, terminal status evidence, and done-phase ticket closure. |
@@ -221,8 +221,9 @@ Clear untested areas:
 - automated checks for phase order, commit discipline, CI evidence semantics,
   and source-evidence completeness
 
-[[plans/phase-3-close-testing-gaps|Phase 3]] contains the planned tickets for
-closing or explicitly deferring these gaps.
+[[plans/phase-3-close-testing-gaps|Phase 3]] closed the first testability gaps.
+Remaining gaps should be converted into later roadmap phases or explicitly
+deferred when they are outside the core package boundary.
 
 ## See Also
 

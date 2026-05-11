@@ -18,7 +18,7 @@ This roadmap tracks standalone Commonloom implementation phases.
 
 | Phase | Status | Goal |
 | --- | --- | --- |
-| [[plans/phase-1-import-commonloom-package|Phase 1]] | in-review | Import the upstream Commonloom package source and tests into local `src/` and `test/`. |
+| [[plans/phase-1-import-commonloom-package|Phase 1]] | done | Import the upstream Commonloom package source and tests into local `src/` and `test/`. |
 | [[plans/phase-2-ci-quality-gates|Phase 2]] | done | Add strict type-aware linting and prove full package checks in CI. |
 | [[plans/phase-3-close-testing-gaps|Phase 3]] | done | Close documented unit, integration, E2E, verification, and validation test gaps. |
 

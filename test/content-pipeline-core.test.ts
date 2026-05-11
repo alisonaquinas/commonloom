@@ -1,9 +1,9 @@
 /**
  * Public surface tests for the standalone Commonloom package.
  *
- * These assertions keep the imported compiler scaffold, diagnostic constants,
- * source trace contracts, and adapter-owned link behavior visible while the
- * package API is still pre-release.
+ * These assertions keep the compiler entry point, diagnostic constants, source
+ * trace contracts, and adapter-owned link behavior visible while the package
+ * API is still pre-release.
  */
 import { describe, expect, it } from 'vitest';
 

@@ -54,8 +54,8 @@ node scripts/verify-boundaries.mjs && node scripts/verify-traceability.mjs && no
 The GitHub Actions verification job uses Node.js 24, installs with
 `npm ci --ignore-scripts`, and runs `npm run check`.
 
-It is validation-only for Phase 2. It does not publish, release, deploy, or
-grant npm trusted-publishing permissions.
+The workflow is validation-only. It does not publish, release, deploy, or grant
+npm trusted-publishing permissions.
 
 ## See Also
 

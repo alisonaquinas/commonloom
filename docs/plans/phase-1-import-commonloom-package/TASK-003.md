@@ -2,7 +2,7 @@
 id: TASK-003
 title: Import Commonloom Source Into Src
 type: task
-status: in-review
+status: done
 priority: high
 phase: PHASE-001
 parent: FEAT-001
@@ -62,3 +62,5 @@ Verification should show no website-only import leakage.
   set to green pending verification.
 - 2026-05-10: `npm run check` passes with imported source. Status set to
   in-review.
+- 2026-05-11: Reconciled ticket status after later branch CI proved the
+  imported source in PR 7. Status set to done.
