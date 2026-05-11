@@ -2,7 +2,7 @@
 id: CHORE-006
 title: Fixed Phase Gate Order Control
 type: chore
-status: active
+status: done
 priority: high
 phase: 5
 parent: FEAT-001
@@ -40,3 +40,6 @@ remediation, validation, CI, and retrospective.
 
 - 2026-05-11: Audit evaluation and ticket updates are complete. Remediation,
   CI evidence, and retrospective gates remain pending. Status set to active.
+
+> [!SUCCESS] Done · 2026-05-11
+> Status set to done. `npm run check` passed locally after Phase 5 remediation.

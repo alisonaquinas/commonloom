@@ -4,7 +4,7 @@ title: Update Documentation Evidence After Import
 type: chore
 status: done
 priority: medium
-phase: PHASE-001
+phase: 1
 parent: FEAT-001
 created: 2026-05-10
 updated: 2026-05-10

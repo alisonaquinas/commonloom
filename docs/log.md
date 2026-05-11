@@ -381,3 +381,13 @@ from [[Commonloom]].
 Added `.github/README.md` as a rich GitHub-flavored Markdown landing document
 that links the Commonloom quality battery, documentation vault, requirements
 matrix, and light/dark mode logo assets.
+
+## [2026-05-11] phase | Execute Phase 5 audit hardening
+
+Started [[plans/phase-5-audit-driven-hardening|Phase 5]] execution on
+`feature/phase-5-hardening`.
+Implemented audit-driven hardening for path confinement, Markdown processor
+setup, compiler orchestration, isolated test fixtures, internal link
+diagnostics, source-position offsets, resource limits, unsafe HTML attributes,
+GitHub Actions SHA pinning, format-check scripting, BDD range verification,
+frontmatter policy, and ticket phase metadata.

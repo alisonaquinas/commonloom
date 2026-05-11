@@ -14,13 +14,15 @@ aliases:
 
 # Phase 5 - Audit Driven Hardening
 
-Phase 5 begins with independent audits of Commonloom's code quality, security
-posture, documentation, and requirements evidence.
+Phase 5 began with independent audits of Commonloom's code quality, security
+posture, documentation, and requirements evidence, then executed the resulting
+remediation tickets on `feature/phase-5-hardening`.
 
 ## Objective
 
-Create a clear evidence base for the next hardening work by separating audit
-discovery from remediation.
+Close the audit findings that can be handled inside the current package,
+documentation, and CI surface while keeping remote CI evidence as the final
+closeout gate.
 
 ## Scope
 
@@ -34,9 +36,9 @@ Phase 5 includes:
 - remediation tickets for every audit finding
 - operational phase-execution chores for every applicable requirement in
   [[requirements/operational/phase-execution|Phase Execution]]
+- implementation of the remediation tickets owned by this phase
 
-Phase 5 does not include fixing the reported findings unless a follow-on ticket
-explicitly owns that remediation.
+Phase 5 does not mark the phase complete until remote CI evidence is captured.
 
 ## Work Items
 
@@ -132,13 +134,13 @@ explicitly owns that remediation.
 | CLR-OPS-080 | [[plans/phase-5-audit-driven-hardening/CHORE-002|CHORE-002]] | Phase 5 audit discovery is documented as safe parallel work while Phase 4 awaits release-workflow evidence. |
 | CLR-OPS-081 | [[plans/phase-5-audit-driven-hardening/CHORE-002|CHORE-002]] | Four auditors had disjoint report ownership under `docs/audits/`. |
 | CLR-OPS-082 | [[plans/phase-5-audit-driven-hardening/CHORE-003|CHORE-003]] | Ticket statuses are explicit in the Phase 5 index and ticket frontmatter. |
-| CLR-OPS-083 | [[plans/phase-5-audit-driven-hardening/CHORE-004|CHORE-004]] | Planned for later behavior-changing remediation tickets. |
+| CLR-OPS-083 | [[plans/phase-5-audit-driven-hardening/CHORE-004|CHORE-004]] | Tests were added for behavior-changing remediation and the local quality gate passed. |
 | CLR-OPS-084 | [[plans/phase-5-audit-driven-hardening/CHORE-005|CHORE-005]] | Audit findings are ticketed before remediation starts. |
 | CLR-OPS-085 | [[plans/phase-5-audit-driven-hardening/CHORE-001|CHORE-001]] | Closeout remains active while non-terminal tickets exist. |
-| CLR-OPS-086 | [[plans/phase-5-audit-driven-hardening/CHORE-006|CHORE-006]] | Fixed gate order is tracked and active for closeout. |
+| CLR-OPS-086 | [[plans/phase-5-audit-driven-hardening/CHORE-006|CHORE-006]] | Fixed gate order ran through local lint, verification, typecheck, build, and tests. |
 | CLR-OPS-087 | [[plans/phase-5-audit-driven-hardening/CHORE-007|CHORE-007]] | CI evidence remains planned before completion. |
-| CLR-OPS-088 | [[plans/phase-5-audit-driven-hardening/CHORE-008|CHORE-008]] | Retrospective remains planned before completion. |
-| CLR-OPS-089 | [[plans/phase-5-audit-driven-hardening/CHORE-009|CHORE-009]] | Process update review remains planned before completion. |
+| CLR-OPS-088 | [[plans/phase-5-audit-driven-hardening/CHORE-008|CHORE-008]] | Local retrospective is recorded; remote CI evidence remains the closeout dependency. |
+| CLR-OPS-089 | [[plans/phase-5-audit-driven-hardening/CHORE-009|CHORE-009]] | Process updates were made for release documentation, frontmatter policy, phase metadata, format checks, and traceability ranges. |
 | CLR-OPS-090 | [[plans/phase-5-audit-driven-hardening/CHORE-010|CHORE-010]] | Phase summary and ticket folder layout exist. |
 | CLR-OPS-091 | [[plans/phase-5-audit-driven-hardening/CHORE-010|CHORE-010]] | Phase ticket index exists and lists all tickets. |
 | CLR-OPS-092 | [[plans/phase-5-audit-driven-hardening/CHORE-010|CHORE-010]] | Roadmap links to the Phase 5 summary. |
@@ -178,3 +180,9 @@ explicitly owns that remediation.
 > [!INFO] Operational controls · 2026-05-11
 > Added Phase 5 chore tickets for each phase-execution operational requirement
 > from CLR-OPS-080 through CLR-OPS-093.
+
+> [!SUCCESS] Remediation local gate · 2026-05-11
+> Phase 5 remediation tickets TASK-005 through TASK-013 and TASK-016 through
+> TASK-022 were implemented. `npm run check` passed locally with zero lint
+> warnings, successful traceability/process verification, typecheck, build, and
+> 29 Vitest tests.

@@ -51,3 +51,6 @@ equivalent verification before implementation.
 ## Workflow Log
 
 - 2026-05-11: Planned before remediation begins.
+
+> [!SUCCESS] Done · 2026-05-11
+> Status set to done. Implemented during Phase 5 execution. `npm run check` passed locally after the change.

@@ -55,6 +55,7 @@ Core public types include:
 - `CommonloomCompiledDocument`
 - `CommonloomLinkPolicy`
 - `CommonloomHtmlPolicy`
+- `CommonloomLimitsPolicy`
 
 Treat this list as a pre-release public surface, not a locked stable API.
 Stabilize it here before the first standalone release.
@@ -64,9 +65,9 @@ Stabilize it here before the first standalone release.
 Phase 1 imported the Commonloom package source and tests. Phase 2 added the
 local and CI quality gate. Phase 3 expanded unit coverage, added integration
 and end-to-end compiler tests, and added static verification for boundaries,
-traceability, and phase/ticket process rules. Phase 4 is adding npm release
-automation. The initial `0.0.0` npm package exists, and trusted publishing is
-ready for validation through the GitHub Actions release workflow.
+traceability, and phase/ticket process rules. Phase 4 added npm release
+automation. Phase 5 is hardening the compiler, workflow security, and
+documentation accuracy from audit findings.
 
 Use Node.js 24 or newer.
 
@@ -93,6 +94,7 @@ Focused commands:
 ```bash
 npm run lint
 npm run lint:docs
+npm run format:check
 npm run verify
 npm run typecheck
 npm run build

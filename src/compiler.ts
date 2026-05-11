@@ -4,7 +4,8 @@
  * This module owns the public compile function that will coordinate manifest
  * loading, Markdown parsing, rendering, validation, and trace assembly.
  */
-import { readFile } from 'node:fs/promises';
+import { readFile, realpath, stat } from 'node:fs/promises';
+import { Buffer } from 'node:buffer';
 
 import { z } from 'zod';
 
@@ -16,10 +17,20 @@ import { resolveInsideRoot } from './paths.js';
 import { createSourceTrace } from './source-trace.js';
 import type {
   CommonloomConfig,
+  CommonloomCompiledDocument,
   CommonloomDiagnostic,
   CommonloomImageReference,
+  CommonloomManifestEntry,
   CommonloomResult,
+  CommonloomSourceTrace,
 } from './types.js';
+
+const defaultLimits = {
+  maxManifestEntries: 1_000,
+  maxMarkdownBytes: 1024 * 1024,
+  maxReferences: 10_000,
+  maxRenderedHtmlBytes: 5 * 1024 * 1024,
+};
 
 /**
  * Run the top-level Commonloom compilation workflow.
@@ -32,6 +43,10 @@ export async function compileCommonloom<Frontmatter = unknown, AdapterData = unk
   config: CommonloomConfig<Frontmatter, AdapterData>,
 ): Promise<CommonloomResult<Frontmatter, AdapterData>> {
   const manifests = config.manifests ?? [];
+  const limits = {
+    ...defaultLimits,
+    ...config.limits,
+  };
 
   if (manifests.length === 0) {
     return {
@@ -45,75 +60,230 @@ export async function compileCommonloom<Frontmatter = unknown, AdapterData = unk
     };
   }
 
+  if (manifests.length > limits.maxManifestEntries) {
+    return {
+      diagnostics: [
+        {
+          code: 'MANIFEST_INVALID',
+          severity: 'error',
+          message: `Manifest count exceeds ${String(limits.maxManifestEntries)} entries.`,
+        },
+      ],
+    };
+  }
+
   const frontmatterSchema = config.frontmatterSchema ?? (z.unknown() as z.ZodType<Frontmatter>);
   const diagnostics: CommonloomDiagnostic[] = [];
   const documents: NonNullable<CommonloomResult<Frontmatter, AdapterData>['documents']> = [];
 
   for (const manifest of manifests) {
-    const resolvedMarkdown = resolveInsideRoot({
-      root: config.copyRoot,
-      target: manifest.sourcePath,
-      sourcePath: manifest.sourcePath,
-    });
+    const compiled = await compileDocument(config, manifest, frontmatterSchema, limits);
 
-    if (!resolvedMarkdown.resolvedPath) {
-      diagnostics.push(...resolvedMarkdown.diagnostics);
-      continue;
+    diagnostics.push(...compiled.diagnostics);
+
+    if (compiled.document) {
+      documents.push(compiled.document);
     }
-
-    let markdown: string;
-
-    try {
-      markdown = await readFile(resolvedMarkdown.resolvedPath, 'utf8');
-    } catch {
-      diagnostics.push({
-        code: 'COPY_NOT_FOUND',
-        severity: 'error',
-        message: `Markdown source does not exist: ${manifest.sourcePath}`,
-        sourcePath: manifest.sourcePath,
-      });
-      continue;
-    }
-
-    const parsed = parseMarkdown({
-      sourcePath: manifest.sourcePath,
-      markdown,
-      frontmatterSchema,
-    });
-    const rendered = await renderMarkdownHtml({
-      parsed,
-      allowHtml: config.html?.allowInlineHtml ?? false,
-    });
-    const sourceTrace = createSourceTrace({
-      markdownPath: manifest.sourcePath,
-      markdown,
-      parsed,
-    });
-    const documentDiagnostics = [...rendered.diagnostics];
-
-    if (config.links) {
-      const resolvedLinks = await resolveLinkReferences(sourceTrace.links, config.links);
-      sourceTrace.links = resolvedLinks.links;
-      documentDiagnostics.push(...resolvedLinks.diagnostics);
-    }
-
-    sourceTrace.images = await validateImages(
-      sourceTrace.images,
-      config.mediaRoot,
-      documentDiagnostics,
-    );
-
-    diagnostics.push(...documentDiagnostics);
-    documents.push({
-      manifest,
-      frontmatter: parsed.frontmatter,
-      bodyHtml: rendered.bodyHtml,
-      sourceTrace,
-      diagnostics: documentDiagnostics,
-    });
   }
 
   return { diagnostics, documents };
+}
+
+async function compileDocument<Frontmatter, AdapterData>(
+  config: CommonloomConfig<Frontmatter, AdapterData>,
+  manifest: CommonloomManifestEntry<AdapterData>,
+  frontmatterSchema: z.ZodType<Frontmatter>,
+  limits: typeof defaultLimits,
+): Promise<{
+  diagnostics: CommonloomDiagnostic[];
+  document?: CommonloomCompiledDocument<Frontmatter, AdapterData>;
+}> {
+  const resolvedMarkdown = await resolveExistingMarkdownPath(
+    config.copyRoot,
+    manifest.sourcePath,
+  );
+
+  if (!resolvedMarkdown.resolvedPath) {
+    return { diagnostics: resolvedMarkdown.diagnostics };
+  }
+
+  if (resolvedMarkdown.size > limits.maxMarkdownBytes) {
+    return {
+      diagnostics: [
+        {
+          code: 'MARKDOWN_INVALID',
+          severity: 'error',
+          message: `Markdown source exceeds ${String(limits.maxMarkdownBytes)} bytes: ${manifest.sourcePath}`,
+          sourcePath: manifest.sourcePath,
+        },
+      ],
+    };
+  }
+
+  const markdown = await readFile(resolvedMarkdown.resolvedPath, 'utf8');
+
+  if (Buffer.byteLength(markdown, 'utf8') > limits.maxMarkdownBytes) {
+    return {
+      diagnostics: [
+        {
+          code: 'MARKDOWN_INVALID',
+          severity: 'error',
+          message: `Markdown source exceeds ${String(limits.maxMarkdownBytes)} bytes: ${manifest.sourcePath}`,
+          sourcePath: manifest.sourcePath,
+        },
+      ],
+    };
+  }
+
+  const parsed = parseMarkdown({
+    sourcePath: manifest.sourcePath,
+    markdown,
+    frontmatterSchema,
+  });
+  const rendered = await renderMarkdownHtml({
+    parsed,
+    allowHtml: config.html?.allowInlineHtml ?? false,
+  });
+  const sourceTrace = createSourceTrace({
+    markdownPath: manifest.sourcePath,
+    markdown,
+    parsed,
+  });
+  const documentDiagnostics = [...rendered.diagnostics];
+  const resolvedTrace = await resolveTraceReferences(sourceTrace, config, documentDiagnostics);
+  const totalReferences = resolvedTrace.links.length + resolvedTrace.images.length;
+
+  if (totalReferences > limits.maxReferences) {
+    documentDiagnostics.push({
+      code: 'MARKDOWN_INVALID',
+      severity: 'error',
+      message: `Markdown references exceed ${String(limits.maxReferences)} total links and images.`,
+      sourcePath: manifest.sourcePath,
+    });
+  }
+
+  if (Buffer.byteLength(rendered.bodyHtml, 'utf8') > limits.maxRenderedHtmlBytes) {
+    documentDiagnostics.push({
+      code: 'MARKDOWN_INVALID',
+      severity: 'error',
+      message: `Rendered HTML exceeds ${String(limits.maxRenderedHtmlBytes)} bytes.`,
+      sourcePath: manifest.sourcePath,
+    });
+  }
+
+  return {
+    diagnostics: documentDiagnostics,
+    document: {
+      manifest,
+      frontmatter: parsed.frontmatter,
+      bodyHtml: rendered.bodyHtml,
+      sourceTrace: resolvedTrace,
+      diagnostics: documentDiagnostics,
+    },
+  };
+}
+
+async function resolveExistingMarkdownPath(
+  copyRoot: string,
+  sourcePath: string,
+): Promise<{ resolvedPath?: string; size: number; diagnostics: CommonloomDiagnostic[] }> {
+  const resolvedMarkdown = resolveInsideRoot({
+    root: copyRoot,
+    target: sourcePath,
+    sourcePath,
+  });
+
+  if (!resolvedMarkdown.resolvedPath) {
+    return { size: 0, diagnostics: resolvedMarkdown.diagnostics };
+  }
+
+  let fileStat: Awaited<ReturnType<typeof stat>>;
+
+  try {
+    fileStat = await stat(resolvedMarkdown.resolvedPath);
+  } catch {
+    return {
+      size: 0,
+      diagnostics: [
+        {
+          code: 'COPY_NOT_FOUND',
+          severity: 'error',
+          message: `Markdown source does not exist: ${sourcePath}`,
+          sourcePath,
+        },
+      ],
+    };
+  }
+
+  if (!fileStat.isFile()) {
+    return {
+      size: 0,
+      diagnostics: [
+        {
+          code: 'COPY_NOT_FOUND',
+          severity: 'error',
+          message: `Markdown source is not a file: ${sourcePath}`,
+          sourcePath,
+        },
+      ],
+    };
+  }
+
+  let realCopyRoot: string;
+  let realResolvedPath: string;
+
+  try {
+    [realCopyRoot, realResolvedPath] = await Promise.all([
+      realpath(copyRoot),
+      realpath(resolvedMarkdown.resolvedPath),
+    ]);
+  } catch {
+    return {
+      size: 0,
+      diagnostics: [
+        {
+          code: 'COPY_NOT_FOUND',
+          severity: 'error',
+          message: `Markdown source does not exist: ${sourcePath}`,
+          sourcePath,
+        },
+      ],
+    };
+  }
+
+  const realPathCheck = resolveInsideRoot({
+    root: realCopyRoot,
+    target: realResolvedPath,
+    sourcePath,
+  });
+
+  if (!realPathCheck.resolvedPath) {
+    return { size: 0, diagnostics: realPathCheck.diagnostics };
+  }
+
+  return { resolvedPath: resolvedMarkdown.resolvedPath, size: fileStat.size, diagnostics: [] };
+}
+
+async function resolveTraceReferences<Frontmatter, AdapterData>(
+  sourceTrace: CommonloomSourceTrace,
+  config: CommonloomConfig<Frontmatter, AdapterData>,
+  diagnostics: CommonloomDiagnostic[],
+): Promise<CommonloomSourceTrace> {
+  let links = sourceTrace.links;
+
+  if (config.links) {
+    const resolvedLinks = await resolveLinkReferences(sourceTrace.links, config.links);
+    links = resolvedLinks.links;
+    diagnostics.push(...resolvedLinks.diagnostics);
+  }
+
+  const images = await validateImages(sourceTrace.images, config.mediaRoot, diagnostics);
+
+  return {
+    ...sourceTrace,
+    links,
+    images,
+  };
 }
 
 async function validateImages(

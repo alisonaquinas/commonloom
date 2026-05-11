@@ -4,6 +4,7 @@ import { join } from 'node:path';
 const repoRoot = process.cwd();
 const failures = [];
 const requirementPattern = /CLR-[A-Z]+-\d+/g;
+const requirementRangePattern = /CLR-([A-Z]+)-(\d+)\.\.(\d+)/g;
 
 const requirementIds = new Set();
 
@@ -43,9 +44,9 @@ for (const duplicateId of new Set(duplicates)) {
 for (const filePath of await collectMarkdown(join(repoRoot, 'docs', 'bdd'))) {
   const content = await readFile(filePath, 'utf8');
 
-  for (const match of content.matchAll(requirementPattern)) {
-    if (!requirementIds.has(match[0])) {
-      failures.push(`${match[0]} is referenced from ${filePath} but is not defined.`);
+  for (const requirementId of extractRequirementReferences(content)) {
+    if (!requirementIds.has(requirementId)) {
+      failures.push(`${requirementId} is referenced from ${filePath} but is not defined.`);
     }
   }
 }
@@ -80,4 +81,39 @@ async function collectMarkdown(root) {
   }
 
   return files;
+}
+
+function extractRequirementReferences(content) {
+  const references = [];
+  const rangeSpans = [];
+
+  for (const match of content.matchAll(requirementRangePattern)) {
+    const prefix = match[1];
+    const start = Number.parseInt(match[2], 10);
+    const end = Number.parseInt(match[3], 10);
+    const width = match[2].length;
+
+    rangeSpans.push([match.index, match.index + match[0].length]);
+
+    if (end < start) {
+      references.push(match[0]);
+      continue;
+    }
+
+    for (let id = start; id <= end; id += 1) {
+      references.push(`CLR-${prefix}-${String(id).padStart(width, '0')}`);
+    }
+  }
+
+  for (const match of content.matchAll(requirementPattern)) {
+    const insideRange = rangeSpans.some(([start, end]) => (
+      match.index >= start && match.index < end
+    ));
+
+    if (!insideRange) {
+      references.push(match[0]);
+    }
+  }
+
+  return references;
 }

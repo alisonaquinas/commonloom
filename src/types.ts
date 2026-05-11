@@ -124,6 +124,14 @@ export interface CommonloomLinkPolicy {
   ): CommonloomLinkResolution | Promise<CommonloomLinkResolution>;
 }
 
+/** Resource limits applied before or during Commonloom compilation. */
+export interface CommonloomLimitsPolicy {
+  maxManifestEntries?: number;
+  maxMarkdownBytes?: number;
+  maxReferences?: number;
+  maxRenderedHtmlBytes?: number;
+}
+
 /** Top-level configuration for a Commonloom compile run. */
 export interface CommonloomConfig<Frontmatter = unknown, AdapterData = unknown> {
   copyRoot: string;
@@ -132,6 +140,7 @@ export interface CommonloomConfig<Frontmatter = unknown, AdapterData = unknown> 
   frontmatterSchema?: ZodType<Frontmatter>;
   html?: CommonloomHtmlPolicy;
   links?: CommonloomLinkPolicy;
+  limits?: CommonloomLimitsPolicy;
 }
 
 /** A compiled document plus the diagnostics and trace data that produced it. */

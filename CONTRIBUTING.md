@@ -41,6 +41,7 @@ Focused local commands:
 
 ```bash
 npm run lint
+npm run format:check
 npm run verify
 npm run typecheck
 npm run build
@@ -55,8 +56,9 @@ npm test
 ```
 
 `npm run check` is the required local and CI quality gate. It runs
-documentation linting, TypeScript linting, static verification, typecheck,
-build, and the unit, integration, and end-to-end Vitest battery.
+documentation linting, root Markdown format checks, TypeScript linting, static
+verification, typecheck, build, and the unit, integration, and end-to-end
+Vitest battery.
 
 Release and package-publishing changes belong to Phase 4 or later release
 tickets. Production npm publishing must use trusted publishing, must not use a

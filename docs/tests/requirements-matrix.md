@@ -47,18 +47,24 @@ verification battery.
 | UT-LINK-003 | Unit | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts), `validates local media paths, missing files, traversal, and alt text` |
 | UT-LINK-005 | Unit | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts), `rejects unsupported media URI schemes before filesystem lookup` |
 | UT-LINK-006 | Unit | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts), `keeps absolute and encoded traversal targets inside approved path rules` |
+| UT-LINK-007 | Unit | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts), `reports link and image positions against the original Markdown source` |
+| UT-LINK-008 | Unit | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts), `resolves internal links through adapter callbacks before reporting gaps` |
 | INT-001 | Integration | [content-pipeline-integration.test.ts](../../test/content-pipeline-integration.test.ts), `compiles manifests through parse, render, links, media, and traces` |
 | E2E-001 | E2E | [content-pipeline-e2e.test.ts](../../test/content-pipeline-e2e.test.ts), `compiles a fixture content tree into adapter-visible records` |
 | SEC-001 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `rejects oversized frontmatter before schema validation` |
 | SEC-002 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `does not pollute object prototypes from hostile frontmatter keys` |
 | SEC-003 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `handles long wiki-link shaped input without runaway parsing` |
 | SEC-004 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `rejects symlinked media that resolves outside the approved root` |
+| SEC-005 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `rejects symlinked Markdown sources that resolve outside the copy root` |
+| SEC-006 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `enforces configured manifest and Markdown size limits` |
 | VER-CHECK | Verification | `npm run check` runs docs lint, TypeScript lint, verification scripts, typecheck, build, and `npm run test:battery`. |
+| VER-FORMAT | Verification | `npm run format:check` runs the root Markdown formatting/lint gate used by `npm run lint:docs`. |
 | VER-BOUNDARY | Verification | [verify-boundaries.mjs](../../scripts/verify-boundaries.mjs) checks source boundaries, disallowed dependencies, exact dependency versions, and tracked generated outputs. |
-| VER-TRACE | Verification | [verify-traceability.mjs](../../scripts/verify-traceability.mjs) checks requirements matrix completeness, duplicate matrix rows, stale requirement IDs, and BDD requirement links. |
+| VER-TRACE | Verification | [verify-traceability.mjs](../../scripts/verify-traceability.mjs) checks requirements matrix completeness, duplicate matrix rows, stale requirement IDs, and BDD requirement links, including range notation. |
 | VER-PROCESS | Verification | [verify-plan-process.mjs](../../scripts/verify-plan-process.mjs) checks phase ticket metadata, ticket indexes, ID uniqueness, terminal status evidence, and done-phase ticket closure. |
 | VER-DOCS | Verification | `npm run lint:docs` runs root Markdown, Obsidian, and ADR lint. |
 | VER-CI | Verification | `.github/workflows/documentation-lint.yml` runs Node.js 24, `npm ci --ignore-scripts`, lint, verification, typecheck, build, package dry-runs, unit, integration, and E2E test steps. |
+| VER-ACTION-PIN | Verification | GitHub Actions workflow `uses:` entries are pinned to full commit SHAs with reviewed version comments. |
 | REL-WORKFLOW | Verification | `.github/workflows/npm-publish.yml` runs Node.js 24 release dry-runs and reserves OIDC publish permissions for version-tag publish jobs. |
 | REL-GUARD | Verification | [verify-release-tag.mjs](../../scripts/verify-release-tag.mjs) checks tag shape, package-version agreement, and exact `origin/main` head agreement before publish. |
 | REL-DRYRUN | Verification | `npm run pack:dry-run`, `npm run publish:dry-run`, and `npm run publish:dry-run:ci` validate package contents and the npm publish payload. |
@@ -71,7 +77,7 @@ verification battery.
 | CLR-USER-001 | UT-MD-001, UT-HTML-001, E2E-001 | Covered | None for current core workflow. |
 | CLR-USER-002 | UT-MD-001, UT-MD-004, UT-HTML-001 | Partial | Parser coverage includes the listed constructs; E2E semantic output remains open. |
 | CLR-USER-003 | UT-MD-001 | Covered | None for current parser scope. |
-| CLR-USER-004 | UT-MD-002, UT-MD-003, UT-HTML-002, UT-HTML-005, UT-LINK-002, UT-LINK-003, UT-LINK-004, UT-LINK-005 | Partial | Broken standard internal links are not currently diagnosed. |
+| CLR-USER-004 | UT-MD-002, UT-MD-003, UT-HTML-002, UT-HTML-005, UT-LINK-002, UT-LINK-003, UT-LINK-004, UT-LINK-005, UT-LINK-008 | Covered | None for current diagnostic surface. |
 | CLR-USER-005 | UT-HTML-003, UT-LINK-001 | Covered | None for current trace scope. |
 | CLR-USER-010 | UT-CORE-003, UT-LINK-002 | Covered | None for current callback scope. |
 | CLR-USER-011 | UT-MD-001, UT-MD-002, INT-001 | Partial | Frontmatter schemas are supported; manifest data schema validation is not implemented yet. |
@@ -98,11 +104,11 @@ verification battery.
 | CLR-FUNC-022 | UT-HTML-002, UT-HTML-004, UT-HTML-005 | Covered | None for current sanitizer policy. |
 | CLR-FUNC-023 | UT-HTML-001, UT-HTML-004 | Covered | None for current allowlist. |
 | CLR-FUNC-024 | UT-HTML-001, UT-HTML-002, UT-HTML-004, E2E-001 | Covered | None for current static HTML output. |
-| CLR-FUNC-040 | UT-LINK-001, UT-HTML-003 | Covered | None. |
+| CLR-FUNC-040 | UT-LINK-001, UT-LINK-007, UT-HTML-003 | Covered | None. |
 | CLR-FUNC-041 | UT-LINK-000, UT-LINK-001 | Covered | None. |
 | CLR-FUNC-042 | UT-LINK-002, UT-CORE-003 | Covered | None. |
 | CLR-FUNC-043 | UT-LINK-003 | Covered | None for local existence checks. |
-| CLR-FUNC-044 | UT-LINK-003, UT-LINK-005, UT-LINK-006 | Covered | None for current path and URI policy. |
+| CLR-FUNC-044 | UT-LINK-003, UT-LINK-005, UT-LINK-006, SEC-005 | Covered | None for current path and URI policy. |
 | CLR-FUNC-045 | UT-LINK-003 | Covered | None. |
 | CLR-FUNC-060 | UT-CORE-002, UT-MD-002, UT-HTML-002, UT-LINK-002, UT-LINK-003 | Covered | None for current diagnostics. |
 | CLR-FUNC-061 | UT-CORE-002 | Covered | None. |
@@ -137,16 +143,16 @@ verification battery.
 | CLR-TECH-044 | UT-CORE-002, UT-MD-001, UT-LINK-001 | Covered | None. |
 | CLR-TECH-060 | SEC-003 | Partial | Long wiki-link input is covered; broader ReDoS review remains manual. |
 | CLR-TECH-061 | SEC-001 | Partial | Oversized frontmatter is covered; YAML alias/depth limits remain future hardening. |
-| CLR-TECH-062 | UT-LINK-003, UT-LINK-006 | Covered | None for current canonicalization policy. |
-| CLR-TECH-063 | SEC-004 | Covered | None for media symlink escapes. |
+| CLR-TECH-062 | UT-LINK-003, UT-LINK-006, SEC-005 | Covered | None for current canonicalization policy. |
+| CLR-TECH-063 | SEC-004, SEC-005 | Covered | None for media or Markdown symlink escapes. |
 | CLR-TECH-064 | SEC-002 | Covered | None for current frontmatter parsing path. |
-| CLR-TECH-065 | SEC-001, SEC-003 | Partial | Frontmatter and long wiki-link cases are covered; broader resource bounds remain future hardening. |
+| CLR-TECH-065 | SEC-001, SEC-003, SEC-006 | Covered | None for current configurable resource bounds. |
 
 ## Operational Requirements
 
 | Requirement | Current Evidence | Status | Gap Or Next Test |
 | --- | --- | --- | --- |
-| CLR-OPS-001 | VER-CHECK, VER-CI | Covered | No format script exists; requirement wording includes format checks. |
+| CLR-OPS-001 | VER-CHECK, VER-FORMAT, VER-CI | Covered | None. |
 | CLR-OPS-002 | UT-MD-001, UT-MD-002, UT-MD-004, UT-HTML-002, UT-HTML-004, UT-LINK-000, UT-LINK-001, UT-LINK-003, UT-CORE-002, UT-CORE-003, INT-001, E2E-001 | Covered | None for current core test surface. |
 | CLR-OPS-003 | VER-CHECK, VER-CI | Covered | None. |
 | CLR-OPS-004 | VER-BOUNDARY | Partial | Tracked generated output is checked; generated adapter output does not exist yet. |
@@ -173,6 +179,7 @@ verification battery.
 | CLR-OPS-046 | REL-WORKFLOW | Partial | OIDC workflow exists without npm tokens, bootstrap package exists, and trusted publisher setup is user-reported; remote workflow evidence is pending. |
 | CLR-OPS-047 | VER-CI, DOC-PHASE | Partial | CI runs git-flow branches; no branch-name enforcement hook exists. |
 | CLR-OPS-048 | VER-CI, DOC-PHASE | Covered | Current CI has no publish, release, or deployment step. |
+| CLR-OPS-049 | VER-ACTION-PIN, VER-CI | Covered | None for current workflow action pinning. |
 | CLR-OPS-060 | VER-BOUNDARY | Covered | Dependencies use exact package versions and are checked by `npm run verify`. |
 | CLR-OPS-061 | VER-CI | Covered | CI uses `npm ci --ignore-scripts`. |
 | CLR-OPS-062 | VER-CI | Covered | CI uses `npm ci --ignore-scripts`. |
@@ -221,7 +228,7 @@ Clear untested areas:
 - manual npm bootstrap publishing, npm trusted publisher setup, and remote
   release evidence
 - generated-output reproducibility checks for future adapters
-- broader parser hardening for YAML aliases/depth and resource limits
+- broader parser hardening for YAML aliases and depth
 - automated checks for phase order, commit discipline, CI evidence semantics,
   and source-evidence completeness
 

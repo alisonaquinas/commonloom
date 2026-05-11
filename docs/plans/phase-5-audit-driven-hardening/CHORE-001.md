@@ -73,3 +73,6 @@ passes.
   to the ticket that owns it.
 - 2026-05-11: Added phase-execution operational chores for CLR-OPS-080 through
   CLR-OPS-093.
+- 2026-05-11: Phase 5 remediation local `npm run check` passed with
+  documentation lint, traceability and plan-process verification, typecheck,
+  build, and 29 tests. Remote CI evidence remains pending.

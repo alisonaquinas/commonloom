@@ -44,6 +44,7 @@ async function listPhaseDirectories() {
 }
 
 async function verifyPhaseDirectory(phaseDirName) {
+  const expectedPhase = Number.parseInt(/^phase-(\d+)-/.exec(phaseDirName)?.[1] ?? '', 10);
   const phaseDir = join(plansRoot, phaseDirName);
   const indexPath = join(phaseDir, 'index.md');
   const indexContent = await readFile(indexPath, 'utf8');
@@ -68,6 +69,10 @@ async function verifyPhaseDirectory(phaseDirName) {
 
     if (ticketId !== basename(ticketFile, '.md')) {
       failures.push(`${phaseDirName}/${ticketFile} id does not match filename.`);
+    }
+
+    if (ticket.data.phase !== expectedPhase) {
+      failures.push(`${phaseDirName}/${ticketFile} phase must be numeric ${String(expectedPhase)}.`);
     }
 
     if (seenTicketIds.has(ticketId)) {

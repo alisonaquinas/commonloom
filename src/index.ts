@@ -34,6 +34,7 @@ export type {
   CommonloomLinkReference,
   CommonloomLinkResolution,
   CommonloomLinkResolverInput,
+  CommonloomLimitsPolicy,
   CommonloomManifestEntry,
   CommonloomResult,
   CommonloomSeverity,

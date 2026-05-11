@@ -2,15 +2,17 @@
  * Security-focused tests for parser limits, path confinement, and hostile
  * content shapes that must fail safely.
  */
-import { mkdir, rm, symlink, writeFile } from 'node:fs/promises';
+import { mkdir, symlink, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
 import { z } from 'zod';
 import { describe, expect, it } from 'vitest';
 
+import { compileCommonloom } from '../src/index.js';
 import { extractMarkdownReferences } from '../src/links.js';
 import { validateMediaReference } from '../src/media.js';
 import { parseMarkdown } from '../src/markdown.js';
+import { makeTempDir } from './temp-dir.js';
 
 describe('Commonloom parser and filesystem security', () => {
   it('rejects oversized frontmatter before schema validation', () => {
@@ -59,27 +61,157 @@ describe('Commonloom parser and filesystem security', () => {
   });
 
   it('rejects symlinked media that resolves outside the approved root', async () => {
-    const root = join(process.cwd(), 'node_modules', '.tmp-commonloom-security');
-    const mediaRoot = join(root, 'media');
-    const outsideRoot = join(root, 'outside');
+    const fixture = await makeTempDir('commonloom-security-');
 
-    await rm(root, { recursive: true, force: true });
-    await mkdir(mediaRoot, { recursive: true });
-    await mkdir(outsideRoot, { recursive: true });
-    await writeFile(join(outsideRoot, 'escape.png'), 'fixture');
-    await symlink(outsideRoot, join(mediaRoot, 'linked'), 'junction');
+    try {
+      const mediaRoot = join(fixture.root, 'media');
+      const outsideRoot = join(fixture.root, 'outside');
 
-    const result = await validateMediaReference(
-      { rawTarget: 'linked/escape.png', altText: 'Escape' },
-      { mediaRoot, sourcePath: 'copy/page.md' },
-    );
+      await mkdir(mediaRoot, { recursive: true });
+      await mkdir(outsideRoot, { recursive: true });
+      await writeFile(join(outsideRoot, 'escape.png'), 'fixture');
+      await symlink(outsideRoot, join(mediaRoot, 'linked'), 'junction');
 
-    expect(result.resolvedPath).toBeUndefined();
-    expect(result.diagnostics).toContainEqual(
-      expect.objectContaining({
-        code: 'PATH_OUTSIDE_ROOT',
-        severity: 'error',
-      }),
-    );
+      const result = await validateMediaReference(
+        { rawTarget: 'linked/escape.png', altText: 'Escape' },
+        { mediaRoot, sourcePath: 'copy/page.md' },
+      );
+
+      expect(result.resolvedPath).toBeUndefined();
+      expect(result.diagnostics).toContainEqual(
+        expect.objectContaining({
+          code: 'PATH_OUTSIDE_ROOT',
+          severity: 'error',
+        }),
+      );
+    } finally {
+      await fixture.cleanup();
+    }
+  });
+
+  it('rejects symlinked Markdown sources that resolve outside the copy root', async () => {
+    const fixture = await makeTempDir('commonloom-markdown-root-');
+
+    try {
+      const copyRoot = join(fixture.root, 'copy');
+      const mediaRoot = join(fixture.root, 'media');
+      const outsideRoot = join(fixture.root, 'outside');
+
+      await mkdir(copyRoot, { recursive: true });
+      await mkdir(mediaRoot, { recursive: true });
+      await mkdir(outsideRoot, { recursive: true });
+      await writeFile(join(outsideRoot, 'escape.md'), '# Escape');
+      await symlink(outsideRoot, join(copyRoot, 'linked'), 'junction');
+
+      const result = await compileCommonloom({
+        copyRoot,
+        mediaRoot,
+        manifests: [{ id: 'escape', sourcePath: 'linked/escape.md' }],
+      });
+
+      expect(result.documents).toEqual([]);
+      expect(result.diagnostics).toContainEqual(
+        expect.objectContaining({
+          code: 'PATH_OUTSIDE_ROOT',
+          severity: 'error',
+        }),
+      );
+    } finally {
+      await fixture.cleanup();
+    }
+  });
+
+  it('enforces configured manifest and Markdown size limits', async () => {
+    const fixture = await makeTempDir('commonloom-limits-');
+
+    try {
+      const copyRoot = join(fixture.root, 'copy');
+      const mediaRoot = join(fixture.root, 'media');
+
+      await mkdir(copyRoot, { recursive: true });
+      await mkdir(mediaRoot, { recursive: true });
+      await writeFile(join(copyRoot, 'large.md'), '# Large\n\nToo much text.');
+      await writeFile(join(copyRoot, 'references.md'), '# References\n\n[One](/one)\n\n![Alt](missing.png)');
+      await writeFile(join(copyRoot, 'rendered.md'), '# Rendered\n\nA rendered body that is too large.');
+
+      await expect(
+        compileCommonloom({
+          copyRoot,
+          mediaRoot,
+          manifests: [
+            { id: 'one', sourcePath: 'large.md' },
+            { id: 'two', sourcePath: 'large.md' },
+          ],
+          limits: { maxManifestEntries: 1 },
+        }),
+      ).resolves.toEqual(
+        expect.objectContaining({
+          diagnostics: [
+            expect.objectContaining({
+              code: 'MANIFEST_INVALID',
+              severity: 'error',
+            }),
+          ],
+        }),
+      );
+
+      await expect(
+        compileCommonloom({
+          copyRoot,
+          mediaRoot,
+          manifests: [{ id: 'large', sourcePath: 'large.md' }],
+          limits: { maxMarkdownBytes: 8 },
+        }),
+      ).resolves.toEqual(
+        expect.objectContaining({
+          diagnostics: [
+            expect.objectContaining({
+              code: 'MARKDOWN_INVALID',
+              severity: 'error',
+            }),
+          ],
+        }),
+      );
+
+      await expect(
+        compileCommonloom({
+          copyRoot,
+          mediaRoot,
+          manifests: [{ id: 'references', sourcePath: 'references.md' }],
+          limits: { maxReferences: 1 },
+        }),
+      ).resolves.toEqual(
+        expect.objectContaining({
+          diagnostics: expect.arrayContaining([
+            expect.objectContaining({
+              code: 'MARKDOWN_INVALID',
+              severity: 'error',
+              message: expect.stringContaining('references') as string,
+            }),
+          ]) as unknown,
+        }),
+      );
+
+      await expect(
+        compileCommonloom({
+          copyRoot,
+          mediaRoot,
+          manifests: [{ id: 'rendered', sourcePath: 'rendered.md' }],
+          limits: { maxRenderedHtmlBytes: 8 },
+        }),
+      ).resolves.toEqual(
+        expect.objectContaining({
+          diagnostics: [
+            expect.objectContaining({
+              code: 'MARKDOWN_INVALID',
+              severity: 'error',
+              message: expect.stringContaining('Rendered HTML') as string,
+            }),
+          ],
+        }),
+      );
+    } finally {
+      await fixture.cleanup();
+    }
   });
 });

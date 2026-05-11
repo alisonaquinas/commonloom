@@ -7,12 +7,10 @@
 import rehypeRaw from 'rehype-raw';
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import rehypeStringify from 'rehype-stringify';
-import remarkGfm from 'remark-gfm';
-import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
-import { unified } from 'unified';
 
 import type { ParsedMarkdown } from './markdown.js';
+import { createMarkdownProcessor } from './markdown-processors.js';
 import type { CommonloomDiagnostic } from './types.js';
 
 /** Input required to render a parsed Markdown document to HTML. */
@@ -29,6 +27,9 @@ export interface RenderMarkdownHtmlResult {
 
 const unsafeHtmlPattern =
   /<\s*(script|iframe|object|embed|style|link|meta|base|form|input|button|textarea|select|option|svg|math)\b/i;
+const unsafeEventAttributePattern = /<[^>]+\s(on[a-z]+)\s*=/gi;
+const unsafeUrlAttributePattern =
+  /<[^>]+\s(href|src|xlink:href|srcset)\s*=\s*(['"]?)\s*javascript:/gi;
 
 const safeHtmlSchema = {
   ...defaultSchema,
@@ -63,21 +64,22 @@ export async function renderMarkdownHtml<Frontmatter>(
 
   const unsafeHtml = findUnsafeHtml(input.parsed.bodyMarkdown);
 
-  if (input.allowHtml && unsafeHtml) {
-    diagnostics.push({
-      code: 'HTML_UNSAFE',
-      severity: 'error',
-      message: `Unsafe inline HTML tag <${unsafeHtml.tagName}> was removed from Markdown output.`,
-      sourcePath: input.parsed.sourcePath,
-      line: unsafeHtml.line,
-      column: unsafeHtml.column,
-    });
+  if (input.allowHtml) {
+    for (const unsafe of unsafeHtml) {
+      diagnostics.push({
+        code: 'HTML_UNSAFE',
+        severity: 'error',
+        message: unsafe.message,
+        sourcePath: input.parsed.sourcePath,
+        line: offsetLine(unsafe.line, input.parsed.contentStartLine),
+        column: unsafe.column,
+      });
+    }
   }
 
-  let processor = unified()
-    .use(remarkParse)
-    .use(remarkGfm)
-    .use(remarkRehype, { allowDangerousHtml: input.allowHtml });
+  let processor = createMarkdownProcessor().use(remarkRehype, {
+    allowDangerousHtml: input.allowHtml,
+  });
 
   if (input.allowHtml) {
     processor = processor.use(rehypeRaw);
@@ -95,25 +97,52 @@ export async function renderMarkdownHtml<Frontmatter>(
 }
 
 /** Locate the first disallowed inline HTML tag and report its Markdown offset. */
-function findUnsafeHtml(markdown: string):
-  | { tagName: string; line: number; column: number }
-  | undefined {
+function findUnsafeHtml(markdown: string): { message: string; line: number; column: number }[] {
+  const unsafe: { message: string; line: number; column: number }[] = [];
   const match = unsafeHtmlPattern.exec(markdown);
 
-  if (!match?.index || !match[1]) {
-    if (match?.index === 0 && match[1]) {
-      return { tagName: match[1], line: 1, column: 1 };
-    }
-
-    return undefined;
+  if (match?.[1]) {
+    unsafe.push({
+      ...positionForOffset(markdown, match.index),
+      message: `Unsafe inline HTML tag <${match[1]}> was removed from Markdown output.`,
+    });
   }
 
-  const prefix = markdown.slice(0, match.index);
+  for (const attributeMatch of markdown.matchAll(unsafeEventAttributePattern)) {
+    if (!attributeMatch[1]) {
+      continue;
+    }
+
+    unsafe.push({
+      ...positionForOffset(markdown, attributeMatch.index),
+      message: `Unsafe inline HTML attribute ${attributeMatch[1]} was removed from Markdown output.`,
+    });
+  }
+
+  for (const attributeMatch of markdown.matchAll(unsafeUrlAttributePattern)) {
+    if (!attributeMatch[1]) {
+      continue;
+    }
+
+    unsafe.push({
+      ...positionForOffset(markdown, attributeMatch.index),
+      message: `Unsafe inline HTML URL in ${attributeMatch[1]} was removed from Markdown output.`,
+    });
+  }
+
+  return unsafe;
+}
+
+function positionForOffset(markdown: string, offset: number): { line: number; column: number } {
+  const prefix = markdown.slice(0, offset);
   const lines = prefix.split('\n');
 
   return {
-    tagName: match[1],
     line: lines.length,
     column: lines[lines.length - 1].length + 1,
   };
+}
+
+function offsetLine(line: number, contentStartLine: number): number {
+  return line + contentStartLine - 1;
 }

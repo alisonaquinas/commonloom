@@ -20,7 +20,7 @@ aliases:
 
 ## Description
 
-Coordinate independent audit discovery before starting Phase 5 remediation.
+Coordinate independent audit discovery and the resulting Phase 5 remediation.
 
 ## Scope
 
@@ -29,11 +29,12 @@ Coordinate independent audit discovery before starting Phase 5 remediation.
 - documentation audit
 - requirements audit
 - audit report index and closeout evidence
+- remediation for all Phase 5 audit findings that are local to this repository
 
 ## Acceptance
 
 - Audit reports exist under [[audits/index|Commonloom Audits]].
-- Findings are recorded without mixing discovery with remediation.
+- Findings are recorded and linked to remediation tickets.
 - Local validation passes before PR.
 - Remote CI evidence is recorded before phase completion.
 
@@ -76,3 +77,5 @@ Coordinate independent audit discovery before starting Phase 5 remediation.
 
 - 2026-05-11: Phase 5 started on `feature/phase-5-audits`.
   Status set to active.
+- 2026-05-11: Phase 5 remediation executed on `feature/phase-5-hardening`.
+  `npm run check` passed locally; remote CI evidence remains pending.

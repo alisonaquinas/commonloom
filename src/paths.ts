@@ -4,7 +4,7 @@
  * This module resolves caller-provided paths under trusted roots and reports
  * traversal attempts as diagnostics.
  */
-import { relative, resolve } from 'node:path';
+import { isAbsolute, relative, resolve, sep } from 'node:path';
 
 import type { CommonloomDiagnostic } from './types.js';
 
@@ -51,5 +51,12 @@ export function resolveInsideRoot(input: ResolveInsideRootInput): ResolveInsideR
 function isInsideRoot(root: string, candidate: string): boolean {
   const relativePath = relative(root, candidate);
 
-  return relativePath === '' || (!relativePath.startsWith('..') && !resolve(relativePath).startsWith('..'));
+  return (
+    relativePath === ''
+    || (
+      relativePath !== '..'
+      && !relativePath.startsWith(`..${sep}`)
+      && !isAbsolute(relativePath)
+    )
+  );
 }

@@ -56,6 +56,20 @@ describe('Commonloom HTML rendering and source traces', () => {
     expect(result.bodyHtml).toContain('<a>unsafe link</a>');
     expect(result.bodyHtml).not.toContain('javascript:');
     expect(result.bodyHtml).not.toContain('onclick');
+    expect(result.diagnostics).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          code: 'HTML_UNSAFE',
+          message: expect.stringContaining('href') as string,
+          line: 8,
+        }),
+        expect.objectContaining({
+          code: 'HTML_UNSAFE',
+          message: expect.stringContaining('onclick') as string,
+          line: 8,
+        }),
+      ]),
+    );
   });
 
   it('diagnoses and removes unsafe inline HTML', async () => {
