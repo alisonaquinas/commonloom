@@ -352,6 +352,16 @@ GitHub returned 404 when dispatching `npm-publish.yml` from the feature branch
 because new workflow dispatches require the workflow to exist on the default
 branch first.
 
+## [2026-05-11] phase | Start Phase 5 audit discovery
+
+Started [[plans/phase-5-audit-driven-hardening|Phase 5]] on
+`feature/phase-5-audits`.
+Created [[audits/index|Commonloom Audits]] and collected independent
+[[audits/code-quality-audit|code quality]],
+[[audits/security-audit|security]],
+[[audits/documentation-audit|documentation]], and
+[[audits/requirements-audit|requirements]] audit reports.
+
 ## [2026-05-11] assets | Add Commonloom documentation assets
 
 Added Commonloom logo, icon, and source PNG assets under [[assets/index]].

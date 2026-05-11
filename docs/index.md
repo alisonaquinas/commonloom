@@ -31,12 +31,14 @@ the Flavor Grenade website content pipeline into this standalone repository.
 | [[ddd/index|Commonloom DDD]] | Domains, bounded contexts, ubiquitous language, and tactical model. |
 | [[bdd/index|Commonloom BDD]] | Actors and Cucumber-style behavior specifications. |
 | [[tests/index|Commonloom Test Battery]] | Test taxonomy, current automated battery, verification gate, and coverage gaps. |
+| [[audits/index|Commonloom Audits]] | Phase 5 audit reports for code quality, security, documentation, and requirements. |
 | [[roadmap|Commonloom Roadmap]] | Implementation phases and ticket status. |
 | [[release|Release Operations]] | npm bootstrap, trusted publishing, and release runbook. |
 | [[Commonloom Extraction Plan]] | W8 migration and extraction plan summary. |
 | [[phase-2-ci-quality-gates|Phase 2 CI Quality Gates]] | Completed Phase 2 plan for strict TypeScript linting and full package CI checks. |
 | [[phase-3-close-testing-gaps|Phase 3 Close Testing Gaps]] | Completed Phase 3 work closing the first requirements test matrix gaps. |
 | [[phase-4-npm-trusted-publishing|Phase 4 npm Trusted Publishing]] | Active release automation and npm OIDC trusted publishing work. |
+| [[phase-5-audit-driven-hardening|Phase 5 Audit Driven Hardening]] | Active audit-driven hardening discovery. |
 | [[sources/index|Source Imports]] | Catalog of imported upstream source files. |
 | [[log]] | Chronological vault maintenance record. |
 
