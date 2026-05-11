@@ -35,6 +35,7 @@ start once the package is ready for npm publication.
   process verification to `npm run verify`.
 - Added typed unit, integration, E2E, and aggregate test-battery npm scripts
   and wired them into CI as explicit steps.
+- Added Git LFS tracking for Commonloom documentation PNG assets.
 
 ### Changed
 

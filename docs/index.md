@@ -24,6 +24,7 @@ the Flavor Grenade website content pipeline into this standalone repository.
 | Note | Purpose |
 | --- | --- |
 | [[Commonloom]] | Core identity, scope, and current extraction status. |
+| [[assets/index|Commonloom Assets]] | Git LFS-managed logos, icons, and source images. |
 | [[Commonloom Architecture]] | Reusable core boundary, adapter boundary, and data flow. |
 | [[Commonloom Requirements]] | User, functional, technical, and operational requirements. |
 | [[adr|Commonloom ADRs]] | MADR-backed decisions and rejected alternatives. |

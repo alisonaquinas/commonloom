@@ -13,6 +13,8 @@ aliases:
 
 # Commonloom
 
+![[assets/commonloom-logo-light-transparent.png]]
+
 Commonloom is the standalone TypeScript library for reusable Markdown content
 compilation.
 
@@ -62,6 +64,7 @@ typecheck, build, and tests.
 ## See Also
 
 - [[Commonloom Architecture]]
+- [[assets/index|Commonloom Assets]]
 - [[Commonloom Requirements]]
 - [[adr|Commonloom ADRs]]
 - [[Commonloom Extraction Plan]]
