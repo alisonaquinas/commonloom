@@ -462,3 +462,11 @@ Completed
 root npm workspace discovery for `examples/*` and documenting the shared
 example contract, command conventions, and package strategy in
 `examples/README.md`.
+
+## [2026-05-11] phase | Add Phase 6 React example
+
+Completed
+[[plans/phase-6-framework-integration-examples/TASK-003|TASK-003]] by adding a
+React and Vite example that compiles shared Markdown through Commonloom's
+public package entrypoint, applies shared SCSS, uses shared assets, and
+documents dev/build/preview commands.

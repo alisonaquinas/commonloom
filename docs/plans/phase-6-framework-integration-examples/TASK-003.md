@@ -2,7 +2,7 @@
 id: TASK-003
 title: Build React Example
 type: task
-status: planned
+status: done
 priority: medium
 phase: 6
 parent: FEAT-001
@@ -62,3 +62,7 @@ content and style substrate.
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 6 acceptance criteria.
+- 2026-05-11: Started React example implementation. Status set to active.
+- 2026-05-11: Added `examples/react/` with a Vite React app, shared
+  Commonloom content generation, shared SCSS import, shared asset usage, and
+  local dev/build/preview instructions. Status set to done.

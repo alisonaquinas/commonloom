@@ -1,0 +1,25 @@
+{
+  "name": "@commonloom/example-react",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "node ../shared/scripts/generate-content.mjs .",
+    "dev": "npm run generate && vite",
+    "build": "npm run generate && vite build",
+    "preview": "npm run generate && vite preview"
+  },
+  "dependencies": {
+    "commonloom": "file:../..",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.1",
+    "sass": "1.99.0",
+    "typescript": "6.0.3",
+    "vite": "8.0.11"
+  }
+}
