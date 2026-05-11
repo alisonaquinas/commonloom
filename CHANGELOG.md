@@ -27,6 +27,8 @@ start once the package is ready for npm publication.
 - Added a requirements-to-tests matrix that records covered, partial, verified,
   and untested requirements.
 - Added Phase 3 roadmap and tickets for closing documented testing gaps.
+- Added manifest-driven compiler behavior plus integration and E2E tests for
+  adapter-visible compiled records.
 
 ### Changed
 

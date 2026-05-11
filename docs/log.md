@@ -243,3 +243,11 @@ Completed [[plans/phase-3-close-testing-gaps/TASK-001|TASK-001]],
 [[plans/phase-3-close-testing-gaps/TASK-003|TASK-003]] by expanding
 Markdown/GFM, HTML safety, and link/media unit tests and updating the
 requirements matrix.
+
+## [2026-05-11] phase | Add Phase 3 compiler flow tests
+
+Completed [[plans/phase-3-close-testing-gaps/TASK-004|TASK-004]],
+[[plans/phase-3-close-testing-gaps/TASK-005|TASK-005]], and
+[[plans/phase-3-close-testing-gaps/TASK-006|TASK-006]] by implementing
+manifest-driven compilation, adding integration coverage, adding an E2E fixture
+workflow, and updating the requirements matrix.

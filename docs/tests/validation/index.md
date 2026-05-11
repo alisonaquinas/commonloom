@@ -31,6 +31,8 @@ documentation. It does not yet have a dedicated validation test suite.
 | [content-pipeline-html.test.ts](../../../test/content-pipeline-html.test.ts) | Confirms renderer safety and source trace behavior expected by maintainers. |
 | [content-pipeline-links-media.test.ts](../../../test/content-pipeline-links-media.test.ts) | Confirms link, media, and path safety behavior expected by adapters and reviewers. |
 | [content-pipeline-core.test.ts](../../../test/content-pipeline-core.test.ts) | Confirms current public contracts remain adapter-neutral. |
+| [content-pipeline-integration.test.ts](../../../test/content-pipeline-integration.test.ts) | Confirms the public compiler combines parser, renderer, resolver, media, and trace behavior. |
+| [content-pipeline-e2e.test.ts](../../../test/content-pipeline-e2e.test.ts) | Confirms a fixture content tree compiles into adapter-visible records. |
 
 ## Requirements Traceability
 

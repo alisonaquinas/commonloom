@@ -20,9 +20,9 @@ updated: 2026-05-10
 | [[plans/phase-3-close-testing-gaps/TASK-001|TASK-001]] | Broaden Markdown And GFM Unit Tests | Task | `done` |
 | [[plans/phase-3-close-testing-gaps/TASK-002|TASK-002]] | Broaden HTML Safety Unit Tests | Task | `done` |
 | [[plans/phase-3-close-testing-gaps/TASK-003|TASK-003]] | Broaden Link And Media Boundary Tests | Task | `done` |
-| [[plans/phase-3-close-testing-gaps/TASK-004|TASK-004]] | Test Manifest-Driven Compiled Records | Task | `planned` |
-| [[plans/phase-3-close-testing-gaps/TASK-005|TASK-005]] | Add Integration Test Suite | Task | `planned` |
-| [[plans/phase-3-close-testing-gaps/TASK-006|TASK-006]] | Add End-To-End Fixture Workflow | Task | `planned` |
+| [[plans/phase-3-close-testing-gaps/TASK-004|TASK-004]] | Test Manifest-Driven Compiled Records | Task | `done` |
+| [[plans/phase-3-close-testing-gaps/TASK-005|TASK-005]] | Add Integration Test Suite | Task | `done` |
+| [[plans/phase-3-close-testing-gaps/TASK-006|TASK-006]] | Add End-To-End Fixture Workflow | Task | `done` |
 | [[plans/phase-3-close-testing-gaps/TASK-007|TASK-007]] | Add Parser And Filesystem Security Tests | Task | `planned` |
 | [[plans/phase-3-close-testing-gaps/TASK-008|TASK-008]] | Add Static Boundary Verification | Task | `planned` |
 | [[plans/phase-3-close-testing-gaps/TASK-009|TASK-009]] | Add Requirements And BDD Traceability Validation | Task | `planned` |

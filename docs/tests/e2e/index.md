@@ -4,7 +4,7 @@ tags:
   - commonloom
   - tests
   - e2e
-status: planned
+status: active
 updated: 2026-05-10
 aliases:
   - E2E Tests
@@ -13,30 +13,33 @@ aliases:
 
 # Commonloom End-To-End Tests
 
-Commonloom does not currently have an end-to-end test suite.
+Commonloom currently has end-to-end fixture coverage in
+[content-pipeline-e2e.test.ts](../../../test/content-pipeline-e2e.test.ts).
 
-## Intended Definition
+## Definition
 
 An end-to-end test should exercise a consumer-visible workflow from content
 inputs through Commonloom output that an adapter or build system can consume.
 
-Likely future examples:
+Current E2E coverage:
 
 - compile a fixture content tree into compiled document records
 - validate that diagnostics, source traces, HTML, links, and media references
   survive a full compile run
-- prove a sample adapter can consume Commonloom output without package-internal
-  imports
+- prove adapter-visible manifest data survives through public Commonloom output
 
-## Current Status
+## Command
 
-No current test starts from a full fixture content tree and ends at
-adapter-visible compiled output. The compiler entry point is still a scaffold,
-so E2E coverage is intentionally deferred.
+```bash
+npm test -- content-pipeline-e2e.test.ts
+```
 
-## Gap
+The E2E file also runs through `npm test` and `npm run check`.
 
-Add E2E tests after manifest-driven compilation is implemented.
+## Remaining Gap
+
+No external adapter package consumes the compiled record yet. Generated output
+remains adapter-owned and out of scope for the current core E2E fixture.
 
 ## See Also
 

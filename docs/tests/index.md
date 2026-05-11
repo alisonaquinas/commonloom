@@ -34,7 +34,7 @@ repository verification gate that runs lint, typecheck, build, and tests.
 
 | Command | Type | What It Proves |
 | --- | --- | --- |
-| `npm test` | [[tests/unit/index|Unit]] | Runs four Vitest files with nineteen assertions over current package behavior. |
+| `npm test` | [[tests/unit/index|Unit]], [[tests/integration/index|Integration]], [[tests/e2e/index|E2E]] | Runs six Vitest files with twenty-one assertions over current package behavior. |
 | `npm run lint:docs` | [[tests/verification/index|Verification]] | Checks root Markdown, Obsidian vault Markdown, and MADR ADR shape. |
 | `npm run lint` | [[tests/verification/index|Verification]] | Runs documentation linting and TypeScript ESLint with warnings blocked. |
 | `npm run typecheck` | [[tests/verification/index|Verification]] | Confirms TypeScript contracts typecheck without emitting output. |
@@ -58,15 +58,15 @@ closing the current matrix gaps.
 | [content-pipeline-markdown.test.ts](../../test/content-pipeline-markdown.test.ts) | [[tests/unit/index|Unit]] | Frontmatter parsing, Zod validation diagnostics, CommonMark/GFM parsing, GFM autolinks, strikethrough, blockquotes, code, images, and heading extraction. |
 | [content-pipeline-html.test.ts](../../test/content-pipeline-html.test.ts) | [[tests/unit/index|Unit]] | Markdown-to-HTML rendering, unsafe HTML diagnostics, static inline HTML allowlisting, sanitization, and source trace hashing. |
 | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts) | [[tests/unit/index|Unit]] | Link classification, link extraction, wiki-link adapter resolution, unsupported schemes, media path checks, missing media, traversal rejection, and alt text diagnostics. |
+| [content-pipeline-integration.test.ts](../../test/content-pipeline-integration.test.ts) | [[tests/integration/index|Integration]] | Public compiler flow across manifest input, parsing, rendering, wiki-link resolution, media validation, and source traces. |
+| [content-pipeline-e2e.test.ts](../../test/content-pipeline-e2e.test.ts) | [[tests/e2e/index|E2E]] | Fixture content tree compiled through the public API into adapter-visible records. |
 
 ## Known Gaps
 
-- No dedicated integration test suite exists yet.
-- No end-to-end consumer workflow test exists yet.
 - No formal validation suite traces behavior directly from every requirement or
   BDD scenario.
-- The top-level compiler remains a scaffold, so tests currently emphasize
-  imported modules and stable contracts rather than manifest-driven compilation.
+- Generated-output reproducibility remains adapter-owned and has no local
+  adapter fixture yet.
 
 ## See Also
 

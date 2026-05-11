@@ -47,6 +47,8 @@ verification battery.
 | UT-LINK-003 | Unit | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts), `validates local media paths, missing files, traversal, and alt text` |
 | UT-LINK-005 | Unit | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts), `rejects unsupported media URI schemes before filesystem lookup` |
 | UT-LINK-006 | Unit | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts), `keeps absolute and encoded traversal targets inside approved path rules` |
+| INT-001 | Integration | [content-pipeline-integration.test.ts](../../test/content-pipeline-integration.test.ts), `compiles manifests through parse, render, links, media, and traces` |
+| E2E-001 | E2E | [content-pipeline-e2e.test.ts](../../test/content-pipeline-e2e.test.ts), `compiles a fixture content tree into adapter-visible records` |
 | VER-CHECK | Verification | `npm run check` runs docs lint, TypeScript lint, typecheck, build, and unit tests. |
 | VER-DOCS | Verification | `npm run lint:docs` runs root Markdown, Obsidian, and ADR lint. |
 | VER-CI | Verification | `.github/workflows/documentation-lint.yml` runs Node.js 24, `npm ci --ignore-scripts`, and `npm run check`. |
@@ -56,15 +58,15 @@ verification battery.
 
 | Requirement | Current Evidence | Status | Gap Or Next Test |
 | --- | --- | --- | --- |
-| CLR-USER-001 | UT-MD-001, UT-HTML-001 | Partial | Needs E2E compile from Markdown source to adapter-visible record. |
+| CLR-USER-001 | UT-MD-001, UT-HTML-001, E2E-001 | Covered | None for current core workflow. |
 | CLR-USER-002 | UT-MD-001, UT-MD-004, UT-HTML-001 | Partial | Parser coverage includes the listed constructs; E2E semantic output remains open. |
 | CLR-USER-003 | UT-MD-001 | Covered | None for current parser scope. |
 | CLR-USER-004 | UT-MD-002, UT-MD-003, UT-HTML-002, UT-HTML-005, UT-LINK-002, UT-LINK-003, UT-LINK-004, UT-LINK-005 | Partial | Broken standard internal links are not currently diagnosed. |
 | CLR-USER-005 | UT-HTML-003, UT-LINK-001 | Covered | None for current trace scope. |
 | CLR-USER-010 | UT-CORE-003, UT-LINK-002 | Covered | None for current callback scope. |
-| CLR-USER-011 | UT-MD-001, UT-MD-002 | Covered | Manifest schema validation is not implemented yet. |
-| CLR-USER-012 | UT-CORE-001, UT-CORE-003 | Partial | Needs compiled record tests after adapter output is implemented. |
-| CLR-USER-013 | UT-LINK-003, UT-LINK-005, UT-LINK-006 | Partial | Needs adapter asset mapping integration tests. |
+| CLR-USER-011 | UT-MD-001, UT-MD-002, INT-001 | Partial | Frontmatter schemas are supported; manifest data schema validation is not implemented yet. |
+| CLR-USER-012 | UT-CORE-001, UT-CORE-003, INT-001, E2E-001 | Covered | None for normalized record output. |
+| CLR-USER-013 | UT-LINK-003, UT-LINK-005, UT-LINK-006, INT-001, E2E-001 | Covered | Adapter-specific bundler mapping remains outside core. |
 | CLR-USER-014 | UT-CORE-003 | Partial | Add static forbidden-import verification. |
 | CLR-USER-020 | VER-DOCS, DOC-PHASE | Verified | None for documentation process. |
 | CLR-USER-021 | VER-DOCS, DOC-PHASE | Partial | No automated source-evidence completeness check exists. |
@@ -85,7 +87,7 @@ verification battery.
 | CLR-FUNC-021 | UT-HTML-001, UT-HTML-002 | Covered | None for current boolean policy. |
 | CLR-FUNC-022 | UT-HTML-002, UT-HTML-004, UT-HTML-005 | Covered | None for current sanitizer policy. |
 | CLR-FUNC-023 | UT-HTML-001, UT-HTML-004 | Covered | None for current allowlist. |
-| CLR-FUNC-024 | UT-HTML-001, UT-HTML-002, UT-HTML-004 | Partial | Needs E2E static-rendering output check. |
+| CLR-FUNC-024 | UT-HTML-001, UT-HTML-002, UT-HTML-004, E2E-001 | Covered | None for current static HTML output. |
 | CLR-FUNC-040 | UT-LINK-001, UT-HTML-003 | Covered | None. |
 | CLR-FUNC-041 | UT-LINK-000, UT-LINK-001 | Covered | None. |
 | CLR-FUNC-042 | UT-LINK-002, UT-CORE-003 | Covered | None. |
@@ -97,11 +99,11 @@ verification battery.
 | CLR-FUNC-062 | UT-CORE-002, UT-HTML-003 | Covered | None. |
 | CLR-FUNC-063 | UT-HTML-003 | Covered | None. |
 | CLR-FUNC-064 | UT-MD-002, UT-MD-003, UT-HTML-002, UT-LINK-002, UT-LINK-003 | Covered | None for expected validation failures. |
-| CLR-FUNC-080 | UT-CORE-001, UT-CORE-002 | Partial | `CommonloomCompiledDocument` is typed but compile output is not implemented. |
-| CLR-FUNC-081 | UT-CORE-003 | Partial | Manifest entries are typed; manifest-driven compile behavior is not tested. |
-| CLR-FUNC-082 | UT-CORE-003 | Partial | No generated TypeScript writer exists to assert adapter ownership directly. |
-| CLR-FUNC-083 | UT-CORE-001 | Partial | Compiler scaffold returns diagnostics; real check-only compile flow is not implemented. |
-| CLR-FUNC-084 | UT-HTML-003 | Partial | Needs deterministic generated-output tests once adapters write files. |
+| CLR-FUNC-080 | UT-CORE-001, UT-CORE-002, INT-001, E2E-001 | Covered | None for current compiled record shape. |
+| CLR-FUNC-081 | UT-CORE-003, INT-001, E2E-001 | Covered | None for current manifest input. |
+| CLR-FUNC-082 | UT-CORE-003, E2E-001 | Covered | Generated TypeScript remains absent from core output. |
+| CLR-FUNC-083 | UT-CORE-001, INT-001, E2E-001 | Covered | None for current check-only compile flow. |
+| CLR-FUNC-084 | UT-HTML-003, E2E-001 | Partial | Needs deterministic generated-output tests once adapters write files. |
 
 ## Technical Requirements
 
@@ -119,8 +121,8 @@ verification battery.
 | CLR-TECH-024 | VER-CHECK | Partial | Add dependency/import scan for disallowed Markdown compiler plugins. |
 | CLR-TECH-025 | Gap | Gap | No optional syntax-highlighting boundary test exists. |
 | CLR-TECH-040 | UT-CORE-002 | Covered | None. |
-| CLR-TECH-041 | UT-CORE-002 | Covered | None for current exported contracts. |
-| CLR-TECH-042 | UT-CORE-003 | Partial | Add compile-time generic adapter-data usage tests. |
+| CLR-TECH-041 | UT-CORE-002, INT-001, E2E-001 | Covered | None for current exported contracts. |
+| CLR-TECH-042 | UT-CORE-003, INT-001, E2E-001 | Covered | None for current generic adapter data flow. |
 | CLR-TECH-043 | UT-MD-002, UT-MD-003 | Partial | Manifest/config programmer-error boundaries are not tested. |
 | CLR-TECH-044 | UT-CORE-002, UT-MD-001, UT-LINK-001 | Covered | None. |
 | CLR-TECH-060 | Gap | Gap | No ReDoS or parser-sensitive regex test exists. |
@@ -135,7 +137,7 @@ verification battery.
 | Requirement | Current Evidence | Status | Gap Or Next Test |
 | --- | --- | --- | --- |
 | CLR-OPS-001 | VER-CHECK, VER-CI | Covered | No format script exists; requirement wording includes format checks. |
-| CLR-OPS-002 | UT-MD-001, UT-MD-002, UT-MD-004, UT-HTML-002, UT-HTML-004, UT-LINK-000, UT-LINK-001, UT-LINK-003, UT-CORE-002, UT-CORE-003 | Partial | Adapter-output and full compiler flow tests are missing. |
+| CLR-OPS-002 | UT-MD-001, UT-MD-002, UT-MD-004, UT-HTML-002, UT-HTML-004, UT-LINK-000, UT-LINK-001, UT-LINK-003, UT-CORE-002, UT-CORE-003, INT-001, E2E-001 | Covered | None for current core test surface. |
 | CLR-OPS-003 | VER-CHECK, VER-CI | Covered | None. |
 | CLR-OPS-004 | Gap | Gap | No generated-output stale-file check exists. |
 | CLR-OPS-005 | VER-DOCS | Covered | None for current tooling. |
@@ -206,8 +208,6 @@ verification battery.
 
 Clear untested areas:
 
-- manifest-driven compilation and adapter-visible compiled records
-- dedicated integration and end-to-end suites
 - release, npm publishing, provenance, and test-tag workflows
 - generated-output reproducibility checks
 - security hardening tests for ReDoS, bounded frontmatter, symlink escapes,

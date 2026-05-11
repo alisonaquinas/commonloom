@@ -147,3 +147,8 @@ with a clear blocker or deferral instead of silently marking it covered.
 > TASK-001, TASK-002, and TASK-003 expanded Markdown/GFM, HTML safety, and
 > link/media boundary tests. `npm test`, `npm run lint`, and `npm run
 > typecheck` pass locally.
+
+> [!SUCCESS] Compiler flow group · 2026-05-11
+> TASK-004, TASK-005, and TASK-006 added manifest-driven compiler behavior,
+> integration coverage, and E2E fixture coverage. `npm test`, `npm run lint`,
+> and `npm run typecheck` pass locally with 21 tests across six files.

@@ -2,7 +2,7 @@
 id: TASK-006
 title: Add End-To-End Fixture Workflow
 type: task
-status: planned
+status: done
 priority: medium
 phase: 3
 parent: FEAT-001
@@ -63,3 +63,8 @@ fake E2E pass.
 ## Workflow Log
 
 - 2026-05-10: Opened in planned status.
+- 2026-05-11: Added
+  [content-pipeline-e2e.test.ts](../../../test/content-pipeline-e2e.test.ts)
+  covering a fixture content tree compiled through the public API into
+  adapter-visible records. Updated E2E documentation and matrix evidence.
+  Status set to done after `npm run lint`, `npm run typecheck`, and `npm test`.

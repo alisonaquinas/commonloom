@@ -28,7 +28,7 @@ media validation.
 
 | File | Assertions | Coverage |
 | --- | --- | --- |
-| [content-pipeline-core.test.ts](../../../test/content-pipeline-core.test.ts) | 3 | Compiler scaffold, diagnostics, source traces, and adapter-owned callbacks. |
+| [content-pipeline-core.test.ts](../../../test/content-pipeline-core.test.ts) | 3 | Compiler no-manifest behavior, diagnostics, source traces, and adapter-owned callbacks. |
 | [content-pipeline-markdown.test.ts](../../../test/content-pipeline-markdown.test.ts) | 4 | Frontmatter parsing, invalid and malformed frontmatter diagnostics, heading extraction, CommonMark constructs, and GFM constructs. |
 | [content-pipeline-html.test.ts](../../../test/content-pipeline-html.test.ts) | 5 | Safe inline HTML, unsafe inline HTML diagnostics, static tag allowlisting, sanitization, and stable source trace hashes. |
 | [content-pipeline-links-media.test.ts](../../../test/content-pipeline-links-media.test.ts) | 7 | Link classification, link extraction, wiki-link resolution, unsupported schemes, local media validation, traversal rejection, and alt text diagnostics. |
@@ -39,7 +39,7 @@ media validation.
 npm test
 ```
 
-The current battery contains four Vitest files and nineteen tests.
+The current unit battery contains four Vitest files and nineteen tests.
 
 ## Invariants
 

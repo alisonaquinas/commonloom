@@ -4,7 +4,7 @@ tags:
   - commonloom
   - tests
   - integration
-status: planned
+status: active
 updated: 2026-05-10
 aliases:
   - Integration Tests
@@ -12,40 +12,37 @@ aliases:
 
 # Commonloom Integration Tests
 
-Commonloom does not currently have a dedicated integration test directory or
-script.
+Commonloom currently has integration coverage in
+[content-pipeline-integration.test.ts](../../../test/content-pipeline-integration.test.ts).
 
-## Intended Definition
+## Definition
 
 An integration test should exercise multiple Commonloom modules together across
 a realistic package boundary without becoming a full consumer application test.
 
-Likely future examples:
+Current integration coverage:
 
-- parse frontmatter and Markdown, render HTML, extract references, validate
-  media, resolve wiki-links, and assemble source traces in one flow
-- compile multiple manifest entries once `compileCommonloom` owns manifest
-  traversal
-- verify adapter callbacks can resolve routes without importing adapter code
-  into `src/`
+- parses frontmatter and Markdown through the public compiler
+- renders sanitized HTML
+- extracts references
+- validates local media
+- resolves wiki-links through adapter callbacks
+- assembles source traces
+- preserves adapter data on manifest entries
 
-## Current Related Coverage
+## Command
 
-Some existing unit tests are integration-adjacent:
+```bash
+npm test -- content-pipeline-integration.test.ts
+```
 
-- [content-pipeline-html.test.ts](../../../test/content-pipeline-html.test.ts)
-  exercises Markdown parsing, rendering, sanitization, and source tracing.
-- [content-pipeline-links-media.test.ts](../../../test/content-pipeline-links-media.test.ts)
-  exercises parsing, reference extraction, adapter callbacks, filesystem media
-  checks, and path confinement.
+The integration file also runs through `npm test` and `npm run check`.
 
-They remain classified as unit tests until there is a dedicated integration
-suite or script.
+## Remaining Gaps
 
-## Gap
-
-No automated command currently runs integration tests separately from
-`npm test`.
+- Multi-manifest compilation has not been covered yet.
+- Adapter package tests remain future work because no adapter package exists in
+  this repository.
 
 ## See Also
 

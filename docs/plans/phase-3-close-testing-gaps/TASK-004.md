@@ -2,7 +2,7 @@
 id: TASK-004
 title: Test Manifest-Driven Compiled Records
 type: task
-status: planned
+status: done
 priority: high
 phase: 3
 parent: FEAT-001
@@ -69,3 +69,9 @@ This task may require implementation work in `src/compiler.ts`.
 ## Workflow Log
 
 - 2026-05-10: Opened in planned status.
+- 2026-05-11: Added failing compiler, integration, and E2E tests showing the
+  scaffold still returned `NO_MANIFESTS` for manifest input. Implemented
+  manifest-driven compilation with frontmatter schema validation, sanitized
+  HTML, source traces, wiki-link resolution, media validation, diagnostics, and
+  generic adapter data flow. `npm run lint`, `npm run typecheck`, and `npm
+  test` pass with 21 tests. Status set to done.

@@ -40,7 +40,7 @@ npm run lint && npm run typecheck && npm run build && npm test
 | TypeScript lint | `npm run lint` | `src/**/*.ts`, `test/**/*.ts`, and config files with warnings blocked. |
 | Typecheck | `npm run typecheck` | TypeScript project check with no emit. |
 | Build | `npm run build` | Distributable TypeScript build. |
-| Unit tests | `npm test` | Four Vitest files, twelve tests. |
+| Unit, integration, and E2E tests | `npm test` | Six Vitest files, twenty-one tests. |
 
 ## CI Shape
 

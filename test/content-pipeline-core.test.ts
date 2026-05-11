@@ -19,9 +19,9 @@ import type {
   CommonloomSourceTrace,
 } from '../src/index.js';
 
-describe('Commonloom compiler scaffold', () => {
-  it('exports a non-destructive compiler entry point', () => {
-    const result = compileCommonloom({
+describe('Commonloom compiler public surface', () => {
+  it('exports a non-destructive compiler entry point', async () => {
+    const result = await compileCommonloom({
       copyRoot: 'content/copy',
       mediaRoot: 'content/media',
     });
