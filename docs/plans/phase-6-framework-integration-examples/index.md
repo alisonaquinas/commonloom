@@ -30,14 +30,14 @@ updated: 2026-05-11
 | [[plans/phase-6-framework-integration-examples/TASK-011|TASK-011]] | Document Adopter Guidance | Task | `done` |
 | [[plans/phase-6-framework-integration-examples/CHORE-001|CHORE-001]] | Phase 6 Closeout | Chore | `planned` |
 | [[plans/phase-6-framework-integration-examples/CHORE-002|CHORE-002]] | Phase Sequencing And Ownership | Chore | `done` |
-| [[plans/phase-6-framework-integration-examples/CHORE-003|CHORE-003]] | Ticket Lifecycle Control | Chore | `active` |
-| [[plans/phase-6-framework-integration-examples/CHORE-004|CHORE-004]] | Test-First Coupling Fix Control | Chore | `planned` |
-| [[plans/phase-6-framework-integration-examples/CHORE-005|CHORE-005]] | Sweep Finding Ticketing Control | Chore | `planned` |
-| [[plans/phase-6-framework-integration-examples/CHORE-006|CHORE-006]] | Fixed Phase Gate Order Control | Chore | `planned` |
-| [[plans/phase-6-framework-integration-examples/CHORE-007|CHORE-007]] | CI Evidence Control | Chore | `planned` |
+| [[plans/phase-6-framework-integration-examples/CHORE-003|CHORE-003]] | Ticket Lifecycle Control | Chore | `done` |
+| [[plans/phase-6-framework-integration-examples/CHORE-004|CHORE-004]] | Test-First Coupling Fix Control | Chore | `done` |
+| [[plans/phase-6-framework-integration-examples/CHORE-005|CHORE-005]] | Sweep Finding Ticketing Control | Chore | `done` |
+| [[plans/phase-6-framework-integration-examples/CHORE-006|CHORE-006]] | Fixed Phase Gate Order Control | Chore | `done` |
+| [[plans/phase-6-framework-integration-examples/CHORE-007|CHORE-007]] | CI Evidence Control | Chore | `in-review` |
 | [[plans/phase-6-framework-integration-examples/CHORE-008|CHORE-008]] | Phase Retrospective | Chore | `planned` |
-| [[plans/phase-6-framework-integration-examples/CHORE-009|CHORE-009]] | Phase Process Update Review | Chore | `planned` |
-| [[plans/phase-6-framework-integration-examples/CHORE-010|CHORE-010]] | Phase Layout And Link Control | Chore | `planned` |
+| [[plans/phase-6-framework-integration-examples/CHORE-009|CHORE-009]] | Phase Process Update Review | Chore | `done` |
+| [[plans/phase-6-framework-integration-examples/CHORE-010|CHORE-010]] | Phase Layout And Link Control | Chore | `done` |
 
 ## Phase Summary
 

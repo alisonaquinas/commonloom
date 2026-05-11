@@ -530,3 +530,11 @@ Completed
 root, GitHub-facing, changelog, agent, and vault documentation so adopters can
 find every example and understand that framework glue remains outside
 Commonloom core.
+
+## [2026-05-11] phase | Complete Phase 6 local controls
+
+Completed the Phase 6 local operational controls for ticket lifecycle,
+test-first coupling review, sweep finding capture, fixed gate order, process
+update review, and phase layout/link integrity.
+[[plans/phase-6-framework-integration-examples/CHORE-007|CHORE-007]] remains
+in review pending authoritative GitHub Actions evidence.

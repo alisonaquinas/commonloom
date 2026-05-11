@@ -2,7 +2,7 @@
 id: CHORE-003
 title: Ticket Lifecycle Control
 type: chore
-status: active
+status: done
 priority: medium
 phase: 6
 parent: FEAT-001
@@ -40,3 +40,6 @@ Keep Phase 6 ticket statuses explicit and synchronized with workflow logs.
 - 2026-05-11: Phase 6 lifecycle statuses are defined in the phase plan.
   Status set to active while ticket movements are synchronized during
   implementation.
+- 2026-05-11: Verified ticket frontmatter, workflow logs, and the ticket index
+  are synchronized through TASK-011; `npm run verify` includes
+  `verify-plan-process` coverage. Status set to done.
