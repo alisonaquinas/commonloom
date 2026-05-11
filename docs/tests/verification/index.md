@@ -27,7 +27,7 @@ npm run check
 It expands to:
 
 ```bash
-npm run lint && npm run verify && npm run typecheck && npm run build && npm run test:battery
+npm run lint && npm run verify && npm run typecheck && npm run build && npm run examples:check && npm run test:battery
 ```
 
 ## Included Checks
@@ -41,6 +41,8 @@ npm run lint && npm run verify && npm run typecheck && npm run build && npm run 
 | Static and process verification | `npm run verify` | Adapter-neutral source imports, disallowed core dependencies, exact dependency versions, generated output tracking, requirements traceability, BDD requirement links, and phase/ticket process rules. |
 | Typecheck | `npm run typecheck` | TypeScript project check with no emit. |
 | Build | `npm run build` | Distributable TypeScript build. |
+| Example parity | `npm run examples:verify` | Published Commonloom dependency, shared substrate, and forbidden internal import checks for examples. |
+| Example builds | `npm run examples:build` | React, Vue, Svelte, Next.js, Angular, and Node example builds. |
 | Unit tests | `npm run test:unit` | Five Vitest files, twenty-eight tests. |
 | Integration tests | `npm run test:integration` | Public compiler integration flow. |
 | E2E tests | `npm run test:e2e` | Fixture content tree compiled into adapter-visible records. |
@@ -56,7 +58,7 @@ node scripts/verify-boundaries.mjs && node scripts/verify-traceability.mjs && no
 The GitHub Actions verification job uses Node.js 24, installs with
 `npm ci --ignore-scripts`, and runs lint, verification, typecheck, build, unit,
 integration, and E2E steps explicitly. The step sequence mirrors
-`npm run check`.
+`npm run check` and includes example parity plus example build steps.
 
 The workflow is validation-only. It does not publish, release, deploy, or grant
 npm trusted-publishing permissions.

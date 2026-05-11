@@ -2,7 +2,7 @@
 id: CHORE-006
 title: Fixed Phase Gate Order Control
 type: chore
-status: planned
+status: done
 priority: medium
 phase: 6
 parent: FEAT-001
@@ -37,3 +37,7 @@ Track Phase 6 gate order from evaluation through retrospective.
 ## Workflow Log
 
 - 2026-05-11: Planned during Phase 6 planning.
+- 2026-05-11: Confirmed Phase 6 followed evaluation, ticket updates,
+  implementation, lint, coupling review, example validation, documentation,
+  and local pre-commit gates. Security/code-quality gates reused existing
+  package checks because no core source changes were made. Status set to done.

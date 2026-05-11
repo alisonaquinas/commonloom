@@ -2,7 +2,7 @@
 id: CHORE-009
 title: Phase Process Update Review
 type: chore
-status: planned
+status: done
 priority: medium
 phase: 6
 parent: FEAT-001
@@ -37,3 +37,7 @@ need updates.
 ## Workflow Log
 
 - 2026-05-11: Planned before Phase 6 completion.
+- 2026-05-11: Reviewed Phase 6 deviations. The main findings were
+  implementation-specific dependency pins and example validation wiring, all
+  captured in task logs and docs; no operational requirement update is needed.
+  Status set to done.

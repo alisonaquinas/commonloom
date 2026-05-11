@@ -2,7 +2,7 @@
 id: TASK-008
 title: Build Node Example
 type: task
-status: planned
+status: done
 priority: medium
 phase: 6
 parent: FEAT-001
@@ -64,7 +64,12 @@ without a browser framework.
 - [[requirements/user/adapter-development|Adapter Development]]
 - [[requirements/technical/library-boundary|Library Boundary]]
 - [[requirements/operational/release-and-ci|Release And CI]]
+- Context7 implementation baseline: `/websites/nodejs_latest-v24_x_api`.
 
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 6 acceptance criteria.
+- 2026-05-11: Started Node example implementation. Status set to active.
+- 2026-05-11: Added `examples/node/` with direct Commonloom compilation from
+  Node, Sass compilation of the shared SCSS, shared asset copying, static HTML
+  output, and a small Node HTTP preview server. Status set to done.

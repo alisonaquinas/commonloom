@@ -20,6 +20,7 @@ aliases:
 | CLR-FUNC-082 | Commonloom shall keep generated TypeScript optional and adapter-owned. | The core API is useful even when no generated file writer is present. |
 | CLR-FUNC-083 | Commonloom shall support check-only workflows. | A caller can validate content and collect diagnostics without writing generated output. |
 | CLR-FUNC-084 | Commonloom shall make generated output reproducible when an adapter writes files from Commonloom records. | Normalized records include enough stable data for deterministic generation. |
+| CLR-FUNC-085 | Commonloom compiled records shall be sufficient for multiple renderer technologies. | The same compiled shared content can be rendered by React, Vue, Svelte, Next.js, Angular, and Node examples without framework-specific changes to Commonloom core. |
 
 ## Evidence
 

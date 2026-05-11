@@ -2,7 +2,7 @@
 id: CHORE-005
 title: Sweep Finding Ticketing Control
 type: chore
-status: planned
+status: done
 priority: medium
 phase: 6
 parent: FEAT-001
@@ -38,3 +38,8 @@ while creating examples before broad fixes begin.
 ## Workflow Log
 
 - 2026-05-11: Planned during Phase 6 planning.
+- 2026-05-11: Recorded implementation findings in owning task logs:
+  Svelte 5 bootstrap in TASK-005, Next.js stable PostCSS audit exposure and
+  Turbopack root configuration in TASK-006, Angular TypeScript peer pinning in
+  TASK-007, and example validation wiring in TASK-010. No separate follow-up
+  ticket is required. Status set to done.

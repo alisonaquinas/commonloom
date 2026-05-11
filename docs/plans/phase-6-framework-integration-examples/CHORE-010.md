@@ -2,7 +2,7 @@
 id: CHORE-010
 title: Phase Layout And Link Control
 type: chore
-status: planned
+status: done
 priority: medium
 phase: 6
 parent: FEAT-001
@@ -41,3 +41,6 @@ and vault-stable wikilinks.
 ## Workflow Log
 
 - 2026-05-11: Planned during Phase 6 planning.
+- 2026-05-11: Confirmed the phase summary, ticket index, roadmap link, and
+  vault links are present; `npm run lint:docs` reports zero blocking
+  documentation issues. Status set to done.

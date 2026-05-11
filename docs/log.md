@@ -440,3 +440,125 @@ SCSS in the Node example, adding Angular production preview instructions,
 defining allowed and terminal lifecycle statuses, recording exact Context7
 documentation baselines, and adding requirement and evidence links to Phase 6
 feature and task tickets.
+
+## [2026-05-11] phase | Start Phase 6 implementation
+
+Started [[plans/phase-6-framework-integration-examples|Phase 6]] execution on
+`feature/phase-6-framework-examples-implementation` from `origin/develop`.
+Recorded branch ownership and moved the Phase 6 feature to active before
+shared example substrate work.
+
+## [2026-05-11] phase | Add Phase 6 shared example substrate
+
+Completed
+[[plans/phase-6-framework-integration-examples/TASK-001|TASK-001]] by adding
+framework-neutral shared Markdown content, shared SCSS, and Commonloom assets
+under `examples/shared/`.
+
+## [2026-05-11] phase | Define Phase 6 example workspace
+
+Completed
+[[plans/phase-6-framework-integration-examples/TASK-002|TASK-002]] by adding
+root npm workspace discovery for `examples/*` and documenting the shared
+example contract, command conventions, and package strategy in
+`examples/README.md`.
+
+## [2026-05-11] phase | Add Phase 6 React example
+
+Completed
+[[plans/phase-6-framework-integration-examples/TASK-003|TASK-003]] by adding a
+React and Vite example that compiles shared Markdown through Commonloom's
+public package entrypoint, applies shared SCSS, uses shared assets, and
+documents dev/build/preview commands.
+
+## [2026-05-11] phase | Add Phase 6 Vue example
+
+Completed
+[[plans/phase-6-framework-integration-examples/TASK-004|TASK-004]] by adding a
+Vue and Vite example that uses the same generated Commonloom content, shared
+SCSS, shared assets, and dev/build/preview command shape as the React example.
+
+## [2026-05-11] phase | Add Phase 6 Svelte example
+
+Completed
+[[plans/phase-6-framework-integration-examples/TASK-005|TASK-005]] by adding a
+Svelte and Vite example that renders the shared Commonloom output with the same
+content, SCSS, assets, and dev/build/preview command shape.
+
+## [2026-05-11] phase | Add Phase 6 Next.js example
+
+Completed
+[[plans/phase-6-framework-integration-examples/TASK-006|TASK-006]] by adding a
+Next.js app-router example that renders the shared Commonloom output with the
+same content, SCSS, assets, and dev/build/production-preview command shape.
+
+## [2026-05-11] phase | Add Phase 6 Angular example
+
+Completed
+[[plans/phase-6-framework-integration-examples/TASK-007|TASK-007]] by adding an
+Angular CLI example that renders the shared Commonloom output with the same
+content, SCSS, assets, and dev/build/production-preview command shape.
+
+## [2026-05-11] phase | Add Phase 6 Node example
+
+Completed
+[[plans/phase-6-framework-integration-examples/TASK-008|TASK-008]] by adding a
+Node example that compiles the shared Commonloom content into static HTML,
+compiles the shared SCSS with Sass, copies shared assets, and serves the
+generated output with a small Node HTTP preview script.
+
+## [2026-05-11] phase | Review Phase 6 integration coupling
+
+Completed
+[[plans/phase-6-framework-integration-examples/TASK-009|TASK-009]] after the
+React, Vue, Svelte, Next.js, Angular, and Node examples all consumed
+Commonloom through the public package entrypoint without framework-specific
+core changes or internal source imports.
+
+## [2026-05-11] phase | Wire Phase 6 example validation
+
+Completed
+[[plans/phase-6-framework-integration-examples/TASK-010|TASK-010]] by adding a
+root `examples:check` battery that verifies shared content/style/asset parity,
+forbids internal Commonloom coupling in examples, builds all example
+workspaces, and runs in both local `npm run check` and GitHub Actions.
+
+## [2026-05-11] phase | Document Phase 6 adopter guidance
+
+Completed
+[[plans/phase-6-framework-integration-examples/TASK-011|TASK-011]] by updating
+root, GitHub-facing, changelog, agent, and vault documentation so adopters can
+find every example and understand that framework glue remains outside
+Commonloom core.
+
+## [2026-05-11] phase | Complete Phase 6 local controls
+
+Completed the Phase 6 local operational controls for ticket lifecycle,
+test-first coupling review, sweep finding capture, fixed gate order, process
+update review, and phase layout/link integrity.
+[[plans/phase-6-framework-integration-examples/CHORE-007|CHORE-007]] remains
+in review pending authoritative GitHub Actions evidence.
+
+## [2026-05-11] phase | Phase 6 remote closeout
+
+Closed [[plans/phase-6-framework-integration-examples|Phase 6]] after PR 15
+GitHub Actions passed the Commonloom quality and test battery with example
+validation included:
+<https://github.com/alisonaquinas/commonloom/actions/runs/25687047698/job/75413431464>
+and
+<https://github.com/alisonaquinas/commonloom/actions/runs/25687065066/job/75413489173>.
+
+## [2026-05-11] phase | Switch Phase 6 examples to npm package
+
+Updated Phase 6 examples to depend on published `commonloom@0.1.0` from npm
+after the example implementation confirmed no library changes were required.
+The example verifier now enforces that dependency contract before builds.
+
+## [2026-05-11] requirements | Trace Phase 6 compatibility evidence
+
+Added formal user, functional, technical, and operational requirements for the
+example compatibility battery.
+Updated [[tests/requirements-matrix|Requirements Test Matrix]] so
+`npm run examples:verify`, `npm run examples:build`, and the GitHub Actions
+example steps are recorded as evidence for React, Vue, Svelte, Next.js,
+Angular, and Node compatibility.

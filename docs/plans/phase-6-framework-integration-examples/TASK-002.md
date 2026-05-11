@@ -2,7 +2,7 @@
 id: TASK-002
 title: Define Example Workspace Strategy
 type: task
-status: planned
+status: done
 priority: high
 phase: 6
 parent: FEAT-001
@@ -28,8 +28,8 @@ conventions before framework-specific examples are implemented.
 
 ## Work Scope
 
-- decide whether examples use npm workspaces, file dependencies, or packed
-  local package artifacts
+- decide whether examples use npm workspaces, published package dependencies,
+  file dependencies, or packed local package artifacts
 - ensure examples import Commonloom through public exports
 - define consistent command names where frameworks allow it
 - document Node.js 24 expectations for example development
@@ -38,8 +38,8 @@ conventions before framework-specific examples are implemented.
 ## Acceptance
 
 - `examples/README.md` explains repository-wide example setup.
-- Each example can depend on the local Commonloom package without internal
-  source imports.
+- Each example can depend on published Commonloom without internal source
+  imports.
 - Command conventions cover install, development preview, build, and
   production preview or run behavior.
 - The strategy does not add framework code to Commonloom core.
@@ -64,3 +64,10 @@ conventions before framework-specific examples are implemented.
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 6 example setup requirements.
+- 2026-05-11: Started example workspace strategy. Status set to active.
+- 2026-05-11: Added root npm workspace discovery for `examples/*` and
+  documented shared-contract, package, and command conventions in
+  `examples/README.md`. Status set to done.
+- 2026-05-11: Updated every example package to depend on published
+  `commonloom@0.1.0` from npm instead of the local `file:../..` workspace
+  package after implementation confirmed no library changes were required.

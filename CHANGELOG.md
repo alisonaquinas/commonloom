@@ -8,6 +8,11 @@ Commonloom follows a `0.x` release line while the standalone public API settles.
 
 - Added Phase 6 planning for shared-content framework integration examples
   covering React, Vue, Svelte, Next.js, Angular, and Node.
+- Added React, Vue, Svelte, Next.js, Angular, and Node examples under
+  `examples/` using shared Commonloom Markdown, SCSS, and logo assets.
+- Added `npm run examples:verify`, `npm run examples:build`, and
+  `npm run examples:check` to keep example parity and builds in local and CI
+  validation.
 - Closed Phase 4 release documentation with `v0.1.0` trusted-publishing
   evidence.
 - Tightened Phase 6 plan review findings for Node styling parity, Angular

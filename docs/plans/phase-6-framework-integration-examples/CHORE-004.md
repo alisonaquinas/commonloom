@@ -2,7 +2,7 @@
 id: CHORE-004
 title: Test-First Coupling Fix Control
 type: chore
-status: planned
+status: done
 priority: high
 phase: 6
 parent: FEAT-001
@@ -40,3 +40,7 @@ the test-first phase rule.
 ## Workflow Log
 
 - 2026-05-11: Planned during Phase 6 planning.
+- 2026-05-11: Reviewed Phase 6 implementation and found no
+  behavior-changing Commonloom source coupling fixes. Example-only and
+  documentation-only work is covered by `examples:check`, docs lint, and the
+  existing package test battery. Status set to done.

@@ -1,0 +1,16 @@
+{
+  "name": "@commonloom/example-node",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node src/build-static.mjs",
+    "preview": "npm run build && node src/preview.mjs"
+  },
+  "dependencies": {
+    "commonloom": "0.1.0"
+  },
+  "devDependencies": {
+    "sass": "1.99.0"
+  }
+}

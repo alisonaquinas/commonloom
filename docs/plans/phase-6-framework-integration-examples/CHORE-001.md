@@ -2,7 +2,7 @@
 id: CHORE-001
 title: Phase 6 Closeout
 type: chore
-status: planned
+status: done
 priority: high
 phase: 6
 parent: FEAT-001
@@ -55,3 +55,7 @@ validation evidence are complete.
 ## Workflow Log
 
 - 2026-05-11: Planned during Phase 6 planning.
+- 2026-05-11: Closed Phase 6 after all feature, task, and operational chore
+  tickets reached terminal status, local `npm run check` passed through the
+  pre-commit gate, example validation was wired into CI, and PR 15 GitHub
+  Actions evidence passed. Status set to done.

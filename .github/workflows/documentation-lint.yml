@@ -53,6 +53,12 @@ jobs:
       - name: Run build
         run: npm run build
 
+      - name: Verify examples
+        run: npm run examples:verify
+
+      - name: Build examples
+        run: npm run examples:build
+
       - name: Validate package tarball
         run: npm run pack:dry-run
 

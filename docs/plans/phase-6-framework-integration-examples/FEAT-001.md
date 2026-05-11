@@ -2,7 +2,7 @@
 id: FEAT-001
 title: Framework Integration Examples
 type: feature
-status: planned
+status: done
 priority: high
 phase: 6
 created: 2026-05-11
@@ -91,3 +91,8 @@ from multiple TypeScript ecosystems without framework-specific coupling.
 ## Workflow Log
 
 - 2026-05-11: Planned for Phase 6 framework integration examples.
+- 2026-05-11: Phase 6 execution started on
+  `feature/phase-6-framework-examples-implementation`. Status set to active.
+- 2026-05-11: Completed the shared example suite, coupling review, example
+  validation, adopter documentation, local validation, and PR 15 remote CI
+  evidence. Status set to done.

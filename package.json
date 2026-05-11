@@ -18,6 +18,9 @@
     "README.md",
     "CHANGELOG.md"
   ],
+  "workspaces": [
+    "examples/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alisonaquinas/commonloom.git"
@@ -41,7 +44,10 @@
   },
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
-    "check": "npm run lint && npm run verify && npm run typecheck && npm run build && npm run test:battery",
+    "check": "npm run lint && npm run verify && npm run typecheck && npm run build && npm run examples:check && npm run test:battery",
+    "examples:build": "npm run build --workspaces --if-present",
+    "examples:check": "npm run examples:verify && npm run examples:build",
+    "examples:verify": "node scripts/verify-examples.mjs",
     "format:check": "npm run lint:docs:markdown",
     "hooks:install": "git config core.hooksPath .githooks",
     "lint": "npm run lint:docs && eslint --max-warnings 0 --no-error-on-unmatched-pattern \"src/**/*.ts\" \"test/**/*.ts\" \"*.config.js\" \"*.config.ts\"",

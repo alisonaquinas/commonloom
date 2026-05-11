@@ -2,7 +2,7 @@
 id: TASK-006
 title: Build Next.js Example
 type: task
-status: planned
+status: done
 priority: medium
 phase: 6
 parent: FEAT-001
@@ -63,3 +63,9 @@ content and style substrate.
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 6 acceptance criteria.
+- 2026-05-11: Started Next.js example implementation. Status set to active.
+- 2026-05-11: Added `examples/nextjs/` with app-routing glue, shared
+  Commonloom content generation, shared SCSS import, shared asset usage, and
+  local dev/build/production preview instructions. Status set to done.
+- 2026-05-11: Pinned Next.js to `16.3.0-canary.19` because npm audit reports
+  the current stable `16.2.6` dependency graph includes vulnerable PostCSS.
