@@ -2,7 +2,7 @@
 id: TASK-002
 title: Define Example Workspace Strategy
 type: task
-status: planned
+status: done
 priority: high
 phase: 6
 parent: FEAT-001
@@ -64,3 +64,7 @@ conventions before framework-specific examples are implemented.
 ## Workflow Log
 
 - 2026-05-11: Planned from Phase 6 example setup requirements.
+- 2026-05-11: Started example workspace strategy. Status set to active.
+- 2026-05-11: Added root npm workspace discovery for `examples/*` and
+  documented shared-contract, package, and command conventions in
+  `examples/README.md`. Status set to done.

@@ -454,3 +454,11 @@ Completed
 [[plans/phase-6-framework-integration-examples/TASK-001|TASK-001]] by adding
 framework-neutral shared Markdown content, shared SCSS, and Commonloom assets
 under `examples/shared/`.
+
+## [2026-05-11] phase | Define Phase 6 example workspace
+
+Completed
+[[plans/phase-6-framework-integration-examples/TASK-002|TASK-002]] by adding
+root npm workspace discovery for `examples/*` and documenting the shared
+example contract, command conventions, and package strategy in
+`examples/README.md`.
