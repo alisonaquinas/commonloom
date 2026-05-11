@@ -34,12 +34,19 @@ verification battery.
 | UT-MD-001 | Unit | [content-pipeline-markdown.test.ts](../../test/content-pipeline-markdown.test.ts), `parses frontmatter, CommonMark headings, and GFM constructs` |
 | UT-MD-002 | Unit | [content-pipeline-markdown.test.ts](../../test/content-pipeline-markdown.test.ts), `reports invalid frontmatter as diagnostics` |
 | UT-MD-003 | Unit | [content-pipeline-markdown.test.ts](../../test/content-pipeline-markdown.test.ts), `reports malformed frontmatter as diagnostics without throwing` |
+| UT-MD-004 | Unit | [content-pipeline-markdown.test.ts](../../test/content-pipeline-markdown.test.ts), `parses broad CommonMark and GFM constructs into mdast nodes` |
 | UT-HTML-001 | Unit | [content-pipeline-html.test.ts](../../test/content-pipeline-html.test.ts), `allows safe inline HTML in rendered Markdown` |
 | UT-HTML-002 | Unit | [content-pipeline-html.test.ts](../../test/content-pipeline-html.test.ts), `diagnoses and removes unsafe inline HTML` |
 | UT-HTML-003 | Unit | [content-pipeline-html.test.ts](../../test/content-pipeline-html.test.ts), `creates source traces with stable content hashes` |
+| UT-HTML-004 | Unit | [content-pipeline-html.test.ts](../../test/content-pipeline-html.test.ts), `keeps safe static inline HTML while sanitizing unsafe attributes` |
+| UT-HTML-005 | Unit | [content-pipeline-html.test.ts](../../test/content-pipeline-html.test.ts), `diagnoses high-risk embed tags before sanitized output is returned` |
+| UT-LINK-000 | Unit | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts), `classifies every supported link target kind before resolution` |
 | UT-LINK-001 | Unit | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts), `extracts external links, internal links, wiki-links, and image references` |
+| UT-LINK-004 | Unit | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts), `reports unsupported link schemes as unresolved diagnostics` |
 | UT-LINK-002 | Unit | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts), `resolves wiki-links only through adapter callbacks` |
 | UT-LINK-003 | Unit | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts), `validates local media paths, missing files, traversal, and alt text` |
+| UT-LINK-005 | Unit | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts), `rejects unsupported media URI schemes before filesystem lookup` |
+| UT-LINK-006 | Unit | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts), `keeps absolute and encoded traversal targets inside approved path rules` |
 | VER-CHECK | Verification | `npm run check` runs docs lint, TypeScript lint, typecheck, build, and unit tests. |
 | VER-DOCS | Verification | `npm run lint:docs` runs root Markdown, Obsidian, and ADR lint. |
 | VER-CI | Verification | `.github/workflows/documentation-lint.yml` runs Node.js 24, `npm ci --ignore-scripts`, and `npm run check`. |
@@ -50,14 +57,14 @@ verification battery.
 | Requirement | Current Evidence | Status | Gap Or Next Test |
 | --- | --- | --- | --- |
 | CLR-USER-001 | UT-MD-001, UT-HTML-001 | Partial | Needs E2E compile from Markdown source to adapter-visible record. |
-| CLR-USER-002 | UT-MD-001, UT-HTML-001 | Partial | Add fixtures for blockquotes, code, emphasis, images, and strikethrough. |
+| CLR-USER-002 | UT-MD-001, UT-MD-004, UT-HTML-001 | Partial | Parser coverage includes the listed constructs; E2E semantic output remains open. |
 | CLR-USER-003 | UT-MD-001 | Covered | None for current parser scope. |
-| CLR-USER-004 | UT-MD-002, UT-MD-003, UT-HTML-002, UT-LINK-002, UT-LINK-003 | Partial | Broken standard internal links are not currently diagnosed. |
+| CLR-USER-004 | UT-MD-002, UT-MD-003, UT-HTML-002, UT-HTML-005, UT-LINK-002, UT-LINK-003, UT-LINK-004, UT-LINK-005 | Partial | Broken standard internal links are not currently diagnosed. |
 | CLR-USER-005 | UT-HTML-003, UT-LINK-001 | Covered | None for current trace scope. |
 | CLR-USER-010 | UT-CORE-003, UT-LINK-002 | Covered | None for current callback scope. |
 | CLR-USER-011 | UT-MD-001, UT-MD-002 | Covered | Manifest schema validation is not implemented yet. |
 | CLR-USER-012 | UT-CORE-001, UT-CORE-003 | Partial | Needs compiled record tests after adapter output is implemented. |
-| CLR-USER-013 | UT-LINK-003 | Partial | Needs adapter asset mapping integration tests. |
+| CLR-USER-013 | UT-LINK-003, UT-LINK-005, UT-LINK-006 | Partial | Needs adapter asset mapping integration tests. |
 | CLR-USER-014 | UT-CORE-003 | Partial | Add static forbidden-import verification. |
 | CLR-USER-020 | VER-DOCS, DOC-PHASE | Verified | None for documentation process. |
 | CLR-USER-021 | VER-DOCS, DOC-PHASE | Partial | No automated source-evidence completeness check exists. |
@@ -68,22 +75,22 @@ verification battery.
 
 | Requirement | Current Evidence | Status | Gap Or Next Test |
 | --- | --- | --- | --- |
-| CLR-FUNC-001 | UT-MD-001 | Covered | Add broader Markdown fixture cases as behavior grows. |
-| CLR-FUNC-002 | UT-MD-001 | Partial | Tables and task lists are covered; autolinks and strikethrough need explicit assertions. |
+| CLR-FUNC-001 | UT-MD-001, UT-MD-004 | Covered | Add broader Markdown fixture cases as behavior grows. |
+| CLR-FUNC-002 | UT-MD-001, UT-MD-004 | Covered | None for current GFM parser scope. |
 | CLR-FUNC-003 | UT-MD-001, UT-HTML-003 | Covered | None for current heading scope. |
 | CLR-FUNC-004 | UT-MD-001 | Covered | None. |
 | CLR-FUNC-005 | UT-MD-002 | Covered | None for frontmatter schema validation. |
 | CLR-FUNC-006 | UT-MD-003 | Covered | None. |
-| CLR-FUNC-020 | UT-HTML-001 | Partial | Needs semantic HTML assertions for more Markdown constructs. |
+| CLR-FUNC-020 | UT-HTML-001, UT-HTML-004 | Partial | Needs E2E semantic HTML assertions for a full content workflow. |
 | CLR-FUNC-021 | UT-HTML-001, UT-HTML-002 | Covered | None for current boolean policy. |
-| CLR-FUNC-022 | UT-HTML-002 | Partial | Event handlers and JavaScript URLs need explicit tests. |
-| CLR-FUNC-023 | UT-HTML-001 | Partial | `kbd` is covered; other allowlisted tags are not. |
-| CLR-FUNC-024 | UT-HTML-001, UT-HTML-002 | Partial | Needs E2E static-rendering output check. |
+| CLR-FUNC-022 | UT-HTML-002, UT-HTML-004, UT-HTML-005 | Covered | None for current sanitizer policy. |
+| CLR-FUNC-023 | UT-HTML-001, UT-HTML-004 | Covered | None for current allowlist. |
+| CLR-FUNC-024 | UT-HTML-001, UT-HTML-002, UT-HTML-004 | Partial | Needs E2E static-rendering output check. |
 | CLR-FUNC-040 | UT-LINK-001, UT-HTML-003 | Covered | None. |
-| CLR-FUNC-041 | UT-LINK-001 | Covered | Same-document and unsupported targets need explicit assertions. |
+| CLR-FUNC-041 | UT-LINK-000, UT-LINK-001 | Covered | None. |
 | CLR-FUNC-042 | UT-LINK-002, UT-CORE-003 | Covered | None. |
 | CLR-FUNC-043 | UT-LINK-003 | Covered | None for local existence checks. |
-| CLR-FUNC-044 | UT-LINK-003 | Partial | Unsupported URI schemes are implemented but need explicit media tests. |
+| CLR-FUNC-044 | UT-LINK-003, UT-LINK-005, UT-LINK-006 | Covered | None for current path and URI policy. |
 | CLR-FUNC-045 | UT-LINK-003 | Covered | None. |
 | CLR-FUNC-060 | UT-CORE-002, UT-MD-002, UT-HTML-002, UT-LINK-002, UT-LINK-003 | Covered | None for current diagnostics. |
 | CLR-FUNC-061 | UT-CORE-002 | Covered | None. |
@@ -118,7 +125,7 @@ verification battery.
 | CLR-TECH-044 | UT-CORE-002, UT-MD-001, UT-LINK-001 | Covered | None. |
 | CLR-TECH-060 | Gap | Gap | No ReDoS or parser-sensitive regex test exists. |
 | CLR-TECH-061 | Gap | Gap | No frontmatter size, alias, or resource-limit test exists. |
-| CLR-TECH-062 | UT-LINK-003 | Partial | Encoded traversal and absolute path cases need tests. |
+| CLR-TECH-062 | UT-LINK-003, UT-LINK-006 | Covered | None for current canonicalization policy. |
 | CLR-TECH-063 | Gap | Gap | No symlink escape test exists. |
 | CLR-TECH-064 | Gap | Gap | No prototype-pollution test exists. |
 | CLR-TECH-065 | Gap | Gap | No pathological-input resource-bound test exists. |
@@ -128,7 +135,7 @@ verification battery.
 | Requirement | Current Evidence | Status | Gap Or Next Test |
 | --- | --- | --- | --- |
 | CLR-OPS-001 | VER-CHECK, VER-CI | Covered | No format script exists; requirement wording includes format checks. |
-| CLR-OPS-002 | UT-MD-001, UT-MD-002, UT-HTML-002, UT-LINK-001, UT-LINK-003, UT-CORE-002, UT-CORE-003 | Partial | Adapter-output and full compiler flow tests are missing. |
+| CLR-OPS-002 | UT-MD-001, UT-MD-002, UT-MD-004, UT-HTML-002, UT-HTML-004, UT-LINK-000, UT-LINK-001, UT-LINK-003, UT-CORE-002, UT-CORE-003 | Partial | Adapter-output and full compiler flow tests are missing. |
 | CLR-OPS-003 | VER-CHECK, VER-CI | Covered | None. |
 | CLR-OPS-004 | Gap | Gap | No generated-output stale-file check exists. |
 | CLR-OPS-005 | VER-DOCS | Covered | None for current tooling. |

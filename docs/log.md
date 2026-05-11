@@ -235,3 +235,11 @@ the requirements test matrix.
 
 Started [[plans/phase-3-close-testing-gaps|Phase 3]] execution on
 `feature/document-test-battery`.
+
+## [2026-05-11] phase | Close Phase 3 unit gap group
+
+Completed [[plans/phase-3-close-testing-gaps/TASK-001|TASK-001]],
+[[plans/phase-3-close-testing-gaps/TASK-002|TASK-002]], and
+[[plans/phase-3-close-testing-gaps/TASK-003|TASK-003]] by expanding
+Markdown/GFM, HTML safety, and link/media unit tests and updating the
+requirements matrix.

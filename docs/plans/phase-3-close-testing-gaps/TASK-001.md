@@ -2,7 +2,7 @@
 id: TASK-001
 title: Broaden Markdown And GFM Unit Tests
 type: task
-status: planned
+status: done
 priority: high
 phase: 3
 parent: FEAT-001
@@ -64,3 +64,7 @@ This task should not add adapter-specific route or renderer behavior.
 ## Workflow Log
 
 - 2026-05-10: Opened in planned status.
+- 2026-05-11: Added broad CommonMark and GFM parser assertions for
+  blockquotes, code fences, inline code, emphasis, images, autolinks, and
+  strikethrough. Updated the test battery and requirements matrix. `npm test`,
+  `npm run lint`, and `npm run typecheck` pass. Status set to done.

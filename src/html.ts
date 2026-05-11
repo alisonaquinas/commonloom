@@ -32,10 +32,20 @@ const unsafeHtmlPattern =
 
 const safeHtmlSchema = {
   ...defaultSchema,
-  tagNames: [...(defaultSchema.tagNames ?? []), 'kbd'],
+  tagNames: [
+    ...(defaultSchema.tagNames ?? []),
+    'abbr',
+    'figcaption',
+    'figure',
+    'kbd',
+    'picture',
+    'source',
+  ],
   attributes: {
     ...defaultSchema.attributes,
+    abbr: ['title'],
     kbd: [],
+    source: ['media', 'srcSet', 'type'],
   },
 };
 

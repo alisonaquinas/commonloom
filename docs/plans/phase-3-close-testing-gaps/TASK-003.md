@@ -2,7 +2,7 @@
 id: TASK-003
 title: Broaden Link And Media Boundary Tests
 type: task
-status: planned
+status: done
 priority: high
 phase: 3
 parent: FEAT-001
@@ -66,3 +66,9 @@ This task must keep project-specific route resolution behind adapter callbacks.
 ## Workflow Log
 
 - 2026-05-10: Opened in planned status.
+- 2026-05-11: Added link classification tests for all current link kinds,
+  unsupported link diagnostics, unsupported media URI diagnostics, absolute
+  path rejection, and encoded traversal confinement. Standard internal-link
+  missing-target diagnostics remain adapter-owned and documented as partial in
+  the matrix. `npm test`, `npm run lint`, and `npm run typecheck` pass. Status
+  set to done.

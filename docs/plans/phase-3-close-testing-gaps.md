@@ -142,3 +142,8 @@ with a clear blocker or deferral instead of silently marking it covered.
 
 > [!INFO] Active · 2026-05-11
 > Phase 3 execution started on `feature/document-test-battery`.
+
+> [!SUCCESS] Unit gap group · 2026-05-11
+> TASK-001, TASK-002, and TASK-003 expanded Markdown/GFM, HTML safety, and
+> link/media boundary tests. `npm test`, `npm run lint`, and `npm run
+> typecheck` pass locally.

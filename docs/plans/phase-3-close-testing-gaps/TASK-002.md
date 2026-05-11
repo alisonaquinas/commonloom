@@ -2,7 +2,7 @@
 id: TASK-002
 title: Broaden HTML Safety Unit Tests
 type: task
-status: planned
+status: done
 priority: high
 phase: 3
 parent: FEAT-001
@@ -62,3 +62,8 @@ expected behavior or document a blocker in the matrix.
 ## Workflow Log
 
 - 2026-05-10: Opened in planned status.
+- 2026-05-11: Added HTML sanitizer assertions for unsafe attributes,
+  JavaScript URLs, high-risk embed tags, and static inline allowlist tags.
+  Failing tests exposed missing `abbr` and `source srcSet` allowlist entries;
+  implementation was updated without relaxing test expectations. `npm test`,
+  `npm run lint`, and `npm run typecheck` pass. Status set to done.

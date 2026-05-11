@@ -34,7 +34,7 @@ repository verification gate that runs lint, typecheck, build, and tests.
 
 | Command | Type | What It Proves |
 | --- | --- | --- |
-| `npm test` | [[tests/unit/index|Unit]] | Runs four Vitest files with twelve assertions over current package behavior. |
+| `npm test` | [[tests/unit/index|Unit]] | Runs four Vitest files with nineteen assertions over current package behavior. |
 | `npm run lint:docs` | [[tests/verification/index|Verification]] | Checks root Markdown, Obsidian vault Markdown, and MADR ADR shape. |
 | `npm run lint` | [[tests/verification/index|Verification]] | Runs documentation linting and TypeScript ESLint with warnings blocked. |
 | `npm run typecheck` | [[tests/verification/index|Verification]] | Confirms TypeScript contracts typecheck without emitting output. |
@@ -55,9 +55,9 @@ closing the current matrix gaps.
 | File | Primary Type | Current Coverage |
 | --- | --- | --- |
 | [content-pipeline-core.test.ts](../../test/content-pipeline-core.test.ts) | [[tests/unit/index|Unit]] | Compiler scaffold, public exports, diagnostics, source traces, and adapter-owned link callbacks. |
-| [content-pipeline-markdown.test.ts](../../test/content-pipeline-markdown.test.ts) | [[tests/unit/index|Unit]] | Frontmatter parsing, Zod validation diagnostics, CommonMark/GFM parsing, and heading extraction. |
-| [content-pipeline-html.test.ts](../../test/content-pipeline-html.test.ts) | [[tests/unit/index|Unit]] | Markdown-to-HTML rendering, unsafe HTML diagnostics, sanitization, and source trace hashing. |
-| [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts) | [[tests/unit/index|Unit]] | Link extraction, wiki-link adapter resolution, media path checks, missing media, traversal rejection, and alt text diagnostics. |
+| [content-pipeline-markdown.test.ts](../../test/content-pipeline-markdown.test.ts) | [[tests/unit/index|Unit]] | Frontmatter parsing, Zod validation diagnostics, CommonMark/GFM parsing, GFM autolinks, strikethrough, blockquotes, code, images, and heading extraction. |
+| [content-pipeline-html.test.ts](../../test/content-pipeline-html.test.ts) | [[tests/unit/index|Unit]] | Markdown-to-HTML rendering, unsafe HTML diagnostics, static inline HTML allowlisting, sanitization, and source trace hashing. |
+| [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts) | [[tests/unit/index|Unit]] | Link classification, link extraction, wiki-link adapter resolution, unsupported schemes, media path checks, missing media, traversal rejection, and alt text diagnostics. |
 
 ## Known Gaps
 

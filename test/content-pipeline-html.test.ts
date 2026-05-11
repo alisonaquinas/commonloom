@@ -33,6 +33,31 @@ describe('Commonloom HTML rendering and source traces', () => {
     expect(result.diagnostics).toEqual([]);
   });
 
+  it('keeps safe static inline HTML while sanitizing unsafe attributes', async () => {
+    const parsed = parse(
+      [
+        '---',
+        'title: Static HTML',
+        '---',
+        '# Static HTML',
+        '',
+        '<abbr title="World Wide Web">WWW</abbr>',
+        '<figure><picture><source srcset="diagram.webp" type="image/webp"><img src="diagram.png" alt="Diagram"></picture><figcaption>Diagram</figcaption></figure>',
+        '<a href="javascript:alert(1)" onclick="alert(1)">unsafe link</a>',
+      ].join('\n'),
+    );
+    const result = await renderMarkdownHtml({ parsed, allowHtml: true });
+
+    expect(result.bodyHtml).toContain('<abbr title="World Wide Web">WWW</abbr>');
+    expect(result.bodyHtml).toContain('<figure>');
+    expect(result.bodyHtml).toContain('<picture>');
+    expect(result.bodyHtml).toContain('<source srcset="diagram.webp" type="image/webp">');
+    expect(result.bodyHtml).toContain('<figcaption>Diagram</figcaption>');
+    expect(result.bodyHtml).toContain('<a>unsafe link</a>');
+    expect(result.bodyHtml).not.toContain('javascript:');
+    expect(result.bodyHtml).not.toContain('onclick');
+  });
+
   it('diagnoses and removes unsafe inline HTML', async () => {
     const parsed = parse(
       ['---', 'title: Unsafe', '---', '# Unsafe', '', '<script>alert("x")</script>'].join('\n'),
@@ -45,6 +70,21 @@ describe('Commonloom HTML rendering and source traces', () => {
         code: 'HTML_UNSAFE',
         severity: 'error',
         sourcePath: 'copy/html.md',
+      }),
+    );
+  });
+
+  it('diagnoses high-risk embed tags before sanitized output is returned', async () => {
+    const parsed = parse(
+      ['---', 'title: Unsafe Embed', '---', '# Unsafe Embed', '', '<iframe src="/embed"></iframe>'].join('\n'),
+    );
+    const result = await renderMarkdownHtml({ parsed, allowHtml: true });
+
+    expect(result.bodyHtml).not.toContain('<iframe');
+    expect(result.diagnostics).toContainEqual(
+      expect.objectContaining({
+        code: 'HTML_UNSAFE',
+        message: expect.stringContaining('<iframe>') as string,
       }),
     );
   });

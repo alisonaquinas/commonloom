@@ -17,9 +17,9 @@ updated: 2026-05-10
 | Ticket | Title | Type | Status |
 | --- | --- | --- | --- |
 | [[plans/phase-3-close-testing-gaps/FEAT-001|FEAT-001]] | Close Testing Gaps | Feature | `active` |
-| [[plans/phase-3-close-testing-gaps/TASK-001|TASK-001]] | Broaden Markdown And GFM Unit Tests | Task | `planned` |
-| [[plans/phase-3-close-testing-gaps/TASK-002|TASK-002]] | Broaden HTML Safety Unit Tests | Task | `planned` |
-| [[plans/phase-3-close-testing-gaps/TASK-003|TASK-003]] | Broaden Link And Media Boundary Tests | Task | `planned` |
+| [[plans/phase-3-close-testing-gaps/TASK-001|TASK-001]] | Broaden Markdown And GFM Unit Tests | Task | `done` |
+| [[plans/phase-3-close-testing-gaps/TASK-002|TASK-002]] | Broaden HTML Safety Unit Tests | Task | `done` |
+| [[plans/phase-3-close-testing-gaps/TASK-003|TASK-003]] | Broaden Link And Media Boundary Tests | Task | `done` |
 | [[plans/phase-3-close-testing-gaps/TASK-004|TASK-004]] | Test Manifest-Driven Compiled Records | Task | `planned` |
 | [[plans/phase-3-close-testing-gaps/TASK-005|TASK-005]] | Add Integration Test Suite | Task | `planned` |
 | [[plans/phase-3-close-testing-gaps/TASK-006|TASK-006]] | Add End-To-End Fixture Workflow | Task | `planned` |
