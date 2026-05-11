@@ -1,7 +1,7 @@
 ---
 title: Phase 4 npm Trusted Publishing Tickets
 phase: 4
-status: planned
+status: active
 tags:
   - plans/phase-4
   - tickets/index
@@ -17,8 +17,8 @@ updated: 2026-05-11
 
 | Ticket | Title | Type | Status |
 | --- | --- | --- | --- |
-| [[plans/phase-4-npm-trusted-publishing/FEAT-001|FEAT-001]] | Establish npm Trusted Publishing | Feature | `planned` |
-| [[plans/phase-4-npm-trusted-publishing/TASK-001|TASK-001]] | Audit Package Publication Readiness | Task | `planned` |
+| [[plans/phase-4-npm-trusted-publishing/FEAT-001|FEAT-001]] | Establish npm Trusted Publishing | Feature | `active` |
+| [[plans/phase-4-npm-trusted-publishing/TASK-001|TASK-001]] | Audit Package Publication Readiness | Task | `active` |
 | [[plans/phase-4-npm-trusted-publishing/TASK-002|TASK-002]] | Validate Package Dry Runs | Task | `planned` |
 | [[plans/phase-4-npm-trusted-publishing/TASK-003|TASK-003]] | Coordinate Manual Bootstrap Publish | Task | `planned` |
 | [[plans/phase-4-npm-trusted-publishing/TASK-004|TASK-004]] | Configure npm Trusted Publisher | Task | `planned` |

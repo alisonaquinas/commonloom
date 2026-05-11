@@ -2,7 +2,7 @@
 id: TASK-001
 title: Audit Package Publication Readiness
 type: task
-status: planned
+status: active
 priority: high
 phase: 4
 parent: FEAT-001
@@ -57,3 +57,5 @@ publish operation.
 ## Workflow Log
 
 - 2026-05-11: Opened in planned status.
+- 2026-05-11: Started package publication readiness audit. Status set to
+  active.

@@ -7,7 +7,7 @@ tags:
   - release
   - npm
   - oidc
-status: planned
+status: active
 updated: 2026-05-11
 aliases:
   - Phase 4
@@ -148,3 +148,6 @@ Required Phase 4 gate:
 > [!INFO] Planned · 2026-05-11
 > Phase 4 was authored to close the remaining release, npm publishing,
 > provenance, and test-tag workflow gaps. Execution has not started.
+
+> [!INFO] Active · 2026-05-11
+> Phase 4 execution started on `feature/phase-4-npm-trusted-publishing`.

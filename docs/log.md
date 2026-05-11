@@ -301,6 +301,11 @@ automation and npm OIDC trusted publishing.
 The plan records the required one-time manual `0.0.0` bootstrap publish before
 npm trusted publisher authorization is configured.
 
+## [2026-05-11] phase | Start Phase 4 npm trusted publishing
+
+Started [[plans/phase-4-npm-trusted-publishing|Phase 4]] execution on
+`feature/phase-4-npm-trusted-publishing`.
+
 ## [2026-05-11] assets | Add Commonloom documentation assets
 
 Added Commonloom logo, icon, and source PNG assets under [[assets/index]].
