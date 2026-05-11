@@ -2,7 +2,7 @@
 id: FEAT-001
 title: Close Testing Gaps
 type: feature
-status: active
+status: in-review
 priority: high
 phase: 3
 created: 2026-05-10
@@ -73,3 +73,5 @@ Acceptance closes only after remote CI evidence is captured.
 - 2026-05-10: Opened in planned status.
 - 2026-05-11: Phase 3 execution started on `feature/document-test-battery`.
   Status set to active.
+- 2026-05-11: All implementation task tickets are done and local `npm run
+  check` passes. Status set to in-review pending Phase 3 PR CI evidence.

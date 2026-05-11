@@ -265,3 +265,10 @@ Completed [[plans/phase-3-close-testing-gaps/TASK-009|TASK-009]] and
 [[plans/phase-3-close-testing-gaps/TASK-010|TASK-010]] by adding requirements
 matrix validation, BDD requirement-link validation, and phase/ticket process
 verification to `npm run verify`.
+
+## [2026-05-11] phase | Phase 3 local closeout
+
+Moved [[plans/phase-3-close-testing-gaps|Phase 3]] to in-review after all task
+tickets reached done and local `npm run check` passed with documentation lint,
+traceability/process verification, typecheck, build, and 25 Vitest tests.
+Remote CI evidence remains required before marking the phase done.

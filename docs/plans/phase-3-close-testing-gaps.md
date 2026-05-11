@@ -6,8 +6,8 @@ tags:
   - phase-3
   - tests
   - quality
-status: active
-updated: 2026-05-10
+status: in-review
+updated: 2026-05-11
 aliases:
   - Phase 3
   - Close Testing Gaps
@@ -108,15 +108,15 @@ with a clear blocker or deferral instead of silently marking it covered.
 
 ## Acceptance Criteria
 
-- [ ] New or expanded tests cover all Phase 3 testable functional gaps.
-- [ ] Security-sensitive gaps have executable tests or explicit documented
+- [x] New or expanded tests cover all Phase 3 testable functional gaps.
+- [x] Security-sensitive gaps have executable tests or explicit documented
   blockers.
-- [ ] Integration and E2E test categories are either active or explicitly
+- [x] Integration and E2E test categories are either active or explicitly
   blocked by missing compiler behavior.
-- [ ] Verification checks cover adapter-neutral source boundaries where
+- [x] Verification checks cover adapter-neutral source boundaries where
   practical.
-- [ ] Requirements matrix status is updated after each ticket.
-- [ ] `npm run check` passes locally.
+- [x] Requirements matrix status is updated after each ticket.
+- [x] `npm run check` passes locally.
 - [ ] Remote CI evidence is captured before phase completion.
 
 ## Evidence
@@ -162,3 +162,8 @@ with a clear blocker or deferral instead of silently marking it covered.
 > TASK-009 and TASK-010 added requirements/BDD traceability validation and
 > phase/ticket process verification to `npm run verify`. The gate passes
 > locally after correcting terminal ticket workflow log wording.
+
+> [!SUCCESS] Local closeout · 2026-05-11
+> CHORE-001 recorded local closeout evidence. `npm run check` passes locally
+> with documentation lint, traceability/process verification, typecheck, build,
+> and 25 Vitest tests. Phase 3 is in review pending remote CI evidence.
