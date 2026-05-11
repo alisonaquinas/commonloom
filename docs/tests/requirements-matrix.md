@@ -6,7 +6,7 @@ tags:
   - requirements
   - traceability
 status: active
-updated: 2026-05-10
+updated: 2026-05-11
 aliases:
   - Requirements Test Matrix
   - Test Traceability Matrix
@@ -161,22 +161,22 @@ verification battery.
 | CLR-OPS-025 | VER-DOCS | Partial | Layout prose is manual; Obsidian lint catches links only. |
 | CLR-OPS-026 | VER-DOCS, DOC-PHASE | Partial | Log entry completeness is manual. |
 | CLR-OPS-027 | VER-DOCS, VER-TRACE | Covered | None for current wikilink and BDD requirement-link resolution. |
-| CLR-OPS-040 | Gap | Gap | No release workflow exists. |
-| CLR-OPS-041 | Gap | Gap | No release workflow exists. |
+| CLR-OPS-040 | Gap | Gap | Phase 4 TASK-005 and TASK-006 plan production release workflow and tag ancestry checks. |
+| CLR-OPS-041 | Gap | Gap | Phase 4 TASK-002, TASK-005, and TASK-006 plan rebuild and package dry-run checks. |
 | CLR-OPS-042 | VER-CI | Covered | Current workflow has no path filters and runs full checks. |
-| CLR-OPS-043 | VER-CI | Partial | Validation workflow is least-privilege; release workflow does not exist. |
-| CLR-OPS-044 | Gap | Gap | No test-tag release workflow exists. |
+| CLR-OPS-043 | VER-CI | Partial | Validation workflow is least-privilege; Phase 4 TASK-004 and TASK-005 plan release permissions. |
+| CLR-OPS-044 | Gap | Gap | Phase 4 TASK-007 plans a test-tag or dry-run release path. |
 | CLR-OPS-045 | VER-CI | Covered | Current workflow uses Node.js 24. |
-| CLR-OPS-046 | Gap | Gap | No npm publish workflow exists. |
+| CLR-OPS-046 | Gap | Gap | Phase 4 TASK-003, TASK-004, and TASK-005 plan manual bootstrap, trusted publisher setup, and OIDC publish workflow. |
 | CLR-OPS-047 | VER-CI, DOC-PHASE | Partial | CI runs git-flow branches; no branch-name enforcement hook exists. |
 | CLR-OPS-048 | VER-CI, DOC-PHASE | Covered | Current CI has no publish, release, or deployment step. |
 | CLR-OPS-060 | VER-BOUNDARY | Covered | Dependencies use exact package versions and are checked by `npm run verify`. |
 | CLR-OPS-061 | VER-CI | Covered | CI uses `npm ci --ignore-scripts`. |
 | CLR-OPS-062 | VER-CI | Covered | CI uses `npm ci --ignore-scripts`. |
 | CLR-OPS-063 | Gap | Gap | No advisory-review test or workflow exists. |
-| CLR-OPS-064 | Gap | Gap | No npm publish workflow exists. |
-| CLR-OPS-065 | Gap | Gap | No release artifact workflow exists. |
-| CLR-OPS-066 | Gap | Gap | No npm publish workflow exists. |
+| CLR-OPS-064 | Gap | Gap | Phase 4 TASK-004 and TASK-005 plan npm trusted publishing. |
+| CLR-OPS-065 | Gap | Gap | Phase 4 TASK-002 and TASK-007 plan package dry-run and release artifact evidence. |
+| CLR-OPS-066 | Gap | Gap | Phase 4 TASK-004 and TASK-005 plan trusted publishing provenance. |
 | CLR-OPS-080 | DOC-PHASE | Partial | Process requirement is documented; no automated phase-order check exists. |
 | CLR-OPS-081 | DOC-PHASE | Partial | Ownership is manual in phase records. |
 | CLR-OPS-082 | VER-PROCESS, DOC-PHASE | Partial | Ticket metadata is schema-checked; lifecycle order remains reviewer judgment. |
@@ -224,6 +224,10 @@ Clear untested areas:
 [[plans/phase-3-close-testing-gaps|Phase 3]] closed the first testability gaps.
 Remaining gaps should be converted into later roadmap phases or explicitly
 deferred when they are outside the core package boundary.
+
+[[plans/phase-4-npm-trusted-publishing|Phase 4]] contains planned tickets for
+release automation, npm trusted publishing, provenance, and test-tag workflow
+gaps.
 
 ## See Also
 

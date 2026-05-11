@@ -35,6 +35,7 @@ the Flavor Grenade website content pipeline into this standalone repository.
 | [[Commonloom Extraction Plan]] | W8 migration and extraction plan summary. |
 | [[phase-2-ci-quality-gates|Phase 2 CI Quality Gates]] | Completed Phase 2 plan for strict TypeScript linting and full package CI checks. |
 | [[phase-3-close-testing-gaps|Phase 3 Close Testing Gaps]] | Completed Phase 3 work closing the first requirements test matrix gaps. |
+| [[phase-4-npm-trusted-publishing|Phase 4 npm Trusted Publishing]] | Planned release automation and npm OIDC trusted publishing work. |
 | [[sources/index|Source Imports]] | Catalog of imported upstream source files. |
 | [[log]] | Chronological vault maintenance record. |
 
