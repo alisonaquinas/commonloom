@@ -46,6 +46,7 @@ start once the package is ready for npm publication.
   gate, and pre-release API status.
 - Updated CI documentation so the test battery is described by category instead
   of only by the catch-all Vitest command.
+- Updated package metadata for public npm publication readiness.
 
 ### Fixed
 

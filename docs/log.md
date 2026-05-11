@@ -306,6 +306,12 @@ npm trusted publisher authorization is configured.
 Started [[plans/phase-4-npm-trusted-publishing|Phase 4]] execution on
 `feature/phase-4-npm-trusted-publishing`.
 
+## [2026-05-11] phase | Audit Phase 4 publication metadata
+
+Completed [[plans/phase-4-npm-trusted-publishing/TASK-001|TASK-001]] by
+checking that `commonloom` is not currently published on npm and adding public
+package metadata for release dry-runs.
+
 ## [2026-05-11] assets | Add Commonloom documentation assets
 
 Added Commonloom logo, icon, and source PNG assets under [[assets/index]].

@@ -2,7 +2,7 @@
 id: TASK-002
 title: Validate Package Dry Runs
 type: task
-status: planned
+status: active
 priority: high
 phase: 4
 parent: FEAT-001
@@ -55,3 +55,5 @@ Prove the npm package contents with dry-run commands before any real publish.
 ## Workflow Log
 
 - 2026-05-11: Opened in planned status.
+- 2026-05-11: Started package dry-run validation after TASK-001 metadata audit.
+  Status set to active.
