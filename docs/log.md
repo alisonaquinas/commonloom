@@ -292,3 +292,15 @@ Added `npm run test:unit`, `npm run test:integration`, `npm run test:e2e`, and
 Updated GitHub Actions to run lint, verification, typecheck, build, unit,
 integration, and E2E steps explicitly while preserving `npm run check` as the
 matching local gate.
+
+## [2026-05-11] assets | Add Commonloom documentation assets
+
+Added Commonloom logo, icon, and source PNG assets under [[assets/index]].
+Configured Git LFS tracking for `docs/assets/*.png` and linked the primary logo
+from [[Commonloom]].
+
+## [2026-05-11] docs | Add GitHub-facing README
+
+Added `.github/README.md` as a rich GitHub-flavored Markdown landing document
+that links the Commonloom quality battery, documentation vault, requirements
+matrix, and light/dark mode logo assets.

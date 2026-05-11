@@ -12,6 +12,7 @@ docs/
 ├── adr.md            # Commonloom ADR index
 ├── index.md          # Content-oriented wiki catalog
 ├── log.md            # Chronological maintenance log
+├── assets/           # Git LFS-managed images and documentation assets
 ├── adr/              # MADR-style architecture decision records
 ├── concepts/         # Entity and concept notes
 ├── architecture/     # Architecture synthesis notes
@@ -34,6 +35,8 @@ Use these local conventions:
 
 - `sources/` is the raw source layer. Preserve imported files unless refreshing
   from the original source path.
+- `assets/` is the binary documentation asset layer. Track PNG assets with Git
+  LFS and link them from synthesized notes instead of duplicating copies.
 - Topic folders are the wiki layer. They contain synthesized notes that agents
   maintain over time.
 - This file is the schema layer. Update it when vault conventions change.
@@ -62,6 +65,7 @@ Use these local conventions:
 
 | Folder | Purpose |
 | --- | --- |
+| `assets/` | Git LFS-managed images and documentation assets. |
 | `adr/` | MADR-style architecture decision records and decision index. |
 | `concepts/` | Core vocabulary, entities, and reusable ideas. |
 | `architecture/` | System boundaries, flows, and module responsibility. |
