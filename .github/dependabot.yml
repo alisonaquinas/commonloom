@@ -1,5 +1,8 @@
 version: 2
 
+# Dependabot reads this file from the repository default branch. Routine
+# version-update PRs below target `develop` through `target-branch`. GitHub does
+# not support non-default target branches for security-update PRs.
 updates:
   - package-ecosystem: "npm"
     directory: "/"
@@ -80,9 +83,7 @@ updates:
     commit-message:
       prefix: "ci(actions)"
     cooldown:
-      semver-major-days: 30
-      semver-minor-days: 7
-      semver-patch-days: 2
+      default-days: 7
     groups:
       actions-minor-patch:
         applies-to: version-updates

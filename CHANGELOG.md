@@ -23,6 +23,9 @@ Commonloom follows a `0.x` release line while the standalone public API settles.
 - Added Dependabot version-update configuration for npm and GitHub Actions,
   OpenSSF Scorecard scanning, security reporting policy, and repository
   CODEOWNERS metadata.
+- Clarified that Dependabot version-update work targets `develop` and merged
+  the existing Svelte Dependabot PR into the GitHub-native security branch
+  without downgrading the newer audit-clean dependency state.
 
 ## [0.1.0] - 2026-05-11
 
