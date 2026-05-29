@@ -8,6 +8,11 @@ Commonloom follows a `0.x` release line while the standalone public API settles.
 
 No unreleased changes yet.
 
+## [0.1.3] - 2026-05-29
+
+- Updated library tooling with the current TypeScript major update.
+- Updated Vue example type checking with the latest `vue-tsc` patch.
+
 ## [0.1.2] - 2026-05-29
 
 - Collected the open Dependabot updates for production dependencies,
