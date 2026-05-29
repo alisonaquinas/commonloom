@@ -6,7 +6,7 @@ tags:
   - requirements
   - traceability
 status: active
-updated: 2026-05-28
+updated: 2026-05-29
 aliases:
   - Requirements Test Matrix
   - Test Traceability Matrix
@@ -80,6 +80,7 @@ verification battery.
 | REL-WORKFLOW | Verification | `.github/workflows/npm-publish.yml` runs Node.js 24 release dry-runs and reserves OIDC publish permissions for version-tag publish jobs. |
 | REL-GUARD | Verification | [verify-release-tag.mjs](../../scripts/verify-release-tag.mjs) checks tag shape, package-version agreement, and exact `origin/main` head agreement before publish. |
 | REL-DRYRUN | Verification | `npm run pack:dry-run`, `npm run publish:dry-run`, and `npm run publish:dry-run:ci` validate package contents and the npm publish payload. |
+| SPEC-FLAVOR | Documentation | [[architecture/Markdown Flavor Modes]] documents the proposed flavor contract, one-flavor run rule, parser changes, diagnostics, safety constraints, and acceptance evidence. |
 | DOC-PHASE | Documentation | Phase and ticket records under [[plans/phase-1-import-commonloom-package]], [[plans/phase-2-ci-quality-gates]], [[plans/phase-3-close-testing-gaps]], [[plans/phase-4-npm-trusted-publishing]], and [[plans/phase-5-audit-driven-hardening]]. |
 
 ## User Requirements
@@ -112,6 +113,13 @@ verification battery.
 | CLR-FUNC-004 | UT-MD-001 | Covered | None. |
 | CLR-FUNC-005 | UT-MD-002 | Covered | None for frontmatter schema validation. |
 | CLR-FUNC-006 | UT-MD-003 | Covered | None. |
+| CLR-FUNC-007 | SPEC-FLAVOR | Gap | Add compile-run tests proving one effective flavor applies across all manifests. |
+| CLR-FUNC-008 | SPEC-FLAVOR | Gap | Add flavor contract and fixtures for every explicit flavor id. |
+| CLR-FUNC-009 | SPEC-FLAVOR | Gap | Add default-policy tests proving current CommonMark plus GFM behavior remains unchanged. |
+| CLR-FUNC-010 | SPEC-FLAVOR | Gap | Add parser, renderer, source trace, link, and media tests that share one effective flavor. |
+| CLR-FUNC-011 | SPEC-FLAVOR | Gap | Add host-reference classification tests for GFM, GLFM, Reddit, Stack Overflow, MDX, and R Markdown. |
+| CLR-FUNC-012 | SPEC-FLAVOR | Gap | Add non-execution tests for MDX, R Markdown, diagrams, includes, filters, and host references. |
+| CLR-FUNC-013 | SPEC-FLAVOR | Gap | Add diagnostic tests for unsupported and conflicting flavor policy. |
 | CLR-FUNC-020 | UT-HTML-001, UT-HTML-004 | Partial | Needs E2E semantic HTML assertions for a full content workflow. |
 | CLR-FUNC-021 | UT-HTML-001, UT-HTML-002 | Covered | None for current boolean policy. |
 | CLR-FUNC-022 | UT-HTML-002, UT-HTML-004, UT-HTML-005 | Covered | None for current sanitizer policy. |
@@ -151,11 +159,18 @@ verification battery.
 | CLR-TECH-023 | UT-MD-002 | Covered | None for frontmatter schema boundary. |
 | CLR-TECH-024 | VER-CHECK, VER-BOUNDARY | Covered | None for current dependency set. |
 | CLR-TECH-025 | VER-BOUNDARY | Covered | No syntax-highlighting dependency is required by the core package. |
+| CLR-TECH-026 | SPEC-FLAVOR | Gap | Add static boundary verification proving flavor modes do not import Flavor Grenade. |
+| CLR-TECH-027 | SPEC-FLAVOR | Gap | Add unit tests for processor construction keyed by explicit flavor id. |
+| CLR-TECH-028 | SPEC-FLAVOR | Gap | Add dependency and parser safety tests for inert executable regions. |
 | CLR-TECH-040 | UT-CORE-002 | Covered | None. |
 | CLR-TECH-041 | UT-CORE-002, INT-001, E2E-001 | Covered | None for current exported contracts. |
 | CLR-TECH-042 | UT-CORE-003, INT-001, E2E-001 | Covered | None for current generic adapter data flow. |
 | CLR-TECH-043 | UT-MD-002, UT-MD-003 | Partial | Manifest/config programmer-error boundaries are not tested. |
 | CLR-TECH-044 | UT-CORE-002, UT-MD-001, UT-LINK-001 | Covered | None. |
+| CLR-TECH-045 | SPEC-FLAVOR | Gap | Add exported type/value tests for `CommonloomMarkdownFlavor`. |
+| CLR-TECH-046 | SPEC-FLAVOR | Gap | Add compile-time and runtime tests for `config.markdown.flavor`. |
+| CLR-TECH-047 | SPEC-FLAVOR | Gap | Add validation tests proving `auto` is rejected or resolved before Commonloom runs. |
+| CLR-TECH-048 | SPEC-FLAVOR | Gap | Add type and validation tests proving structured profiles are not base flavor ids. |
 | CLR-TECH-060 | SEC-003 | Partial | Long wiki-link input is covered; broader ReDoS review remains manual. |
 | CLR-TECH-061 | SEC-001 | Partial | Oversized frontmatter is covered; YAML alias/depth limits remain future hardening. |
 | CLR-TECH-062 | UT-LINK-003, UT-LINK-006, UT-LINK-009, SEC-005 | Covered | None for current canonicalization policy. |
@@ -253,6 +268,8 @@ Clear untested areas:
 
 - generated-output reproducibility checks for future adapters
 - broader parser hardening for YAML aliases and depth
+- optional Markdown flavor modes and per-flavor parser, renderer, trace, and
+  safety coverage
 - automated checks for phase order, commit discipline, CI evidence semantics,
   and source-evidence completeness
 

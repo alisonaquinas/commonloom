@@ -5,7 +5,7 @@ tags:
   - log
   - llm-wiki
 status: active
-updated: 2026-05-11
+updated: 2026-05-29
 aliases:
   - Vault Log
 ---
@@ -590,3 +590,13 @@ GitHub-native security scanning feature branch while keeping the newer
 Clarified that Dependabot version updates are based on `develop` through
 `target-branch: develop`, while GitHub security-update PRs remain constrained
 to the default branch.
+
+## [2026-05-29] specification | Plan Markdown flavor modes
+
+Inspected Flavor Grenade's Markdown flavor model as reference evidence and
+added [[Markdown Flavor Modes]] to specify optional Commonloom flavor modes,
+the one-flavor compile-run rule, public contract changes, diagnostics, safety
+constraints, and acceptance evidence.
+Updated functional and technical requirements plus
+[[tests/requirements-matrix|Requirements Test Matrix]] to show the new flavor
+mode implementation and test gaps.

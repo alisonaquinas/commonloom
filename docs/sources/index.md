@@ -5,7 +5,7 @@ tags:
   - sources
   - imports
 status: active
-updated: 2026-05-10
+updated: 2026-05-29
 aliases:
   - Imported Sources
   - Source Imports
@@ -48,6 +48,7 @@ documentation surface.
 
 | Source | Why It Matters |
 | --- | --- |
+| [[sources/flavor-grenade-lsp/src/markdown-flavor/index|src/markdown-flavor evidence]] | Reference-only source evidence for Flavor Grenade Markdown flavor ids, labels, structured profiles, and single effective flavor resolution. |
 | [[sources/flavor-grenade-lsp/docs/requirements/ci-cd|docs/requirements/ci-cd]] | Repository CI/CD and release gate source. |
 | [[sources/flavor-grenade-lsp/docs/requirements/code-quality|docs/requirements/code-quality]] | Strict type, lint, and quality expectations. |
 | [[sources/flavor-grenade-lsp/docs/requirements/development-process|docs/requirements/development-process]] | Development process and review behavior. |

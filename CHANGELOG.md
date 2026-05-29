@@ -6,7 +6,8 @@ Commonloom follows a `0.x` release line while the standalone public API settles.
 
 ## Unreleased
 
-No unreleased changes yet.
+- Documented the proposed Markdown flavor mode specification, including the
+  one-flavor compile-run rule and reference-only Flavor Grenade evidence.
 
 ## [0.1.3] - 2026-05-29
 

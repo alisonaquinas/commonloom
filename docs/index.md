@@ -5,7 +5,7 @@ tags:
   - index
   - llm-wiki
 status: active
-updated: 2026-05-11
+updated: 2026-05-29
 aliases:
   - Commonloom Index
 ---
@@ -26,6 +26,7 @@ content-pipeline repository.
 | [[Commonloom]] | Core identity, scope, and current extraction status. |
 | [[assets/index|Commonloom Assets]] | Git LFS-managed logos, icons, and source images. |
 | [[Commonloom Architecture]] | Reusable core boundary, adapter boundary, and data flow. |
+| [[Markdown Flavor Modes]] | Proposed optional Markdown flavor modes and one-flavor compile-run specification. |
 | [[Commonloom Requirements]] | User, functional, technical, and operational requirements. |
 | [[adr|Commonloom ADRs]] | MADR-backed decisions and rejected alternatives. |
 | [[ddd/index|Commonloom DDD]] | Domains, bounded contexts, ubiquitous language, and tactical model. |

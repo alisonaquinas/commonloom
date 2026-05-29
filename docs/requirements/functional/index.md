@@ -4,7 +4,7 @@ tags:
   - commonloom
   - requirements/functional
 status: active
-updated: 2026-05-10
+updated: 2026-05-29
 aliases:
   - Functional Requirements
 ---
@@ -15,7 +15,7 @@ Functional requirements define what Commonloom must do.
 
 | Requirement Set | Covers |
 | --- | --- |
-| [[markdown-and-frontmatter|Markdown And Frontmatter]] | Markdown syntax, GFM, frontmatter parsing, and headings. |
+| [[markdown-and-frontmatter|Markdown And Frontmatter]] | Markdown syntax, optional flavor modes, frontmatter parsing, and headings. |
 | [[html-rendering|HTML Rendering]] | static HTML output and safety policy. |
 | [[links-and-media|Links And Media]] | link classification, wiki-link callbacks, media validation, and path safety. |
 | [[diagnostics-and-source-traces|Diagnostics And Source Traces]] | normalized diagnostics and trace records. |
