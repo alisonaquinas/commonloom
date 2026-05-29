@@ -8,6 +8,14 @@ Commonloom follows a `0.x` release line while the standalone public API settles.
 
 No unreleased changes yet.
 
+## [0.1.2] - 2026-05-29
+
+- Collected the open Dependabot updates for production dependencies,
+  development dependencies, GitHub Actions, TypeScript, and the Next.js
+  example canary into a single validated update set.
+- Updated the tracked Next.js generated type reference for the newer canary
+  build output.
+
 ## [0.1.1] - 2026-05-29
 
 - Added Phase 6 planning for shared-content framework integration examples
