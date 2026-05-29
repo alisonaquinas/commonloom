@@ -21,6 +21,7 @@ commonloom/
 ├── CHANGELOG.md       # Release notes
 ├── CONTRIBUTING.md    # Contribution rules
 ├── LICENSE.md         # MIT license
+├── SECURITY.md        # Vulnerability reporting policy
 ├── package.json       # npm scripts and package metadata
 └── tsconfig*.json     # TypeScript project configuration
 ```

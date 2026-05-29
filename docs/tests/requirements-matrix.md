@@ -73,6 +73,9 @@ verification battery.
 | VER-NPM-AUDIT | Verification | `.github/workflows/code-quality-sast.yml` runs `npm audit --audit-level=moderate` after `npm ci --ignore-scripts`. |
 | VER-CODEQL | Verification | `.github/workflows/code-quality-sast.yml` runs CodeQL JavaScript and TypeScript SAST with security-extended and security-and-quality queries. |
 | VER-SEMGREP | Verification | `.github/workflows/code-quality-sast.yml` runs Semgrep Community Edition default and security-audit rules, uploads SARIF, and uses [.semgrepignore](../../.semgrepignore) only for imported sources, dependencies, and generated outputs. |
+| VER-DEPENDABOT | Verification | [.github/dependabot.yml](../../.github/dependabot.yml) enables npm security updates plus npm and GitHub Actions version-update PRs with grouping, cooldown, labels, and git-flow `develop` targeting for routine updates. |
+| VER-SCORECARD | Verification | [.github/workflows/supply-chain-scorecard.yml](../../.github/workflows/supply-chain-scorecard.yml) runs OpenSSF Scorecard with SARIF output and published results. |
+| VER-SECURITY-META | Verification | [SECURITY.md](../../SECURITY.md) and [.github/CODEOWNERS](../../.github/CODEOWNERS) define vulnerability reporting expectations and repository-wide review ownership. |
 | VER-ACTION-PIN | Verification | GitHub Actions workflow `uses:` entries are pinned to full commit SHAs with reviewed version comments. |
 | REL-WORKFLOW | Verification | `.github/workflows/npm-publish.yml` runs Node.js 24 release dry-runs and reserves OIDC publish permissions for version-tag publish jobs. |
 | REL-GUARD | Verification | [verify-release-tag.mjs](../../scripts/verify-release-tag.mjs) checks tag shape, package-version agreement, and exact `origin/main` head agreement before publish. |
@@ -178,6 +181,7 @@ verification battery.
 | CLR-OPS-012 | VER-QUALITY-CI | Covered | None. |
 | CLR-OPS-013 | VER-CODEQL, VER-SEMGREP | Covered | None for current free SAST workflow. |
 | CLR-OPS-014 | VER-SEMGREP | Covered | The Vue example has one local suppression because Commonloom sanitizes `bodyHtml` before adapter rendering. |
+| CLR-OPS-015 | VER-SCORECARD | Covered | None for current Scorecard workflow. |
 | CLR-OPS-020 | VER-DOCS, VER-TRACE, DOC-PHASE | Partial | Matrix completeness is automated; source-evidence completeness remains manual. |
 | CLR-OPS-021 | VER-DOCS | Covered | None for link/layout checks. |
 | CLR-OPS-022 | VER-DOCS, VER-TRACE | Partial | Matrix completeness is automated; central requirements index semantics remain manual. |
@@ -205,6 +209,10 @@ verification battery.
 | CLR-OPS-066 | REL-WORKFLOW | Covered | `v0.1.0` relied on npm trusted publishing rather than manually injected credentials. |
 | CLR-OPS-067 | VER-NPM-AUDIT | Covered | None for current npm advisory audit gate. |
 | CLR-OPS-068 | VER-DEPENDENCY-REVIEW | Covered | None for current pull-request dependency review gate. |
+| CLR-OPS-069 | VER-DEPENDABOT | Covered | None for current npm and GitHub Actions version-update configuration. |
+| CLR-OPS-070 | VER-DEPENDABOT | Covered | None for current npm security-update configuration. |
+| CLR-OPS-071 | VER-CI, VER-QUALITY-CI, REL-WORKFLOW, VER-SCORECARD | Covered | None for current checkout credential persistence policy. |
+| CLR-OPS-072 | VER-SECURITY-META | Covered | Private vulnerability reporting must still be enabled in repository settings for the preferred GitHub flow to appear. |
 | CLR-OPS-080 | DOC-PHASE | Partial | Process requirement is documented; no automated phase-order check exists. |
 | CLR-OPS-081 | DOC-PHASE | Partial | Ownership is manual in phase records. |
 | CLR-OPS-082 | VER-PROCESS, DOC-PHASE | Partial | Ticket metadata is schema-checked; lifecycle order remains reviewer judgment. |
