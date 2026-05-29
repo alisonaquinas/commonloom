@@ -11,10 +11,10 @@
     "preview": "npm run generate && ng serve --configuration=production"
   },
   "dependencies": {
-    "@angular/common": "21.2.12",
-    "@angular/compiler": "21.2.12",
-    "@angular/core": "21.2.12",
-    "@angular/platform-browser": "21.2.12",
+    "@angular/common": "21.2.14",
+    "@angular/compiler": "21.2.14",
+    "@angular/core": "21.2.14",
+    "@angular/platform-browser": "21.2.14",
     "commonloom": "0.1.0",
     "rxjs": "7.8.2",
     "tslib": "2.8.1",
