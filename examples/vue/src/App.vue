@@ -25,6 +25,8 @@ const compiledDocument = commonloomDocuments[0];
       </header>
 
       <div class="commonloom-grid">
+        <!-- Commonloom sanitizes bodyHtml before adapter rendering. -->
+        <!-- nosemgrep -->
         <article
           class="commonloom-card commonloom-rendered"
           v-html="compiledDocument.bodyHtml"

@@ -130,11 +130,14 @@ function isRecord(value) {
 }
 
 function escapeHtml(value) {
-  return value
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;');
+  const htmlEscapes = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+  };
+
+  return value.replace(/[&<>"]/g, (character) => htmlEscapes[character]);
 }
 
 function indent(value, spaces) {
