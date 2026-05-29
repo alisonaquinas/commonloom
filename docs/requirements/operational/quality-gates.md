@@ -28,6 +28,7 @@ aliases:
 | CLR-OPS-012 | CI shall include a dedicated static code quality inspection workflow. | A required workflow runs documentation lint, TypeScript lint, process verification, and typecheck on Node.js 24 without publishing permissions. |
 | CLR-OPS-013 | CI shall include free SAST inspection for JavaScript, TypeScript, workflow, and configuration risk where supported by free tooling. | CodeQL and Semgrep Community Edition run in GitHub Actions, block on findings, and upload SARIF evidence when GitHub code scanning accepts it. |
 | CLR-OPS-014 | SAST suppressions shall be narrow, local, and justified where a scanner cannot infer Commonloom's sanitization or trust boundary. | Suppression comments document the safety reason adjacent to the finding and broad repository-level ignores are limited to imported sources, dependencies, and generated outputs. |
+| CLR-OPS-015 | CI shall include an automated supply-chain posture scan. | OpenSSF Scorecard runs in GitHub Actions with read-scoped repository permissions, SARIF output, and published Scorecard results where GitHub accepts them. |
 
 ## Evidence
 

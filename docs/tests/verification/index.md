@@ -51,6 +51,10 @@ npm run lint && npm run verify && npm run typecheck && npm run build && npm run 
 | npm advisory audit | `.github/workflows/code-quality-sast.yml` | Lockfile-backed `npm audit --audit-level=moderate` with lifecycle scripts disabled during install. |
 | CodeQL SAST | `.github/workflows/code-quality-sast.yml` | JavaScript and TypeScript CodeQL analysis using security-extended and security-and-quality queries. |
 | Semgrep CE SAST | `.github/workflows/code-quality-sast.yml` | Semgrep Community Edition default and security-audit rules with SARIF upload. |
+| Dependabot version updates | `.github/dependabot.yml` | Weekly npm and GitHub Actions version-update PRs against `develop`, grouped by ecosystem/update type with cooldowns. |
+| Dependabot security updates | `.github/dependabot.yml` | Daily npm security update checks with security-specific labels and grouped security PRs. |
+| OpenSSF Scorecard | `.github/workflows/supply-chain-scorecard.yml` | Supply-chain posture scan with SARIF output and published Scorecard results. |
+| Security ownership metadata | `SECURITY.md`, `.github/CODEOWNERS` | Private vulnerability reporting expectations and repository-wide code-owner review ownership. |
 
 `npm run verify` expands to:
 
@@ -70,6 +74,13 @@ privilege permissions. It adds static quality inspection, GitHub Dependency
 Review, `npm audit`, CodeQL, and Semgrep Community Edition as separate jobs so
 security and code-quality findings are visible independently from the package
 build/test battery.
+
+Dependabot keeps npm and GitHub Actions version updates active on `develop`.
+The configuration also separates npm security updates from routine dependency
+currency PRs so advisory fixes can be triaged independently. The OpenSSF
+Scorecard workflow adds supply-chain posture checks for branch protection,
+dependency update tooling, pinned actions, security policy, token permissions,
+and similar repository-level practices.
 
 The validation workflows do not publish, release, deploy, or grant npm
 trusted-publishing permissions.

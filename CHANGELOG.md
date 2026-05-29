@@ -20,6 +20,9 @@ Commonloom follows a `0.x` release line while the standalone public API settles.
   traceability.
 - Added a dedicated Code Quality and SAST GitHub Actions workflow with
   Dependency Review, npm audit, CodeQL, and Semgrep Community Edition checks.
+- Added Dependabot version-update configuration for npm and GitHub Actions,
+  OpenSSF Scorecard scanning, security reporting policy, and repository
+  CODEOWNERS metadata.
 
 ## [0.1.0] - 2026-05-11
 
