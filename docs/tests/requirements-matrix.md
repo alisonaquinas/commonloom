@@ -73,7 +73,7 @@ verification battery.
 | VER-NPM-AUDIT | Verification | `.github/workflows/code-quality-sast.yml` runs `npm audit --audit-level=moderate` after `npm ci --ignore-scripts`. |
 | VER-CODEQL | Verification | `.github/workflows/code-quality-sast.yml` runs CodeQL JavaScript and TypeScript SAST with security-extended and security-and-quality queries. |
 | VER-SEMGREP | Verification | `.github/workflows/code-quality-sast.yml` runs Semgrep Community Edition default and security-audit rules, uploads SARIF, and uses [.semgrepignore](../../.semgrepignore) only for imported sources, dependencies, and generated outputs. |
-| VER-DEPENDABOT | Verification | [.github/dependabot.yml](../../.github/dependabot.yml) enables npm security updates plus npm and GitHub Actions version-update PRs with grouping, cooldown, labels, and `target-branch: develop` for routine version updates. |
+| VER-DEPENDABOT | Verification | [.github/dependabot.yml](../../.github/dependabot.yml) enables npm security updates plus npm and GitHub Actions version-update PRs with grouping, labels, npm SemVer cooldowns, a GitHub Actions default cooldown, and `target-branch: develop` for routine version updates. |
 | VER-SCORECARD | Verification | [.github/workflows/supply-chain-scorecard.yml](../../.github/workflows/supply-chain-scorecard.yml) runs OpenSSF Scorecard with SARIF output and published results. |
 | VER-SECURITY-META | Verification | [SECURITY.md](../../SECURITY.md) and [.github/CODEOWNERS](../../.github/CODEOWNERS) define vulnerability reporting expectations and repository-wide review ownership. |
 | VER-ACTION-PIN | Verification | GitHub Actions workflow `uses:` entries are pinned to full commit SHAs with reviewed version comments. |

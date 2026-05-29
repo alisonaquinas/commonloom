@@ -575,7 +575,8 @@ evidence to trace the new inspection jobs.
 ## [2026-05-28] ci | Configure GitHub-native dependency security
 
 Added Dependabot version-update configuration for npm and GitHub Actions with
-grouped routine updates, cooldown windows, and git-flow `develop` targeting.
+grouped routine updates, npm SemVer cooldown windows, a GitHub Actions default
+cooldown, and git-flow `develop` targeting.
 Added npm security-update grouping, OpenSSF Scorecard supply-chain posture
 scanning, repository CODEOWNERS, and a root security reporting policy. Updated
 operational requirements and [[tests/requirements-matrix|Requirements Test Matrix]]

@@ -51,7 +51,7 @@ npm run lint && npm run verify && npm run typecheck && npm run build && npm run 
 | npm advisory audit | `.github/workflows/code-quality-sast.yml` | Lockfile-backed `npm audit --audit-level=moderate` with lifecycle scripts disabled during install. |
 | CodeQL SAST | `.github/workflows/code-quality-sast.yml` | JavaScript and TypeScript CodeQL analysis using security-extended and security-and-quality queries. |
 | Semgrep CE SAST | `.github/workflows/code-quality-sast.yml` | Semgrep Community Edition default and security-audit rules with SARIF upload. |
-| Dependabot version updates | `.github/dependabot.yml` | Weekly npm and GitHub Actions version-update PRs based on `develop`, grouped by ecosystem/update type with cooldowns. |
+| Dependabot version updates | `.github/dependabot.yml` | Weekly npm and GitHub Actions version-update PRs based on `develop`, grouped by ecosystem/update type, with npm SemVer cooldowns and a GitHub Actions default cooldown. |
 | Dependabot security updates | `.github/dependabot.yml` | Daily npm security update checks are configured separately; GitHub targets security-update PRs at the repository default branch. |
 | OpenSSF Scorecard | `.github/workflows/supply-chain-scorecard.yml` | Supply-chain posture scan with SARIF output and published Scorecard results. |
 | Security ownership metadata | `SECURITY.md`, `.github/CODEOWNERS` | Private vulnerability reporting expectations and repository-wide code-owner review ownership. |
