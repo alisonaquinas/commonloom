@@ -562,3 +562,31 @@ Updated [[tests/requirements-matrix|Requirements Test Matrix]] so
 `npm run examples:verify`, `npm run examples:build`, and the GitHub Actions
 example steps are recorded as evidence for React, Vue, Svelte, Next.js,
 Angular, and Node compatibility.
+
+## [2026-05-28] ci | Add code quality and SAST inspection
+
+Added a dedicated GitHub Actions workflow for static code quality and free
+SAST inspection. The workflow runs lint, verification, typecheck, GitHub
+Dependency Review, `npm audit`, CodeQL JavaScript and TypeScript analysis, and
+Semgrep Community Edition default/security-audit rules. Updated operational
+requirements and [[tests/requirements-matrix|Requirements Test Matrix]]
+evidence to trace the new inspection jobs.
+
+## [2026-05-28] ci | Configure GitHub-native dependency security
+
+Added Dependabot version-update configuration for npm and GitHub Actions with
+grouped routine updates, npm SemVer cooldown windows, a GitHub Actions default
+cooldown, and git-flow `develop` targeting.
+Added npm security-update grouping, OpenSSF Scorecard supply-chain posture
+scanning, repository CODEOWNERS, and a root security reporting policy. Updated
+operational requirements and [[tests/requirements-matrix|Requirements Test Matrix]]
+evidence for the new GitHub-native dependency and repository security surface.
+
+## [2026-05-28] ci | Merge Dependabot PR 20 into security branch
+
+Merged [PR 20](https://github.com/alisonaquinas/commonloom/pull/20) into the
+GitHub-native security scanning feature branch while keeping the newer
+`develop` dependency state that already superseded the PR's Svelte update.
+Clarified that Dependabot version updates are based on `develop` through
+`target-branch: develop`, while GitHub security-update PRs remain constrained
+to the default branch.

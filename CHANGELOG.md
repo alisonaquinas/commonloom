@@ -6,6 +6,10 @@ Commonloom follows a `0.x` release line while the standalone public API settles.
 
 ## Unreleased
 
+No unreleased changes yet.
+
+## [0.1.1] - 2026-05-29
+
 - Added Phase 6 planning for shared-content framework integration examples
   covering React, Vue, Svelte, Next.js, Angular, and Node.
 - Added React, Vue, Svelte, Next.js, Angular, and Node examples under
@@ -18,6 +22,14 @@ Commonloom follows a `0.x` release line while the standalone public API settles.
 - Tightened Phase 6 plan review findings for Node styling parity, Angular
   production preview instructions, lifecycle status definitions, and ticket
   traceability.
+- Added a dedicated Code Quality and SAST GitHub Actions workflow with
+  Dependency Review, npm audit, CodeQL, and Semgrep Community Edition checks.
+- Added Dependabot version-update configuration for npm and GitHub Actions,
+  OpenSSF Scorecard scanning, security reporting policy, and repository
+  CODEOWNERS metadata.
+- Clarified that Dependabot version-update work targets `develop` and merged
+  the existing Svelte Dependabot PR into the GitHub-native security branch
+  without downgrading the newer audit-clean dependency state.
 
 ## [0.1.0] - 2026-05-11
 

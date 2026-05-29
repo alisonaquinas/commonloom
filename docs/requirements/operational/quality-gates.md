@@ -5,7 +5,7 @@ tags:
   - requirements/operational
   - quality
 status: active
-updated: 2026-05-11
+updated: 2026-05-28
 aliases:
   - Quality Gate Requirements
 ---
@@ -25,6 +25,10 @@ aliases:
 | CLR-OPS-009 | CI shall run the complete test battery once the test library exists. | Required CI test jobs run unit, integration, and E2E test commands without watch mode, focused-only execution, or skip-only shortcuts. |
 | CLR-OPS-010 | TypeScript linting shall be strict and warning-free. | Required lint jobs cover package source and test TypeScript files, treat warnings as failures, and document any explicit generated-output exclusions. |
 | CLR-OPS-011 | CI shall run the example compatibility battery when examples exist. | Required CI jobs verify example parity and build every example workspace on Node.js 24 before reporting success. |
+| CLR-OPS-012 | CI shall include a dedicated static code quality inspection workflow. | A required workflow runs documentation lint, TypeScript lint, process verification, and typecheck on Node.js 24 without publishing permissions. |
+| CLR-OPS-013 | CI shall include free SAST inspection for JavaScript, TypeScript, workflow, and configuration risk where supported by free tooling. | CodeQL and Semgrep Community Edition run in GitHub Actions, block on findings, and upload SARIF evidence when GitHub code scanning accepts it. |
+| CLR-OPS-014 | SAST suppressions shall be narrow, local, and justified where a scanner cannot infer Commonloom's sanitization or trust boundary. | Suppression comments document the safety reason adjacent to the finding and broad repository-level ignores are limited to imported sources, dependencies, and generated outputs. |
+| CLR-OPS-015 | CI shall include an automated supply-chain posture scan. | OpenSSF Scorecard runs in GitHub Actions with read-scoped repository permissions, SARIF output, and published Scorecard results where GitHub accepts them. |
 
 ## Evidence
 
@@ -32,3 +36,4 @@ aliases:
 - [[sources/flavor-grenade-lsp/docs/requirements/code-quality|code quality requirements]]
 - [[sources/flavor-grenade-lsp/docs/plans/phase-W8-commonloom-content-pipeline/TASK-275|TASK-275]]
 - [[phase-2-ci-quality-gates]]
+- [[tests/verification/index|Commonloom Verification]]

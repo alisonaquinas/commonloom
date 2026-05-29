@@ -1,0 +1,14 @@
+name: Commonloom CodeQL
+
+queries:
+  - uses: security-extended
+  - uses: security-and-quality
+
+paths-ignore:
+  - docs/sources/**
+  - node_modules/**
+  - dist/**
+  - examples/**/dist/**
+  - examples/**/.next/**
+  - examples/**/.svelte-kit/**
+  - examples/**/node_modules/**
