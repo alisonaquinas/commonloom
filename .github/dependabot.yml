@@ -1,5 +1,8 @@
 version: 2
 
+# Dependabot reads this file from the repository default branch. Routine
+# version-update PRs below target `develop` through `target-branch`. GitHub does
+# not support non-default target branches for security-update PRs.
 updates:
   - package-ecosystem: "npm"
     directory: "/"
