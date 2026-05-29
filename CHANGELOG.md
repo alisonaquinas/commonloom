@@ -18,6 +18,8 @@ Commonloom follows a `0.x` release line while the standalone public API settles.
 - Tightened Phase 6 plan review findings for Node styling parity, Angular
   production preview instructions, lifecycle status definitions, and ticket
   traceability.
+- Added a dedicated Code Quality and SAST GitHub Actions workflow with
+  Dependency Review, npm audit, CodeQL, and Semgrep Community Edition checks.
 
 ## [0.1.0] - 2026-05-11
 

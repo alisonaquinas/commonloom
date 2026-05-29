@@ -5,7 +5,7 @@ tags:
   - tests
   - verification
 status: active
-updated: 2026-05-11
+updated: 2026-05-28
 aliases:
   - Verification Tests
   - Verification Gate
@@ -46,6 +46,11 @@ npm run lint && npm run verify && npm run typecheck && npm run build && npm run 
 | Unit tests | `npm run test:unit` | Five Vitest files, twenty-eight tests. |
 | Integration tests | `npm run test:integration` | Public compiler integration flow. |
 | E2E tests | `npm run test:e2e` | Fixture content tree compiled into adapter-visible records. |
+| Static code quality inspection | `.github/workflows/code-quality-sast.yml` | Dedicated GitHub Actions job for lint, verification, and typecheck. |
+| Dependency review | `.github/workflows/code-quality-sast.yml` | Pull-request dependency-diff review that fails on moderate or higher advisories. |
+| npm advisory audit | `.github/workflows/code-quality-sast.yml` | Lockfile-backed `npm audit --audit-level=moderate` with lifecycle scripts disabled during install. |
+| CodeQL SAST | `.github/workflows/code-quality-sast.yml` | JavaScript and TypeScript CodeQL analysis using security-extended and security-and-quality queries. |
+| Semgrep CE SAST | `.github/workflows/code-quality-sast.yml` | Semgrep Community Edition default and security-audit rules with SARIF upload. |
 
 `npm run verify` expands to:
 
@@ -60,8 +65,14 @@ The GitHub Actions verification job uses Node.js 24, installs with
 integration, and E2E steps explicitly. The step sequence mirrors
 `npm run check` and includes example parity plus example build steps.
 
-The workflow is validation-only. It does not publish, release, deploy, or grant
-npm trusted-publishing permissions.
+The dedicated code-quality and SAST workflow uses Node.js 24 and least
+privilege permissions. It adds static quality inspection, GitHub Dependency
+Review, `npm audit`, CodeQL, and Semgrep Community Edition as separate jobs so
+security and code-quality findings are visible independently from the package
+build/test battery.
+
+The validation workflows do not publish, release, deploy, or grant npm
+trusted-publishing permissions.
 
 ## See Also
 

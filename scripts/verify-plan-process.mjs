@@ -112,16 +112,20 @@ async function verifyPhaseDirectory(phaseDirName) {
 }
 
 function indexStatusForTicket(indexContent, ticketId) {
-  const pattern = new RegExp(
-    '\\| \\[\\[[^\\]]+/' +
-      `${escapeRegExp(ticketId)}\\|${escapeRegExp(ticketId)}` +
-      '\\]\\] \\| [^|]+ \\| [^|]+ \\| `([^`]+)` \\|',
-  );
-  const match = pattern.exec(indexContent);
+  const ticketAlias = `|${ticketId}]]`;
 
-  return match?.[1];
-}
+  for (const line of indexContent.split('\n')) {
+    if (!line.includes(ticketAlias)) {
+      continue;
+    }
 
-function escapeRegExp(value) {
-  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const columns = line
+      .split(' | ')
+      .map((column) => column.trim().replace(/^\|/, '').replace(/\|$/, '').trim());
+    const status = columns.at(-1);
+
+    return status?.startsWith('`') && status.endsWith('`') ? status.slice(1, -1) : status;
+  }
+
+  return undefined;
 }

@@ -562,3 +562,12 @@ Updated [[tests/requirements-matrix|Requirements Test Matrix]] so
 `npm run examples:verify`, `npm run examples:build`, and the GitHub Actions
 example steps are recorded as evidence for React, Vue, Svelte, Next.js,
 Angular, and Node compatibility.
+
+## [2026-05-28] ci | Add code quality and SAST inspection
+
+Added a dedicated GitHub Actions workflow for static code quality and free
+SAST inspection. The workflow runs lint, verification, typecheck, GitHub
+Dependency Review, `npm audit`, CodeQL JavaScript and TypeScript analysis, and
+Semgrep Community Edition default/security-audit rules. Updated operational
+requirements and [[tests/requirements-matrix|Requirements Test Matrix]]
+evidence to trace the new inspection jobs.
