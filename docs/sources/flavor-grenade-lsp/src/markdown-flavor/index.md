@@ -13,20 +13,22 @@ aliases:
 
 # Flavor Grenade Markdown Flavor Source Evidence
 
-This note records the Flavor Grenade source files inspected for Commonloom
-Markdown flavor-mode planning. The source repository remains reference-only;
-Commonloom must not import Flavor Grenade runtime code.
+This note catalogs the Flavor Grenade source files imported beside it for
+Commonloom Markdown flavor-mode planning. The source repository remains
+reference-only; Commonloom must not import Flavor Grenade runtime code.
 
 ## Inspected Files
 
 | Source Path | Evidence |
 | --- | --- |
-| `src/markdown-flavor/markdown-flavor-contract.ts` | Defines the explicit flavor ids, selector values, labels, and id guard. |
-| `src/markdown-flavor/markdown-flavor-profiles.ts` | Defines one source-backed profile per explicit flavor with active syntax, inert syntax, host-specific syntax, opaque regions, and safety metadata. |
-| `src/markdown-flavor/structured-profiles.ts` | Defines Keep a Changelog, Common Changelog, and MADR as structured profile flags, not base flavor ids. |
-| `src/markdown-flavor/markdown-flavor-state.ts` | Resolves Flavor Grenade selector state to one effective flavor per Markdown resource. |
-| `src/markdown-flavor/syntax-inference.ts` | Infers a flavor only from strong syntax evidence when Flavor Grenade is in Auto Detect mode. |
-| `src/markdown-flavor/README.md` | States that the flavor model is static profile metadata consumed by parsers and handlers. |
+| Imported File | Evidence |
+| --- | --- |
+| `markdown-flavor-contract.ts` | Defines the explicit flavor ids, selector values, labels, and id guard. |
+| `markdown-flavor-profiles.ts` | Defines one source-backed profile per explicit flavor with active syntax, inert syntax, host-specific syntax, opaque regions, and safety metadata. |
+| `structured-profiles.ts` | Defines Keep a Changelog, Common Changelog, and MADR as structured profile selections, not base flavor ids. |
+| `markdown-flavor-state.ts` | Resolves Flavor Grenade selector state to one effective flavor per Markdown resource. |
+| `syntax-inference.ts` | Infers a flavor only from strong syntax evidence when Flavor Grenade is in Auto Detect mode. |
+| `README.md` | States that the flavor model is static profile metadata consumed by parsers and handlers. |
 
 ## Explicit Flavor IDs
 
@@ -57,8 +59,11 @@ Flavor Grenade's explicit Markdown flavor ids are:
   explicitly consumes it.
 - The safety profile records no network access and no execution for flavor
   analysis.
-- Structured profiles are separate flags. They should not expand the base
-  Commonloom flavor list unless a later decision explicitly changes that.
+- Structured profiles are separate profile selections. They allow `auto`,
+  `none`, or a unique compatible list. `keep-a-changelog` and
+  `common-changelog` are mutually exclusive; `madr` may combine with one
+  changelog profile. They should not expand the base Commonloom flavor list
+  unless a later decision explicitly changes that.
 
 ## See Also
 

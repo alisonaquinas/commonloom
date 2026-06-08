@@ -5,12 +5,21 @@ tags:
   - log
   - llm-wiki
 status: active
-updated: 2026-05-29
+updated: 2026-06-08
 aliases:
   - Vault Log
 ---
 
 # Commonloom Vault Log
+
+## [2026-06-08] import | Markdown flavor source evidence
+
+Imported Flavor Grenade Markdown flavor source files under
+[[sources/flavor-grenade-lsp/src/markdown-flavor/index|markdown-flavor source evidence]]
+for Commonloom flavor-mode specification follow-up. Updated linked
+requirements, architecture, ADR, source catalog, and requirements matrix notes
+to keep the evidence reference-only and mark flavor coverage as specification
+evidence rather than automated behavior coverage.
 
 ## [2026-05-10] import | Flavor Grenade Commonloom sources
 

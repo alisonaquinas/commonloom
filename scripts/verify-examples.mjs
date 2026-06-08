@@ -6,7 +6,7 @@ const examplesRoot = join(repositoryRoot, 'examples');
 const sharedRoot = join(examplesRoot, 'shared');
 const exampleNames = ['react', 'vue', 'svelte', 'nextjs', 'angular', 'node'];
 const browserExampleNames = ['react', 'vue', 'svelte', 'nextjs', 'angular'];
-const expectedCommonloomVersion = '0.1.0';
+const expectedCommonloomVersion = '0.1.3';
 const failures = [];
 
 await verifySharedSubstrate();

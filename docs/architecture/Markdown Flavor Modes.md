@@ -37,6 +37,7 @@ Commonloom compile run.
 - Local Commonloom source:
   - `src/markdown-processors.ts`
   - `src/markdown.ts`
+  - `src/html.ts`
   - `src/compiler.ts`
   - `src/types.ts`
 
@@ -66,7 +67,11 @@ detection belongs in adapters or tools before a Commonloom run begins.
 ## Structured Profiles
 
 Flavor Grenade also models `keep-a-changelog`, `common-changelog`, and `madr`
-as structured profile flags. These are not base Markdown flavors.
+as structured profile selections. These are not base Markdown flavors.
+
+The reference model accepts `auto`, `none`, or a unique compatible profile list.
+`keep-a-changelog` and `common-changelog` are mutually exclusive changelog
+profiles; `madr` may combine with one changelog profile.
 
 Commonloom should not add them to `CommonloomMarkdownFlavor`. If Commonloom later
 supports structured document profiles, they should be specified as a separate
@@ -175,9 +180,10 @@ Flavor mode affects reference extraction:
   not normal Markdown links.
 - `r-markdown` chunks and inline R expressions are opaque, non-executing
   regions.
-- `pandoc`, `multimarkdown`, `kramdown`, and `markdown-extra` add citation,
-  footnote, attribute, and cross-reference constructs that should be traced only
-  when the selected flavor makes them active.
+- `pandoc`, `multimarkdown`, `kramdown`, and `markdown-extra` collectively add
+  citation, footnote, attribute or header-id, abbreviation, and cross-reference
+  constructs that should be traced only when the selected flavor makes them
+  active.
 
 ## Diagnostics Changes
 

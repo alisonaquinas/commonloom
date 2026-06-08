@@ -20,7 +20,7 @@ aliases:
 | CLR-TECH-043 | Commonloom shall keep schema validation failures distinct from programmer errors. | Expected invalid content returns diagnostics; unexpected API misuse can throw or reject. |
 | CLR-TECH-044 | Commonloom shall preserve source positions as optional fields. | Consumers can handle parsers or transforms that cannot supply exact line and column values. |
 | CLR-TECH-045 | Commonloom shall publish a Commonloom-owned `CommonloomMarkdownFlavor` contract. | The public type and value list are exported from Commonloom and do not import Flavor Grenade code. |
-| CLR-TECH-046 | Commonloom shall expose flavor selection through `CommonloomConfig`. | Callers can set `config.markdown.flavor` or an equivalent typed policy field for the compile run. |
+| CLR-TECH-046 | Commonloom shall expose flavor selection through `CommonloomConfig`. | Callers can set `CommonloomConfig.markdown.flavor?: CommonloomMarkdownFlavor` for the compile run. |
 | CLR-TECH-047 | Commonloom shall keep `auto` out of the concrete flavor contract. | Adapters may infer a flavor before calling Commonloom, but Commonloom receives one explicit flavor or uses its default. |
 | CLR-TECH-048 | Commonloom shall keep structured profiles separate from base Markdown flavor ids. | Keep a Changelog, Common Changelog, and MADR are not accepted as `CommonloomMarkdownFlavor` values unless a later ADR changes the model. |
 
