@@ -1,3 +1,5 @@
+import '@angular/compiler';
+
 import { Component } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 

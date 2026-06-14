@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "generate": "node ../shared/scripts/generate-content.mjs .",
-    "dev": "npm run generate && ng serve",
+    "dev": "npm run generate && vite",
     "serve": "npm run dev",
-    "build": "npm run generate && ng build",
-    "preview": "npm run generate && ng serve --configuration=production"
+    "build": "npm run generate && vite build",
+    "preview": "npm run generate && vite preview"
   },
   "dependencies": {
     "@angular/common": "21.2.14",
@@ -21,10 +21,7 @@
     "zone.js": "0.16.2"
   },
   "devDependencies": {
-    "@angular/build": "21.2.12",
-    "@angular/cli": "21.2.12",
-    "@angular/compiler-cli": "21.2.14",
     "sass": "1.100.0",
-    "typescript": "6.0.3"
+    "vite": "8.0.14"
   }
 }

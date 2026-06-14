@@ -10,6 +10,8 @@ Commonloom follows a `0.x` release line while the standalone public API settles.
   one-flavor compile-run rule and reference-only Flavor Grenade evidence.
 - Corrected documentation drift found during reviewer audit for current package
   version, example dependency policy, frontmatter tooling, and flavor evidence.
+- Replaced the Angular example's Angular CLI builder with Vite so the full
+  `npm audit --audit-level=moderate` gate remains blocking and audit-clean.
 
 ## [0.1.3] - 2026-05-29
 

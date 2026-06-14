@@ -5,12 +5,20 @@ tags:
   - log
   - llm-wiki
 status: active
-updated: 2026-06-08
+updated: 2026-06-14
 aliases:
   - Vault Log
 ---
 
 # Commonloom Vault Log
+
+## [2026-06-14] examples | Move Angular example to Vite build
+
+Replaced the Angular example's Angular CLI builder with plain Vite and Angular
+JIT bootstrap so the full npm advisory gate can remain blocking. `npm audit`
+reported `@angular/build@21.2.12` through `esbuild <0.28.1`, while npm
+registry metadata for `@angular/build@21.2.14`, `@angular/build@22.0.1`, and
+`@angular/build@22.1.0-next.0` still pinned vulnerable `esbuild` versions.
 
 ## [2026-06-08] import | Markdown flavor source evidence
 
@@ -505,7 +513,7 @@ same content, SCSS, assets, and dev/build/production-preview command shape.
 
 Completed
 [[plans/phase-6-framework-integration-examples/TASK-007|TASK-007]] by adding an
-Angular CLI example that renders the shared Commonloom output with the same
+Angular example that renders the shared Commonloom output with the same
 content, SCSS, assets, and dev/build/production-preview command shape.
 
 ## [2026-05-11] phase | Add Phase 6 Node example
