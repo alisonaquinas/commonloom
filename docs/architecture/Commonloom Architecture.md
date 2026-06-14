@@ -5,7 +5,7 @@ tags:
   - architecture
   - content-pipeline
 status: active
-updated: 2026-05-11
+updated: 2026-05-29
 aliases:
   - Content Pipeline Architecture
   - Reusable Library Boundary
@@ -22,7 +22,7 @@ Commonloom is the reusable core in a two-layer content pipeline:
 
 | Layer | Owns | Must Avoid |
 | --- | --- | --- |
-| Commonloom core | Markdown, frontmatter, HTML policy, links, media, diagnostics, source traces, normalized records. | Svelte, product data, route registries, renderer-specific modules. |
+| Commonloom core | Markdown flavor policy, frontmatter, HTML policy, links, media, diagnostics, source traces, normalized records. | Svelte, product data, route registries, renderer-specific modules, Flavor Grenade runtime code. |
 | Adapter | route ids, page groups, manifests, wiki-link policy, generated TypeScript formatting, renderer compatibility. | Generic parsing behavior that belongs in Commonloom. |
 
 ## Pipeline Shape
@@ -30,6 +30,7 @@ Commonloom is the reusable core in a two-layer content pipeline:
 ```mermaid
 flowchart TD
   Copy["Markdown copy"] --> Parse["Commonloom parse"]
+  Flavor["Single run flavor policy"] --> Parse
   Manifest["Adapter manifests"] --> Load["Adapter load and validate"]
   Media["Media roots"] --> Resolve["Commonloom media validation"]
   Parse --> Trace["Headings, links, images, source trace"]
@@ -60,13 +61,18 @@ missing content. Important diagnostic families include invalid frontmatter,
 unsafe HTML, unresolved links, unresolved media, missing alt text, and path
 traversal.
 
+Markdown flavor modes must keep that safety model. The selected flavor applies
+to the whole compile run, and flavor-specific executable constructs such as MDX
+expressions or R Markdown chunks are parsed as inert content pipeline input.
+
 ## Local Package Layout
 
 | Path | Responsibility |
 | --- | --- |
 | `src/compiler.ts` | Commonloom compiler entrypoint. |
 | `src/frontmatter.ts` | YAML frontmatter parsing and validation. |
-| `src/markdown.ts` | CommonMark and GFM parsing plus heading extraction. |
+| `src/markdown.ts` | Markdown parsing plus heading extraction; future flavor work should receive the run flavor here. |
+| `src/markdown-processors.ts` | Shared Markdown processor construction; future flavor work should key processor setup by explicit flavor id. |
 | `src/html.ts` | Safe static HTML rendering and unsafe HTML diagnostics. |
 | `src/links.ts` | Markdown link, image, and wiki-link reference extraction. |
 | `src/media.ts` | Local media reference validation. |
@@ -90,5 +96,6 @@ traversal.
 ## See Also
 
 - [[Commonloom]]
+- [[Markdown Flavor Modes]]
 - [[Commonloom Requirements]]
 - [[adr|Commonloom ADRs]]

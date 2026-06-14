@@ -45,19 +45,17 @@ serializing Markdown and HTML syntax trees.
 Use zod for caller-provided schema validation where runtime validation is
 needed.
 
-Expected packages from the upstream decision include:
+Implemented packages from the upstream decision include:
 
 - `unified`
 - `remark-parse`
 - `remark-gfm`
-- `remark-frontmatter`
-- `vfile-matter`
+- `gray-matter`
 - `remark-rehype`
 - `rehype-raw`
 - `rehype-sanitize`
 - `rehype-stringify`
 - `unist-util-visit`
-- `hast-util-to-string`
 - `zod`
 
 Optional packages include `rehype-slug`, `github-slugger`, and `shiki`.

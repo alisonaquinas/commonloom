@@ -74,3 +74,7 @@ content and style substrate.
 - 2026-05-11: Pinned the Angular example's local TypeScript dependency to
   `5.9.3` because `@angular/build@21.2.10` declares a `<6.0` peer range while
   the root Commonloom package remains on TypeScript `6.0.3`.
+- 2026-06-14: Replaced Angular CLI build tooling with plain Vite and Angular
+  JIT bootstrap after `npm audit --audit-level=moderate` reported
+  `@angular/build` through vulnerable `esbuild` versions with no fixed Angular
+  builder package available.
