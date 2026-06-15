@@ -18,6 +18,8 @@ Commonloom follows a `0.x` release line while the standalone public API settles.
   Next.js.
 - Updated development tooling for ESLint, TypeScript ESLint, Vite, Vitest,
   `@types/node`, and `vue-tsc`.
+- Carried forward the Hono security update from the main-targeted Dependabot
+  PR while keeping the final release dependency graph audit-clean.
 
 ## [0.1.3] - 2026-05-29
 
