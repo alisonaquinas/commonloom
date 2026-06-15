@@ -6,12 +6,18 @@ Commonloom follows a `0.x` release line while the standalone public API settles.
 
 ## Unreleased
 
+## [0.1.4] - 2026-06-15
+
 - Documented the proposed Markdown flavor mode specification, including the
   one-flavor compile-run rule and reference-only Flavor Grenade evidence.
 - Corrected documentation drift found during reviewer audit for current package
   version, example dependency policy, frontmatter tooling, and flavor evidence.
 - Replaced the Angular example's Angular CLI builder with Vite so the full
   `npm audit --audit-level=moderate` gate remains blocking and audit-clean.
+- Updated framework example dependencies for Angular, React, Svelte, Vue, and
+  Next.js.
+- Updated development tooling for ESLint, TypeScript ESLint, Vite, Vitest,
+  `@types/node`, and `vue-tsc`.
 
 ## [0.1.3] - 2026-05-29
 
