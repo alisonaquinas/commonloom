@@ -24,7 +24,7 @@ The repository uses npm workspaces for examples:
 - `examples/angular`
 - `examples/node`
 
-Each example package is private and imports published `commonloom@0.1.0`
+Each example package is private and imports published `commonloom@0.1.3`
 through the package entrypoint, not through `src/` internals.
 
 Run all examples from the repository root after dependencies are installed:

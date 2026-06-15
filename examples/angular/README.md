@@ -1,6 +1,6 @@
 # Commonloom Angular Example
 
-This example renders the shared Commonloom content with Angular.
+This example renders the shared Commonloom content with Angular and Vite.
 
 ## Commands
 
@@ -16,4 +16,4 @@ npm run preview
 
 `npm run generate` compiles the shared Markdown and copies shared assets into
 this example. The `dev`, `build`, and `preview` scripts run it automatically.
-`npm run preview` serves the Angular production configuration locally.
+`npm run preview` serves the Vite production build locally after `npm run build`.

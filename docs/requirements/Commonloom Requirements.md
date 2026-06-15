@@ -4,7 +4,7 @@ tags:
   - commonloom
   - requirements
 status: active
-updated: 2026-05-10
+updated: 2026-05-29
 aliases:
   - Commonloom Requirements Surface
 ---
@@ -34,6 +34,7 @@ Grenade W8 content pipeline:
 - [[sources/flavor-grenade-lsp/website/docs/authoring/content-pipeline|content-pipeline authoring]]
 - [[sources/flavor-grenade-lsp/website/docs/research/w8-content-pipeline-technology-research|W8 technology research]]
 - [[sources/flavor-grenade-lsp/docs/plans/phase-W8-commonloom-content-pipeline|Phase W8 plan]]
+- [[sources/flavor-grenade-lsp/src/markdown-flavor/index|Markdown flavor source evidence]]
 
 ## Requirement Model
 
@@ -54,11 +55,13 @@ compilation.
 It shall expose generic parsing, validation, diagnostics, and normalized content
 records.
 It shall not import Flavor Grenade route modules, Svelte components, product
-copy, or renderer-specific generated module contracts.
+copy, Markdown flavor runtime modules, or renderer-specific generated module
+contracts.
 
 ## See Also
 
 - [[Commonloom]]
 - [[Commonloom Architecture]]
+- [[Markdown Flavor Modes]]
 - [[adr|Commonloom ADRs]]
 - [[Commonloom Extraction Plan]]

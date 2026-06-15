@@ -5,12 +5,29 @@ tags:
   - log
   - llm-wiki
 status: active
-updated: 2026-05-11
+updated: 2026-06-14
 aliases:
   - Vault Log
 ---
 
 # Commonloom Vault Log
+
+## [2026-06-14] examples | Move Angular example to Vite build
+
+Replaced the Angular example's Angular CLI builder with plain Vite and Angular
+JIT bootstrap so the full npm advisory gate can remain blocking. `npm audit`
+reported `@angular/build@21.2.12` through `esbuild <0.28.1`, while npm
+registry metadata for `@angular/build@21.2.14`, `@angular/build@22.0.1`, and
+`@angular/build@22.1.0-next.0` still pinned vulnerable `esbuild` versions.
+
+## [2026-06-08] import | Markdown flavor source evidence
+
+Imported Flavor Grenade Markdown flavor source files under
+[[sources/flavor-grenade-lsp/src/markdown-flavor/index|markdown-flavor source evidence]]
+for Commonloom flavor-mode specification follow-up. Updated linked
+requirements, architecture, ADR, source catalog, and requirements matrix notes
+to keep the evidence reference-only and mark flavor coverage as specification
+evidence rather than automated behavior coverage.
 
 ## [2026-05-10] import | Flavor Grenade Commonloom sources
 
@@ -496,7 +513,7 @@ same content, SCSS, assets, and dev/build/production-preview command shape.
 
 Completed
 [[plans/phase-6-framework-integration-examples/TASK-007|TASK-007]] by adding an
-Angular CLI example that renders the shared Commonloom output with the same
+Angular example that renders the shared Commonloom output with the same
 content, SCSS, assets, and dev/build/production-preview command shape.
 
 ## [2026-05-11] phase | Add Phase 6 Node example
@@ -590,3 +607,13 @@ GitHub-native security scanning feature branch while keeping the newer
 Clarified that Dependabot version updates are based on `develop` through
 `target-branch: develop`, while GitHub security-update PRs remain constrained
 to the default branch.
+
+## [2026-05-29] specification | Plan Markdown flavor modes
+
+Inspected Flavor Grenade's Markdown flavor model as reference evidence and
+added [[Markdown Flavor Modes]] to specify optional Commonloom flavor modes,
+the one-flavor compile-run rule, public contract changes, diagnostics, safety
+constraints, and acceptance evidence.
+Updated functional and technical requirements plus
+[[tests/requirements-matrix|Requirements Test Matrix]] to show the new flavor
+mode implementation and test gaps.
