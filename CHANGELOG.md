@@ -6,6 +6,21 @@ Commonloom follows a `0.x` release line while the standalone public API settles.
 
 ## Unreleased
 
+## [0.1.5] - 2026-06-15
+
+- Merged the open Dependabot updates for GitHub Actions and the Vue example
+  `vue-tsc` patch into a single validated release branch.
+- Replaced `gray-matter` with `yaml` for Commonloom frontmatter parsing and
+  plan metadata verification so the package dependency graph no longer pulls
+  vulnerable `js-yaml` versions.
+- Replaced the external Obsidian docs lint package with the local
+  `scripts/lint-obsidian-docs.mjs` vault validator to keep docs frontmatter
+  and wikilink checks audit-clean.
+- Updated framework examples to consume the local workspace package instead of
+  the previously published `commonloom@0.1.3` dependency.
+- Cleared the npm advisory audit findings for `js-yaml`, `markdown-it`, and
+  `gray-matter` while keeping the full local and CI validation battery green.
+
 ## [0.1.4] - 2026-06-15
 
 - Documented the proposed Markdown flavor mode specification, including the
