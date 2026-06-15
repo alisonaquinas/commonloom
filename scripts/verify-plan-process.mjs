@@ -1,7 +1,7 @@
 import { readdir, readFile } from 'node:fs/promises';
 import { basename, join } from 'node:path';
 
-import matter from 'gray-matter';
+import { parseDocument } from 'yaml';
 
 const repoRoot = process.cwd();
 const plansRoot = join(repoRoot, 'docs', 'plans');
@@ -57,7 +57,7 @@ async function verifyPhaseDirectory(phaseDirName) {
 
   for (const ticketFile of ticketFiles) {
     const ticketPath = join(phaseDir, ticketFile);
-    const ticket = matter(await readFile(ticketPath, 'utf8'));
+    const ticket = parseMarkdownFrontmatter(await readFile(ticketPath, 'utf8'));
     const ticketId = String(ticket.data.id ?? '');
     const ticketStatus = String(ticket.data.status ?? '');
 
@@ -100,7 +100,7 @@ async function verifyPhaseDirectory(phaseDirName) {
   }
 
   const phaseSummaryPath = join(plansRoot, `${phaseDirName}.md`);
-  const phaseSummary = matter(await readFile(phaseSummaryPath, 'utf8'));
+  const phaseSummary = parseMarkdownFrontmatter(await readFile(phaseSummaryPath, 'utf8'));
 
   if (phaseSummary.data.status === 'done') {
     for (const [ticketId, ticketStatus] of ticketStatuses) {
@@ -128,4 +128,49 @@ function indexStatusForTicket(indexContent, ticketId) {
   }
 
   return undefined;
+}
+
+function parseMarkdownFrontmatter(markdown) {
+  const match = /^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/.exec(markdown);
+
+  if (!match) {
+    return {
+      data: {},
+      content: markdown,
+    };
+  }
+
+  const document = parseDocument(match[1] ?? '', {
+    prettyErrors: false,
+    stringKeys: true,
+  });
+
+  if (document.errors.length > 0) {
+    const error = document.errors[0];
+
+    throw new Error(error?.message ?? 'Invalid frontmatter.');
+  }
+
+  return {
+    data: sanitizeYamlValue(document.toJS({ maxAliasCount: 100 })),
+    content: markdown.slice(match[0].length),
+  };
+}
+
+function sanitizeYamlValue(value) {
+  if (Array.isArray(value)) {
+    return value.map(sanitizeYamlValue);
+  }
+
+  if (value && typeof value === 'object') {
+    const safeObject = Object.create(null);
+
+    for (const [key, childValue] of Object.entries(value)) {
+      safeObject[key] = sanitizeYamlValue(childValue);
+    }
+
+    return safeObject;
+  }
+
+  return value ?? {};
 }
