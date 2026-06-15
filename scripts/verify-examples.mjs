@@ -6,7 +6,7 @@ const examplesRoot = join(repositoryRoot, 'examples');
 const sharedRoot = join(examplesRoot, 'shared');
 const exampleNames = ['react', 'vue', 'svelte', 'nextjs', 'angular', 'node'];
 const browserExampleNames = ['react', 'vue', 'svelte', 'nextjs', 'angular'];
-const expectedCommonloomVersion = '0.1.3';
+const expectedCommonloomDependency = 'file:../..';
 const failures = [];
 
 await verifySharedSubstrate();
@@ -45,9 +45,9 @@ async function verifyExamplePackages() {
     const packageJson = await readJson(packageJsonPath);
     const readme = await readText(readmePath);
 
-    if (packageJson?.dependencies?.commonloom !== expectedCommonloomVersion) {
+    if (packageJson?.dependencies?.commonloom !== expectedCommonloomDependency) {
       failures.push(
-        `${relativePath(packageJsonPath)} must depend on commonloom@${expectedCommonloomVersion}.`,
+        `${relativePath(packageJsonPath)} must depend on commonloom ${expectedCommonloomDependency}.`,
       );
     }
 
