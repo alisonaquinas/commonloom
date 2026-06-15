@@ -4,7 +4,7 @@
  * This module converts YAML parsing and Zod validation failures into
  * normalized diagnostics instead of throwing for normal authoring errors.
  */
-import matter from 'gray-matter';
+import { parseDocument } from 'yaml';
 import { z } from 'zod';
 
 import type { CommonloomDiagnostic } from './types.js';
@@ -21,6 +21,15 @@ export interface ParsedFrontmatter<Frontmatter> {
   diagnostics: CommonloomDiagnostic[];
 }
 
+interface FrontmatterBlock {
+  yaml: string;
+  bodyMarkdown: string;
+}
+
+type FrontmatterParseResult =
+  | { ok: true; data: unknown }
+  | { ok: false; error: Error };
+
 /**
  * Split YAML frontmatter from Markdown content and validate it with Zod.
  *
@@ -35,7 +44,7 @@ export function parseFrontmatter<Frontmatter>(
 ): ParsedFrontmatter<Frontmatter> {
   const frontmatterBlock = extractFrontmatterBlock(markdown);
 
-  if (frontmatterBlock && Buffer.byteLength(frontmatterBlock, 'utf8') > maxFrontmatterBytes) {
+  if (frontmatterBlock && Buffer.byteLength(frontmatterBlock.yaml, 'utf8') > maxFrontmatterBytes) {
     return {
       frontmatter: undefined,
       bodyMarkdown: markdown,
@@ -51,33 +60,38 @@ export function parseFrontmatter<Frontmatter>(
     };
   }
 
-  let file: matter.GrayMatterFile<string>;
+  let frontmatterData: unknown = {};
 
-  try {
-    file = matter(markdown);
-  } catch (error) {
-    return {
-      frontmatter: undefined,
-      bodyMarkdown: markdown,
-      contentStartLine: 1,
-      diagnostics: [
-        {
-          code: 'FRONTMATTER_INVALID',
-          severity: 'error',
-          message: error instanceof Error ? error.message : 'Invalid frontmatter.',
-          sourcePath,
-        },
-      ],
-    };
+  if (frontmatterBlock) {
+    const parsedFrontmatter = parseYamlFrontmatter(frontmatterBlock.yaml);
+
+    if (!parsedFrontmatter.ok) {
+      return {
+        frontmatter: undefined,
+        bodyMarkdown: markdown,
+        contentStartLine: 1,
+        diagnostics: [
+          {
+            code: 'FRONTMATTER_INVALID',
+            severity: 'error',
+            message: parsedFrontmatter.error.message,
+            sourcePath,
+          },
+        ],
+      };
+    }
+
+    frontmatterData = parsedFrontmatter.data;
   }
 
-  const validation = frontmatterSchema.safeParse(file.data);
+  const bodyMarkdown = frontmatterBlock?.bodyMarkdown ?? markdown;
+  const validation = frontmatterSchema.safeParse(frontmatterData);
   const contentStartLine = findContentStartLine(markdown);
 
   if (validation.success) {
     return {
       frontmatter: validation.data,
-      bodyMarkdown: file.content,
+      bodyMarkdown,
       contentStartLine,
       diagnostics: [],
     };
@@ -85,7 +99,7 @@ export function parseFrontmatter<Frontmatter>(
 
   return {
     frontmatter: undefined,
-    bodyMarkdown: file.content,
+    bodyMarkdown,
     contentStartLine,
     diagnostics: validation.error.issues.map((issue) => ({
       code: 'FRONTMATTER_INVALID',
@@ -96,10 +110,63 @@ export function parseFrontmatter<Frontmatter>(
   };
 }
 
-function extractFrontmatterBlock(markdown: string): string | undefined {
+function parseYamlFrontmatter(yaml: string): FrontmatterParseResult {
+  try {
+    const document = parseDocument(yaml, {
+      prettyErrors: false,
+      stringKeys: true,
+    });
+
+    if (document.errors.length > 0) {
+      return {
+        ok: false,
+        error: document.errors[0] ?? new Error('Invalid frontmatter.'),
+      };
+    }
+
+    const value: unknown = document.toJS({ maxAliasCount: 100 });
+
+    return {
+      ok: true,
+      data: sanitizeYamlValue(value),
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      error: error instanceof Error ? error : new Error('Invalid frontmatter.'),
+    };
+  }
+}
+
+function sanitizeYamlValue(value: unknown): unknown {
+  if (Array.isArray(value)) {
+    return value.map(sanitizeYamlValue);
+  }
+
+  if (value && typeof value === 'object') {
+    const safeObject = Object.create(null) as Record<string, unknown>;
+
+    for (const [key, childValue] of Object.entries(value)) {
+      safeObject[key] = sanitizeYamlValue(childValue);
+    }
+
+    return safeObject;
+  }
+
+  return value ?? {};
+}
+
+function extractFrontmatterBlock(markdown: string): FrontmatterBlock | undefined {
   const match = /^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/.exec(markdown);
 
-  return match?.[1];
+  if (!match) {
+    return undefined;
+  }
+
+  return {
+    yaml: match[1],
+    bodyMarkdown: markdown.slice(match[0].length),
+  };
 }
 
 function findContentStartLine(markdown: string): number {
