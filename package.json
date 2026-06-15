@@ -1,6 +1,6 @@
 {
   "name": "commonloom",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Adapter-neutral Markdown content pipeline for validated, traceable renderer-ready records.",
   "license": "MIT",
   "type": "module",
