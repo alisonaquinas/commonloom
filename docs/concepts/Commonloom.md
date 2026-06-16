@@ -19,8 +19,8 @@ Commonloom is the standalone TypeScript library for reusable Markdown content
 compilation.
 
 It began as a reusable core boundary in an upstream website pipeline. This
-repository is now its standalone home and is preparing `commonloom@0.1.0` as
-the first standalone release.
+repository is now its standalone home. The current package version is
+`commonloom@0.1.6`, and `0.1.0` was the first standalone release.
 
 ## Responsibility
 

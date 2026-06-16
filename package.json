@@ -1,6 +1,6 @@
 {
   "name": "commonloom",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Adapter-neutral Markdown content pipeline for validated, traceable renderer-ready records.",
   "license": "MIT",
   "type": "module",
@@ -66,13 +66,15 @@
     "publish:dry-run": "npm publish --dry-run",
     "publish:dry-run:ci": "node scripts/npm-ci-publish-dry-run.mjs",
     "release:check": "node scripts/verify-release-tag.mjs",
+    "version:check": "node scripts/set-version.mjs --check",
+    "version:set": "node scripts/set-version.mjs",
     "test": "vitest run",
     "test:battery": "npm run test:unit && npm run test:integration && npm run test:e2e",
     "test:e2e": "vitest run content-pipeline-e2e.test.ts",
     "test:integration": "vitest run content-pipeline-integration.test.ts",
     "test:unit": "vitest run content-pipeline-core.test.ts content-pipeline-markdown.test.ts content-pipeline-html.test.ts content-pipeline-links-media.test.ts content-pipeline-security.test.ts",
     "typecheck": "tsc --project tsconfig.json --noEmit",
-    "verify": "node scripts/verify-boundaries.mjs && node scripts/verify-traceability.mjs && node scripts/verify-plan-process.mjs"
+    "verify": "node scripts/verify-boundaries.mjs && node scripts/verify-traceability.mjs && node scripts/verify-plan-process.mjs && npm run version:check"
   },
   "dependencies": {
     "rehype-raw": "7.0.0",
