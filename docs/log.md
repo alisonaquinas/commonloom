@@ -12,6 +12,13 @@ aliases:
 
 # Commonloom Vault Log
 
+## [2026-06-15] docs | Add Context7 indexing support
+
+Added a root `context7.json` configuration and
+[[Commonloom Usage|Commonloom usage snippets]] so Context7 can index focused
+project metadata, public API examples, framework examples, and source contracts
+from the `develop` branch.
+
 ## [2026-06-14] examples | Move Angular example to Vite build
 
 Replaced the Angular example's Angular CLI builder with plain Vite and Angular

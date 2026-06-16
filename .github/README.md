@@ -94,7 +94,8 @@ Then read:
 4. [`docs/roadmap.md`](../docs/roadmap.md)
 
 > [!NOTE]
-> Commonloom `0.1.0` is the first standalone release. The public API is tested
+> Commonloom `0.1.5` is the current package version. `0.1.0` is the
+> first standalone release. The public API is tested
 > and visible, but the package remains on the `0.x` line until a future `1.0.0`
 > stability commitment.
 

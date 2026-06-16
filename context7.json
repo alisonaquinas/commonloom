@@ -1,0 +1,20 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "Commonloom",
+  "description": "Adapter-neutral TypeScript Markdown content pipeline for validated, traceable renderer-ready records.",
+  "branch": "develop",
+  "folders": ["docs", "examples", "src"],
+  "excludeFolders": [
+    "coverage",
+    "dist",
+    "docs/plans",
+    "docs/sources",
+    "node_modules"
+  ],
+  "excludeFiles": ["CHANGELOG.md"],
+  "rules": [
+    "Use Commonloom through the public package entry point.",
+    "Keep consuming-project routes, renderer records, and framework components outside Commonloom core.",
+    "Treat Commonloom as a 0.x package; do not claim 1.0 API stability."
+  ]
+}

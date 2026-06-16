@@ -20,6 +20,7 @@ commonloom/
 ├── README.md          # Public project overview
 ├── CHANGELOG.md       # Release notes
 ├── CONTRIBUTING.md    # Contribution rules
+├── context7.json      # Context7 indexing metadata and scope
 ├── LICENSE.md         # MIT license
 ├── SECURITY.md        # Vulnerability reporting policy
 ├── package.json       # npm scripts and package metadata

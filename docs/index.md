@@ -24,6 +24,7 @@ content-pipeline repository.
 | Note | Purpose |
 | --- | --- |
 | [[Commonloom]] | Core identity, scope, and current extraction status. |
+| [[Commonloom Usage]] | Public package entry point and concrete API snippets. |
 | [[assets/index|Commonloom Assets]] | Git LFS-managed logos, icons, and source images. |
 | [[Commonloom Architecture]] | Reusable core boundary, adapter boundary, and data flow. |
 | [[Markdown Flavor Modes]] | Proposed optional Markdown flavor modes and one-flavor compile-run specification. |
