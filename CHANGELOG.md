@@ -8,6 +8,8 @@ Commonloom follows a `0.x` release line while the standalone public API settles.
 
 - Added Context7 indexing metadata and API usage snippets so Commonloom can be
   submitted for documentation processing from the `develop` branch.
+- Added a version-setting script and verification gate to keep package metadata,
+  current-version docs, and example Commonloom references aligned.
 
 ## [0.1.5] - 2026-06-15
 

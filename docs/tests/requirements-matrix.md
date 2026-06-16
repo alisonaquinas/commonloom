@@ -52,7 +52,7 @@ verification battery.
 | UT-LINK-009 | Unit | [content-pipeline-links-media.test.ts](../../test/content-pipeline-links-media.test.ts), `rejects Windows drive and UNC roots that resolve outside the configured root` |
 | INT-001 | Integration | [content-pipeline-integration.test.ts](../../test/content-pipeline-integration.test.ts), `compiles manifests through parse, render, links, media, and traces` |
 | E2E-001 | E2E | [content-pipeline-e2e.test.ts](../../test/content-pipeline-e2e.test.ts), `compiles a fixture content tree into adapter-visible records` |
-| EX-VERIFY | Verification | `npm run examples:verify` runs [verify-examples.mjs](../../scripts/verify-examples.mjs) to check published `commonloom@0.1.3` dependencies, shared substrate usage, and forbidden internal imports. |
+| EX-VERIFY | Verification | `npm run examples:verify` runs [verify-examples.mjs](../../scripts/verify-examples.mjs) to check each example depends on `commonloom` through `file:../..`, shared substrate usage, and forbidden internal imports. |
 | EX-BUILD | Verification | `npm run examples:build` builds the React, Vue, Svelte, Next.js, Angular, and Node examples from the shared content, SCSS, and asset substrate. |
 | EX-CI | Verification | `.github/workflows/documentation-lint.yml` runs explicit `Verify examples` and `Build examples` steps on Node.js 24. |
 | SEC-001 | Unit | [content-pipeline-security.test.ts](../../test/content-pipeline-security.test.ts), `rejects oversized frontmatter before schema validation` |
