@@ -6,6 +6,8 @@ Commonloom follows a `0.x` release line while the standalone public API settles.
 
 ## Unreleased
 
+## [0.1.6] - 2026-06-16
+
 - Added Context7 indexing metadata and API usage snippets so Commonloom can be
   submitted for documentation processing from the `develop` branch.
 - Added a version-setting script and verification gate to keep package metadata,

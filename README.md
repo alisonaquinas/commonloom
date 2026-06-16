@@ -57,7 +57,7 @@ Core public types include:
 - `CommonloomHtmlPolicy`
 - `CommonloomLimitsPolicy`
 
-This is the current `0.1.5` public surface. The `0.1.0` release was the first
+This is the current `0.1.6` public surface. The `0.1.0` release was the first
 standalone release. The
 package remains on the `0.x` line, so minor releases may still refine API
 shape before a future `1.0.0` stability commitment.
@@ -68,7 +68,7 @@ Framework and Node adopter examples live in [examples/](examples/).
 
 ## Status
 
-Commonloom `0.1.5` is prepared for release through npm trusted publishing. The
+Commonloom `0.1.6` is prepared for release through npm trusted publishing. The
 repository includes shared-content integration examples that exercise the
 package from React, Vue, Svelte, Next.js, Angular, and Node without moving
 framework glue into the core library.
