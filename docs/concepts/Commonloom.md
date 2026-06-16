@@ -20,7 +20,7 @@ compilation.
 
 It began as a reusable core boundary in an upstream website pipeline. This
 repository is now its standalone home. The current package version is
-`commonloom@0.1.5`, and `0.1.0` was the first standalone release.
+`commonloom@0.1.6`, and `0.1.0` was the first standalone release.
 
 ## Responsibility
 

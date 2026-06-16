@@ -25,7 +25,7 @@ The repository uses npm workspaces for examples:
 - `examples/node`
 
 Each example package is private and imports the current workspace package
-`commonloom@0.1.5` through `file:../..` and the package entrypoint, not
+`commonloom@0.1.6` through `file:../..` and the package entrypoint, not
 through `src/` internals.
 
 Run all examples from the repository root after dependencies are installed:
