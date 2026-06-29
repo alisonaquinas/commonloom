@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "commonloom": "file:../..",
-    "vue": "3.5.38"
+    "vue": "3.5.39"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "6.0.7",
