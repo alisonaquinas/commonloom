@@ -18,7 +18,7 @@
     "commonloom": "file:../..",
     "rxjs": "7.8.2",
     "tslib": "2.8.1",
-    "zone.js": "0.16.2"
+    "zone.js": "0.16.3"
   },
   "devDependencies": {
     "sass": "1.100.0",
